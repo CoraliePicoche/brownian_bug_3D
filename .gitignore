@@ -6,3 +6,5 @@ Exported\ Items.bib
 *.swp
 *.RData
 *.txt
+*.o
+*.out
