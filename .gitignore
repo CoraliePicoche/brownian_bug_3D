@@ -1,0 +1,8 @@
+*.aux
+*.log
+*.tex.backup
+*.*~
+Exported\ Items.bib
+*.swp
+*.RData
+*.txt
