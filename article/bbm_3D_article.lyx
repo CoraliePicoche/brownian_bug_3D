@@ -144,6 +144,1279 @@ Introduction
 Material and methods
 \end_layout
 
+\begin_layout Subsection*
+Brownian bug model
+\end_layout
+
+\begin_layout Standard
+The Brownian Bug Model (BBM) has been developed in its 2-dimension, monospecific
+ version in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "young_reproductive_2001"
+literal "false"
+
+\end_inset
+
+, which we know extend to 3 dimensions and multi-species community.
+ It is a discrete-time, individual-based model where each particle is characteri
+zed by its species 
+\begin_inset Formula $i$
+\end_inset
+
+ and its position 
+\begin_inset Formula $\mathbf{x}=\left(\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right)$
+\end_inset
+
+.
+ During each time step of duration 
+\begin_inset Formula $\tau$
+\end_inset
+
+, events unroll as follow: 
+\end_layout
+
+\begin_layout Enumerate
+demography: each particle can either reproduce with probability p (forming
+ a new particle of the sames species 
+\begin_inset Formula $i$
+\end_inset
+
+ at the same position 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+), die with probability q, or remain unchanged with probability 1-p-q.
+\end_layout
+
+\begin_layout Enumerate
+diffusion: each particle moves to a new position 
+\begin_inset Formula $\mathbf{x}(t+t')=\mathbf{x}(t)+\delta\mathbf{x}(t)$
+\end_inset
+
+ where each element of 
+\begin_inset Formula $\delta\mathbf{x}(t)$
+\end_inset
+
+ follows a Gaussian distribution 
+\begin_inset Formula $\mathcal{N}(0,\Delta)$
+\end_inset
+
+ where 
+\begin_inset Formula $D=\frac{\Delta^{2}}{2\tau}$
+\end_inset
+
+ is the diffusivity.
+ 
+\end_layout
+
+\begin_layout Enumerate
+turbulence: each particle is displaced by the turbulent flow, following
+ the Pierrrehumbert map 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pierrehumbert_tracer_1994"
+literal "false"
+
+\end_inset
+
+, adapted in its 3D-version 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ngan_scalar_2011"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{cases}
+x(t+\tau) & =x(t+t')+U\tau/2\cos\left(ky(t+t')+\phi(t)\right)\\
+y(t+\tau) & =y(t+t')+U\tau/2\cos\left(kz(t+t')+\theta(t)\right)\\
+z(t+\tau) & =z(t+t')+U\tau/2\cos\left(kx(t+\tau)+\psi(t)\right)
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $U\tau/2$
+\end_inset
+
+ determines the final velocity of the particle
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Velocity of the particle=
+\begin_inset Formula $V=1.19U\tau$
+\end_inset
+
+ in 3D, according to simulations which I do not understand ; 
+\begin_inset Formula $V=0.96U\tau$
+\end_inset
+
+ in 2D, which may destroy the rest of the reasoning...
+ I have absolutely not idea why Young et al.
+ used 
+\begin_inset Formula $U\tau/2$
+\end_inset
+
+ in the first place...
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $k=2\pi$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi(t)$
+\end_inset
+
+, 
+\begin_inset Formula $\theta(t)$
+\end_inset
+
+, 
+\begin_inset Formula $\psi(t)$
+\end_inset
+
+ are random phases uniformly distributed between 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $2\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Particles are distributed in a 
+\begin_inset Formula $L\times L\times L$
+\end_inset
+
+ cube with periodic boundary conditions, where 
+\begin_inset Formula $L=1$
+\end_inset
+
+ cm.
+ Each simulation starts with uniformly distributed particles and is ran
+ for XXXX timesteps.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Parameter values
+\end_layout
+
+\begin_layout Standard
+We aim at modeling two kinds of communities: diatom-size and nanophytoplankton-s
+ize particles (corresponding to indices 
+\begin_inset Formula $d$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ respectively 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+should we note l and s for large and small?
+\end_layout
+
+\end_inset
+
+) to differentiate between the distributions of higher diffusion and slower
+ growth particles vs.
+ lower diffusion and faster growth respectively particle.
+ Particles are moved by a turbulent fluid whose characteristic parameters
+ define the time scale of the whole model: we give here the reasoning behind
+ parameter values, keeping in mind that our model can only be semi-quantitative.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Ecological processes
+\end_layout
+
+\begin_layout Standard
+For both diatoms and nanophytoplankton organisms, 
+\begin_inset Formula $p=\lambda\tau$
+\end_inset
+
+ and we study the community at equilibrium, i.e.
+ 
+\begin_inset Formula $p=q$
+\end_inset
+
+.
+ We use a diatom doubling rate of 
+\begin_inset Formula $1d^{-1}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bissinger_predicting_2008"
+literal "false"
+
+\end_inset
+
+.
+ We consider the fastest-growing nanophytoplankton particles, corresponding
+ to a diameter of 3 
+\begin_inset Formula $\mu$
+\end_inset
+
+m 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bec_growth_2008"
+literal "false"
+
+\end_inset
+
+, for which doubling rate is between 2 and 3 d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ (set to 2.5 d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ here).
+\end_layout
+
+\begin_layout Subsubsection*
+Advection
+\end_layout
+
+\begin_layout Standard
+We first consider the advection process, due to the turbulence of the environmen
+t.
+ From an hydrodynamics point of view, we use the model near Re
+\begin_inset Formula $\approx1$
+\end_inset
+
+ (Re, Reynolds number).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Re=\frac{VL_{c}}{\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $V$
+\end_inset
+
+ is the fluid characteristic speed, 
+\begin_inset Formula $L_{c}$
+\end_inset
+
+ the characteristic length, and 
+\begin_inset Formula $\nu=10^{-6}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+/s , the kinematic viscosity for water.
+\end_layout
+
+\begin_layout Standard
+We only consider the Batchelor-Kolmogorov regime, where parent and offspring
+ are separated by a distance lower than 
+\begin_inset Formula $k^{-1}$
+\end_inset
+
+, where 
+\begin_inset Formula $k$
+\end_inset
+
+ is the wavenumber for the flow.
+ Here, we consider the smallest wavenumber corresponding to the largest
+ length scale L, i.e.
+ 
+\begin_inset Formula $k=2\pi/L$
+\end_inset
+
+.
+ In this case, we can say
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+Re & = & \frac{U}{k\nu}\\
+\Leftrightarrow1 & = & \frac{UL}{2\pi\nu}\\
+\Leftrightarrow U & = & \frac{2\pi\nu}{L}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This means that U=
+\begin_inset Formula $6.3\times10^{-4}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+=
+\begin_inset Formula $5.4\times10^{3}$
+\end_inset
+
+ cm.d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+ Using 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $U\tau/2=0.5$
+\end_inset
+
+ cm as in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "young_reproductive_2001"
+literal "false"
+
+\end_inset
+
+, we would have 
+\begin_inset Formula $\tau=2\text{}10^{-4}$
+\end_inset
+
+d
+\begin_inset Formula $=16$
+\end_inset
+
+s.
+\end_layout
+
+\begin_layout Subsubsection*
+Diffusion
+\end_layout
+
+\begin_layout Standard
+If we use the Stokes-Einstein equations (
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "einstein1905molekularkinetischen"
+literal "false"
+
+\end_inset
+
+, cited from 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "dusenbery_2009"
+literal "false"
+
+\end_inset
+
+) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+They actually refer to Einstein 1926, check that
+\end_layout
+
+\end_inset
+
+, diffusion can be computed according to the formula:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D=\sqrt{\frac{RT}{N_{A}}\frac{1}{6\pi\eta a}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $R=8.314$
+\end_inset
+
+J.K
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.mol
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ is the molar gas constant, 
+\begin_inset Formula $T=293K$
+\end_inset
+
+ is the temperature, 
+\begin_inset Formula $N_{A}=6.0225\text{}10^{23}$
+\end_inset
+
+ is Avogadro's number, 
+\begin_inset Formula $\eta=10^{-3}$
+\end_inset
+
+m
+\begin_inset Formula $^{-1}.$
+\end_inset
+
+kg.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ is the viscosity of water and 
+\begin_inset Formula $a$
+\end_inset
+
+ is the radius of the organism considered.
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset Formula $D=\frac{\Delta^{2}}{2\tau}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\Delta & = & \sqrt{2\tau D}\\
+\Leftrightarrow\Delta & = & \sqrt{\frac{RT}{N_{A}}\frac{\tau}{3\pi\eta a}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's apply this formula to organisms of diameter 3
+\begin_inset Formula $\mu$
+\end_inset
+
+m (see ecological justification below), keeping 
+\begin_inset Formula $t$
+\end_inset
+
+(
+\begin_inset Formula $=\tau)$
+\end_inset
+
+ outside of the equation for now (
+\begin_inset Formula $\tau$
+\end_inset
+
+ is in s.
+ here):
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+<\Delta_{n}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{t}{3\pi\eta a}}\\
+ & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times1.5\times10^{-6}}}\sqrt{t}\\
+ & = & 0.5\text{\ensuremath{\sqrt{\tau}} \ensuremath{\mu}\text{m}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's apply this formula to organisms of diameter 50
+\begin_inset Formula $\mu$
+\end_inset
+
+m (used as a reference in 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "seymour_resource_2009"
+literal "false"
+
+\end_inset
+
+), 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+<\Delta_{d}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{t}{3\pi\eta a}}\\
+ & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times25\times10^{-6}}}\sqrt{t}\\
+ & = & \text{\ensuremath{0.1\sqrt{\tau}} \ensuremath{\mu}\text{m}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parameter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Definition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Value
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{d},q_{d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Probability of reproducing/dying for diatom particles
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $2\,10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $p_{n},q_{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Probability of reproducing/dying for nanophytoplankton particles
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula $5\,10^{-4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $U\tau/2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Stretching parameter proxy
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.5 cm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta_{d}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Diffusion parameter for diatoms
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5\times10^{-5}$
+\end_inset
+
+ cm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Delta_{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Diffusion parameter for nanophytoplankton particles
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2\times10^{-4}$
+\end_inset
+
+ cm
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Definition and value of the main parameters used in the 3D Brownian Bug
+ Model, assuming the duration of a time step 
+\begin_inset Formula $\tau$
+\end_inset
+
+ is 16 seconds.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Metrics
+\end_layout
+
+\begin_layout Standard
+Aggregation and clustering can be quantified by different spatial biodiversity
+ indices 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rajala_family_2012"
+literal "false"
+
+\end_inset
+
+; we focus here on the pair correlation function and the dominance indices.
+ The computation of both indices was checked on known distributions (Poisson
+ and Thomas processes) before being applied to brownian bug model simulations
+ (see Supplementary Material).
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Pair correlation function
+\end_layout
+
+\begin_layout Standard
+The pair correlation function (pcf, also written 
+\begin_inset Formula $g(r)$
+\end_inset
+
+) is a measurement of the aggregation of particles.
+ It can either be computed for a single species (monospecific pair correlation
+ function, 
+\begin_inset Formula $g_{ii}(r)$
+\end_inset
+
+ for species 
+\begin_inset Formula $i$
+\end_inset
+
+) or between species (cross-specific pair correlation function, 
+\begin_inset Formula $g_{ij}(r)$
+\end_inset
+
+ for species 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+).
+ Let's define 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{j}$
+\end_inset
+
+ the concentrations of species 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ respectively, and 
+\begin_inset Formula $P_{ij}(r)$
+\end_inset
+
+ the probability of finding a particle of species 
+\begin_inset Formula $i$
+\end_inset
+
+ in the sphere 
+\begin_inset Formula $dV_{1}$
+\end_inset
+
+ and a particle of species 
+\begin_inset Formula $j$
+\end_inset
+
+ in the sphere 
+\begin_inset Formula $dV_{2}$
+\end_inset
+
+ where the centers of 
+\begin_inset Formula $dV_{1}$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $dV_{2}$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ are serated by distance 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P_{ij}(r)=C_{i}C_{j}dV_{1}dV_{2}g_{ij}(r)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $g_{ij}(r)>1$
+\end_inset
+
+, particles are aggregated, and they are segregated when 
+\begin_inset Formula $g_{ij}(r)<1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Computation of the pcf was heavily based on the function 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+verb|pcf3est|
+\end_layout
+
+\end_inset
+
+ in spatstat 2.2-0, slightly modified to also compute cross-specific pcf.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Dominance index
+\end_layout
+
+\begin_layout Standard
+The dominance index is presented in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wiegand_how_2007"
+literal "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Quotes eld
+\end_inset
+
+It is similar to a continuous-space version of the mingling index.
+\begin_inset Quotes erd
+\end_inset
+
+ [If we want readers to be closer to their literature, maybe? Mingling index
+ seems often used even if it is not exactly the same] Lewandowski A, Pommerening
+ A (1997) Zur Beschreibung der Waldstruktur – Erwartete und beobachtete
+ Arten-Durchmischung.
+ Forstwiss Centralbl 116:129–139.
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $M_{i\bullet}(r)$
+\end_inset
+
+ be the average number of individuals within a circle of radius 
+\begin_inset Formula $r$
+\end_inset
+
+ around an individual of species 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ 
+\begin_inset Formula $M_{ii}(r)$
+\end_inset
+
+ corresponds to the conspecific neighbourhood and 
+\begin_inset Formula $M_{io}(r)$
+\end_inset
+
+ corresponds to individuals of all other species.
+ In this case, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+d_{i}(r)=\frac{M_{ii}(r)}{M_{ii}(r)+M_{io}(r)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In case of intraspecific clustering, 
+\begin_inset Formula $d_{i}(r)$
+\end_inset
+
+ tends to 1 while it tends to 
+\begin_inset Formula $1/S$
+\end_inset
+
+, with 
+\begin_inset Formula $S$
+\end_inset
+
+the number of species, when the distribution of particles is uniform.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Scale of the study
+\end_layout
+
+\begin_layout Standard
+As we examine particle clustering/segregation and its potential effects
+ on interactions between species, we consider two main processes: direct
+ interactions due to, e.g., competition for nutrients, auxotrophy or allotrophy,
+ and emerging interactions due to predation.
+ Taking direct interactions into account requires to define the volumes
+ of effects surrounding particles, in which they can interact.
+ 
+\end_layout
+
+\begin_layout Standard
+Particles with different sizes have different ranges of effects: if we want
+ to consider the effect of clustering on potential interactions between
+ organisms that could be due to auxotrophy, allotrophy, or competition for
+ nutrient at the same location, we need to take these ranges into account.
+ We define nanophytoplankton particles as having a 1.5 
+\begin_inset Formula $\mu$
+\end_inset
+
+m radius, and their phycosphere radius around 8 
+\begin_inset Formula $\mu$
+\end_inset
+
+m, based
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+ROUGHLY
+\end_layout
+
+\end_inset
+
+ on 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "seymour_resource_2009"
+literal "false"
+
+\end_inset
+
+.
+ The maximum distance between two particles of nanophytoplankton is therefore
+ around 16 
+\begin_inset Formula $\mu m.$
+\end_inset
+
+ This corresponds to range of meaningful values between 
+\begin_inset Formula $3\,10^{-4}$
+\end_inset
+
+ cm and 
+\begin_inset Formula $1.5\,10^{-3}$
+\end_inset
+
+ cm.
+ We defined diatoms as 50 
+\begin_inset Formula $\mu$
+\end_inset
+
+m-diameter particles with a corresponding phycosphere of about 1250 
+\begin_inset Formula $\mu$
+\end_inset
+
+m 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "seymour_resource_2009"
+literal "false"
+
+\end_inset
+
+, which means that we can consider radii between 
+\begin_inset Formula $5\,10^{-3}$
+\end_inset
+
+cm and 
+\begin_inset Formula $2.5\,10^{-1}$
+\end_inset
+
+ cm.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+or should we put that in parameter values ?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Predators, on the contrary, are not likely to be restricted by these small
+ phycospheres
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Check that, actually.
+ But I'm pretty sure they can 
+\begin_inset Quotes eld
+\end_inset
+
+smell
+\begin_inset Quotes erd
+\end_inset
+
+ organisms for afar
+\end_layout
+
+\end_inset
+
+.
+ We therefore also look at the overall distribution of species, between
+ 
+\begin_inset Formula $10^{-4}$
+\end_inset
+
+ and 
+\begin_inset Formula $1$
+\end_inset
+
+ cm 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+arbitrary, but 
+\begin_inset Formula $10^{-4}$
+\end_inset
+
+ is the range at which we begin for other phycosphere.
+ Lower than that, we are 
+\begin_inset Quotes eld
+\end_inset
+
+inside
+\begin_inset Quotes erd
+\end_inset
+
+ the particle
+\end_layout
+
+\end_inset
+
+, but should keep in mind that processes affecting diversity maintenance
+ are not the same at different scales.
+ 
+\end_layout
+
 \begin_layout Section*
 Results
 \end_layout
