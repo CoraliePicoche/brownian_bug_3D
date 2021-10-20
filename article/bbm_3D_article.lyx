@@ -366,10 +366,10 @@ should we note l and s for large and small?
 
 \end_inset
 
-) to differentiate between the distributions of higher diffusion and slower
- growth particles vs.
- lower diffusion and faster growth respectively particle.
- Particles are moved by a turbulent fluid whose characteristic parameters
+) to differentiate between the distributions of high-diffusivity and slow-growth
+ particles vs.
+ low-diffusivity and fast-growth particles, respectively.
+ Particles are displaced by a turbulent fluid whose characteristic parameters
  define the time scale of the whole model: we give here the reasoning behind
  parameter values, keeping in mind that our model can only be semi-quantitative.
  
@@ -582,17 +582,7 @@ literal "false"
 
 \end_inset
 
-) 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-They actually refer to Einstein 1926, check that
-\end_layout
-
-\end_inset
-
-, diffusion can be computed according to the formula:
+), diffusion can be computed according to the formula:
 \end_layout
 
 \begin_layout Standard
@@ -671,27 +661,14 @@ Let's apply this formula to organisms of diameter 3
 \begin_inset Formula $\mu$
 \end_inset
 
-m (see ecological justification below), keeping 
-\begin_inset Formula $t$
-\end_inset
-
-(
-\begin_inset Formula $=\tau)$
-\end_inset
-
- outside of the equation for now (
-\begin_inset Formula $\tau$
-\end_inset
-
- is in s.
- here):
+m (see ecological justification below):
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-<\Delta_{n}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{t}{3\pi\eta a}}\\
- & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times1.5\times10^{-6}}}\sqrt{t}\\
+<\Delta_{n}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{\tau}{3\pi\eta a}}\\
+ & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times1.5\times10^{-6}}}\sqrt{\tau}\\
  & = & 0.5\text{\ensuremath{\sqrt{\tau}} \ensuremath{\mu}\text{m}}
 \end{eqnarray*}
 
@@ -719,8 +696,8 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-<\Delta_{d}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{t}{3\pi\eta a}}\\
- & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times25\times10^{-6}}}\sqrt{t}\\
+<\Delta_{d}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{\tau}{3\pi\eta a}}\\
+ & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times25\times10^{-6}}}\sqrt{\tau}\\
  & = & \text{\ensuremath{0.1\sqrt{\tau}} \ensuremath{\mu}\text{m}}
 \end{eqnarray*}
 
