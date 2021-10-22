@@ -16,14 +16,14 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=2;
+extern const int num_simu=23;
 
 //Define constant for simulation
-extern const char type_simul='T'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
-extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
+extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
+extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=0; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
-extern const int tmax=-1; //length of the simulation. Tmax is negative if we only want the initial distribution
+extern const int tmax=1000; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.0002; //in day
@@ -41,29 +41,29 @@ extern const double growth_rate=1; //in day^-1
 //double radius=1.5*pow(10,-6);
 //extern growth_rate=2.5; //in day^-1
 
-extern const double Delta=factor*pow(tau/radius,0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm
+extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
 extern const double proba_repro=growth_rate*tau; //Death and birth probability
 
 //Community definition
-extern const int nb_species=3;
-//extern const std::vector<double> size_pop={10000,10000,10000}; 
-extern const int N_parent_init=50;
-extern const int N_children_init=200;
+extern const int nb_species=1;
+extern const std::vector<double> size_pop={20000}; 
+extern const int N_parent_init=0;
+extern const int N_children_init=50;
 extern const double sigma=0.01;
-extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
+//extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(10.0,1.0/3.0); //size of the grid
+extern const double Lmax=pow(1.0,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
 //PCF computation
-extern const double pow_max=-0.5;
-extern const double pow_min=-3.5;
+extern const double pow_max=-0;
+extern const double pow_min=-1.;
 extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
-extern const int delta_spatstat=1; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
-extern const double delta_fixed=0.0001; //Only used if delta_spatstat==0
+extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
+extern const double delta_fixed=pow(10,-5); //Only used if delta_spatstat==0
 
 using namespace std;
 
@@ -129,6 +129,8 @@ basic_particle temp, current;
 int l,p1=0,p2=0,s1=0,s2=0;
 double Concentration, h, Concentration_square;
 double mingling[nb_species][2][nb_r_pcf];
+clock_t t1, t2;
+double temps;
 
 //Debug variables
 int p2_min=0,p1_min=0;
@@ -146,12 +148,36 @@ for(p1=0;p1<nb_species;p1++){
                 }
         }
 }
-
+	t1=clock();
     // double loop (or loop on all pairs)
     for(p1=0;p1<Part_table.size();p1++)
 {
     current=Part_table.at(p1);
     s1=Part_table.at(p1).get_species();
+    if(p1==0.25*Part_table.size()){
+	std::cout<<"Reach 25%";
+        t2 = clock();
+     	temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+        std::cout<<"BBM PCF LOOP TEMPS NUMBER ONE = "<< temps<<std::endl;
+    }
+    if(p1==0.5*Part_table.size()){
+	std::cout<<"Reach 50%";
+        t2 = clock();
+     	temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+        std::cout<<"BBM PCF LOOP TEMPS NUMBER ONE = "<< temps<<std::endl;
+    }
+    if(p1==0.75*Part_table.size()){
+	std::cout<<"Reach 75%";
+        t2 = clock();
+     	temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+        std::cout<<"BBM PCF LOOP TEMPS NUMBER ONE = "<< temps<<std::endl;
+    }
+    if(p1==Part_table.size()){
+	std::cout<<"Reach 100%";
+        t2 = clock();
+     	temps = (float)(t2-t1)/CLOCKS_PER_SEC;
+        std::cout<<"BBM PCF LOOP TEMPS NUMBER ONE = "<< temps<<std::endl;
+    }
     for (p2=0;p2<Part_table.size();p2++)
 {
 
@@ -325,8 +351,6 @@ int main()
 	std::vector<basic_particle> Part_table;
 	std::ofstream f_pcf,f_param,f_space,f_end_simu;
 	int nb_indiv[nb_species];
-	clock_t t1, t2;
-	double temps;
 	int repart[11];
 	double pcf[nb_species][nb_species][nb_r_pcf];
 	double dominance[nb_species][nb_r_pcf];
@@ -355,7 +379,7 @@ int main()
 	{
 		nb_indiv[s]=0;
 
-	if (type_init=='P'){ //Poisson Distribution	
+	if (type_init=='P'){ //Poisson Distribution
 		for(i=0; i < size_pop.at(s); i++)
 		{
 			a_x=gsl_rng_uniform(rgslbis2)*Lmax;
@@ -380,21 +404,14 @@ int main()
                 nb_indiv[s]=nb_indiv[s]+Part_table.size()-tmp_pop;
                 std::cout<<"For sp="<<s<<" End parent="<<nb_indiv[s]<<std::endl;
 
-	}
+	} //End test on initial distribution
 		std::cout<<"SPECIES="<<s<<" INDIV="<<nb_indiv[s]<<std::endl;
-	}
+	} //End loop on species
 
 
-	//Reinitialize nb species to use it when computing PCF at the end
-	for (s=0; s< nb_species ; s++)
-	{
-		nb_indiv[s]=0;
-	}
-	
 	//Run the simulation
 	for(t=0;t<=tmax;t++)
 	{
-	std::cout<<"TIME="<<t<<std::endl;
 	//Compute the phase in x and y for the turbulent flow from Pierrehumbert. These phases are common to each particle as they correspond to a unique flow
 	phi=gsl_rng_uniform(rgslbis2)*2*pi;
 	theta=gsl_rng_uniform(rgslbis2)*2*pi;
@@ -412,7 +429,14 @@ int main()
 
 	} //end j, i.e. the particle mvt
 	} //end t, i.e the whole simulation
+	std::cout<<"End simulation"<<std::endl;
 
+	//Reinitialize nb species to use it when computing PCF at the end
+	for (s=0; s< nb_species ; s++)
+	{
+		nb_indiv[s]=0;
+	}
+	
 	//This is not optimized, but makes the code a bit cleaner by separating the simulation part and the output part
 	for(j=0; j<Part_table.size(); j++)
         {
@@ -445,11 +469,7 @@ int main()
         	f_end_simu<<s1<<";"<<nb_indiv[s1]<<std::endl;
 	}
 
-	t1=clock();
         PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param);
-        t2 = clock();
-     	temps = (float)(t2-t1)/CLOCKS_PER_SEC;
-        std::cout<<"BBM PCF LOOP TEMPS NUMBER ONE = "<< temps<<std::endl;
 
 	f_space.close();
 	f_end_simu.close();
