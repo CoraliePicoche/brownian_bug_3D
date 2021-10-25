@@ -37,18 +37,17 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 colo=c("red","blue","grey","orange","violet")
 
-pdf("bandwidth_BBM.pdf")
+pdf("dominance_BBM.pdf")
 par(mar=c(4,4,1,1))
 
 sim=list(21:24,25:28,29:32,33:36)
 s1=1
 legend_m=c()
 
-plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(1,2*10^7))
+plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(0.1,1))
 axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
-axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
-axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
+axis(2,tcl=0.5,cex.axis=1.5) # left
 box()
 f_param_tot=matrix(,0,2)
 colnames(f_param_tot)=c("name","value") #We initialize this one before the loop to have *all* values of parameters so that we can check they are all the same across the simulations
@@ -90,7 +89,8 @@ for (s in 1:length(sim)){
 
 	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
 
-	points(f_plot$r,f_plot$pcf,lty=1,col=colo[s])
+	points(f_plot$r,f_plot$dominance,lty=1,col=colo[s])
+	lines(f_plot$r,f_plot$dominance,lty=1,col=colo[s])
 } #end loop on series of simulations
 
 
@@ -131,8 +131,6 @@ if(U_tot==0.5){
 	stop("You don't have the right gamma")
 }
 
-th_bbm=G_theoretical(gamma,unique(f_tot$r),lambda,Delta,conc,Tmax=NA)
-lines(unique(f_tot$r),th_bbm,lty=2,lwd=2)
 legend("bottomleft",legend_m,lty=1,col=colo,bty="n",lwd=2)
 
 dev.off()

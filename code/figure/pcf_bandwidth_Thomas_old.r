@@ -19,45 +19,20 @@ log10Tck <- function(side, type){
   ))
 }
 
-#Theoretical value of G
-G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of advection
-  tau=0.0002
-  D=Delta^2/(2*tau)
-  if(gamma>0){
-    tmp=lambda/(4*pi*C_0)*(sqrt(gamma)*atan(sqrt(gamma)*r/sqrt(2*D))/(2^1.5*D^1.5)+1/(2*D*r)-pi*sqrt(gamma)/(2^2.5*D^1.5))+1
-  }else{ #This corresponds to the case U=0
-        if(is.na(Tmax)){
-                print("Tmax should have a value")
-                stop()
-        }
-    tmp=2*lambda/(8*D*pi*C_0*r)*(1-erf(r/(2^1.5*sqrt(Tmax*D))))+1
-  }
-  return(tmp)
-}
-
 #####################################
 
 colo=c("red","blue","grey","orange","violet")
 
-pcf_tot=c()
-r_tot=c()
-dominance_tot=c()
-sp1_tot=c()
-sp2_tot=c()
+pdf("pcf_bandwidth_Thomas.pdf")
+par(mfrow=c(2,3),mar=c(4,4,3,0.5))
 
-#pdf("pcf_range_BBM_10m6_variable_points.pdf")
-id=c(1)
-for (nb_simu in 30:33){
+for (nb_simu in c(2,7,3,4,5,6)){
 f=read.table(paste("../simulation/pcf_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
 colnames(f)=c("r","sp1","sp2","pcf","dominance")
 unique_sp=unique(f$sp1)
 if (length(unique_sp)>length(colo)){
         colo=rainbow(length(unique_sp))
 }
-pcf_tot=c(pcf_tot,f$pcf[f$sp1==0&f$sp2==0])
-r_tot=c(r_tot,f$r[f$sp1==0&f$sp2==0])
-dominance_tot=c(dominance_tot,f$dominance[f$sp1==0&f$sp2==0])
-id=c(id,length(pcf_tot))
 
 #Count species
 f_count=read.table(paste("../simulation/nb_indiv_",nb_simu,".txt",sep=""),header=F,sep=";",dec='.')
@@ -73,42 +48,33 @@ f_param[,2]=as.numeric(as.character(f_param[,2]))
 #  tab_repart=subset(tab_repart,species==0)
 #    ppp_repart=pp3(tab_repart$x,y=tab_repart$y,z=tab_repart$z,box3(c(0,1)))
 #  pcf_poisson=pcf3est(ppp_repart,rmax=0.1,nrval=1000)
-#       lines(pcf_poisson$r,pcf_poisson$trans,col="orchid")
+#	lines(pcf_poisson$r,pcf_poisson$trans,col="orchid")
 
 
+C_parent=f_param[f_param[,1]=="N_parent",2]/f_param[f_param[,1]=="volume",2]
+sigma=f_param[f_param[,1]=="sigma",2]
 delta_val=format(f_param[f_param[,1]=="delta",2],digits=2)
-lambda=f_param[f_param[,1]=="growth_rate",2]
-Delta=f_param[f_param[,1]=="Delta",2]
-Utot=f_param[f_param[,1]=="Utot",2]
-volume=f_param[f_param[,1]=="volume",2]
 
-}
-
-if(Utot==0.5){
-        gamma=0.5
-}else{
-        stop("input gamma value")
-}
-
-	plot(1,1,log="xy",t="n",xlim=range(r_tot),ylim=range(pcf_tot[pcf_tot>0]),main=bquote(delta ~ "=" ~ .(delta_val)),axes=F)
-        s1=1
-        th_bbm=G_theoretical(gamma,unique(r_tot),lambda,Delta,f_count$abundance[f_count$species==unique_sp[s1]]/volume)
-        if(nb_simu==2 || nb_simu==4){
-                yl="g(r)"
-        }else{
-                yl=""
-        }
-        if(nb_simu<4){
-                xl=""
-        }else{
-                xl="r"
-        }
-        if(nb_simu==2){
-                m=bquote(delta ~ "=" ~ .(delta_val)~ "spatstat")
-        }else{
-                m=bquote(delta ~ "=" ~ .(delta_val))
-        }
-	lines(unique(r_tot),th_bbm,col="black",lty=2,lwd=2)
+  	th_thomas=1+exp(-unique(f$r)^2/(4*sigma^2))*(4*pi*sigma^2)^(-3/2)*1/C_parent
+s1=1
+	if(nb_simu==2 || nb_simu==4){
+		yl="g(r)"
+	}else{
+		yl=""
+	}
+	if(nb_simu<4){
+		xl=""
+	}else{
+		xl="r"
+	}
+	if(nb_simu==2){
+		m=bquote(delta ~ "=" ~ .(delta_val)~ "spatstat")
+	}else{
+		m=bquote(delta ~ "=" ~ .(delta_val))
+	}
+	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=range(f$r[f$r>0]),cex.lab=1.5,ylim=c(1,max(c(th_thomas),na.rm=T)),main=m)
+        f_plot=subset(f,sp1==unique_sp[s1]&sp2==unique_sp[s1])
+        lines(f_plot$r,th_thomas,col="black",lty=2,lwd=2)
         axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
         axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
         axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
@@ -116,9 +82,10 @@ if(Utot==0.5){
         box()
 
         for(s2 in 1:length(unique_sp)){
-		for(i in 2:length(id)){
-                	points(r_tot[id[i-1]:id[i]],pcf_tot[id[i-1]:id[i]],lty=1,col=colo[i])
+                f_plot=subset(f,sp1==unique_sp[s1]&sp2==unique_sp[s2])
+                lines(f_plot$r,f_plot$pcf,lty=1,col=colo[s1],lwd=2)
+                points(f_plot$r,f_plot$pcf,lty=1,col=colo[s2])
         }
-	}
 
-#dev.off()
+}
+dev.off()

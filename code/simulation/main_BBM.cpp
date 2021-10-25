@@ -16,7 +16,7 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=23;
+extern const int num_simu=28;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
@@ -46,24 +46,25 @@ extern const double proba_death=growth_rate*tau; //Death and birth probability
 extern const double proba_repro=growth_rate*tau; //Death and birth probability
 
 //Community definition
-extern const int nb_species=1;
-extern const std::vector<double> size_pop={20000}; 
+extern const int nb_species=3;
+extern const std::vector<double> size_pop={10000,10000,10000}; 
 extern const int N_parent_init=0;
 extern const int N_children_init=50;
 extern const double sigma=0.01;
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(1.0,1.0/3.0); //size of the grid
+extern const double Lmax=pow(1000.0,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
 //PCF computation
 extern const double pow_max=-0;
-extern const double pow_min=-1.;
-extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
+extern const double pow_min=-1;
+extern const int nb_r_pcf=100; //Number of values for r when computing pcf
 extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
-extern const double delta_fixed=pow(10,-5); //Only used if delta_spatstat==0
+extern const double delta_fixed=pow(10,-4); //Only used if delta_spatstat==0
+
 
 using namespace std;
 
@@ -208,7 +209,19 @@ for(p1=0;p1<nb_species;p1++){
 		dist = pow(dx * dx + dy * dy + dz * dz,0.5);
 
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
-	        lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);    
+	        lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
+		
+		//First, we need to compute dominance outside of the loop with lmin and lmax which depends on delta; that should not be the case for dominance
+		for(l = 0; l <nb_r_pcf; l++) {
+			      tval = pow(10,pow_min) + l * dt;
+				if(dist<tval){
+					if(s1==s2){ //Mingling index _ii
+                                		mingling[s1][0][l]+=1.0;
+                        		}else{
+                                		mingling[s1][1][l]+=1.0;
+                        		} //test on s1==s2
+				}//test on dist
+		//// }
                 
 		if(lmax >= 0 && lmin < nb_r_pcf) {
 	  /* kernel centred at 'dist' has nonempty intersection 
@@ -224,8 +237,9 @@ for(p1=0;p1<nb_species;p1++){
 			  vz = Lmax - (dz > 0 ? dz : -dz);
 			  invweight = vx * vy * vz * 4*pi * dist * dist;
 			  if(invweight > 0.0) {
-			    for(l = lmin; l <nb_r_pcf; l++) {
-			      tval = pow(10,pow_min) + l * dt;
+		////	    for(l = lmin; l <nb_r_pcf; l++) {
+		////	      tval = pow(10,pow_min) + l * dt;
+				if(l>=lmin){ ////
 	      /* unnormalised Epanechnikov kernel with halfwidth delta */
 			      frac = (dist - tval)/delta;
 			      kernel = (1 - frac * frac);
@@ -238,14 +252,7 @@ for(p1=0;p1<nb_species;p1++){
 				}
 				pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel / invweight*1/bias;
 	   		 	} //end kernel>0
-				
-                        	if(dist<tval){
-					if(s1==s2){ //Mingling index _ii
-                                		mingling[s1][0][l]+=1.0;
-                        		}else{
-                                		mingling[s1][1][l]+=1.0;
-                        		} //test on s1==s2
-				}//test on dist
+				} /// end test on lmin
 	  		} //end loop on l
 			} //end invweight > 0
              }// end checks on lmax and lmin
