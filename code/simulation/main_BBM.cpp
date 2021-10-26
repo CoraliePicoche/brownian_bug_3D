@@ -16,7 +16,7 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=40;
+extern const int num_simu=41;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
@@ -34,20 +34,20 @@ double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
 double factor=pow(R*T/(Na*3*pi*eta),0.5);
 
 //Diatoms
-//extern const double radius=25*pow(10,-6);
-//extern const double growth_rate=1; //in day^-1
+extern const double radius=25*pow(10,-6);
+extern const double growth_rate=1; //in day^-1
 
 //Nanophytoplankton
-extern const double radius=1.5*pow(10,-6);
-extern const double growth_rate=2.5; //in day^-1
+//extern const double radius=1.5*pow(10,-6);
+//extern const double growth_rate=2.5; //in day^-1
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
 extern const double proba_repro=growth_rate*tau; //Death and birth probability
 
 //Community definition
-extern const int nb_species=3;
-extern const std::vector<double> size_pop={10000,10000,10000}; 
+extern const int nb_species=10;
+extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
 extern const int N_parent_init=0;
 extern const int N_children_init=50;
 extern const double sigma=0.01;
