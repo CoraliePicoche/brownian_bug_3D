@@ -93,7 +93,7 @@ for (s1 in 1:length(unique_sp)){
 }
 
 #Thomas distribution
-nb_simu_tot=9:12 #These are the ones with the delta spatstat
+nb_simu_tot=5:8 #These are the ones with the delta spatstat
 
 f_tot=matrix(,0,5)
 colnames(f_tot)=c("r","sp1","sp2","pcf","dominance")

@@ -16,13 +16,13 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=41;
+extern const int num_simu=51;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
 extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
-extern const int print_distrib=0; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
+extern const int print_distrib=1; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
 extern const int tmax=1000; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
@@ -34,27 +34,28 @@ double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
 double factor=pow(R*T/(Na*3*pi*eta),0.5);
 
 //Diatoms
-extern const double radius=25*pow(10,-6);
-extern const double growth_rate=1; //in day^-1
+//extern const double radius=25*pow(10,-6);
+//extern const double growth_rate=1; //in day^-1
 
 //Nanophytoplankton
-//extern const double radius=1.5*pow(10,-6);
-//extern const double growth_rate=2.5; //in day^-1
+extern const double radius=1.5*pow(10,-6);
+extern const double growth_rate=2.5; //in day^-1
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
 extern const double proba_repro=growth_rate*tau; //Death and birth probability
 
 //Community definition
-extern const int nb_species=10;
-extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
+extern const int nb_species=3;
+//extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
+extern const std::vector<double> size_pop={1000,1000,1000}; 
 extern const int N_parent_init=0;
 extern const int N_children_init=50;
 extern const double sigma=0.01;
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(100.0,1.0/3.0); //size of the grid
+extern const double Lmax=pow(100,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
@@ -371,7 +372,6 @@ int main()
 		return 0;
 	}
 
-
 	//Open the file in which we will have the x, y, parent of each particle
 	f_space.open("Spatial_distribution_"+std::to_string(num_simu)+".txt");
 	f_end_simu.open("nb_indiv_"+std::to_string(num_simu)+".txt");
@@ -476,7 +476,7 @@ int main()
         	f_end_simu<<s1<<";"<<nb_indiv[s1]<<std::endl;
 	}
 
-        PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param);
+//        PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param);
 
 	f_space.close();
 	f_end_simu.close();

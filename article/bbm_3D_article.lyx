@@ -48,6 +48,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -149,8 +150,9 @@ Brownian bug model
 \end_layout
 
 \begin_layout Standard
-The Brownian Bug Model (BBM) has been developed in its 2-dimension, monospecific
- version in 
+The Brownian Bug Model (BBM) describes particles going through demographic
+ processes (replication and death) in a turbulent and viscous environment.
+ It has been developed in its 2-dimension, monospecific version in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -158,18 +160,15 @@ literal "false"
 
 \end_inset
 
-, which we know extend to 3 dimensions and multi-species community.
- It is a discrete-time, individual-based model where each particle is characteri
-zed by its species 
+, which we now extend to 3 dimensions and to multiple species having different
+ demographic and hydrodynamics behaviours.
+ The Brownian Bug Model is a discrete-time, individual-based model where
+ each particle is characterized by its species 
 \begin_inset Formula $i$
 \end_inset
 
  and its position 
-\begin_inset Formula $\mathbf{x}=\left(\begin{array}{c}
-x\\
-y\\
-z
-\end{array}\right)$
+\begin_inset Formula $\mathbf{x}^{T}=(x\,y\,z)$
 \end_inset
 
 .
@@ -219,17 +218,17 @@ diffusion: each particle moves to a new position
 \begin_inset Formula $\mathcal{N}(0,\Delta)$
 \end_inset
 
- where 
+ with 
 \begin_inset Formula $D=\frac{\Delta^{2}}{2\tau}$
 \end_inset
 
- is the diffusivity.
+ the diffusivity.
  
 \end_layout
 
 \begin_layout Enumerate
-turbulence: each particle is displaced by the turbulent flow, following
- the Pierrrehumbert map 
+turbulence: each particle is displaced by a turbulent flow, following the
+ Pierrrehumbert map 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pierrehumbert_tracer_1994"
@@ -332,13 +331,18 @@ Particles are distributed in a
 \begin_inset Formula $L\times L\times L$
 \end_inset
 
- cube with periodic boundary conditions, where 
-\begin_inset Formula $L=1$
+ cube with a volume of 1000 cm
+\begin_inset Formula $^{3}$
 \end_inset
 
- cm.
- Each simulation starts with uniformly distributed particles and is ran
- for XXXX timesteps.
+ for diatoms and 100 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+ for nanophytoplankton (volumes are adapted to balance realistic concentrations
+ and computation time) with periodic boundary conditions.
+ Each simulation starts with 10000 uniformly distributed particles and is
+ ran for 1000 timesteps.
  
 \end_layout
 
@@ -356,7 +360,7 @@ ize particles (corresponding to indices
 \begin_inset Formula $n$
 \end_inset
 
- respectively 
+ respectively
 \begin_inset Note Note
 status open
 
@@ -551,7 +555,7 @@ literal "false"
 \end_inset
 
 , we would have 
-\begin_inset Formula $\tau=2\text{}10^{-4}$
+\begin_inset Formula $\tau=2\times10^{-4}$
 \end_inset
 
 d
@@ -614,7 +618,7 @@ J.K
 \end_inset
 
  is the temperature, 
-\begin_inset Formula $N_{A}=6.0225\text{}10^{23}$
+\begin_inset Formula $N_{A}=6.0225\times10^{23}$
 \end_inset
 
  is Avogadro's number, 
@@ -1029,6 +1033,10 @@ The pair correlation function (pcf, also written
 \begin_inset Formula $j$
 \end_inset
 
+, with 
+\begin_inset Formula $i\neq j$
+\end_inset
+
 ).
  Let's define 
 \begin_inset Formula $C_{i}$
@@ -1145,7 +1153,15 @@ verb|pcf3est|
 
 \end_inset
 
- in spatstat 2.2-0, slightly modified to also compute cross-specific pcf.
+ in spatstat 2.2-0 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "baddeley_spatstat"
+literal "false"
+
+\end_inset
+
+, slightly modified to also compute cross-specific pcf.
  
 \end_layout
 
@@ -1233,7 +1249,7 @@ In case of intraspecific clustering,
 \begin_inset Formula $S$
 \end_inset
 
-the number of species, when the distribution of particles is uniform.
+ the number of species, when the distribution of particles is uniform.
  
 \end_layout
 
@@ -1260,7 +1276,7 @@ Particles with different sizes have different ranges of effects: if we want
 \begin_inset Formula $\mu$
 \end_inset
 
-m radius, and their phycosphere radius around 8 
+m radius, and their phycosphere radius around 7.5 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -1284,7 +1300,7 @@ literal "false"
 
 .
  The maximum distance between two particles of nanophytoplankton is therefore
- around 16 
+ around 15 
 \begin_inset Formula $\mu m.$
 \end_inset
 
@@ -1396,6 +1412,148 @@ inside
 
 \begin_layout Section*
 Results
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/spatial_distribution.png
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of distributions for diatoms and nanophytoplankton after 1000 time
+ steps, starting with 1000 C/L and 10 000 C/L respectively.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Spatial_distribution"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We find that particles are strongly clustered, with only small differences
+ between the dominance distributions of diatom and nanophytoplankton-particles
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dominance-index_even_distribution"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, pcf are shown in the SI).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+So finally...
+ what may change something is the limits we have assumed for interactions
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/dominance_diatom_nano.pdf
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance index for 3 species of diatoms (points) and nanophytoplankton
+ particles (lines) with an even abundance distribution after 1000 time steps.
+ Limits of interactions between particles for diatoms and nanophytoplankton
+ are indicated by green (diatoms) and blue (nanophytoplankton) dashed lines.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-index_even_distribution"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Same as above, but for 10 species with a skewed distribution.
+ Simulations are still running.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*

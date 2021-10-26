@@ -37,15 +37,15 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 colo=c("red","blue","grey","orange","violet")
 
-pdf("bandwidth_BBM_diatom.pdf")
+pdf("bandwidth_BBM_nano.pdf")
 par(mar=c(4,4,1,1))
 
-sim=list(21:24,25:28,29:32,33:36) #Diatoms
-lim_min=5*10^(-3)
-lim_max=2.5*10^(-1)
-#sim=list(37:40) #Nano
-#lim_min=3*10^(-4)
-#lim_max=10^(-2)
+#sim=list(21:24,25:28,29:32,33:36) #Diatoms
+#lim_min=5*10^(-3)
+#lim_max=2.5*10^(-1)
+sim=list(37:40) #Nano
+lim_min=3*10^(-4)
+lim_max=10^(-2)
 s1=1
 legend_m=c()
 
