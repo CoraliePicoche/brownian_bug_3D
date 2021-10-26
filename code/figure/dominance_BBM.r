@@ -37,14 +37,19 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 colo=c("red","blue","grey","orange","violet")
 
-pdf("dominance_BBM.pdf")
+pdf("dominance_BBM_diatom.pdf")
 par(mar=c(4,4,1,1))
 
-sim=list(21:24,25:28,29:32,33:36)
+sim=list(21:24,25:28,29:32,33:36) #Diatom
+lim_min=5*10^(-3)
+lim_max=2.5*10^(-1)
+#sim=list(37:40) #Nano
+#lim_min=3*10^(-4)
+#lim_max=10^(-2)
 s1=1
 legend_m=c()
 
-plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(0.1,1))
+plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(0.3,1))
 axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 axis(2,tcl=0.5,cex.axis=1.5) # left
@@ -132,5 +137,7 @@ if(U_tot==0.5){
 }
 
 legend("bottomleft",legend_m,lty=1,col=colo,bty="n",lwd=2)
+
+abline(v=c(lim_min,lim_max),lty=3)
 
 dev.off()

@@ -37,10 +37,15 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 colo=c("red","blue","grey","orange","violet")
 
-pdf("bandwidth_BBM.pdf")
+pdf("bandwidth_BBM_diatom.pdf")
 par(mar=c(4,4,1,1))
 
-sim=list(21:24,25:28,29:32,33:36)
+sim=list(21:24,25:28,29:32,33:36) #Diatoms
+lim_min=5*10^(-3)
+lim_max=2.5*10^(-1)
+#sim=list(37:40) #Nano
+#lim_min=3*10^(-4)
+#lim_max=10^(-2)
 s1=1
 legend_m=c()
 
@@ -134,5 +139,7 @@ if(U_tot==0.5){
 th_bbm=G_theoretical(gamma,unique(f_tot$r),lambda,Delta,conc,Tmax=NA)
 lines(unique(f_tot$r),th_bbm,lty=2,lwd=2)
 legend("bottomleft",legend_m,lty=1,col=colo,bty="n",lwd=2)
+
+abline(v=c(lim_min,lim_max),lty=3)
 
 dev.off()
