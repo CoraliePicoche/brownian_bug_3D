@@ -1,38 +1,48 @@
 rm(list=ls())
 graphics.off()
 
-vit=0
-V=0.5
-x=0.5
-y=0.5
-z=0.5
+set.seed(42)
+
+velocity=0
+U=0.5
+Lmax=10
+max_v=0
 
 ####3D
-for(i in 1:1000000){
-	x_init=x
-	y_init=y
-	z_init=z
-	x=x_init+V*cos(2*pi*y_init+runif(1,0,2*pi))
-	y=y_init+V*cos(2*pi*z_init+runif(1,0,2*pi))
-	z=z_init+V*cos(2*pi*x+runif(1,0,2*pi))
-	vit_tmp=(x-x_init)^2+(y-y_init)^2+(z-z_init)^2
-#	vit=c(vit,sqrt(vit_tmp))
-	vit=vit+sqrt(vit_tmp)
+#Initial position of the particle
+for (s in 1:1000){
+	x=runif(1,0,Lmax)
+	y=runif(1,0,Lmax)
+	z=runif(1,0,Lmax)
+	for(i in 1:1000){
+		x_init=x
+		y_init=y
+		z_init=z
+		x=x_init+(1/2)*U*cos(2*pi*y_init+runif(1,0,2*pi))
+		y=y_init+(1/2)*U*cos(2*pi*z_init+runif(1,0,2*pi))
+		z=z_init+(1/2)*U*cos(2*pi*x+runif(1,0,2*pi))
+		vit_tmp=(x-x_init)^2+(y-y_init)^2+(z-z_init)^2
+		velocity=velocity+sqrt(vit_tmp)
+	}
 }
-vit=vit/10^6 #vit=V*1.194    V=vit*0.837 
-print(vit/V)
+velocity=velocity/10^6 
+print(velocity/U)
 
-
-vit=0
-#Let's try something in 2D
-for(i in 1:1000000){
-        x_init=x
-        y_init=y
-        x=x_init+0.5*V*cos(2*pi*y_init+runif(1,0,2*pi))
-        y=y_init+0.5*V*cos(2*pi*x+runif(1,0,2*pi))
-        vit_tmp=(x-x_init)^2+(y-y_init)^2
-#       vit=c(vit,sqrt(vit_tmp))
-        vit=vit+sqrt(vit_tmp)
+####2D
+velocity=0
+for (s in 1:1000){
+	x=runif(1,0,Lmax)
+	y=runif(1,0,Lmax)
+	z=runif(1,0,Lmax)
+	for(i in 1:1000){
+        	x_init=x
+	        y_init=y
+        	x=x_init+(1/2)*U*cos(2*pi*y_init+runif(1,0,2*pi))
+	        y=y_init+(1/2)*U*cos(2*pi*x+runif(1,0,2*pi))
+        	vit_tmp=(x-x_init)^2+(y-y_init)^2
+	        velocity=velocity+sqrt(vit_tmp)
+		if(vit_tmp>max_v) max_v=vit_tmp
+	}
 }
-vit=vit/10^6 ##vit=V*0.958    V=vit*1.04 (V=vit*pi/3 ??????)
-print(vit/V)
+velocity=velocity/10^6
+print(velocity/U)
