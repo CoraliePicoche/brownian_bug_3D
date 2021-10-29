@@ -35,22 +35,18 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 #####################################
 
-colo=c("red","blue","grey","orange","violet")
-
-pdf("indices_diatom_nano_3sp.pdf",width=10)
-par(mfrow=c(2,3),mar=c(4,5,1,1))
+pdf("dominance_diatom_nano_10sp.pdf",width=10)
+par(mfrow=c(1,2))
 
 #Using the delta=10^-5
 #Diatom
-sim_diatom=list(29:32) #3 species
-#sim_diatom=list(41:44) #10 species, skewed abundance
+sim_diatom=list(41:44) #10 Species
 lim_min_diatom=5*10^(-3)
 lim_max_diatom=2.4*10^(-1)
 
 #Nano
-sim_nano=list(37:40) #3 species
-#sim_nano=list(45:48) #10 species, skewed abundance
-lim_min_nano=3*10^(-4) 
+sim_nano=list(45:48) #10 species
+lim_min_nano=3*10^(-4)
 lim_max_nano=10^(-3)
 
 tot_sim=list(sim_diatom,sim_nano)
@@ -71,9 +67,7 @@ for(type in 1:length(tot_sim)){
         	f=read.table(paste("../simulation/pcf_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
 	        colnames(f)=c("r","sp1","sp2","pcf","dominance")
         	unique_sp=unique(f$sp1)
-	        if (length(unique_sp)>length(colo)){
-        	        colo=rainbow(length(unique_sp))
-	        }
+        	colo=rainbow(length(unique_sp))
         	f_tot=rbind(f_tot,f)
 
 	        #Count species
@@ -89,56 +83,35 @@ for(type in 1:length(tot_sim)){
 
 	} #end loop on nb_simu
 
-	if(type==2){
-		xl="r"
+	if(type==1){
+		yl="dominance"
+		ml="Diatom"
 	}else{
-		xl=""
+		yl=""
+		ml="Nano"
 	}
 
-        plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=expression(g[ii]~(r)),axes=F,xlim=range(f_tot$r[f_tot$r>0]),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0],na.rm=T))
-	abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
-	for (s1 in 1:length(unique_sp)){
-        	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
-	        axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
-        	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
-	        axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
-        	axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
-	        box()
 
-		s2=s1
-                f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
-        	points(f_plot$r,f_plot$pcf,lty=1,col=colo[s2])
-		if(s1==3){
-        	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=expression(g[2~j]~(r)),axes=F,xlim=range(f_tot$r[f_tot$r>0]),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0],na.rm=T))
-		axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
-                axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
-                axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
-                axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
-                box()
-		legend("topleft",paste("Sp=",unique_sp),col=colo[unique_sp],lty=1,bty="n")
-		abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
-
-        	for(s2 in 1:length(unique_sp)){
-                	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
-			if(s2!=s1){
-	                points(f_plot$r,f_plot$pcf,lty=1,col=colo[s2],lwd=2)
-			}
-	        } #end loop on sp s2
-	
-		}
-	}
-	plot(1,1,t="n",xlim=range(f_tot$r[f$r>0]),ylim=range(f_tot$dominance,na.rm=T),xlab=xl,ylab="dominance",log="x",cex.lab=1.5,cex.axis=1.5,axes=F)
+	plot(1,1,t="n",xlim=range(f_tot$r[f$r>0]),ylim=range(f_tot$dominance,na.rm=T),xlab="r",ylab=yl,log="x",cex.lab=1.5,cex.axis=1.5,axes=F,main=ml)
 	axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 	axis(2,tcl=0.5,cex.axis=1.5) # left
 	box()
 
-	for (s1 in 1:length(unique_sp)){
-        	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
-	       	points(f_plot$r,f_plot$dominance,col=colo[s1])
+	if(type==1){
+		legend("bottomleft",paste("Sp=",unique_sp),col=colo[unique_sp],pch=1,bty="n")
 	}
 
-	abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
+	for (s1 in 1:length(unique_sp)){
+        	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
+		if(type==1){
+	       	points(f_plot$r,f_plot$dominance,col=colo[s1])
+		}else{
+	       	points(f_plot$r,f_plot$dominance,col=colo[s1],pch=4)
+		}
+	}
+
+	abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=2,col=c("green","darkblue")[type],lwd=3)
 } #end loop on 
 
 dev.off()

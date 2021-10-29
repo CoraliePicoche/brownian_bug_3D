@@ -372,7 +372,7 @@ verb|pcf3est|
 
 \end_inset
 
- in spatstat 2.2-0 and adapted to also compute cross-specific pcf.
+ in spatstat 2.2-0 and adapted to also compute multispecific pcf.
  This function was first tested on known distributions (Poisson and Thomas
  distributions, see Fig.
  
@@ -464,7 +464,7 @@ name "fig:PCF-and-dominance_TP"
 \begin_layout Standard
 To compute the pcf with the Brownian Bug Model, we looked for a bandwidth
  that could get the monospecific pcf closer to its theoretical counterpart,
- assuming that it would be also adapted to the plurispecific pcf.
+ assuming that it would be also adapted to the multispecific pcf.
  We found that 
 \begin_inset Formula $\delta=10^{-5}$
 \end_inset
@@ -575,11 +575,11 @@ name "fig:bandwidth_BBM"
 \end_layout
 
 \begin_layout Subsection
-Mono- and plurispecific pcf in the Brownian Bug Model
+Mono- and multispecific pcf in the Brownian Bug Model
 \end_layout
 
 \begin_layout Standard
-We show here the values of mono- and plurispecific pcf for diatoms and nanophyto
+We show here the values of mono- and multispecific pcf for diatoms and nanophyto
 plankton particles.
  
 \end_layout
@@ -593,7 +593,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/indices_diatom_nano.pdf
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/indices_diatom_nano_3sp.pdf
 	display false
 	width 99text%
 
@@ -606,7 +606,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Monospecific (left), plurispecific (middle) and dominance (right) for diatoms
+Monospecific (left), multispecific (middle) and dominance (right) for diatoms
  (top) and nanophytoplankton (bottom), after 1000 time steps.
  Dotted lines indicate the assumed limits for interactions between particles.
  

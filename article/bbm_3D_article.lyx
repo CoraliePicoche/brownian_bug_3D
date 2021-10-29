@@ -293,10 +293,14 @@ Velocity of the particle=
 \end_inset
 
 , 
-\begin_inset Formula $k=2\pi$
+\begin_inset Formula $k=2\pi/L_{s}$
 \end_inset
 
- and 
+ is the wavenumber for the flow at the length scale 
+\begin_inset Formula $L_{s}$
+\end_inset
+
+ (see below) and 
 \begin_inset Formula $\phi(t)$
 \end_inset
 
@@ -319,116 +323,41 @@ Velocity of the particle=
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset VSpace defskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Particles are distributed in a 
-\begin_inset Formula $L\times L\times L$
-\end_inset
-
- cube with a volume of 1000 cm
-\begin_inset Formula $^{3}$
-\end_inset
-
- for diatoms and 100 cm
-\begin_inset Formula $^{3}$
-\end_inset
-
- for nanophytoplankton (volumes are adapted to balance realistic concentrations
- and computation time) with periodic boundary conditions.
- Each simulation starts with 10000 uniformly distributed particles and is
- ran for 1000 timesteps.
- 
-\end_layout
-
 \begin_layout Subsection*
 Parameter values
 \end_layout
 
 \begin_layout Standard
-We aim at modeling two kinds of communities: diatom-size and nanophytoplankton-s
-ize particles (corresponding to indices 
-\begin_inset Formula $d$
-\end_inset
-
- and 
-\begin_inset Formula $n$
-\end_inset
-
- respectively
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-should we note l and s for large and small?
-\end_layout
-
-\end_inset
-
-) to differentiate between the distributions of high-diffusivity and slow-growth
- particles vs.
- low-diffusivity and fast-growth particles, respectively.
- Particles are displaced by a turbulent fluid whose characteristic parameters
- define the time scale of the whole model: we give here the reasoning behind
- parameter values, keeping in mind that our model can only be semi-quantitative.
- 
-\end_layout
-
-\begin_layout Subsubsection*
-Ecological processes
-\end_layout
-
-\begin_layout Standard
-For both diatoms and nanophytoplankton organisms, 
-\begin_inset Formula $p=\lambda\tau$
-\end_inset
-
- and we study the community at equilibrium, i.e.
- 
-\begin_inset Formula $p=q$
-\end_inset
-
-.
- We use a diatom doubling rate of 
-\begin_inset Formula $1d^{-1}$
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bissinger_predicting_2008"
-literal "false"
-
-\end_inset
-
-.
- We consider the fastest-growing nanophytoplankton particles, corresponding
- to a diameter of 3 
+We model two types of organisms: diatoms (focusing on the microphytoplanktonic
+ size fraction, i.e.
+ between 20 and 200 
 \begin_inset Formula $\mu$
 \end_inset
 
-m 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "bec_growth_2008"
-literal "false"
+m) and nanophytoplankton-size particles (defined by a diameter between 2
+ and 20 
+\begin_inset Formula $\mu$
+\end_inset
+
+m).
+ These two groups are characterized by high-diffusivity and slow-growth
+ particles vs.
+ low-diffusivity and fast-growth particles, respectively.
+ Particles are displaced by a turbulent fluid whose velocity defines the
+ time scale of the whole model: we give here the reasoning behind parameter
+ values, keeping in mind that our model can only be semi-quantitative.
+ Main parameter definitions and values are given in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Definition-and-value"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-, for which doubling rate is between 2 and 3 d
-\begin_inset Formula $^{-1}$
-\end_inset
-
- (set to 2.5 d
-\begin_inset Formula $^{-1}$
-\end_inset
-
- here).
+.
+ 
 \end_layout
 
 \begin_layout Subsubsection*
@@ -438,18 +367,23 @@ Advection
 \begin_layout Standard
 We first consider the advection process, due to the turbulence of the environmen
 t.
- From an hydrodynamics point of view, we use the model near Re
-\begin_inset Formula $\approx1$
+ We only consider the Batchelor-Kolmogorov regime, i.e.
+ the Reynolds number 
+\begin_inset Formula $Re\approx1$
 \end_inset
 
- (Re, Reynolds number).
- 
+ and two particles previously at the same position are separated by a distance
+ lower than 
+\begin_inset Formula $k^{-1}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Re=\frac{VL_{c}}{\nu}
+Re=\frac{V}{k\nu}\approx1
 \]
 
 \end_inset
@@ -459,14 +393,6 @@ Re=\frac{VL_{c}}{\nu}
 
 \begin_layout Standard
 where 
-\begin_inset Formula $V$
-\end_inset
-
- is the fluid characteristic speed, 
-\begin_inset Formula $L_{c}$
-\end_inset
-
- the characteristic length, and 
 \begin_inset Formula $\nu=10^{-6}$
 \end_inset
 
@@ -474,36 +400,33 @@ where
 \begin_inset Formula $^{2}$
 \end_inset
 
-/s , the kinematic viscosity for water.
-\end_layout
-
-\begin_layout Standard
-We only consider the Batchelor-Kolmogorov regime, where parent and offspring
- are separated by a distance lower than 
-\begin_inset Formula $k^{-1}$
-\end_inset
-
-, where 
-\begin_inset Formula $k$
-\end_inset
-
- is the wavenumber for the flow.
+/s is the kinematic viscosity for water.
  Here, we consider the smallest wavenumber corresponding to the largest
- length scale L, i.e.
+ length scale (Kolmogorov scale), i.e.
  
-\begin_inset Formula $k=2\pi/L$
+\begin_inset Formula $k=2\pi/L_{s},$
+\end_inset
+
+ with 
+\begin_inset Formula $L_{s}\approx1$
+\end_inset
+
+ cm in the ocean 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barton_impact_2014"
+literal "false"
+
 \end_inset
 
 .
- In this case, we can say
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-Re & = & \frac{U}{k\nu}\\
-\Leftrightarrow1 & = & \frac{UL}{2\pi\nu}\\
-\Leftrightarrow U & = & \frac{2\pi\nu}{L}
+1 & \approx & \frac{VL_{s}}{2\pi\nu}\\
+U & \approx & \frac{2\pi\nu}{L_{s}}
 \end{eqnarray*}
 
 \end_inset
@@ -586,7 +509,7 @@ literal "false"
 
 \end_inset
 
-), diffusion can be computed according to the formula:
+), diffusivity can be computed according to the formula:
 \end_layout
 
 \begin_layout Standard
@@ -661,53 +584,87 @@ Using
 \end_layout
 
 \begin_layout Standard
-Let's apply this formula to organisms of diameter 3
-\begin_inset Formula $\mu$
+We consider 
+\begin_inset Formula $a_{n}=1.5\mu$
 \end_inset
 
-m (see ecological justification below):
+m for nanophytoplankton and 
+\begin_inset Formula $a_{d}=25\mu$
+\end_inset
+
+ m for diatoms, which allows us to compute 
+\begin_inset Formula $\Delta_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta_{d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Ecological processes
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-<\Delta_{n}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{\tau}{3\pi\eta a}}\\
- & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times1.5\times10^{-6}}}\sqrt{\tau}\\
- & = & 0.5\text{\ensuremath{\sqrt{\tau}} \ensuremath{\mu}\text{m}}
-\end{eqnarray*}
-
+For both diatoms and nanophytoplankton organisms, 
+\begin_inset Formula $p=\lambda\tau$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Let's apply this formula to organisms of diameter 50
-\begin_inset Formula $\mu$
+ with 
+\begin_inset Formula $\lambda$
 \end_inset
 
-m (used as a reference in 
+ the growth rate and 
+\begin_inset Formula $\tau$
+\end_inset
+
+ the duration of a timestep.
+ We study the community at equilibrium, i.e.
+ 
+\begin_inset Formula $p=q$
+\end_inset
+
+.
+ We use a diatom doubling rate of 
+\begin_inset Formula $1$
+\end_inset
+
+d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ 
 \begin_inset CommandInset citation
-LatexCommand citealp
-key "seymour_resource_2009"
+LatexCommand citep
+key "bissinger_predicting_2008"
 literal "false"
 
 \end_inset
 
-), 
-\end_layout
+ and consider the fastest-growing nanophytoplankton particles, corresponding
+ to a diameter of 3 
+\begin_inset Formula $\mu$
+\end_inset
 
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-<\Delta_{d}^{2}>^{1/2} & = & \sqrt{\frac{RT}{N_{A}}\frac{\tau}{3\pi\eta a}}\\
- & = & \sqrt{\frac{8.314\times293}{6.0225\text{}10^{23}}\frac{1}{3\pi\times10^{-3}\times25\times10^{-6}}}\sqrt{\tau}\\
- & = & \text{\ensuremath{0.1\sqrt{\tau}} \ensuremath{\mu}\text{m}}
-\end{eqnarray*}
+m 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bec_growth_2008"
+literal "false"
 
 \end_inset
 
+, for which the doubling rate is between 2 and 3 d
+\begin_inset Formula $^{-1}$
+\end_inset
 
+ (set to 2.5 d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ here).
 \end_layout
 
 \begin_layout Standard
@@ -962,13 +919,20 @@ Diffusion parameter for nanophytoplankton particles
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Definition and value of the main parameters used in the 3D Brownian Bug
+Definitions and values of the main parameters used in the 3D Brownian Bug
  Model, assuming the duration of a time step 
 \begin_inset Formula $\tau$
 \end_inset
 
  is 16 seconds.
  
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Definition-and-value"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -986,8 +950,8 @@ Metrics
 \end_layout
 
 \begin_layout Standard
-Aggregation and clustering can be quantified by different spatial biodiversity
- indices 
+Aggregation can be quantified by different spatial biodiversity indices
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "rajala_family_2012"
@@ -997,8 +961,8 @@ literal "false"
 
 ; we focus here on the pair correlation function and the dominance indices.
  The computation of both indices was checked on known distributions (Poisson
- and Thomas processes) before being applied to brownian bug model simulations
- (see Supplementary Material).
+ and Thomas processes) before being applied to the Brownian Bug Model simulation
+s (see Supplementary Material).
  
 \end_layout
 
@@ -1011,7 +975,7 @@ The pair correlation function (pcf, also written
 \begin_inset Formula $g(r)$
 \end_inset
 
-) is a measurement of the aggregation of particles.
+) is a measurement of particle aggregation.
  It can either be computed for a single species (monospecific pair correlation
  function, 
 \begin_inset Formula $g_{ii}(r)$
@@ -1021,7 +985,7 @@ The pair correlation function (pcf, also written
 \begin_inset Formula $i$
 \end_inset
 
-) or between species (cross-specific pair correlation function, 
+) or between species (multispecific pair correlation function, 
 \begin_inset Formula $g_{ij}(r)$
 \end_inset
 
@@ -1172,7 +1136,7 @@ Dominance index
 \begin_layout Standard
 The dominance index is presented in 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "wiegand_how_2007"
 literal "false"
 
@@ -1253,44 +1217,44 @@ In case of intraspecific clustering,
  
 \end_layout
 
-\begin_layout Subsubsection*
+\begin_layout Subsection*
 Scale of the study
 \end_layout
 
 \begin_layout Standard
-As we examine particle clustering/segregation and its potential effects
+As we examine particle clustering or segregation and their potential effects
  on interactions between species, we consider two main processes: direct
  interactions due to, e.g., competition for nutrients, auxotrophy or allotrophy,
  and emerging interactions due to predation.
- Taking direct interactions into account requires to define the volumes
- of effects surrounding particles, in which they can interact.
  
 \end_layout
 
 \begin_layout Standard
-Particles with different sizes have different ranges of effects: if we want
- to consider the effect of clustering on potential interactions between
- organisms that could be due to auxotrophy, allotrophy, or competition for
- nutrient at the same location, we need to take these ranges into account.
- We define nanophytoplankton particles as having a 1.5 
+Direct interactions due to a given chemical (whether a resource or a toxin)
+ can only take place if the chemical concentration is relevant for the particle.
+ We therefore need to define the volume around each particle in which microscale
+ interactions can take place before the dilution effect of diffusion and
+ turbulence take over.
+ This volume will be called the phycosphere hereafter 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "seymour_resource_2009"
+literal "false"
+
+\end_inset
+
+.
+ Particles with different sizes have different ranges of effects.
+ Based on a 3 
 \begin_inset Formula $\mu$
 \end_inset
 
-m radius, and their phycosphere radius around 7.5 
+m diameter, the nanophytoplankton phycosphere radius should be around around
+ 5 
 \begin_inset Formula $\mu$
 \end_inset
 
-m, based
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-ROUGHLY
-\end_layout
-
-\end_inset
-
- on 
+m 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "seymour_resource_2009"
@@ -1300,16 +1264,16 @@ literal "false"
 
 .
  The maximum distance between two particles of nanophytoplankton is therefore
- around 15 
+ around 10 
 \begin_inset Formula $\mu m.$
 \end_inset
 
  This corresponds to range of meaningful values between 
-\begin_inset Formula $3\,10^{-4}$
+\begin_inset Formula $3\times10^{-4}$
 \end_inset
 
  cm and 
-\begin_inset Formula $1.5\,10^{-3}$
+\begin_inset Formula $1\times10^{-3}$
 \end_inset
 
  cm.
@@ -1317,7 +1281,7 @@ literal "false"
 \begin_inset Formula $\mu$
 \end_inset
 
-m-diameter particles with a corresponding phycosphere of about 1250 
+m-diameter particles with a corresponding phycosphere of about 1200 
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -1329,12 +1293,23 @@ literal "false"
 
 \end_inset
 
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I was not able to find back this value from the equation in Seymour et al.
+ SI
+\end_layout
+
+\end_inset
+
 , which means that we can consider radii between 
-\begin_inset Formula $5\,10^{-3}$
+\begin_inset Formula $5\times10^{-3}$
 \end_inset
 
 cm and 
-\begin_inset Formula $2.5\,10^{-1}$
+\begin_inset Formula $2.4\times10^{-1}$
 \end_inset
 
  cm.
@@ -1352,22 +1327,13 @@ or should we put that in parameter values ?
 \end_layout
 
 \begin_layout Standard
-Predators, on the contrary, are not likely to be restricted by these small
- phycospheres
+Predators, on the contrary, are not likely to be as restricted as they have
+ a larger detection range
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-Check that, actually.
- But I'm pretty sure they can 
-\begin_inset Quotes eld
-\end_inset
-
-smell
-\begin_inset Quotes erd
-\end_inset
-
- organisms for afar
+Find a ref
 \end_layout
 
 \end_inset
@@ -1382,7 +1348,7 @@ smell
 \begin_inset Formula $1$
 \end_inset
 
- cm 
+ cm
 \begin_inset Note Note
 status open
 
@@ -1407,6 +1373,82 @@ inside
 
 , but should keep in mind that processes affecting diversity maintenance
  are not the same at different scales.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We use our model near Re
+\begin_inset Formula $\approx1$
+\end_inset
+
+ (Re, Reynolds number), i.e.
+ we are working at a scale around 1 cm.
+ The space in which particles are moving is made of several cubes of side
+ 1 cm.
+ We consider a volume of 1000 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+ for diatoms and 8 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+We have to re-run simulations, see Edwards 2019 ;
+\end_layout
+
+\end_inset
+
+ for nanophytoplankton (volumes are adapted to balance realistic concentrations
+ and computation time) with periodic boundary conditions.
+ We run an idealized simulation with 3 species with an even abundance distributi
+on of about 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ C/L for diatoms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "picoche_strong_2020"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset Formula $10^{6}$
+\end_inset
+
+ C/L for nanophytoplankton particles 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "edwards_mixotrophy_2019"
+literal "false"
+
+\end_inset
+
+.
+ We then model a more realistic community with 10 species having a skewed
+ abundance distribution (between 55 000 and 400 particles, according to
+ observations of field abundance distributions in 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "picoche_strong_2020"
+literal "false"
+
+\end_inset
+
+).
  
 \end_layout
 
@@ -1473,17 +1515,6 @@ noprefix "false"
 
 , pcf are shown in the SI).
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-So finally...
- what may change something is the limits we have assumed for interactions
-\end_layout
-
-\end_inset
-
-
 \begin_inset Float figure
 wide false
 sideways false
@@ -1504,8 +1535,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance index for 3 species of diatoms (points) and nanophytoplankton
- particles (lines) with an even abundance distribution after 1000 time steps.
+Dominance index for 3 species of diatoms (circles) and nanophytoplankton
+ particles (crosses) with an even abundance distribution after 1000 time
+ steps.
  Limits of interactions between particles for diatoms and nanophytoplankton
  are indicated by green (diatoms) and blue (nanophytoplankton) dashed lines.
 \begin_inset CommandInset label
@@ -1538,12 +1570,26 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/dominance_diatom_nano_10sp.pdf
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Same as above, but for 10 species with a skewed distribution.
- Simulations are still running.
- 
+Dominance index for 10 species of diatoms (circles) and nanophytoplankton
+ particles (crosses) with a skewed abundance distribution after 1000 time
+ steps.
+ Species are ordered by decreasing initial abundance in the legend.
+ Limits of interactions between particles for diatoms and nanophytoplankton
+ are indicated by green (diatoms) and blue (nanophytoplankton) dashed lines.
 \end_layout
 
 \end_inset

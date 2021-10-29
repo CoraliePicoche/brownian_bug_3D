@@ -14,7 +14,8 @@ f=read.table("../simulation/Spatial_distribution_50.txt",header=F,sep=";",dec='.
 colnames(f)=c("t","x","y","z","yfirst","first_parent","species")
 unique_sp=unique(f$species)
 nb_sp=length(unique_sp)
-palette=rainbow(nb_sp)
+
+palette=c("red","blue","grey")
 
 spl=scatterplot3d(0,0,0,type="n",xlim=c(0,10),ylim=c(0,10),zlim=c(0,10),xlab="x",ylab="",zlab="z",main="Diatom")
 for (s in 1:nb_sp){

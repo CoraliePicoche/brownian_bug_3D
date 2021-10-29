@@ -41,14 +41,16 @@ pdf("dominance_diatom_nano.pdf")
 
 #Using the delta=10^-5
 #Diatom
-sim_diatom=list(29:32)
+sim_diatom=list(29:32) #3 Species
+#sim_diatom=list(41:44) #10 Species
 lim_min_diatom=5*10^(-3)
-lim_max_diatom=2.5*10^(-1)
+lim_max_diatom=2.4*10^(-1)
 
 #Nano
-sim_nano=list(37:40)
+sim_nano=list(37:40) #3 species
+#sim_nano=list(45:48) #10 species
 lim_min_nano=3*10^(-4)
-lim_max_nano=10^(-2)
+lim_max_nano=10^(-3)
 
 tot_sim=list(sim_diatom,sim_nano)
 tot_min=list(lim_min_diatom,lim_min_nano)
@@ -99,7 +101,7 @@ for(type in 1:length(tot_sim)){
 		if(type==1){
 	       	points(f_plot$r,f_plot$dominance,col=colo[s1])
 		}else{
-	       	lines(f_plot$r,f_plot$dominance,col=colo[s1])
+	       	points(f_plot$r,f_plot$dominance,col=colo[s1],pch=4)
 		}
 	}
 

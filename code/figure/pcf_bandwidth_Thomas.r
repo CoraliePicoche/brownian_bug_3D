@@ -19,7 +19,8 @@ log10Tck <- function(side, type){
 
 #####################################
 
-colo=c("red","blue","grey","orange","violet")
+#colo=c("red","blue","grey","orange","violet")
+colo=c("darkorchid","green","grey","orange")
 
 pdf("bandwidth_Thomas.pdf")
 par(mar=c(4,4,1,1))
