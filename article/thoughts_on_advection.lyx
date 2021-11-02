@@ -1,0 +1,758 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{ae,aecompl}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{authblk}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+How to compute advection
+\end_layout
+
+\begin_layout Paragraph*
+Question
+\end_layout
+
+\begin_layout Standard
+We want to know the values of 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+ used in the turbulence map (eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Pierrehumbert_map"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, from 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "pierrehumbert_tracer_1994"
+literal "false"
+
+\end_inset
+
+, and 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "ngan_scalar_2011"
+literal "false"
+
+\end_inset
+
+).
+ Keeping 
+\begin_inset Formula $U\tau/c=0.5$
+\end_inset
+
+ as used in Young et al.
+ 2001 (in which the coefficient 
+\begin_inset Formula $c=2$
+\end_inset
+
+), we will then be able to compute 
+\begin_inset Formula $\tau$
+\end_inset
+
+, which determines the rest of the parameter values.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+x(t+\tau) & =x(t+t')+U\tau/c\cos\left(ky(t+t')+\phi(t)\right)\\
+y(t+\tau) & =y(t+t')+U\tau/c\cos\left(kz(t+t')+\theta(t)\right)\\
+z(t+\tau) & =z(t+t')+U\tau/c\cos\left(kx(t+\tau)+\psi(t)\right)
+\end{cases}\label{eq:Pierrehumbert_map}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the following, we define 
+\begin_inset Formula $V$
+\end_inset
+
+ the velocity of the flow as the sum of the components of the displacement
+ vector, divided by the duration of a timestep, i.e.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+V & = & \frac{1}{\tau}\sqrt{\left(x(t+\tau)-x(t+t')\right)^{2}+\left(y(t+\tau)-y(t+t')\right)^{2}+\left(z(t+\tau)-z(t+t')\right)^{2}}\\
+\left\langle V\right\rangle  & = & \frac{1}{\tau}\sqrt{\left\langle \left(\frac{U}{c}\right)^{2}\cos^{2}\left(ky(t+t')+\phi(t)\right)+\left(\frac{U}{c}\right)^{2}\cos^{2}\left(kz(t+t')+\theta(t)\right)+\left(\frac{U}{c}\right)^{2}\cos^{2}\left(kx(t+\tau)+\psi(t)\right)\right\rangle }
+\end{array}\label{eq:v_whole_formula}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From this formula, we can obviously compute 
+\begin_inset Formula $U$
+\end_inset
+
+ from 
+\begin_inset Formula $V$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Value of V
+\end_layout
+
+\begin_layout Subsubsection*
+Usual definition of the Reynolds number
+\end_layout
+
+\begin_layout Standard
+We are working at the Kolmogorov scale, i.e.
+ 
+\begin_inset Formula $Re\approx1$
+\end_inset
+
+ where 
+\begin_inset Formula $Re$
+\end_inset
+
+ is the Reynolds number.
+ 
+\end_layout
+
+\begin_layout Standard
+The usual formulation of the Reynolds number is :
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Re=\frac{VL_{c}}{\nu}\label{eq:re_first}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $V$
+\end_inset
+
+ is the velocity of the flow (m/s), 
+\begin_inset Formula $L_{c}$
+\end_inset
+
+ is a characteristic linear dimension and 
+\begin_inset Formula $\nu=10^{-6}$
+\end_inset
+
+m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ is the kinematic viscosity of the fluid.
+ We first define 
+\begin_inset Formula $L_{c}$
+\end_inset
+
+ as the dimension of the cube corresponding to the Kolmogorov scale.
+ In the ocean, this corresponds to scales between 0.1 and 1 cm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barton_impact_2014"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+This leads to 
+\begin_inset Formula $V\approx10^{-4}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+However, we can also define a length 
+\begin_inset Formula $L_{v}$
+\end_inset
+
+ corresponding to the equivalent sphere diameter, i.e.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cccc}
+ & \frac{4}{3}\pi\left(\frac{L_{v}}{2}\right)^{3} & = & L_{c}^{3}\\
+\Leftrightarrow & L_{v} & = & 2L_{c}\left(\frac{3}{4\pi}\right)^{1/3}\\
+\Leftrightarrow & L_{v} & = & 1.24\text{ cm}
+\end{array}\label{eq:re_lv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we use 
+\begin_inset Formula $V\approx\nu/L_{v)}$
+\end_inset
+
+, 
+\begin_inset Formula $V\approx8.1\times10^{-5}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+WY's proposition
+\end_layout
+
+\begin_layout Standard
+When suggesting a more complex map for the turbulent flow, WY also proposed
+ another way to write the Reynolds number.
+ This is an adaptation of his email from June, 15
+\begin_inset Formula $^{\ensuremath{\text{th}}}$
+\end_inset
+
+2021, with personal (CP) annotations.
+\end_layout
+
+\begin_layout Standard
+Let's start with a map comprising 
+\begin_inset Formula $N$
+\end_inset
+
+ wavenumbers, i.e.
+ the first component (reasoning is the same for the others) of the velocity
+ can be written:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u_{1}=\sum_{n=1}^{N}U_{n}cos[k_{n}x_{2}+\phi_{n}]
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $k_{n}=nk$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{1}=k=2\pi/L_{K}$
+\end_inset
+
+, 
+\begin_inset Formula $L_{K}$
+\end_inset
+
+ being the Kolmogorov scale (
+\begin_inset Formula $\approx$
+\end_inset
+
+ 1 cm), and all 
+\begin_inset Formula $\phi_{n}$
+\end_inset
+
+ are random phases.
+ The mean square velocity in 2D is then 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $<u_{1}^{2}>=(1/2)\sum_{n=1}^{N}U_{n}^{2}$
+\end_inset
+
+ .
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+which I (CP) would not be able to find back
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case, he writes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Through dimension analysis, I (CP) would actually write 
+\begin_inset Formula $Re=\frac{\sqrt{<u_{1}^{2}>}}{k\nu}$
+\end_inset
+
+.
+ With a single wavenumber (
+\begin_inset Formula $N=1$
+\end_inset
+
+), we assume the formula is still the same, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Re & = & \frac{1}{\nu}\frac{L_{K}}{2\pi}\sqrt{\frac{1}{2}\left(\sum_{n=1}^{N}U_{n}^{2}\right)}\\
+ &  & =\frac{1}{\nu}\frac{L_{K}}{2\sqrt{2}\pi}U
+\end{array}\label{eq:re_WY}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This means 
+\begin_inset Formula $U\approx8.9\times10^{-4}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Relation between U and V
+\end_layout
+
+\begin_layout Standard
+The velocity 
+\begin_inset Formula $V$
+\end_inset
+
+ is determined by both 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ An approximation of the average value for eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:v_whole_formula"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is beyond my statistical knowledge, which is why I used simulations.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Simulation for effective velocity
+\end_layout
+
+\begin_layout Standard
+We ran 1000 simulations with random starting points, each time for 1000
+ time steps, and compute the sum of the components of the vector of movement
+ divided by 
+\begin_inset Formula $\tau$
+\end_inset
+
+ (
+\begin_inset Formula $=1$
+\end_inset
+
+ in the simulations).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle V\right\rangle =\frac{1}{\tau}\frac{U}{c}\sqrt{\left\langle \cos^{2}\left(ky(t+t')+\phi(t)\right)+\cos^{2}\left(kz(t+t')+\theta(t)\right)+\cos^{2}\left(kx(t+\tau)+\psi(t)\right)\right\rangle }
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When doing the simulations, we obtain 
+\begin_inset Formula $V\approx0.96\frac{U}{c}$
+\end_inset
+
+ in 2D and 
+\begin_inset Formula $V\approx1.19\frac{U}{c}$
+\end_inset
+
+ in 3D.
+ If we want a direct translation from 
+\begin_inset Formula $U$
+\end_inset
+
+ to 
+\begin_inset Formula $V$
+\end_inset
+
+, we could therefore rewrite eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Pierrehumbert_map"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+x(t+\tau) & =x(t+t')+V\tau/1.19\cos\left(ky(t+t')+\phi(t)\right)\\
+y(t+\tau) & =y(t+t')+V\tau/1.19\cos\left(kz(t+t')+\theta(t)\right)\\
+z(t+\tau) & =z(t+t')+V\tau/1.19\cos\left(kx(t+\tau)+\psi(t)\right)
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we want to keep c=2 as in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "young_reproductive_2001"
+literal "false"
+
+\end_inset
+
+, this would mean, in 3D, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $V\approx0.60U$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Corresponding values of 
+\begin_inset Formula $\tau$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We keep 
+\begin_inset Formula $U\tau/2=0.5$
+\end_inset
+
+ as in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "young_reproductive_2001"
+literal "false"
+
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\tau=\frac{1}{U}\approx\frac{0.60}{V}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Using eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:re_first"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\tau\approx6000\text{ s \ensuremath{\approx7\times10^{-2}}d}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:re_lv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\tau\approx7407\text{ s \ensuremath{\approx8.6\times10^{-2}}d}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:re_WY"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\tau\approx674\text{ s \ensuremath{\approx7.8\times10^{-3}}d}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is REALLY problematic.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bibliography"
+options "ecol_let"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
