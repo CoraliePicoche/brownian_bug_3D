@@ -10,6 +10,8 @@
 \usepackage{graphicx}
 \usepackage{lineno}
 \usepackage{authblk}
+\date{}
+\author{}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -88,7 +90,7 @@
 \begin_body
 
 \begin_layout Title
-How to compute advection
+How to compute the value of parameter U in the advection term
 \end_layout
 
 \begin_layout Paragraph*
@@ -217,22 +219,13 @@ From this formula, we can obviously compute
 Value of V
 \end_layout
 
-\begin_layout Subsubsection*
-Usual definition of the Reynolds number
-\end_layout
-
 \begin_layout Standard
 We are working at the Kolmogorov scale, i.e.
- 
+ the Reynolds number 
 \begin_inset Formula $Re\approx1$
 \end_inset
 
- where 
-\begin_inset Formula $Re$
-\end_inset
-
- is the Reynolds number.
- 
+.
 \end_layout
 
 \begin_layout Standard
@@ -255,15 +248,19 @@ where
 \begin_inset Formula $V$
 \end_inset
 
- is the velocity of the flow (m/s), 
+ is the velocity of the flow (m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+), 
 \begin_inset Formula $L_{c}$
 \end_inset
 
- is a characteristic linear dimension and 
+ is a characteristic linear dimension (m) and 
 \begin_inset Formula $\nu=10^{-6}$
 \end_inset
 
-m
+ m
 \begin_inset Formula $^{2}$
 \end_inset
 
@@ -338,16 +335,42 @@ If we use
 \begin_layout Standard
 3.
  The smallest wavenumber of the flow is 
-\begin_inset Formula $\frac{2\pi}{L}$
+\begin_inset Formula $k=\frac{2\pi}{L_{C}}$
 \end_inset
 
-.
- Therefore 
-\begin_inset Formula $L_{K}=\frac{L}{2\pi}$
+ where 
+\begin_inset Formula $L_{C}=1$
 \end_inset
 
- provides another possible dimension, which then leads to 
-\begin_inset Formula $V=6.4\times10^{-4}$
+ cm; 
+\begin_inset Formula $L_{K}=\frac{L_{C}}{2\pi}$
+\end_inset
+
+ provides another possible dimension, i.e.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Re & = & \frac{VL_{K}}{\nu}\\
+\Leftrightarrow V & = & \frac{2\pi\nu}{L_{C}}
+\end{array}\label{eq:Re_wavenumber}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+which then leads to 
+\begin_inset Formula $V=6.3\times10^{-4}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
 \end_inset
 
 .
@@ -380,13 +403,13 @@ A note from Coralie – WY's proposition
 \end_layout
 
 \begin_layout Plain Layout
-When suggesting a more complex map for the turbulent flow, WY also proposed
- another way to write the Reynolds number.
+When suggesting a more complex map for the turbulent flow in 2D, WY also
+ proposed another way to write the Reynolds number.
  This is an adaptation of his email from June, 15
 \begin_inset Formula $^{\ensuremath{\text{th}}}$
 \end_inset
 
-2021, with personal (CP) annotations.
+ 2021, with personal (CP) annotations.
 \end_layout
 
 \begin_layout Plain Layout
@@ -394,9 +417,16 @@ Let's start with a map comprising
 \begin_inset Formula $N$
 \end_inset
 
- wavenumbers, i.e.
- the first component (reasoning is the same for the others) of the velocity
- can be written:
+ wavenumbers (
+\begin_inset Formula $10^{6}$
+\end_inset
+
+ proposed by WY).
+ The velocity along the axis 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ (reasoning is the same for the other axes) can be written:
 \end_layout
 
 \begin_layout Plain Layout
@@ -432,7 +462,7 @@ where
 \end_inset
 
  is the second component of the vector 
-\begin_inset Formula $x=(x_{1},x_{2})$
+\begin_inset Formula $\mathbf{x}=(x_{1},x_{2})$
 \end_inset
 
  and all 
@@ -465,7 +495,7 @@ where
 \end_layout
 
 \begin_layout Plain Layout
-In this case, he writes:
+In this case, WY writes:
 \end_layout
 
 \begin_layout Plain Layout
@@ -528,7 +558,15 @@ This means
 \begin_inset Formula $^{-1}$
 \end_inset
 
-.
+ [Warning: I write 
+\begin_inset Formula $U$
+\end_inset
+
+ here, NOT 
+\begin_inset Formula $V$
+\end_inset
+
+)
 \end_layout
 
 \end_inset
@@ -554,7 +592,7 @@ The velocity
 \end_inset
 
 .
- An approximation of the average value for eq.
+ I cannot compute the effective speed from eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -565,7 +603,7 @@ noprefix "false"
 
 \end_inset
 
- is beyond my statistical knowledge, which is why I used simulations.
+, which is why I used simulations.
  
 \end_layout
 
@@ -574,9 +612,9 @@ Simulation for effective velocity
 \end_layout
 
 \begin_layout Standard
-We ran 1000 simulations with random starting points, each time for 1000
- time steps, and compute the sum of the components of the vector of movement
- divided by 
+We ran 1000 simulations with random starting points, lasting 1000 time steps,
+ and computed the sum of the components of the vector of movement divided
+ by 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -724,7 +762,7 @@ We keep
 \begin_inset Formula $U\tau/2=0.5$
 \end_inset
 
- as in 
+ cm as in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -734,15 +772,25 @@ literal "false"
 
 , i.e.
  
-\begin_inset Formula $\tau=\frac{1}{U}\approx\frac{0.60}{V}$
+\begin_inset Formula $\tau=\frac{10^{-2}}{U}\approx\frac{0.60}{V}\times10^{-2}$
 \end_inset
 
-.
- [F: why did we do this btw? C: To calculate pcf, we use a 
+ s.
+ [F: why did we do this btw? C: We fix 
+\begin_inset Formula $U\tau/2$
+\end_inset
+
+ in order to keep a timestep which is sensible related to hydrodynamics
+ processes; WY used values between 0.1 and 2.5 and I took the value in the
+ middle range, also corresponding to 
+\begin_inset Formula $\gamma\approx\frac{U\tau}{2}$
+\end_inset
+
+, where 
 \begin_inset Formula $\gamma$
 \end_inset
 
- which is ...
+ is the stretching parameter used to compute the theoretical pcf.
  Another answer is that this an arbitrary choice that we did not change.
  F: We can change it if need be, 
 \family roman
@@ -774,7 +822,27 @@ we don't have to kee
 \begin_inset Formula $U\tau/2=0.5$
 \end_inset
 
-! ] 
+! C: Remember that for each change in 
+\begin_inset Formula $U\tau/2$
+\end_inset
+
+ value, we will need to run a simulation to compute 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ + does it make sense to have a timestep corresponding to so much hydrodynamics
+ 
+\begin_inset Quotes eld
+\end_inset
+
+events
+\begin_inset Quotes erd
+\end_inset
+
+/displacements that the particle is moved by, e.g.
+ 10 times the size of the unit volume for each time step? Not saying there
+ is no middle ground, obviously, but this should be chosen carefully.
+ ] 
 \begin_inset Newline newline
 \end_inset
 
@@ -783,10 +851,10 @@ we don't have to kee
 
 \begin_layout Plain Layout
 Using 
-\begin_inset Formula $U\tau/2=0.5$
+\begin_inset Formula $U\tau/2=5\times10^{-3}$
 \end_inset
 
- and eq.
+ m and eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -798,18 +866,19 @@ noprefix "false"
 \end_inset
 
 , 
-\begin_inset Formula $\tau\approx6000\text{ s \ensuremath{\approx7\times10^{-2}}d}.$
+\begin_inset Formula $\tau\approx60\text{ }$
 \end_inset
 
- 100 min
+s (1 min).
+ 
 \end_layout
 
 \begin_layout Plain Layout
 Using 
-\begin_inset Formula $U\tau/2=0.5$
+\begin_inset Formula $U\tau/2=5\times10^{-3}$
 \end_inset
 
- and eq.
+ m and eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -821,18 +890,41 @@ noprefix "false"
 \end_inset
 
 , 
-\begin_inset Formula $\tau\approx7407\text{ s \ensuremath{\approx8.6\times10^{-2}}d}.$
+\begin_inset Formula $\tau\approx74$
 \end_inset
 
-
+ s 
 \end_layout
 
 \begin_layout Plain Layout
 Using 
-\begin_inset Formula $U\tau/2=0.5$
+\begin_inset Formula $U\tau/2=5\times10^{-3}$
 \end_inset
 
- and eq.
+ m and eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Re_wavenumber"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\begin_inset Formula $\tau\approx10$
+\end_inset
+
+ s
+\end_layout
+
+\begin_layout Plain Layout
+Using 
+\begin_inset Formula $U\tau/2=5\times10^{-3}$
+\end_inset
+
+ m and eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -844,11 +936,10 @@ noprefix "false"
 \end_inset
 
 , 
-\begin_inset Formula $\tau\approx674\text{ s \ensuremath{\approx7.8\times10^{-3}}d}$
+\begin_inset Formula $\tau\approx11$
 \end_inset
 
-.
- 10 min
+ s.
 \end_layout
 
 \begin_layout Plain Layout
@@ -872,7 +963,26 @@ C: This is REALLY problematic.
  However, it is suprising to find 674 s here and 16 s in the document –>
  what 
 \backslash
-tau do we actually use? 
+tau do we actually use? C: The order of magnitude was due to the fact that
+ 
+\begin_inset Formula $U\tau/2$
+\end_inset
+
+ is not a dimensionless parameter, it is in cm and needed to be converted
+ before computing 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+ We do not find 16s back because in the document, we use 
+\begin_inset Formula $U=V$
+\end_inset
+
+ ; here, we consider 
+\begin_inset Formula $V=0.6U$
+\end_inset
+
+.
 \begin_inset Newline newline
 \end_inset
 
@@ -880,7 +990,7 @@ tau do we actually use?
 \end_layout
 
 \begin_layout Plain Layout
-Note that we can keep the numerical value of 
+F: Note that we can keep the numerical value of 
 \backslash
 tau arbitrarily derived before, or take another that makes biological sense
  and still change c in 
