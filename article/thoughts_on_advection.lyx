@@ -80,11 +80,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -98,7 +99,13 @@ Question
 \end_layout
 
 \begin_layout Standard
-We want to know the values of 
+We want to 
+\change_deleted -666822487 1635965923
+know
+\change_inserted -666822487 1635965928
+better motivate physically
+\change_unchanged
+ the values of 
 \begin_inset Formula $U$
 \end_inset
 
@@ -157,8 +164,18 @@ In the following, we define
 \begin_inset Formula $V$
 \end_inset
 
- the velocity of the flow as the sum of the components of the displacement
- vector, divided by the duration of a timestep, i.e.:
+ the 
+\change_deleted -666822487 1635962944
+velocity
+\change_inserted -666822487 1635962962
+ speed
+\change_unchanged
+ of the flow 
+\change_inserted -666822487 1635966127
+(in the referential of the small, 1cm length moving fluid element) 
+\change_unchanged
+as the sum of the components of the displacement vector, divided by the
+ duration of a timestep, i.e.:
 \end_layout
 
 \begin_layout Standard
@@ -176,7 +193,13 @@ V & = & \frac{1}{\tau}\sqrt{\left(x(t+\tau)-x(t+t')\right)^{2}+\left(y(t+\tau)-y
 \end_layout
 
 \begin_layout Standard
-From this formula, we can obviously compute 
+From this formula, we 
+\change_deleted -666822487 1635964891
+can obviously compute
+\change_inserted -666822487 1635964894
+may be able to get
+\change_unchanged
+ 
 \begin_inset Formula $U$
 \end_inset
 
@@ -190,7 +213,7 @@ From this formula, we can obviously compute
 
 .
  Intuitively, we thought that we should have 
-\begin_inset Formula $U=V$
+\begin_inset Formula $U=V_{\textmd{max}}$
 \end_inset
 
 (maximal speed) or 
@@ -202,7 +225,19 @@ From this formula, we can obviously compute
 \end_layout
 
 \begin_layout Section
-Value of V
+
+\change_deleted -666822487 1635965294
+Value
+\change_inserted -666822487 1635965299
+Obtaining flow speed
+\change_deleted -666822487 1635965300
+ of
+\change_unchanged
+ V
+\change_inserted -666822487 1635965308
+ from the Reynolds number
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -363,32 +398,25 @@ which then leads to
  That's the option that we chose for the ReScience paper, following earlier
  discussions (including larger wavenumbers).
  
+\change_inserted -666822487 1635964926
+
 \end_layout
 
 \begin_layout Standard
-\begin_inset Box Ovalbox
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "100col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "15pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
+
+\change_inserted -666822487 1635964928
+\begin_inset Note Note
 status open
 
 \begin_layout Subsubsection*
+
+\change_inserted -666822487 1635964928
 A note from Coralie – WY's proposition
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 When suggesting a more complex map for the turbulent flow in 2D, WY also
  proposed another way to write the Reynolds number.
  This is an adaptation of his email from June, 15
@@ -399,6 +427,8 @@ When suggesting a more complex map for the turbulent flow in 2D, WY also
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 Let's start with a map comprising 
 \begin_inset Formula $N$
 \end_inset
@@ -416,6 +446,8 @@ Let's start with a map comprising
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 \begin_inset Formula 
 \begin{equation}
 u_{1}=\sum_{n=1}^{N}U_{n}\cos[k_{n}x_{2}+\phi_{n}]
@@ -427,6 +459,8 @@ u_{1}=\sum_{n=1}^{N}U_{n}\cos[k_{n}x_{2}+\phi_{n}]
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 where 
 \begin_inset Formula $k_{n}=nk$
 \end_inset
@@ -481,10 +515,14 @@ where
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 In this case, WY writes:
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 \begin_inset Formula 
 \begin{equation}
 Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
@@ -496,6 +534,8 @@ Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 
 \family roman
 \series medium
@@ -522,6 +562,8 @@ Through dimension analysis, I (CP) would actually write
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -536,6 +578,8 @@ Re & = & \frac{1}{\nu}\frac{L_{K}}{2\pi}\sqrt{\frac{1}{2}\left(\sum_{n=1}^{N}U_{
 \end_layout
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1635964928
 This means 
 \begin_inset Formula $U\approx8.9\times10^{-4}$
 \end_inset
@@ -553,23 +597,63 @@ This means
 \end_inset
 
 )
+\change_unchanged
+
 \end_layout
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
 \begin_layout Section
-Determining the constant c
-\end_layout
+Determining 
+\change_inserted -666822487 1635965387
 
-\begin_layout Standard
-The velocity 
+\begin_inset Formula $U$
+\end_inset
+
+ in the Pierrehumbert from 
 \begin_inset Formula $V$
 \end_inset
 
- is determined by both 
+ (aka what is
+\change_deleted -666822487 1635965375
+the
+\change_unchanged
+ constant 
+\change_deleted -666822487 1635965390
+c
+\change_inserted -666822487 1635965390
+
+\begin_inset Formula $c$
+\end_inset
+
+?)
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -666822487 1635965408
+The velocity
+\change_inserted -666822487 1635965421
+We are looking to establish a logical link between the flow speed
+\change_unchanged
+ 
+\begin_inset Formula $V$
+\end_inset
+
+ 
+\change_deleted -666822487 1635965427
+is determined by
+\change_inserted -666822487 1635965427
+and
+\change_unchanged
+ both 
 \begin_inset Formula $U$
 \end_inset
 
@@ -577,6 +661,10 @@ The velocity
 \begin_inset Formula $c$
 \end_inset
 
+
+\change_inserted -666822487 1635965441
+ in the abovementioned Pierrehumbert map
+\change_unchanged
 .
  I (CP) cannot compute the effective speed from eq.
  
@@ -594,7 +682,13 @@ noprefix "false"
 \end_layout
 
 \begin_layout Subsubsection*
-Simulation for effective velocity
+Simulation for effective 
+\change_deleted -666822487 1635964956
+velocity
+\change_inserted -666822487 1635964956
+speed
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -651,7 +745,15 @@ noprefix "false"
 
 \end_inset
 
- as:
+ as
+\change_inserted -666822487 1635965518
+ (where 
+\begin_inset Formula $V$
+\end_inset
+
+ is derived as above from the Reynolds number)
+\change_unchanged
+:
 \end_layout
 
 \begin_layout Standard
@@ -670,11 +772,21 @@ z(t+\tau) & =z(t+t')+V\tau/1.19\cos\left(kx(t+\tau)+\psi(t)\right)
 \end_layout
 
 \begin_layout Standard
-If we want to keep 
+If we want to keep
+\change_inserted -666822487 1635965567
+ the notation 
+\begin_inset Formula $\frac{U\tau}{2}$
+\end_inset
+
+
+\change_deleted -666822487 1635965563
+ 
 \begin_inset Formula $c=2$
 \end_inset
 
- as in 
+ 
+\change_unchanged
+as in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -682,7 +794,19 @@ literal "false"
 
 \end_inset
 
-, this would mean, in 3D, 
+
+\change_inserted -666822487 1635965574
+ ( 
+\begin_inset Formula $c=2$
+\end_inset
+
+)
+\change_unchanged
+, this would mean, in 3D,
+\change_inserted -666822487 1635965584
+ setting
+\change_unchanged
+ 
 \family roman
 \series medium
 \shape up
@@ -696,11 +820,82 @@ literal "false"
 \noun off
 \color none
 
-\begin_inset Formula $U\approx\frac{1}{0.6}V$
+\begin_inset Formula $U/2\approx V/1.19$
 \end_inset
 
+
+\change_inserted -666822487 1635965703
+ so that 
+\begin_inset Formula $U=1.68V$
+\end_inset
+
+
+\change_unchanged
 .
  
+\change_inserted -666822487 1635965573
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -666822487 1635965726
+But it may well be that there is another reason why U is different from
+ V.
+ For instance, if we keep 
+\begin_inset Formula $c=2$
+\end_inset
+
+ we can define 
+\change_deleted -666822487 1635965064
+
+\backslash
+tau
+\change_inserted -666822487 1635965901
+
+\begin_inset Formula $U\tau$
+\end_inset
+
+ as the maximal distance moved in one timestep.
+ Thus 
+\begin_inset Formula $U$
+\end_inset
+
+ is defined as maximal lateral speed, and it would just so happen that the
+ relationship between average flow speed and maximum lateral flow speed
+ is given by 
+\begin_inset Formula $V\approx0.96\frac{U}{2}$
+\end_inset
+
+ in 2D and 
+\begin_inset Formula $V\approx1.19\frac{U}{2}$
+\end_inset
+
+ in 3D.
+ In which case, we should probably use 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $U=1.68V$
+\end_inset
+
+ for our 3D simulations.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
