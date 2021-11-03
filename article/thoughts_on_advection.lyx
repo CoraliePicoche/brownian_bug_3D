@@ -153,9 +153,9 @@ literal "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-x(t+\tau) & =x(t+t')+U\tau/c\cos\left(ky(t+t')+\phi(t)\right)\\
-y(t+\tau) & =y(t+t')+U\tau/c\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+U\tau/c\cos\left(kx(t+\tau)+\psi(t)\right)
+x(t+\tau) & =x(t+t')+\frac{U\tau}{c}\cos\left(ky(t+t')+\phi(t)\right)\\
+y(t+\tau) & =y(t+t')+\frac{U\tau}{c}\cos\left(kz(t+t')+\theta(t)\right)\\
+z(t+\tau) & =z(t+t')+\frac{U\tau}{c}\cos\left(kx(t+\tau)+\psi(t)\right)
 \end{cases}\label{eq:Pierrehumbert_map}
 \end{equation}
 
@@ -197,10 +197,19 @@ From this formula, we can obviously compute
 \end_inset
 
  and 
-\begin_inset Formula $n$
+\begin_inset Formula $c$
 \end_inset
 
 .
+ Intuitively, we thought that we should have 
+\begin_inset Formula $U=V$
+\end_inset
+
+(maximal speed) or 
+\begin_inset Formula $U=<V>$
+\end_inset
+
+ (effective speed).
  
 \end_layout
 
@@ -263,7 +272,10 @@ m
 \end_inset
 
  is the kinematic viscosity of the fluid.
- We first define 
+\end_layout
+
+\begin_layout Enumerate
+We first define 
 \begin_inset Formula $L_{c}$
 \end_inset
 
@@ -277,11 +289,7 @@ literal "false"
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-This leads to 
+ This leads to 
 \begin_inset Formula $V\approx10^{-4}$
 \end_inset
 
@@ -292,14 +300,7 @@ This leads to
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset VSpace defskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\begin_layout Enumerate
 However, we can also define a length 
 \begin_inset Formula $L_{v}$
 \end_inset
@@ -319,12 +320,8 @@ However, we can also define a length
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 If we use 
-\begin_inset Formula $V\approx\nu/L_{v)}$
+\begin_inset Formula $V\approx\nu/L_{v}$
 \end_inset
 
 , 
@@ -338,11 +335,51 @@ If we use
 .
 \end_layout
 
-\begin_layout Subsubsection*
-WY's proposition
+\begin_layout Standard
+3.
+ The smallest wavenumber of the flow is 
+\begin_inset Formula $\frac{2\pi}{L}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $L_{K}=\frac{L}{2\pi}$
+\end_inset
+
+ provides another possible dimension, which then leads to 
+\begin_inset Formula $V=6.4\times10^{-4}$
+\end_inset
+
+.
+ That's the option that we chose for the ReScience paper, following earlier
+ discussions (including larger wavenumbers).
+ 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Box Ovalbox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "15pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Subsubsection*
+A note from Coralie – WY's proposition
+\end_layout
+
+\begin_layout Plain Layout
 When suggesting a more complex map for the turbulent flow, WY also proposed
  another way to write the Reynolds number.
  This is an adaptation of his email from June, 15
@@ -352,7 +389,7 @@ When suggesting a more complex map for the turbulent flow, WY also proposed
 2021, with personal (CP) annotations.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let's start with a map comprising 
 \begin_inset Formula $N$
 \end_inset
@@ -362,10 +399,10 @@ Let's start with a map comprising
  can be written:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
-u_{1}=\sum_{n=1}^{N}U_{n}cos[k_{n}x_{2}+\phi_{n}]
+u_{1}=\sum_{n=1}^{N}U_{n}\cos[k_{n}x_{2}+\phi_{n}]
 \end{equation}
 
 \end_inset
@@ -373,7 +410,7 @@ u_{1}=\sum_{n=1}^{N}U_{n}cos[k_{n}x_{2}+\phi_{n}]
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 where 
 \begin_inset Formula $k_{n}=nk$
 \end_inset
@@ -390,7 +427,15 @@ where
 \begin_inset Formula $\approx$
 \end_inset
 
- 1 cm), and all 
+ 1 cm), 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ is the second component of the vector 
+\begin_inset Formula $x=(x_{1},x_{2})$
+\end_inset
+
+ and all 
 \begin_inset Formula $\phi_{n}$
 \end_inset
 
@@ -412,37 +457,18 @@ where
 \begin_inset Formula $<u_{1}^{2}>=(1/2)\sum_{n=1}^{N}U_{n}^{2}$
 \end_inset
 
- .
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-which I (CP) would not be able to find back
-\end_layout
-
+ [Not sure why 
+\begin_inset Formula $\frac{1}{2}$
 \end_inset
 
-
+?].
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 In this case, he writes:
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
@@ -453,7 +479,7 @@ Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 
 \family roman
 \series medium
@@ -479,7 +505,7 @@ Through dimension analysis, I (CP) would actually write
 ), we assume the formula is still the same, i.e.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -493,7 +519,7 @@ Re & = & \frac{1}{\nu}\frac{L_{K}}{2\pi}\sqrt{\frac{1}{2}\left(\sum_{n=1}^{N}U_{
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 This means 
 \begin_inset Formula $U\approx8.9\times10^{-4}$
 \end_inset
@@ -505,8 +531,13 @@ This means
 .
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
-Relation between U and V
+Determining the constant c
 \end_layout
 
 \begin_layout Standard
@@ -519,7 +550,7 @@ The velocity
 \end_inset
 
  and 
-\begin_inset Formula $n$
+\begin_inset Formula $c$
 \end_inset
 
 .
@@ -577,11 +608,11 @@ When doing the simulations, we obtain
 \end_inset
 
  in 3D.
- If we want a direct translation from 
+ If we want 
 \begin_inset Formula $U$
 \end_inset
 
- to 
+=
 \begin_inset Formula $V$
 \end_inset
 
@@ -615,7 +646,11 @@ z(t+\tau) & =z(t+t')+V\tau/1.19\cos\left(kx(t+\tau)+\psi(t)\right)
 \end_layout
 
 \begin_layout Standard
-If we want to keep c=2 as in 
+If we want to keep 
+\begin_inset Formula $c=2$
+\end_inset
+
+ as in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -637,14 +672,18 @@ literal "false"
 \noun off
 \color none
 
-\begin_inset Formula $V\approx0.60U$
+\begin_inset Formula $U\approx\frac{1}{0.6}V$
 \end_inset
 
 .
  
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Paragraph
 Corresponding values of 
 \begin_inset Formula $\tau$
 \end_inset
@@ -652,7 +691,35 @@ Corresponding values of
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+We have the probabilities 
+\begin_inset Formula $p=q$
+\end_inset
+
+ of birth and death rates in the numerical model.
+ If we want those probabilities to be related to the underlying birth-death
+ process in continous time, we have to make these depend on 
+\begin_inset Formula $\tau$
+\end_inset
+
+ so that 
+\begin_inset Formula $p=\lambda\tau$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the intensity of births.
+ Likewise, diffusion is related to 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
 We keep 
 \begin_inset Formula $U\tau/2=0.5$
 \end_inset
@@ -671,11 +738,55 @@ literal "false"
 \end_inset
 
 .
- 
+ [F: why did we do this btw? C: To calculate pcf, we use a 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ which is ...
+ Another answer is that this an arbitrary choice that we did not change.
+ F: We can change it if need be, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+we don't have to kee 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $U\tau/2=0.5$
+\end_inset
+
+! ] 
+\begin_inset Newline newline
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-Using eq.
+\begin_layout Plain Layout
+Using 
+\begin_inset Formula $U\tau/2=0.5$
+\end_inset
+
+ and eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -690,11 +801,15 @@ noprefix "false"
 \begin_inset Formula $\tau\approx6000\text{ s \ensuremath{\approx7\times10^{-2}}d}.$
 \end_inset
 
-
+ 100 min
 \end_layout
 
-\begin_layout Standard
-Using eq.
+\begin_layout Plain Layout
+Using 
+\begin_inset Formula $U\tau/2=0.5$
+\end_inset
+
+ and eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -712,8 +827,12 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Standard
-Using eq.
+\begin_layout Plain Layout
+Using 
+\begin_inset Formula $U\tau/2=0.5$
+\end_inset
+
+ and eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -729,17 +848,58 @@ noprefix "false"
 \end_inset
 
 .
+ 10 min
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset VSpace defskip
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-This is REALLY problematic.
+\begin_layout Plain Layout
+C: This is REALLY problematic.
+ 
+\begin_inset space ~
+\end_inset
+
+[F: Not sure this is problematic so long as we can agree on a 
+\begin_inset Formula $\tau$
+\end_inset
+
+ value that makes sense, no matter how it has been found originally.
+ However, it is suprising to find 674 s here and 16 s in the document –>
+ what 
+\backslash
+tau do we actually use? 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Note that we can keep the numerical value of 
+\backslash
+tau arbitrarily derived before, or take another that makes biological sense
+ and still change c in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Pierrehumbert_map"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ ]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
