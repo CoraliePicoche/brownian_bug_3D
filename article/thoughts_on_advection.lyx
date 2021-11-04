@@ -85,7 +85,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -99,13 +98,7 @@ Question
 \end_layout
 
 \begin_layout Standard
-We want to 
-\change_deleted -666822487 1635965923
-know
-\change_inserted -666822487 1635965928
-better motivate physically
-\change_unchanged
- the values of 
+We want to better motivate physically the values of 
 \begin_inset Formula $U$
 \end_inset
 
@@ -141,16 +134,15 @@ literal "false"
 \end_inset
 
 ).
- 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-x(t+\tau) & =x(t+t')+\frac{U\tau}{c}\cos\left(ky(t+t')+\phi(t)\right)\\
-y(t+\tau) & =y(t+t')+\frac{U\tau}{c}\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+\frac{U\tau}{c}\cos\left(kx(t+\tau)+\psi(t)\right)
+x(t+\tau) & =x'(t)+\frac{U\tau}{c}\cos\left(ky'(t)+\phi(t)\right)\\
+y(t+\tau) & =y'(t)+\frac{U\tau}{c}\cos\left(kz'(t)+\theta(t)\right)\\
+z(t+\tau) & =z'(t)+\frac{U\tau}{c}\cos\left(kx(t+\tau)+\psi(t)\right)
 \end{cases}\label{eq:Pierrehumbert_map}
 \end{equation}
 
@@ -160,30 +152,33 @@ z(t+\tau) & =z(t+t')+\frac{U\tau}{c}\cos\left(kx(t+\tau)+\psi(t)\right)
 \end_layout
 
 \begin_layout Standard
+where 
+\begin_inset Formula $x'(t)$
+\end_inset
+
+ is the result of the displacement by diffusion from 
+\begin_inset Formula $x(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 In the following, we define 
 \begin_inset Formula $V$
 \end_inset
 
- the 
-\change_deleted -666822487 1635962944
-velocity
-\change_inserted -666822487 1635962962
- speed
-\change_unchanged
- of the flow 
-\change_inserted -666822487 1635966127
-(in the referential of the small, 1cm length moving fluid element) 
-\change_unchanged
-as the sum of the components of the displacement vector, divided by the
- duration of a timestep, i.e.:
+ the speed of the flow (in the referential of the small, 1cm length moving
+ fluid element) as the sum of the components of the displacement vector,
+ divided by the duration of a timestep, i.e.:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-V & = & \frac{1}{\tau}\sqrt{\left(x(t+\tau)-x(t+t')\right)^{2}+\left(y(t+\tau)-y(t+t')\right)^{2}+\left(z(t+\tau)-z(t+t')\right)^{2}}\\
-\left\langle V\right\rangle  & = & \frac{1}{\tau}\sqrt{\left\langle \left(\frac{U}{c}\right)^{2}\cos^{2}\left(ky(t+t')+\phi(t)\right)+\left(\frac{U}{c}\right)^{2}\cos^{2}\left(kz(t+t')+\theta(t)\right)+\left(\frac{U}{c}\right)^{2}\cos^{2}\left(kx(t+\tau)+\psi(t)\right)\right\rangle }
+V & = & \frac{1}{\tau}\sqrt{\left(x(t+\tau)-x'(t)\right)^{2}+\left(y(t+\tau)-y'(t)\right)^{2}+\left(z(t+\tau)-z'(t)\right)^{2}}\\
+\left\langle V\right\rangle  & = & \frac{1}{\tau}\sqrt{\left\langle \left(\frac{U}{c}\right)^{2}\cos^{2}\left(ky'(t)+\phi(t)\right)+\left(\frac{U}{c}\right)^{2}\cos^{2}\left(kz'(t)+\theta(t)\right)+\left(\frac{U}{c}\right)^{2}\cos^{2}\left(kx(t+\tau)+\psi(t)\right)\right\rangle }
 \end{array}\label{eq:v_whole_formula}
 \end{equation}
 
@@ -193,13 +188,7 @@ V & = & \frac{1}{\tau}\sqrt{\left(x(t+\tau)-x(t+t')\right)^{2}+\left(y(t+\tau)-y
 \end_layout
 
 \begin_layout Standard
-From this formula, we 
-\change_deleted -666822487 1635964891
-can obviously compute
-\change_inserted -666822487 1635964894
-may be able to get
-\change_unchanged
- 
+From this formula, we may be able to get 
 \begin_inset Formula $U$
 \end_inset
 
@@ -216,28 +205,15 @@ may be able to get
 \begin_inset Formula $U=V_{\textmd{max}}$
 \end_inset
 
-(maximal speed) or 
+ (maximal speed) or 
 \begin_inset Formula $U=<V>$
 \end_inset
 
  (effective speed).
- 
 \end_layout
 
 \begin_layout Section
-
-\change_deleted -666822487 1635965294
-Value
-\change_inserted -666822487 1635965299
-Obtaining flow speed
-\change_deleted -666822487 1635965300
- of
-\change_unchanged
- V
-\change_inserted -666822487 1635965308
- from the Reynolds number
-\change_unchanged
-
+Obtaining flow speed V from the Reynolds number
 \end_layout
 
 \begin_layout Standard
@@ -397,26 +373,17 @@ which then leads to
 .
  That's the option that we chose for the ReScience paper, following earlier
  discussions (including larger wavenumbers).
- 
-\change_inserted -666822487 1635964926
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -666822487 1635964928
 \begin_inset Note Note
 status open
 
 \begin_layout Subsubsection*
-
-\change_inserted -666822487 1635964928
 A note from Coralie – WY's proposition
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 When suggesting a more complex map for the turbulent flow in 2D, WY also
  proposed another way to write the Reynolds number.
  This is an adaptation of his email from June, 15
@@ -427,8 +394,6 @@ When suggesting a more complex map for the turbulent flow in 2D, WY also
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 Let's start with a map comprising 
 \begin_inset Formula $N$
 \end_inset
@@ -446,8 +411,6 @@ Let's start with a map comprising
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 \begin_inset Formula 
 \begin{equation}
 u_{1}=\sum_{n=1}^{N}U_{n}\cos[k_{n}x_{2}+\phi_{n}]
@@ -459,8 +422,6 @@ u_{1}=\sum_{n=1}^{N}U_{n}\cos[k_{n}x_{2}+\phi_{n}]
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 where 
 \begin_inset Formula $k_{n}=nk$
 \end_inset
@@ -515,14 +476,10 @@ where
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 In this case, WY writes:
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 \begin_inset Formula 
 \begin{equation}
 Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
@@ -534,8 +491,6 @@ Re=\frac{k\sqrt{<u_{1}^{2}>}}{\nu}
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 
 \family roman
 \series medium
@@ -562,8 +517,6 @@ Through dimension analysis, I (CP) would actually write
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -578,8 +531,6 @@ Re & = & \frac{1}{\nu}\frac{L_{K}}{2\pi}\sqrt{\frac{1}{2}\left(\sum_{n=1}^{N}U_{
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1635964928
 This means 
 \begin_inset Formula $U\approx8.9\times10^{-4}$
 \end_inset
@@ -596,22 +547,16 @@ This means
 \begin_inset Formula $V$
 \end_inset
 
-)
-\change_unchanged
-
+]
 \end_layout
 
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section
 Determining 
-\change_inserted -666822487 1635966331
-
 \begin_inset Formula $U$
 \end_inset
 
@@ -619,41 +564,19 @@ Determining
 \begin_inset Formula $V$
 \end_inset
 
- (aka what is
-\change_deleted -666822487 1635965375
-the
-\change_unchanged
- constant 
-\change_deleted -666822487 1635965390
-c
-\change_inserted -666822487 1635965390
-
+ (aka what is constant 
 \begin_inset Formula $c$
 \end_inset
 
 ?)
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -666822487 1635965408
-The velocity
-\change_inserted -666822487 1635965421
-We are looking to establish a logical link between the flow speed
-\change_unchanged
- 
+We are looking to establish a logical link between the flow speed 
 \begin_inset Formula $V$
 \end_inset
 
- 
-\change_deleted -666822487 1635965427
-is determined by
-\change_inserted -666822487 1635965427
-and
-\change_unchanged
- both 
+ and both 
 \begin_inset Formula $U$
 \end_inset
 
@@ -661,11 +584,7 @@ and
 \begin_inset Formula $c$
 \end_inset
 
-
-\change_inserted -666822487 1635965441
- in the abovementioned Pierrehumbert map
-\change_unchanged
-.
+ in the abovementioned Pierrehumbert map.
  I (CP) cannot compute the effective speed from eq.
  
 \begin_inset CommandInset ref
@@ -678,17 +597,10 @@ noprefix "false"
 \end_inset
 
 , which is why I used simulations.
- 
 \end_layout
 
 \begin_layout Subsubsection*
-Simulation for effective 
-\change_deleted -666822487 1635964956
-velocity
-\change_inserted -666822487 1635964956
-speed
-\change_unchanged
-
+Simulation for effective speed
 \end_layout
 
 \begin_layout Standard
@@ -708,7 +620,7 @@ We ran 1000 simulations with random starting points, lasting 1000 time steps,
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\left\langle V\right\rangle =\frac{1}{\tau}\frac{U}{c}\sqrt{\left\langle \cos^{2}\left(ky(t+t')+\phi(t)\right)+\cos^{2}\left(kz(t+t')+\theta(t)\right)+\cos^{2}\left(kx(t+\tau)+\psi(t)\right)\right\rangle }
+\left\langle V\right\rangle =\frac{1}{\tau}\frac{U}{c}\sqrt{\left\langle \cos^{2}\left(ky'(t)+\phi(t)\right)+\cos^{2}\left(kz'(t)+\theta(t)\right)+\cos^{2}\left(kx(t+\tau)+\psi(t)\right)\right\rangle }
 \]
 
 \end_inset
@@ -726,15 +638,7 @@ When doing the simulations, we obtain
 \end_inset
 
  in 3D.
- If we want 
-\begin_inset Formula $U$
-\end_inset
-
-=
-\begin_inset Formula $V$
-\end_inset
-
-, we could therefore rewrite eq.
+ If we want c=1, we could therefore rewrite eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -745,24 +649,20 @@ noprefix "false"
 
 \end_inset
 
- as
-\change_inserted -666822487 1635965518
- (where 
+ as (where 
 \begin_inset Formula $V$
 \end_inset
 
- is derived as above from the Reynolds number)
-\change_unchanged
-:
+ is derived as above from the Reynolds number):
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{cases}
-x(t+\tau) & =x(t+t')+V\tau/1.19\cos\left(ky(t+t')+\phi(t)\right)\\
-y(t+\tau) & =y(t+t')+V\tau/1.19\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+V\tau/1.19\cos\left(kx(t+\tau)+\psi(t)\right)
+x(t+\tau) & =x'(t)+V\tau/1.19\cos\left(ky'(t)+\phi(t)\right)\\
+y(t+\tau) & =y'(t)+V\tau/1.19\cos\left(kz'(t)+\theta(t)\right)\\
+z(t+\tau) & =z'(t)+V\tau/1.19\cos\left(kx(t+\tau)+\psi(t)\right)
 \end{cases}
 \end{equation}
 
@@ -772,20 +672,10 @@ z(t+\tau) & =z(t+t')+V\tau/1.19\cos\left(kx(t+\tau)+\psi(t)\right)
 \end_layout
 
 \begin_layout Standard
-If we want to keep
-\change_inserted -666822487 1635965567
- the notation 
+If we want to keep the notation 
 \begin_inset Formula $\frac{U\tau}{2}$
 \end_inset
 
-
-\change_deleted -666822487 1635965563
- 
-\begin_inset Formula $c=2$
-\end_inset
-
- 
-\change_unchanged
 as in 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -794,19 +684,11 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -666822487 1635965574
  ( 
 \begin_inset Formula $c=2$
 \end_inset
 
-)
-\change_unchanged
-, this would mean, in 3D,
-\change_inserted -666822487 1635965584
- setting
-\change_unchanged
- 
+), this would mean, in 3D, setting 
 \family roman
 \series medium
 \shape up
@@ -823,18 +705,12 @@ literal "false"
 \begin_inset Formula $U/2\approx V/1.19$
 \end_inset
 
-
-\change_inserted -666822487 1635965703
  so that 
 \begin_inset Formula $U=1.68V$
 \end_inset
 
-
-\change_unchanged
 .
  
-\change_inserted -666822487 1635965573
-
 \begin_inset Newline newline
 \end_inset
 
@@ -842,8 +718,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -666822487 1635965726
 But it may well be that there is another reason why U is different from
  V.
  For instance, if we keep 
@@ -851,16 +725,10 @@ But it may well be that there is another reason why U is different from
 \end_inset
 
  we can define 
-\change_deleted -666822487 1635965064
-
-\backslash
-tau
-\change_inserted -666822487 1635965901
-
 \begin_inset Formula $U\tau$
 \end_inset
 
- as the maximal distance moved in one timestep.
+ as the maximum lateral displacement in one timestep.
  Thus 
 \begin_inset Formula $U$
 \end_inset
@@ -894,8 +762,6 @@ tau
 \end_inset
 
  for our 3D simulations.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -935,7 +801,6 @@ We have the probabilities
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Plain Layout
@@ -956,7 +821,11 @@ literal "false"
 \begin_inset Formula $\tau=\frac{10^{-2}}{U}\approx\frac{0.60}{V}\times10^{-2}$
 \end_inset
 
- s.
+ s if V is in m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
  [F: why did we do this btw? C: We fix 
 \begin_inset Formula $U\tau/2$
 \end_inset
@@ -1051,7 +920,6 @@ noprefix "false"
 \end_inset
 
 s (1 min).
- 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1074,7 +942,7 @@ noprefix "false"
 \begin_inset Formula $\tau\approx74$
 \end_inset
 
- s 
+ s
 \end_layout
 
 \begin_layout Plain Layout
