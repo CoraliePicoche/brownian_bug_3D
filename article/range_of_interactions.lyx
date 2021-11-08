@@ -94,7 +94,7 @@ About zones of interactions
 \end_layout
 
 \begin_layout Standard
-I call hereafter the 
+We consider the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -102,18 +102,19 @@ interaction volume
 \begin_inset Quotes erd
 \end_inset
 
+, i.e.
  the sphere surrounding a particle in which different processes can create
  direct or indirect interactions.
- Interaction volumes can have different radii (hereafter interaction radii)
- depending on the ecological or physical process at work.
+ Interaction volumes can have different radii depending on the ecological
+ or physical processes at work.
  
 \end_layout
 
 \begin_layout Standard
 Interactions can be categorised between direct interactions (mostly, competition
  for nutrient, but could be also due to allelopathy, for instance), and
- indirect interactions which could explain apparent interactions that could
- be found between individuals, including apparent facilitation.
+ indirect interactions, due, for example to predator-switching behaviours
+ leading to apparent facilitation.
 \end_layout
 
 \begin_layout Section*
@@ -131,11 +132,15 @@ Several numbers and scales quantify the effect of diffusion and turbulence,
 \end_layout
 
 \begin_layout Standard
-The Kolmogorov scale 
+The 
+\series bold
+Kolmogorov scale
+\series default
+ 
 \begin_inset Formula $\eta$
 \end_inset
 
- is the scale viscosity starts to dominate over turbulence.
+ is the scale at which viscosity starts to dominate over turbulence.
  In the ocean, it varies between 0.1 and 1cm 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -145,24 +150,28 @@ literal "false"
 \end_inset
 
 .
- We use 1 cm in our model, based on WY's personal communication.
+ We use 1 cm in our model, based on WY's personal communication6
 \end_layout
 
 \begin_layout Standard
-The Batchelor scale 
+The 
+\series bold
+Batchelor scale
+\series default
+ 
 \begin_inset Formula $\eta_{b}$
 \end_inset
 
  is the smallest size of a nutrient patch before being completely diffused.
  It varies between 
-\begin_inset Formula $2.5\times10^{-3}$
+\begin_inset Formula $25\times10^{-6}$
 \end_inset
 
- cm and 
-\begin_inset Formula $2.5\times10^{-2}$
+ m and 
+\begin_inset Formula $250\times10^{-6}$
 \end_inset
 
- cm 
+ m 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "barton_impact_2014"
@@ -175,7 +184,7 @@ literal "false"
 \begin_inset Formula $\max\left(\frac{\nu D_{m}^{2}}{\epsilon}\right)^{1/4}=180\times10^{-6}$
 \end_inset
 
- in 
+ m in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karp-boss_nutrient_1996"
@@ -187,7 +196,11 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The Reynolds number is the ratio of inertial to viscous form, i.e.
+The 
+\series bold
+Reynolds number
+\series default
+ is the ratio of inertial to viscous form, i.e.
  
 \end_layout
 
@@ -228,7 +241,11 @@ where
 \end_layout
 
 \begin_layout Standard
-The Péclet number is the ratio between advective transport rate 
+The 
+\series bold
+Péclet number
+\series default
+ is the ratio between advective transport rate 
 \begin_inset Note Note
 status open
 
@@ -309,8 +326,11 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The Sherwood number is the ratio between convective mass transfer rate and
- diffusion rate
+The 
+\series bold
+Sherwood number
+\series default
+ is the ratio between convective mass transfer rate and diffusion rate
 \begin_inset Note Note
 status open
 
@@ -324,6 +344,7 @@ Convection includes both advection and diffusion, as far as I understand.
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -381,7 +402,73 @@ We consider
 \begin_inset Formula $^{-1}$
 \end_inset
 
-, the average value between the different speed values we computed before.
+, the average value between the different speed values we computed before
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+NOTE
+\series default
+: 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+ define another way to compute the characteristic velocity in the ocean:
+ 
+\begin_inset Formula $U_{turb}=r_{0}\left(\frac{\epsilon}{\nu}\right)^{1/2}$
+\end_inset
+
+ (eq.
+ 46), where 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ is the radius of the particle and 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the turbulent kinetic energy dissipation rate, which varies between
+ 
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+ to 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+ In this case, we would have between 
+\begin_inset Formula $1.5\times10^{-6}$
+\end_inset
+
+ and 
+\begin_inset Formula $2.5\times10^{-5}$
+\end_inset
+
+m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+.
  We compute the Sherwood number in the next section.
 \end_layout
 
@@ -424,7 +511,7 @@ Direct interactions
 \end_layout
 
 \begin_layout Subsection*
-Nutrients
+Mechanistic
 \end_layout
 
 \begin_layout Standard
@@ -443,7 +530,28 @@ We can define zones of depletion around a particle as the volume in which
 \begin_inset Formula $C_{\infty}$
 \end_inset
 
- the background concentration of the nutrient.
+ the background concentration of the nutrient
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+While we consider here the uptake of nutrient, we can also consider the
+ output of compounds from a particle.
+ In this case, we will consider a threshold of 10%, the reasoning to compute
+ the boundary layer is the same 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "jumars_physical_1993"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
  Such sphere is also called the councentration boundary layer.
  Two processes affect the volume of the zone of depletion: diffusion, due
  to basic, homogeneous molecular diffusion, and turbulence.
@@ -464,6 +572,13 @@ Check if that has been really shown, or assumed, in corresponding refs in
  While we do not model sinking and motility in the current model, we can
  still consider the effect of ocean turbulence.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -533,8 +648,15 @@ m, concentrations should be above
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Hydrodynamics models have been built to predict the shape of the concentration
- boundaery layuer.
+ boundary layer.
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -574,425 +696,6 @@ where
 \end_layout
 
 \begin_layout Standard
-With a turbulent flow, the solution seems to be much more complicated (see
- Box).
- 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "karp-boss_nutrient_1996"
-literal "false"
-
-\end_inset
-
- only presents the increase in the Sherwood number, and I am not sure how
- to relate it to the concentration boundary layer.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Box ovalbox
-position "t"
-hor_pos "c"
-has_inner_box 1
-inner_pos "t"
-use_parbox 0
-use_makebox 0
-width "90col%"
-special "none"
-height "1in"
-height_special "totalheight"
-thickness "0.4pt"
-separation "10pt"
-shadowsize "4pt"
-framecolor "black"
-backgroundcolor "none"
-status open
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand citet
-key "karp-boss_nutrient_1996"
-literal "false"
-
-\end_inset
-
- only presents the increase in the Sherwood number, i.e.
- the ratio of the convective mass transfer to the diffusion rate, due to
- turbulence.
- The computation of the Sherwood number depends on the radius of the particle
- and on the Reynolds 
-\begin_inset Formula $Re$
-\end_inset
-
- and Peclet 
-\begin_inset Formula $Pe$
-\end_inset
-
- numbers.
- 
-\end_layout
-
-\begin_layout Plain Layout
-In the open ocean, for now, we estimate 
-\begin_inset Formula $V=10^{-4}$
-\end_inset
-
- m.s
-\begin_inset Formula $^{-1}$
-\end_inset
-
-, the Kolmogorov scale 
-\begin_inset Formula $\eta=10^{-2}$
-\end_inset
-
- m and the Batchelor scale 
-\begin_inset Formula $\eta_{b}=180\times10^{-6}=\left(\frac{\nu D_{m}^{2}}{\epsilon}\right)^{1/4}$
-\end_inset
-
-m (max value used in 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "karp-boss_nutrient_1996"
-literal "false"
-
-\end_inset
-
-, note that it reaches 250 
-\begin_inset Formula $\mu$
-\end_inset
-
-m in 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "barton_impact_2014"
-literal "false"
-
-\end_inset
-
-).
- The kinematic viscosity 
-\begin_inset Formula $\nu=10^{-6}$
-\end_inset
-
- m
-\begin_inset Formula $^{2}$
-\end_inset
-
-.s
-\begin_inset Formula $^{-1}$
-\end_inset
-
-, the molecular diffusion coefficient 
-\begin_inset Formula $D=1\times10^{-9}$
-\end_inset
-
-m
-\begin_inset Formula $^{2}$
-\end_inset
-
-.s
-\begin_inset Formula $^{-1}$
-\end_inset
-
- (in 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "karp-boss_nutrient_1996"
-literal "false"
-
-\end_inset
-
-, it is 
-\begin_inset Formula $0.5\times10^{-9}$
-\end_inset
-
-m
-\begin_inset Formula $^{2}$
-\end_inset
-
-.s
-\begin_inset Formula $^{-1}$
-\end_inset
-
- in 
-\begin_inset CommandInset citation
-LatexCommand citealt
-key "seymour_zooming_2017"
-literal "false"
-
-\end_inset
-
- for small molecules); and the kinetic energy dissipation rate 
-\begin_inset Formula $\epsilon$
-\end_inset
-
- is therefore around 10
-\begin_inset Formula $^{-9}$
-\end_inset
-
- m
-\begin_inset Formula $^{2}$
-\end_inset
-
-.s
-\begin_inset Formula $^{-3}$
-\end_inset
-
-.
- (if we use 
-\begin_inset Formula $\eta_{b}=250\mu m$
-\end_inset
-
- from 
-\begin_inset CommandInset citation
-LatexCommand citealt
-key "barton_impact_2014"
-literal "false"
-
-\end_inset
-
- and/or 
-\begin_inset Formula $D_{m}$
-\end_inset
-
- from 
-\begin_inset CommandInset citation
-LatexCommand citealt
-key "seymour_zooming_2017"
-literal "false"
-
-\end_inset
-
-), we have 
-\begin_inset Formula $\epsilon\approx10^{-10}$
-\end_inset
-
- m
-\begin_inset Formula $^{2}$
-\end_inset
-
-.s
-\begin_inset Formula $^{-3}$
-\end_inset
-
- which is too low).
- 
-\end_layout
-
-\begin_layout Plain Layout
-For nanophytoplankton particles, 
-\begin_inset Formula $r_{0}=1.5\times10^{-6}$
-\end_inset
-
- m
-\begin_inset Formula $<<\eta_{b}$
-\end_inset
-
-, 
-\begin_inset Formula $Re=\frac{VL_{c}}{\nu}=3\times10^{-6}\times10^{-4}/10^{-6}=3\times10^{-4}<<1$
-\end_inset
-
-, and 
-\begin_inset Formula $Pe=\frac{aV}{D_{m}}=1.5\times10^{-6}\times10^{-4}/10^{-9}=0.15.$
-\end_inset
-
- If we consider 
-\begin_inset Formula $Pe<<1$
-\end_inset
-
- (otherwise, no solution):
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ccc}
-Sh & = & 1+0.29Pe_{turb}^{1/2}\\
- & = & 1+0.29\left[\frac{r_{0}^{2}}{D}\left(\frac{\epsilon}{\nu}\right)^{1/2}\right]^{1/2}\\
- & = & 1.002
-\end{array}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-For microphytoplankton particles, 
-\begin_inset Formula $r_{0}=25\times10^{-6}$
-\end_inset
-
- m
-\begin_inset Formula $<<\eta_{b}$
-\end_inset
-
-, 
-\begin_inset Formula $Re=\frac{VL_{c}}{\nu}=50\times10^{-6}\times10^{-4}/10^{-6}=5\times10^{-3}<<1$
-\end_inset
-
-, and 
-\begin_inset Formula $Pe=\frac{aV}{D_{m}}=25\times10^{-6}\times10^{-4}/10^{-9}=2.5.$
-\end_inset
-
- If we consider 
-\begin_inset Formula $Pe>>1$
-\end_inset
-
- (otherwise, no solution)
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ccc}
-Sh & = & 0.55Pe_{turb}^{1/3}\\
- & = & 0.55\left[\frac{r_{0}^{2}}{D}\left(\frac{\epsilon}{\nu}\right)^{1/2}\right]^{1/3}\\
- & = & 0.15
-\end{array}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-As this does not make sense, we can assume that we were not in the right
- conditions to apply this formula.
- Therefore, the case 
-\begin_inset Formula $r_{0}=25\times10^{-6}$
-\end_inset
-
- m does not lead to a solution for 
-\begin_inset Formula $Sh$
-\end_inset
-
- according to 
-\begin_inset CommandInset citation
-LatexCommand citealt
-key "karp-boss_nutrient_1996"
-literal "false"
-
-\end_inset
-
-.
- The authors eventually conclude that for bacteria and small flagellates,
- the benefits of turbulence cannot really be perceived, while it is at least
- 50
-\begin_inset Formula $\%$
-\end_inset
-
- for particles at least 63
-\begin_inset Formula $\mu$
-\end_inset
-
-m diameter.
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\series bold
-NOTE
-\series default
-: 
-\begin_inset CommandInset citation
-LatexCommand citealt
-key "karp-boss_nutrient_1996"
-literal "false"
-
-\end_inset
-
- defines another way to compute the advection due to turbulence: 
-\begin_inset Formula $U_{turb}=r_{0}\left(\frac{\epsilon}{\nu}\right)^{1/2}$
-\end_inset
-
- (eq.
- 46).
- In this case, we would have between 
-\begin_inset Formula $1.5\times10^{-6}$
-\end_inset
-
- and 
-\begin_inset Formula $2.5\times10^{-5}$
-\end_inset
-
-m.s
-\begin_inset Formula $^{-1}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Problem is : how can we compute 
-\begin_inset Formula $C(r)$
-\end_inset
-
- based on the Sherwood number? Is it even possible?
-\end_layout
-
-\begin_layout Plain Layout
-In 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "musielak_nutrient_2009"
-literal "false"
-
-\end_inset
-
-,
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-Sh=\frac{-R\log\frac{R_{\infty}}{R}\int_{0}^{2\pi}\frac{dC}{dr}d\theta}{2\pi(C_{0}-C_{\infty})}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-where 
-\begin_inset Formula $R$
-\end_inset
-
- is the radius of the cell and 
-\begin_inset Formula $R_{\infty}$
-\end_inset
-
- is the radius for which 
-\begin_inset Formula $C=C_{\infty}$
-\end_inset
-
-.
- They do not solve the equation analytically.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A much, much more simple solution is to say that we fix the upper boundary
- for the depletion zone, i.e.
- the depletion boundary layer corresponds to 
-\begin_inset Formula $C(r)\leq90\%C_{\infty}$
-\end_inset
-
-, i.e.
- 
-\begin_inset Formula $r=10r_{0}$
-\end_inset
-
-.
- 
 \begin_inset VSpace defskip
 \end_inset
 
@@ -1000,7 +703,396 @@ A much, much more simple solution is to say that we fix the upper boundary
 \end_layout
 
 \begin_layout Standard
-In an individual-based model with diffusion and motile species able to aggregate
+With a turbulent flow, the solution is not as obvious.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+ only presents the increase in the Sherwood number
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I am not sure how to relate it to the concentration boundary layer, or more
+ specifically the depletion zone.
+\end_layout
+
+\end_inset
+
+, and it depends on the orders of magnitude of scales and characteristic
+ numbers of the system (computed above, and Table 4 in the cited paper).
+ They define an additional number, the turbulence Péclet number:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Pe_{turb}=\frac{r_{0}^{2}}{D_{m}}\left(\frac{\epsilon}{\nu}\right)^{1/2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\epsilon$
+\end_inset
+
+ is the turbulent kinetic energy dissipation rate, which varies between
+ 
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+ to 
+\begin_inset Formula $10^{-9}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, corresponding to 
+\begin_inset Formula $\eta_{b}=25\times10^{-6}$
+\end_inset
+
+ m or 
+\begin_inset Formula $\text{180\ensuremath{\times10^{-6}}}$
+\end_inset
+
+m, respectively.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us first assume the lowest 
+\begin_inset Formula $\epsilon=10^{-9}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For nanophytoplankton particles, 
+\begin_inset Formula $Re<<1$
+\end_inset
+
+, 
+\begin_inset Formula $r_{0}<\eta_{b},$
+\end_inset
+
+ 
+\begin_inset Formula $Pe<1$
+\end_inset
+
+.
+ We should note that 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ is about 100 times smaller than the largest 
+\begin_inset Formula $\eta_{b}$
+\end_inset
+
+ and 
+\begin_inset Formula $Pe$
+\end_inset
+
+ is about 10 smaller than 1.
+ If we use the rules indicated in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+, there is no exact solution but a solution can be interpolated:
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Table 4 and legend of Fig.
+ 6.
+ Note that they use 
+\begin_inset Formula $Pe$
+\end_inset
+
+ instead of 
+\begin_inset Formula $Pe_{turb}$
+\end_inset
+
+ in the legend of K-B but draw 
+\begin_inset Formula $Sh=f(Pe_{turb})$
+\end_inset
+
+; and in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "williams2008phytoplankton"
+literal "false"
+
+\end_inset
+
+ but they also use 
+\begin_inset Formula $Pe$
+\end_inset
+
+ instead of 
+\begin_inset Formula $Pe_{turb}$
+\end_inset
+
+ in the other fomula, so I am sticking to 
+\begin_inset Formula $Pe_{turb}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Sh & = & 1.014+0.15Pe_{turb}^{1/2}\\
+ & = & 1.014+0.15\left[\frac{r_{0}^{2}}{D_{m}}\left(\frac{\epsilon}{\nu}\right)^{1/2}\right]^{1/2}\\
+ & = & 1.014+0.15\left[\frac{(1.5\times10^{-6})^{2}}{10^{-9}}\left(\frac{10^{-9}}{10^{-6}}\right)^{1/2}\right]^{1/2}\\
+ & \approx & 1.01
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is no increase in nutrient uptake, or decrease in the zone of depletion
+ for nanophytoplanktonic particles.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For diatoms, 
+\begin_inset Formula $Re<<1$
+\end_inset
+
+, 
+\begin_inset Formula $r_{0}<\eta_{b}$
+\end_inset
+
+, 
+\begin_inset Formula $Pe>1$
+\end_inset
+
+ (with 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ only one order of magnitude lower than of 
+\begin_inset Formula $\eta_{b}$
+\end_inset
+
+ and Pe of the same order of magnitude as 1) there is no exact solution
+ but a solution can be interpolated:
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Sh & = & 1.014+0.15Pe_{turb}^{1/2}\\
+ & = & 1.014+0.15\left[\frac{r_{0}^{2}}{D_{m}}\left(\frac{\epsilon}{\nu}\right)^{1/2}\right]^{1/2}\\
+ & = & 1.014+0.15\left[\frac{(25\times10^{-6})^{2}}{10^{-9}}\left(\frac{10^{-9}}{10^{-6}}\right)^{1/2}\right]^{1/2}\\
+ & \approx & 1.03
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is no increase in nutrient uptake, or decrease in the zone of depletion
+ for microphytoplankton of this size
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+What about using larger microphytoplanktonic particles?
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us now assume the highest 
+\begin_inset Formula $\epsilon=10^{-6}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+If we assume the maximum value of the Batchelor scale (
+\begin_inset Formula $25\mu$
+\end_inset
+
+m), 
+\begin_inset Formula $\epsilon=10^{-6}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For nanophytoplankton, 
+\begin_inset Formula $Sh\approx1.01$
+\end_inset
+
+.
+ For microphytoplankton, 
+\begin_inset Formula $Sh\approx1.11$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A much, much more simple solution is to say that we fix the largest possible
+ range of interactions corresponding to a diffusion-only depletion boundary
+ layer.
+ With 
+\begin_inset Formula $C(r)\leq90\%C_{\infty}$
+\end_inset
+
+, 
+\begin_inset Formula $r=10r_{0}$
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "jumars_physical_1993"
+literal "false"
+
+\end_inset
+
+.
+ This would mean 
+\begin_inset Formula $15\mu$
+\end_inset
+
+m for nanophytoplankton and 250
+\begin_inset Formula $\mu$
+\end_inset
+
+m for diatoms.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+We can also only look at Fig.
+ 1 in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+ and see the effect of a shear flow on the size of the concentration boundary
+ layer: it is reduced to 26% of its original size for the lowest dimension,
+ and 83% of its original size for the highest dimension (the depletion zone
+ is now an ellipse, not a sphere).
+ However, note that it is a steady shear flow, not a turbulent flow.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Phenomenologic
+\end_layout
+
+\begin_layout Standard
+In an individual-based model with diffusion, motile species able to aggregate
  voluntarily, and phenomenological interactions (no explicit modeling of
  nutrients), the maximum radius of the competition zone for particles of
  radius 5
@@ -1011,7 +1103,11 @@ m is 200
 \begin_inset Formula $\mu$
 \end_inset
 
-m 
+m, with a kernel of width 
+\begin_inset Formula $60\mu m$
+\end_inset
+
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bouderbala_3d_2018"
@@ -1019,7 +1115,7 @@ literal "false"
 
 \end_inset
 
-, or between 60
+; or between 60
 \begin_inset Formula $\mu$
 \end_inset
 
@@ -1027,7 +1123,14 @@ m (competition) and 90
 \begin_inset Formula $\mu$
 \end_inset
 
-m (cooperation) when also considering indirect interactions due to predators
+m (cooperation), with kernels 
+\begin_inset Formula $20\mu$
+\end_inset
+
+m-
+\begin_inset Formula $30\mu m$
+\end_inset
+
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1040,46 +1143,107 @@ literal "false"
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We may want to use 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "breier_emergence_2018"
+literal "false"
+
+\end_inset
+
+: their interaction range is their unit of length 
+\begin_inset Formula $l_{i}$
+\end_inset
+
+, with the size of their space 
+\begin_inset Formula $L=(124−374)l_{i}$
+\end_inset
+
+ , with a particle diameter 
+\begin_inset Formula $\sigma=0.0168$
+\end_inset
+
+(i.e.
+ interaction radius=60
+\begin_inset Formula $\times$
+\end_inset
+
+particle diameter), but needs to be checked.
+\end_layout
+
 \begin_layout Section*
 Indirect interactions
 \end_layout
 
 \begin_layout Standard
-\begin_inset Quotes eld
-\end_inset
+Indirect interactions can happen when predators or parasites/commensalists/facil
+itators can have a density-dependent effect.
+\end_layout
 
-The action of cell-surface-associated bacterial pro- tease and glucosidase
- on diatom surfaces might reduce diatom ‘stickiness’ and the aggregation
- potential.
- This enzymatic ‘pruning’ of the diatom mucus would require microscale interacti
-ons between diatoms and bacteria; a high concentration of bacteria in the
- phycosphere would probably increase the rate of this process
-\begin_inset Quotes erd
-\end_inset
-
- (Azam et Mafetti, 2007)
+\begin_layout Subsection*
+Phycosphere
 \end_layout
 
 \begin_layout Standard
-Indirect interactions can happen when predators or parasites/commensalists/facil
-itators (rephrase) can have a density-dependent effect.
-\end_layout
-
-\begin_layout Itemize
-Commensalism through bacteria 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-I first thought that interactions may appear through phycosphere overlap,
- but did not see it mentioned anywhere in the literature.
- I guess we can forget about this hypothesis.
-\end_layout
+The phycosphere is the microenvironment surrounding a particle of phytoplankton
+ in which communities of bacteria exchange with the particle.
+ The phycosphere has many potential effects on the particle, including competiti
+on for nutrients but also bacteria providing nutrients via remineralization,
+ or vitamins synthesis, etc.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "seymour_zooming_2017"
+literal "false"
 
 \end_inset
 
 .
- We can define the size of the phycosphere based on the formula by 
+ There is no
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+...
+ I could not find
+\end_layout
+
+\end_inset
+
+ literature on the effect of potential indirect interactions via phycosphere
+ overlap between particles
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+So we actually might want to overlook that...
+\end_layout
+
+\end_inset
+
+, but bacteria can also impact the aggregation potential of the particle
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "azam_microbial_2007"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+We can define the size of the phycosphere based on the formula by 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "jackson_simulating_1987"
@@ -1095,7 +1259,8 @@ literal "false"
 
 \end_inset
 
-, values in this paper are indicated in parenthesis below):
+, values in this paper are indicated in parenthesis below), which assumes
+ diffusion only:
 \end_layout
 
 \begin_layout Standard
@@ -1142,7 +1307,7 @@ where
 \begin_inset Formula $^{-1})$
 \end_inset
 
- in, 
+, 
 \begin_inset Formula $f$
 \end_inset
 
@@ -1181,7 +1346,47 @@ m
 \end_layout
 
 \begin_layout Standard
-NOTE: I am currently unable to find back 
+Using a diatom of diameter 50
+\begin_inset Formula $\mu$
+\end_inset
+
+m, we can try and find back the radius of the phycosphere computed in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "seymour_zooming_2017"
+literal "false"
+
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $r_{p}=1200\mu m$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+r_{p} & = & \frac{1.67\times10^{-4}\times(25\times10^{-4})^{2.28}}{6}\frac{0.05}{3600\times24\times4\pi\times0.5\times10^{-9}\times10\times10^{-9}\times0.5}\\
+ & = & 0.6\text{m [!!!!!]}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+NOTE
+\series default
+: I am currently unable to find back 
 \begin_inset Formula $r_{p}=1200\mu$
 \end_inset
 
@@ -1203,6 +1408,13 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Assuming 
 \begin_inset Formula $r_{d,p}=1200\mu$
 \end_inset
@@ -1211,32 +1423,137 @@ m for
 \begin_inset Formula $a=25\mu$
 \end_inset
 
-m, and as 
+m, and 
 \begin_inset Formula $r_{p}$
 \end_inset
 
- increases linearly with 
+ increasing linearly with 
 \begin_inset Formula $\mu$
 \end_inset
 
- and with power 2.26 for a, 
-\begin_inset Formula $r_{n,p}=r_{d,p}\times2.5\times\left(\frac{a_{n}}{a_{d}}\right)^{2.28}=1200\times10^{-6}\times2.5\times\left(\frac{1.5}{25}\right)^{2.28}=4\mu$
+ and with power 2.28 for a, 
+\begin_inset Formula $r_{n,p}=r_{d,p}\times2.5\times\left(\frac{a_{n}}{a_{d}}\right)^{2.28}=1200\times10^{-6}\times2.5\times\left(\frac{1.5}{25}\right)^{2.28}=5\mu$
 \end_inset
 
 m.
+ If we want to consider a phycosphere of radius 
+\begin_inset Formula $r_{10}$
+\end_inset
+
+ such that 
+\begin_inset Formula $C(r_{10})=10\%C_{0}$
+\end_inset
+
+, we can basically multiply by 0.1/0.5.
+ 
 \end_layout
 
-\begin_layout Itemize
-Indirect interaction through predation: let's here find the distance at
- which a predator can 
-\begin_inset Quotes eld
+\begin_layout Subsection*
+Predation
+\end_layout
+
+\begin_layout Standard
+According to 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "visser_hydromechanical_2001"
+literal "false"
+
 \end_inset
 
-smell
-\begin_inset Quotes erd
+, the detection range of a predator generating its feeding current to detect
+ an inert particle is
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+There is also a formula for passive sinking particle, should we use this
+ one instead?
+\end_layout
+
 \end_inset
 
- a particle.
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+R\approx\frac{a}{2}\left(1+\left(1+2\left(\frac{15b^{3}U}{a^{3}s}\right)^{1/2}\right)^{1/2}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $a$
+\end_inset
+
+ is the equivalent radius of the predator (in their example, 0.5mm), 
+\begin_inset Formula $b$
+\end_inset
+
+ is the radius of the particle, 
+\begin_inset Formula $U$
+\end_inset
+
+ is feeding current generated by the predator (
+\begin_inset Formula $10^{-2}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}),$
+\end_inset
+
+
+\begin_inset Formula $s$
+\end_inset
+
+ is the threshold detection velocity of the predator, i.e.
+ the sensitivity to perturbation of the flow due to the particle (
+\begin_inset Formula $2\times10^{-5}$
+\end_inset
+
+m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+).
+ For 
+\begin_inset Formula $b=25\mu$
+\end_inset
+
+m, R=0.67 mm.
+ For 
+\begin_inset Formula $b=1.5\mu$
+\end_inset
+
+m, R=0.50mm.
+\end_layout
+
+\begin_layout Standard
+It is very likely that aggregation, while partially protecting the organisms
+ from predation (XXX), also increases the detection range for the predator.
+ 
+\end_layout
+
+\begin_layout Standard
+However, I do not really see how to use that in our model.
+\end_layout
+
+\begin_layout Section*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+I suggest that we consider the most basic measure 
+\begin_inset Formula $r=10r_{0}$
+\end_inset
+
+.
  
 \end_layout
 
