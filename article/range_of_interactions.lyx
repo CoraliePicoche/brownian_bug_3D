@@ -11,6 +11,7 @@
 \usepackage{lineno}
 \usepackage{authblk}
 \date{}
+\author{C. Picoche}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -104,20 +105,333 @@ interaction volume
  the sphere surrounding a particle in which different processes can create
  direct or indirect interactions.
  Interaction volumes can have different radii (hereafter interaction radii)
- depending on the ecological or physical process behind it.
+ depending on the ecological or physical process at work.
  
 \end_layout
 
+\begin_layout Standard
+Interactions can be categorised between direct interactions (mostly, competition
+ for nutrient, but could be also due to allelopathy, for instance), and
+ indirect interactions which could explain apparent interactions that could
+ be found between individuals, including apparent facilitation.
+\end_layout
+
 \begin_layout Section*
-Direct interaction
+Relevant numbers
+\end_layout
+
+\begin_layout Subsection*
+Definitions
 \end_layout
 
 \begin_layout Standard
-The most obvious interaction between primary producers is competition for
- nutrient.
- We can define zones of depletion around a particle as the volume in which
- the nutrient concentration is decreased by the particle uptake (for instance,
- the volume of radius 
+Several numbers and scales quantify the effect of diffusion and turbulence,
+ and need to be defined before going further.
+ 
+\end_layout
+
+\begin_layout Standard
+The Kolmogorov scale 
+\begin_inset Formula $\eta$
+\end_inset
+
+ is the scale viscosity starts to dominate over turbulence.
+ In the ocean, it varies between 0.1 and 1cm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barton_impact_2014"
+literal "false"
+
+\end_inset
+
+.
+ We use 1 cm in our model, based on WY's personal communication.
+\end_layout
+
+\begin_layout Standard
+The Batchelor scale 
+\begin_inset Formula $\eta_{b}$
+\end_inset
+
+ is the smallest size of a nutrient patch before being completely diffused.
+ It varies between 
+\begin_inset Formula $2.5\times10^{-3}$
+\end_inset
+
+ cm and 
+\begin_inset Formula $2.5\times10^{-2}$
+\end_inset
+
+ cm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barton_impact_2014"
+literal "false"
+
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\max\left(\frac{\nu D_{m}^{2}}{\epsilon}\right)^{1/4}=180\times10^{-6}$
+\end_inset
+
+ in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The Reynolds number is the ratio of inertial to viscous form, i.e.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Re=\frac{VL_{c}}{\nu}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $V$
+\end_inset
+
+ is the speed, 
+\begin_inset Formula $L_{c}$
+\end_inset
+
+ is the characteristic length and 
+\begin_inset Formula $\grave{\nu=10^{-6}}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ is the kinematic viscosity of the environment.
+ 
+\end_layout
+
+\begin_layout Standard
+The Péclet number is the ratio between advective transport rate 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Or forced convection, depending on the wikipedia language...
+ check that in real book!!
+\end_layout
+
+\end_inset
+
+ and diffusive transport rate, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Pe=\frac{r_{0}V}{D_{m}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ is the radius of the organism (the formula is sometimes used similarly,
+ but with 
+\begin_inset Formula $L_{c}$
+\end_inset
+
+ -the diameter?- instead of the radius, but we take here the formula in
+ 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+) and 
+\begin_inset Formula $D_{m}=10^{-9}$
+\end_inset
+
+m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ is the molecular diffusivity for small molecules (it is 
+\begin_inset Formula $0.5\times10^{-9}$
+\end_inset
+
+m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ in 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "seymour_zooming_2017"
+literal "false"
+
+\end_inset
+
+ for small molecules).
+ 
+\end_layout
+
+\begin_layout Standard
+The Sherwood number is the ratio between convective mass transfer rate and
+ diffusion rate
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Convection includes both advection and diffusion, as far as I understand.
+\end_layout
+
+\end_inset
+
+, i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Sh & = & \frac{Q}{Q_{D}}\\
+ & = & \frac{-D_{m}\int_{A}\mathbb{\mathbf{n}}\nabla CdA}{4\pi r_{0}D_{m}(C_{\infty}-C_{0})}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $Q$
+\end_inset
+
+ is the total flux of nutrients arriving to the cell surface in the presence
+ of fluid motion, and 
+\begin_inset Formula $Q_{D}$
+\end_inset
+
+ is the purely diffusional flux; 
+\begin_inset Formula $\mathbf{n}$
+\end_inset
+
+ is an inward unit vector normal to the cell surface, and 
+\begin_inset Formula $A$
+\end_inset
+
+ is the cell surface.
+ The Sherwood number can be computed based on the Péclet number 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "see below,"
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection*
+Application for modeled particles
+\end_layout
+
+\begin_layout Standard
+We consider 
+\begin_inset Formula $V=10^{-4}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+, the average value between the different speed values we computed before.
+ We compute the Sherwood number in the next section.
+\end_layout
+
+\begin_layout Standard
+For nanophytoplankton particles, the radius is 
+\begin_inset Formula $1.5\times10^{-6}$
+\end_inset
+
+ m.
+ 
+\begin_inset Formula $Re=3\times10^{-4}$
+\end_inset
+
+ ; 
+\begin_inset Formula $Pe=0.15$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For diatoms of radius 
+\begin_inset Formula $25\times10^{-6}$
+\end_inset
+
+ m, 
+\begin_inset Formula $Re=5\times10^{-3}$
+\end_inset
+
+ ; 
+\begin_inset Formula $Pe=2.5$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Direct interactions
+\end_layout
+
+\begin_layout Subsection*
+Nutrients
+\end_layout
+
+\begin_layout Standard
+We can define zones of depletion around a particle as the volume in which
+ the nutrient concentration is decreased by the particle uptake.
+ A usual threshold is the 90% concentration decrease corresponding to a
+ sphere of radius 
 \begin_inset Formula $r$
 \end_inset
 
@@ -129,9 +443,51 @@ The most obvious interaction between primary producers is competition for
 \begin_inset Formula $C_{\infty}$
 \end_inset
 
- the background concentration of the nutrient).
- The impact of such zone of depletion on other particles has been discussed
- : in 
+ the background concentration of the nutrient.
+ Such sphere is also called the councentration boundary layer.
+ Two processes affect the volume of the zone of depletion: diffusion, due
+ to basic, homogeneous molecular diffusion, and turbulence.
+ Turbulence has been shown to decrease the size of the depletion zone and
+ to cause an increase in the nutrient flux to the cell (Arnott et al.
+ 2021
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Check if that has been really shown, or assumed, in corresponding refs in
+ Arnott
+\end_layout
+
+\end_inset
+
+).
+ While we do not model sinking and motility in the current model, we can
+ still consider the effect of ocean turbulence.
+ 
+\end_layout
+
+\begin_layout Standard
+We have to keep in mind that such impact of the zone of depletion on the
+ competition has been debated in the literature 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I do not have time right now for a review of the literature, but have a
+ look ar Arnott 2021, Prairie and references within, i.e; Estrada et al.
+ 1987, Arin et al.
+ 2002, Iversen et al.
+ 2010, Guadayol et al.
+ 2009 + others
+\end_layout
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "hulburt_competition_1970"
@@ -140,9 +496,14 @@ literal "false"
 \end_inset
 
 , the author considers that there is no possible direct interaction through
- depletion zones, but the model, while taking into account both diffusion
- and sinking, assumed a homogeneous distribution of particles.
- The model built in 
+ depletion zones.
+ However, his model, while taking into account both diffusion and sinking,
+ assumed a homogeneous distribution of particles.
+ 
+\end_layout
+
+\begin_layout Itemize
+The model built in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "siegel_resource_1998"
@@ -172,6 +533,9 @@ m, concentrations should be above
 \end_layout
 
 \begin_layout Standard
+Hydrodynamics models have been built to predict the shape of the concentration
+ boundaery layuer.
+ 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "karp-boss_nutrient_1996"
@@ -200,8 +564,8 @@ where
 \begin_inset Formula $C(0)$
 \end_inset
 
- is the concentration at the surface of the cell, assumed to be 0 (uptake
- is instantaneous), and 
+ is the concentration at the surface of the cell, assumed to be 0 (as a
+ proxy, uptake is instantaneous), and 
 \begin_inset Formula $r_{0}$
 \end_inset
 
@@ -210,8 +574,19 @@ where
 \end_layout
 
 \begin_layout Standard
-In a turbulent flow, the nutrient flux is increased, also increasing the
- uptake of the nutrient and decreasing the size of the depleted zone.
+With a turbulent flow, the solution seems to be much more complicated (see
+ Box).
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+ only presents the increase in the Sherwood number, and I am not sure how
+ to relate it to the concentration boundary layer.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -667,6 +1042,22 @@ literal "false"
 
 \begin_layout Section*
 Indirect interactions
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+The action of cell-surface-associated bacterial pro- tease and glucosidase
+ on diatom surfaces might reduce diatom ‘stickiness’ and the aggregation
+ potential.
+ This enzymatic ‘pruning’ of the diatom mucus would require microscale interacti
+ons between diatoms and bacteria; a high concentration of bacteria in the
+ phycosphere would probably increase the rate of this process
+\begin_inset Quotes erd
+\end_inset
+
+ (Azam et Mafetti, 2007)
 \end_layout
 
 \begin_layout Standard
