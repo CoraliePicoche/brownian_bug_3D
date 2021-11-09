@@ -463,7 +463,48 @@ m.s
 \begin_inset Formula $^{-1}$
 \end_inset
 
+.
+ 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "arnott_artificially_2021"
+literal "false"
 
+\end_inset
+
+ (in a review on artificial turbulence) says 
+\begin_inset Formula $10^{-5}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in the ocean surface mixed layer, which corresponds to tidal front in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "barton_impact_2014"
+literal "false"
+
+\end_inset
+
+ (who cite 
+\begin_inset Formula $10^{-7}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ as the typical value in the surface ocean.
 \end_layout
 
 \end_inset
@@ -582,17 +623,19 @@ Check if that has been really shown, or assumed, in corresponding refs in
 \end_layout
 
 \begin_layout Standard
-We have to keep in mind that such impact of the zone of depletion on the
- competition has been debated in the literature 
+We have to keep in mind that such interactions via depletion zone/uptake
+ zone overlap has been debated in the literature 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
 I do not have time right now for a review of the literature, but have a
  look ar Arnott 2021, Prairie and references within, i.e; Estrada et al.
- 1987, Arin et al.
- 2002, Iversen et al.
- 2010, Guadayol et al.
+ 1987 (experiment: turbulence increases growth rates, nutrient are then
+ depleted, then changes in community composition), Arin et al.
+ 2002 (experiment: effects of turbulence are noticeable when nutrients are
+ added), Iversen et al.
+ 2010 (same as Arin), Guadayol et al.
  2009 + others
 \end_layout
 
