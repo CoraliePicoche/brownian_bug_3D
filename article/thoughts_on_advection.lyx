@@ -615,7 +615,7 @@ where
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1636452036
+\change_inserted -2100369821 1636541191
 The value of the turbulent kinetic energy dissipation rate is highly variable,
  covering several orders of magnitude.
  According to 
@@ -654,7 +654,7 @@ literal "false"
 \begin_inset Formula $^{-3}$
 \end_inset
 
- in the surface pcea,.
+ in the surface ocean.
  According to 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -728,7 +728,7 @@ literal "false"
 \begin_layout Standard
 \paragraph_spacing onehalf
 
-\change_inserted -2100369821 1636452939
+\change_inserted -2100369821 1636541132
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -741,6 +741,13 @@ literal "false"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636541153
+This value is therefore at the lowest range of the turbulent kinetic energy
+ dissipation rate.
 \end_layout
 
 \begin_layout Standard
@@ -1293,6 +1300,128 @@ noprefix "false"
 \end_inset
 
 
+\change_inserted -2100369821 1636539096
+
+\end_layout
+
+\begin_layout Section
+
+\change_inserted -2100369821 1636539237
+Confusion between reference frames
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636539449
+There are two types of particles here, corresponding to two reference frames,
+ and I think we have been doing it wrong:
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -2100369821 1636540019
+we model a 
+\begin_inset Quotes eld
+\end_inset
+
+particle of water
+\begin_inset Quotes erd
+\end_inset
+
+ of 1cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+ (or an aggregation of such particles), which we will call a volume of water
+ hereafter in order to avoid any confusion.
+ The size of this volume of water corresponds to the size of the smallest
+ possible eddy, istelf enclosed inside larger eddies.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\change_inserted -2100369821 1636539850
+we model a phytoplankton particle within the volume of water.
+ This is the phytoplankton particle whose speed we want to look at.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636540038
+Applying the Reynolds number to the volume of water as we do in Section
+ S1 only tells us the speed of the volume (most likely in the largest eddy's
+ reference frame not in the terrestrial reference frame, but I am not completely
+ positive about it).
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636541424
+However, 
+\begin_inset Formula $U$
+\end_inset
+
+ is actually the speed of the particle within the particle of water.
+ In this case, we only want the difference of speeds between the speed of
+ the volume and the speed of the particle.
+ As written in Kiorboe (2008), 
+\begin_inset Quotes eld
+\end_inset
+
+a solid body in a velocity gradient cannot travel with the same velocity
+ as the ambient fluid, it will experience a velocity difference [in much
+ the same way as a swimming or sinking plankter]
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The corresponding velocity difference can be computed as follow
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636540965
+\begin_inset Formula 
+\begin{equation}
+U_{turb}=\gamma r_{0}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the shear rate.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636540980
+According to Karp-Boss (1996), in a turbulent flow, this means
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636541081
+\begin_inset Formula 
+\begin{equation}
+U_{turb}\equiv r_{0}\left(\frac{\epsilon}{\nu}\right)^{1/2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1636541177
+We can then get back to Section S2 to get the speed of the particles.
 \end_layout
 
 \begin_layout Standard
