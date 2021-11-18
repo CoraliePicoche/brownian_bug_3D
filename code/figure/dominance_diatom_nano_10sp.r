@@ -41,16 +41,18 @@ par(mfrow=c(1,2))
 #Using the delta=10^-5
 #Diatom
 sim_diatom=list(41:44) #10 Species
-lim_min_diatom=5*10^(-3)
-lim_max_diatom=2.4*10^(-1)
+#lim_min_diatom=5*10^(-3)
+#lim_max_diatom=2.4*10^(-1)
+lim_max_diatom=25*10^(-4)*10
 
 #Nano
 sim_nano=list(45:48) #10 species
-lim_min_nano=3*10^(-4)
-lim_max_nano=10^(-3)
+#lim_min_nano=3*10^(-4)
+#lim_max_nano=10^(-3)
+lim_max_nano=1.5*10^(-4)*10
 
 tot_sim=list(sim_diatom,sim_nano)
-tot_min=list(lim_min_diatom,lim_min_nano)
+#tot_min=list(lim_min_diatom,lim_min_nano)
 tot_max=list(lim_max_diatom,lim_max_nano)
 
 for(type in 1:length(tot_sim)){
@@ -111,7 +113,7 @@ for(type in 1:length(tot_sim)){
 		}
 	}
 
-	abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=2,col=c("green","darkblue")[type],lwd=3)
+	abline(v=c(tot_max[[type]][[1]]),lty=2,col=c("green","darkblue")[type],lwd=3)
 } #end loop on 
 
 dev.off()

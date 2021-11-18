@@ -32,15 +32,17 @@ f=read.table("../simulation/Spatial_distribution_51.txt",header=F,sep=";",dec='.
 colnames(f)=c("t","x","y","z","yfirst","first_parent","species")
 unique_sp=unique(f$species)
 nb_sp=length(unique_sp)
-spl=scatterplot3d(0,0,0,type="n",xlim=c(0,(100)^(1/3)),ylim=c(0,100^(1/3)),zlim=c(0,100^(1/3)),xlab="x",ylab="y",zlab="z",main="Nano")
+spl=scatterplot3d(0,0,0,type="n",xlim=c(0,2.),ylim=c(0,2.),zlim=c(0,2.),xlab="x",ylab="y",zlab="z",main="Nano")
 for (s in 1:nb_sp){
         ftmp=subset(f,species==unique_sp[s])
         
         x=ftmp$x
         y=ftmp$y
         z=ftmp$z
-        
-        spl$points3d(x, y, z, col=palette[s],pch=16,cex=0.5)
+
+	id=which(x<=2&y<=2&z<=2)
+
+        spl$points3d(x[id], y[id], z[id], col=palette[s],pch=16,cex=0.5)
 }
 
 

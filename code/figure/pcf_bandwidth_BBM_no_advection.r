@@ -1,6 +1,8 @@
 rm(list=ls())
 graphics.off()
 
+library(pracma)
+
 ############################### Utilitary functions
 
 #Ticks for log scale from https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
@@ -35,26 +37,23 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 #####################################
 
-colo=c("red","blue","grey","orange","violet")
+#colo=c("red","blue","grey","orange","violet")
+colo=c("darkorchid","green","grey","orange")
+t_pch=c(1,4)
 
-pdf("dominance_BBM_nano.pdf")
+pdf("bandwidth_BBM_no_advection.pdf")
 par(mar=c(4,4,1,1))
 
-#sim=list(21:24,25:28,29:32,33:36) #Diatom
-#lim_min=5*10^(-3)
-####lim_max=2.5*10^(-1) Previously, only looking at phycosphere
-#lim_max=25*10^(-4)*10 #10 radii
-sim=list(37:40) #Nano
-#lim_min=3*10^(-4)
-### lim_max=10^(-2) Previously, only looking at phycosphere. Pretty sure it was wrong.
-lim_max=1.5*10^(-4)*10 #10 radii
+sim=list(60:63,64:67) #Diatoms, nano Delta=10^(-5)
+lim_max=list(25*10^(-4)*10,1.5*10^(-4)*10)
 s1=1
 legend_m=c()
 
-plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(0.3,1))
+plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(1,2*10^7))
 axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
-axis(2,tcl=0.5,cex.axis=1.5) # left
+axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
+axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
 box()
 f_param_tot=matrix(,0,2)
 colnames(f_param_tot)=c("name","value") #We initialize this one before the loop to have *all* values of parameters so that we can check they are all the same across the simulations
@@ -87,17 +86,10 @@ for (s in 1:length(sim)){
 	} #end loop on nb_simu
 	delta_val=unique(f_param[f_param$name=="delta","value"])
 	print(delta_val)
-        if(s==1){
-                m=paste(expression(delta),"=", delta_val, " spatstat",sep="")
-        }else{
-                m=paste(expression(delta), "=",delta_val,sep="")
-        }
-	legend_m=c(legend_m,m)
 
 	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
 
-	points(f_plot$r,f_plot$dominance,lty=1,col=colo[s])
-	lines(f_plot$r,f_plot$dominance,lty=1,col=colo[s])
+	points(f_plot$r,f_plot$pcf,lty=1,col=colo[s],pch=t_pch[s])
 } #end loop on series of simulations
 
 
@@ -108,39 +100,32 @@ if(length(unique(U_tot))>1){
 U_tot=unique(U_tot)
 
 volume=f_param_tot[f_param_tot$name=="volume","value"]
-if(length(unique(volume))>1){
-	stop("volume were different")
-}
 volume=unique(volume)
 
 Delta=f_param_tot[f_param_tot$name=="Delta","value"]
-if(length(unique(Delta))>1){
-	stop("Delta were different")
-}
 Delta=unique(Delta)
 	
 lambda=f_param_tot[f_param_tot$name=="growth_rate","value"]
-if(length(unique(lambda))>1){
-	stop("lambda were different")
-}
 lambda=unique(lambda)
 
+T_max=f_param_tot[f_param_tot$name=="tmax","value"]
+T_max=unique(T_max)
+
 nb_indiv=f_count_tot$abundance[f_count_tot$species==unique_sp[s1]]
-if(length(unique(nb_indiv))>1){
-	stop("nb indiv were different")
-}
 nb_indiv=unique(nb_indiv)
 conc=nb_indiv/volume
 
-if(U_tot==0.5){
-	gamma=0.5
-}else{
-	stop("You don't have the right gamma")
+if(U_tot==0){
+gamma=0.0
 }
 
-legend("bottomleft",legend_m,lty=1,col=colo,bty="n",lwd=2)
+for(s in 1:length(sim)){
+th_bbm=G_theoretical(gamma,unique(f_tot$r),lambda[s],Delta[s],conc[s],Tmax=T_max*0.0002)
+lines(unique(f_tot$r),th_bbm,lty=2,lwd=2)
+###th_bbm=G_theoretical(0.5,unique(f_tot$r),lambda[s],Delta[s],conc[s],Tmax=T_max*0.0002)
+###lines(unique(f_tot$r),th_bbm,lty=2,lwd=2,col="red")
+}
 
-#####abline(v=c(lim_min,lim_max),lty=3)
 abline(v=c(lim_max),lty=3)
-
+legend("topright",c("Micro","Nano","Theory"),col=c(colo[1:2],"black"),pch=c(t_pch,NA),lty=c(NA,NA,2),lwd=2,bty="n",cex=1.5)
 dev.off()

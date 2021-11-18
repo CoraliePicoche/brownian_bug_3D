@@ -16,7 +16,7 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=51;
+extern const int num_simu=62;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
@@ -27,19 +27,20 @@ extern const int tmax=1000; //length of the simulation. Tmax is negative if we o
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.0002; //in day
-extern const double Utot=0.5; //advection, corresponds to U\tau/2
+//extern const double Utot=0.5; //advection, corresponds to U\tau/2
+extern const double Utot=0.0; //advection, corresponds to U\tau/2
 
 //Define variables to compute diffusivity
 double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
 double factor=pow(R*T/(Na*3*pi*eta),0.5);
 
 //Diatoms
-//extern const double radius=25*pow(10,-6);
-//extern const double growth_rate=1; //in day^-1
+extern const double radius=25*pow(10,-6);
+extern const double growth_rate=1; //in day^-1
 
 //Nanophytoplankton
-extern const double radius=1.5*pow(10,-6);
-extern const double growth_rate=2.5; //in day^-1
+//extern const double radius=1.5*pow(10,-6);
+//extern const double growth_rate=2.5; //in day^-1
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
@@ -48,21 +49,21 @@ extern const double proba_repro=growth_rate*tau; //Death and birth probability
 //Community definition
 extern const int nb_species=3;
 //extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
-extern const std::vector<double> size_pop={1000,1000,1000}; 
+extern const std::vector<double> size_pop={10000,10000,10000}; 
 extern const int N_parent_init=0;
 extern const int N_children_init=50;
 extern const double sigma=0.01;
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(100,1.0/3.0); //size of the grid
+extern const double Lmax=pow(1000,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
 //PCF computation
-extern const double pow_max=-0;
-extern const double pow_min=-1;
-extern const int nb_r_pcf=100; //Number of values for r when computing pcf
+extern const double pow_max=-1;
+extern const double pow_min=-2;
+extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
 extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
 extern const double delta_fixed=pow(10,-5); //Only used if delta_spatstat==0
 
@@ -433,7 +434,6 @@ int main()
 		Part_table[j].diffusion(Delta, Lmax);
 		Part_table[j].pierrehumbert_flow(Utot, k, phi,theta,psi, Lmax);
 
-
 	} //end j, i.e. the particle mvt
 	} //end t, i.e the whole simulation
 	std::cout<<"End simulation"<<std::endl;
@@ -476,7 +476,7 @@ int main()
         	f_end_simu<<s1<<";"<<nb_indiv[s1]<<std::endl;
 	}
 
-//        PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param);
+        PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param);
 
 	f_space.close();
 	f_end_simu.close();

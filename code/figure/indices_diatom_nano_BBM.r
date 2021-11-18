@@ -1,6 +1,8 @@
 rm(list=ls())
 graphics.off()
 
+library(pracma)
+
 ############################### Utilitary functions
 
 #Ticks for log scale from https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
@@ -37,24 +39,28 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 colo=c("red","blue","grey","orange","violet")
 
-pdf("indices_diatom_nano_3sp.pdf",width=10)
+pdf("indices_diatom_nano_3sp_no_advection.pdf",width=10)
 par(mfrow=c(2,3),mar=c(4,5,1,1))
 
 #Using the delta=10^-5
 #Diatom
-sim_diatom=list(29:32) #3 species
+#sim_diatom=list(29:32) #3 species
 #sim_diatom=list(41:44) #10 species, skewed abundance
-lim_min_diatom=5*10^(-3)
-lim_max_diatom=2.4*10^(-1)
+sim_diatom=list(60:63) #3 species, NO advection
+#lim_min_diatom=5*10^(-3)
+#lim_max_diatom=2.4*10^(-1) ##Phycosphere
+lim_max_diatom=25*10^(-4)*10
 
 #Nano
-sim_nano=list(37:40) #3 species
+#sim_nano=list(37:40) #3 species
 #sim_nano=list(45:48) #10 species, skewed abundance
-lim_min_nano=3*10^(-4) 
-lim_max_nano=10^(-3)
+sim_nano=list(64:67) #3 species, NO advection
+#lim_min_nano=3*10^(-4) 
+#lim_max_nano=10^(-3) ##Phycosphere
+lim_max_nano=1.5*10^(-4)*10
 
 tot_sim=list(sim_diatom,sim_nano)
-tot_min=list(lim_min_diatom,lim_min_nano)
+#tot_min=list(lim_min_diatom,lim_min_nano)
 tot_max=list(lim_max_diatom,lim_max_nano)
 
 for(type in 1:length(tot_sim)){
@@ -96,7 +102,8 @@ for(type in 1:length(tot_sim)){
 	}
 
         plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=expression(g[ii]~(r)),axes=F,xlim=range(f_tot$r[f_tot$r>0]),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0],na.rm=T))
-	abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
+	#abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
+	#abline(v=c(tot_max[[type]][[1]]),lty=3)
 	for (s1 in 1:length(unique_sp)){
         	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
 	        axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
@@ -105,28 +112,48 @@ for(type in 1:length(tot_sim)){
         	axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
 	        box()
 
+                volume=unique(f_param_tot$value[f_param_tot$name=="volume"])
+                lambda=unique(f_param_tot$value[f_param_tot$name=="growth_rate"])
+                Delta=unique(f_param_tot$value[f_param_tot$name=="Delta"])
+                T_max=unique(f_param_tot$value[f_param_tot$name=="tmax"])
+                C_0=unique(f_count_tot$abundance[f_count_tot$species==unique_sp[s1]]/volume)
+                U_tot=unique(f_param_tot$value[f_param_tot$name=="Utot"])
+
+		if(U_tot==0){
+			gamma=0
+		}else if(U_tot==0.5){
+			gamma=0.5
+		}else{
+			stop("you don't have the value of gamma")
+		}
+
 		s2=s1
                 f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
         	points(f_plot$r,f_plot$pcf,lty=1,col=colo[s2])
-		if(s1==3){
-        	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=expression(g[2~j]~(r)),axes=F,xlim=range(f_tot$r[f_tot$r>0]),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0],na.rm=T))
-		axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
-                axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
-                axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
-                axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
-                box()
-		legend("topleft",paste("Sp=",unique_sp),col=colo[unique_sp],lty=1,bty="n")
-		abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
+                
+		th_bbm=G_theoretical(gamma,f_plot$r,lambda,Delta,C_0,Tmax=T_max*0.0002)
+                lines(f_plot$r,th_bbm)
 
-        	for(s2 in 1:length(unique_sp)){
-                	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
-			if(s2!=s1){
-	                points(f_plot$r,f_plot$pcf,lty=1,col=colo[s2],lwd=2)
-			}
-	        } #end loop on sp s2
+		if(s1==3){
+	       	 	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=expression(g[2~j]~(r)),axes=F,xlim=range(f_tot$r[f_tot$r>0]),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0],na.rm=T))
+			axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
+                	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
+	                axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
+        	        axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
+                	box()
+			legend("topleft",paste("Sp=",unique_sp),col=colo[unique_sp],lty=1,bty="n")
+		#abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
+		#abline(v=c(tot_max[[type]][[1]]),lty=3)
+
+        		for(s2 in 1:length(unique_sp)){
+                		f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
+				if(s2!=s1){
+			                points(f_plot$r,f_plot$pcf,lty=1,col=colo[s2],lwd=2)
+				}
+		        } #end loop on sp s2
 	
-		}
-	}
+		}#end test on s1
+	} #end loop on species
 	plot(1,1,t="n",xlim=range(f_tot$r[f$r>0]),ylim=range(f_tot$dominance,na.rm=T),xlab=xl,ylab="dominance",log="x",cex.lab=1.5,cex.axis=1.5,axes=F)
 	axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
@@ -138,7 +165,8 @@ for(type in 1:length(tot_sim)){
 	       	points(f_plot$r,f_plot$dominance,col=colo[s1])
 	}
 
-	abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
-} #end loop on 
+	#abline(v=c(tot_min[[type]][[1]],tot_max[[type]][[1]]),lty=3)
+	#abline(v=tot_max[[type]][[1]],lty=3)
+} #end loop on organism 
 
 dev.off()
