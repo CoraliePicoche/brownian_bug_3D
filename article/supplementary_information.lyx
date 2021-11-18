@@ -201,6 +201,10 @@ noprefix "false"
 
 \end_layout
 
+\begin_layout Subsection
+With advection
+\end_layout
+
 \begin_layout Standard
 In the presence of advection (
 \begin_inset Formula $\gamma\neq0$
@@ -343,6 +347,269 @@ Finally, the pair correlation function
 \begin_inset Formula 
 \begin{equation}
 g=\frac{\lambda}{4\pi C}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2^{3/2}D^{3/2}}+\frac{1}{2Dr}-\frac{\pi\sqrt{\gamma}}{2^{5/2}D^{3/2}}\right)+1
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Without advection
+\end_layout
+
+\begin_layout Standard
+When 
+\begin_inset Formula $U=0$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma=0$
+\end_inset
+
+ and there is no steady solution.
+ We can get back to Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Young3D"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming an isotropic environment, this means
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial G}{\partial t}-2D\Delta G=2\lambda C\delta(\boldsymbol{r})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\Delta=\nabla^{2}$
+\end_inset
+
+ is the Laplacian operator.
+ 
+\end_layout
+
+\begin_layout Standard
+We therefore have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}G(\boldsymbol{r},t)=2\lambda C\delta(\boldsymbol{r})
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ is the linear differential operator 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\partial_{t}-2D\Delta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Using the Green's function theory, we know that 
+\begin_inset Formula $G(y)=\int H(y,s)2\lambda C\delta(s)ds$
+\end_inset
+
+ where 
+\begin_inset Formula $H(y,s)=H(y-s)$
+\end_inset
+
+ is the Green kernel (heat kernel).
+ Here, y=(
+\family default
+\series bold
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+r
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+,t) and s=(r',t').
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+ & G(\boldsymbol{r},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{r}-\boldsymbol{r'},t')\delta(\boldsymbol{r'})dr'dt'\\
+\Leftrightarrow &  & = & 2\lambda C\int_{0}^{t}H(\boldsymbol{r},t')dt'
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+A solution for the Green's function using 
+\begin_inset Formula $\mathcal{L}=\partial_{t}-2D\Delta$
+\end_inset
+
+ in 3 dimensions is 
+\begin_inset Formula $H(r,t)=\left(\frac{1}{4\pi2Dt}\right)^{3/2}\exp(\frac{-r^{2}}{4\times2Dt})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $G(r,t)$
+\end_inset
+
+ can then be computed:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G(r,t)=2\lambda C\left[-\frac{erf\left(\frac{r}{2^{3/2}\sqrt{t'D}}\right)}{8D\sqrt{\pi}r}\right]_{0}^{t}\label{eq:G_r_t}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $erf$
+\end_inset
+
+ is the error function.
+ Using 
+\begin_inset Formula $G(r,0)=C^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lim_{x\rightarrow+\infty}erf=1$
+\end_inset
+
+ in Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:G_r_t"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G(r,t)=\frac{2\lambda C}{8D\pi r}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\right)\right\} +C^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Leftrightarrow g(r,t)=\frac{2\lambda}{8D\pi Cr}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\right)\right\} +1
 \end{equation}
 
 \end_inset
@@ -580,7 +847,7 @@ Mono- and multispecific pcf in the Brownian Bug Model
 
 \begin_layout Standard
 We show here the values of mono- and multispecific pcf for diatoms and nanophyto
-plankton particles.
+plankton particles with and without advection.
  
 \end_layout
 
@@ -607,9 +874,66 @@ status open
 
 \begin_layout Plain Layout
 Monospecific (left), multispecific (middle) and dominance (right) for diatoms
- (top) and nanophytoplankton (bottom), after 1000 time steps.
- Dotted lines indicate the assumed limits for interactions between particles.
+ (top) and nanophytoplankton (bottom), after 1000 time steps, with advection
  
+\begin_inset Formula $(U\tau/2=0.5).$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/indices_diatom_nano_3sp_no_advection.pdf
+	display false
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Monospecific (left), multispecific (middle) and dominance (right) for diatoms
+ (top) and nanophytoplankton (bottom), after 1000 time steps, without advection
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $(U\tau/2=0.0)$
+\end_inset
+
+.
 \end_layout
 
 \end_inset
