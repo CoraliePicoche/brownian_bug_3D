@@ -1,0 +1,589 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{ae,aecompl}
+\usepackage{authblk}
+\usepackage{siunitx}
+\date{}
+\author{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Considerations on the 3D Brownian Bug Model
+\end_layout
+
+\begin_layout Section*
+Speed of the particles
+\end_layout
+
+\begin_layout Standard
+We hesitated about the value of the maximum speed of the particle, 
+\begin_inset Formula $U$
+\end_inset
+
+, which can very one order of magnitude depending on the definition of the
+ characteristic length used in the Reynolds number (as 
+\begin_inset Formula $Re=UL_{c}/\nu)$
+\end_inset
+
+.
+ A simple sanity check would be to use the two extreme values of 
+\begin_inset Formula $U$
+\end_inset
+
+, 
+\begin_inset Formula $8.1\times10^{-5}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ (based on the equivalent sphere diameter of a cube of side 1 cm) and 
+\begin_inset Formula $6.3\times10^{-4}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ (based on the smallest wavenumber), just to make sure this does not change
+ the final conclusions.
+\end_layout
+
+\begin_layout Section*
+Definition of the range of interactions
+\end_layout
+
+\begin_layout Standard
+As we want to understand the potential ecological consequences of phytoplankton
+ aggregation, we define a range of distances from a particle where interactions
+ with other particles are possible.
+ 
+\end_layout
+
+\begin_layout Standard
+The smallest physically possible distance is equal to the sum of the radius
+ of interacting particles (which would be equal to 1 diameter as we consider
+ particles of the same size within one simulation).
+ 
+\end_layout
+
+\begin_layout Standard
+The higher range of distances depend on the modeled interaction.
+\end_layout
+
+\begin_layout Paragraph*
+Competition for nutrients
+\end_layout
+
+\begin_layout Standard
+If we consider competition for nutrients as one of the main interactions
+ between particles, we can define the volume of depletion around a particle
+ as the volume where the nutrient concentration is decreased by the particle
+ uptake.
+ A usual threshold is the 90% concentration decrease corresponding to a
+ sphere of radius 
+\begin_inset Formula $r$
+\end_inset
+
+ where 
+\begin_inset Formula $C(r)\leq90\%C_{\infty}$
+\end_inset
+
+ with 
+\begin_inset Formula $C_{\infty}$
+\end_inset
+
+ the background concentration of the nutrient
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+While we consider here the uptake of nutrient, we can also consider the
+ output of compounds from a particle.
+ In this case, we will consider a threshold of 10%, the reasoning to compute
+ the boundary layer is the same 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "jumars_physical_1993"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ Such sphere is also called the concentration boundary layer.
+ Two processes affect the volume of the concentration boundary layer: diffusion,
+ due to basic, homogeneous molecular diffusion, and turbulence.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+ present models for flows including these processes.
+ When diffusion only is taken into account, at steady state, the concentration
+ follows:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(r)=\frac{r_{0}}{r}(C(0)-C_{\infty})+C_{\infty}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C(0)$
+\end_inset
+
+ is the concentration at the surface of the cell, assumed to be 0 (as a
+ proxy, uptake is instantaneous), and 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+ is the radius of the cell considered.
+ In this case, the size of the concentration boundary layer corresponds
+ to 
+\begin_inset Formula $r=10r_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+ also present the increase in nutrient uptake due to turbulence, with formulas
+ for the Sherwood number as a function of the radius of the particle, and
+ hydrodynamics properties of the environment.
+ They show that a 50% increase in the flux appears for cells between 63
+ and 100 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m, which is higher than the size of the particle we consider here.
+ 
+\end_layout
+
+\begin_layout Standard
+We can consider the diffusion range as the highest boundary for interactions,
+ i.e.
+ 
+\begin_inset Formula $r=10r_{0}$
+\end_inset
+
+, since the size of the concentration boundary layer can only be reduced
+ by turbulence.
+\end_layout
+
+\begin_layout Paragraph*
+Interactions via the phycosphere
+\end_layout
+
+\begin_layout Standard
+Phytoplankton organisms might also interact via the phycosphere surrounding
+ them
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Emphasis on 'might', I could not find any report of phytoplankton individuals
+ interacting through their phycosphere, even though it would be likely that
+ sharing a region where specific, necessary compounds are increased, affects
+ the growth rates of the particles.
+\end_layout
+
+\end_inset
+
+, a region where most phytoplankton-bacteria interactions happen.
+ These interactions may be critical for phytoplankton organisms.
+ We can define the size of the phycosphere based on the formula by 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "jackson_simulating_1987"
+literal "false"
+
+\end_inset
+
+ (used in 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "seymour_zooming_2017"
+literal "false"
+
+\end_inset
+
+, values in this paper are indicated in parenthesis below), which assumes
+ diffusion only:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+r_{p}=\frac{ba^{2.28}}{n}\frac{\mu f}{4\pi DC_{\infty}(q-1)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $r_{p}$
+\end_inset
+
+ is the radius of the phycosphere, 
+\begin_inset Formula $b=1.67\times10^{-4}$
+\end_inset
+
+ mol
+\begin_inset Formula $_{C}$
+\end_inset
+
+.cm
+\begin_inset Formula $^{\ensuremath{-2.28}}$
+\end_inset
+
+, 
+\begin_inset Formula $a$
+\end_inset
+
+ is the radius of the organism in cm, 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of carbons per compound (=6), 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is the growth rate (=1 day
+\begin_inset Formula $^{-1})$
+\end_inset
+
+, 
+\begin_inset Formula $f$
+\end_inset
+
+is the organic matter leakage rate from phytoplankton cells (=0.05), 
+\begin_inset Formula $D$
+\end_inset
+
+ is the molecular diffusivity (
+\begin_inset Formula $0.5\times10^{-9}$
+\end_inset
+
+m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+), 
+\begin_inset Formula $C_{\infty}$
+\end_inset
+
+ is the background concentration (=10 nM) and 
+\begin_inset Formula $q$
+\end_inset
+
+ defines the ratio of concentrations above which we consider we are in the
+ phycosphere (i.e., 
+\begin_inset Formula $q=1.5$
+\end_inset
+
+ means that the phycosphere is defined by a concentration of organic matter
+ 50% above the background concentration).
+ 
+\end_layout
+
+\begin_layout Standard
+Using a diatom of diameter 50
+\begin_inset Formula $\mu$
+\end_inset
+
+m, we can try and find back the radius of the phycosphere computed in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "seymour_zooming_2017"
+literal "false"
+
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $r_{p}=1200$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m.
+\end_layout
+
+\begin_layout Section*
+Points or spheres?
+\end_layout
+
+\begin_layout Standard
+For now, the Brownian Bug Model deals with points, i.e.
+ particles which do not have a physical size and can aggregate at very small
+ scales: distance between points can be close, if not equal, to 0 while
+ the 
+\begin_inset Quotes eld
+\end_inset
+
+physical
+\begin_inset Quotes erd
+\end_inset
+
+ minimum distance between particles should be equal to the sum of their
+ radius.
+ 
+\end_layout
+
+\begin_layout Standard
+The simplest solution which was proposed to partly counteract this unrealistic
+ aggregation was to place a child particle at a distance equal to 1 diameter
+ from the parent when birth happens.
+ This would at least avoid aggregation simply due to reproduction placement.
+ However, we prove that it is not necessary as one time step is enough to
+ separate them by more than a diameter.
+ 
+\end_layout
+
+\begin_layout Standard
+Indeed, if we consider 
+\begin_inset Formula $s(t)$
+\end_inset
+
+ the separation between two particles, it should follow an exponentiel increase
+ such that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+s(t) & = & s_{0}e^{\gamma t}\\
+\Leftrightarrow & t= & \frac{1}{\gamma}\log\left(\frac{s(t)}{s_{0}}\right)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+When computing 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ in Young et al.
+ 2001 (which is a specific simulation, not what seems to be done in the
+ rest of the article), 
+\begin_inset Formula $s_{0}=10^{-7}$
+\end_inset
+
+.
+ We take 
+\begin_inset Formula $\gamma\approx0.5$
+\end_inset
+
+ and consider the largest separation between particles, that is the diameter
+ of a diatom (
+\begin_inset Formula $50\times10^{-6}$
+\end_inset
+
+ m).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+t=\frac{1}{0.5}\log\left(\frac{50\times10^{-6}}{10^{-7}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We obtain 
+\begin_inset Formula $t=12$
+\end_inset
+
+ s, below 
+\begin_inset Formula $t=16$
+\end_inset
+
+ s which has previously been fixed.
+\end_layout
+
+\begin_layout Standard
+However, it should be noted that this corresponds to a case where 
+\begin_inset Formula $s_{0}=10^{-7}$
+\end_inset
+
+.
+ In the present model, 
+\begin_inset Formula $s_{0}=0$
+\end_inset
+
+.
+ While we do not need to separate daughter and parent by one diameter, we
+ may still need to separate them even by a small distance at birth.
+ 
+\end_layout
+
+\begin_layout Standard
+It should be noted that in a 3D, individual-based model with diffusion and
+ turbulence (with a comparison of direct numerical simulations of the Navier-Sto
+kes equations and Kraichnan simulations) for motile organisms, Breier et
+ al.
+ (2018) find that replacing point particles by solid spheres does not change
+ the qualitative results.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "biblio"
+options "ecol_let"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
