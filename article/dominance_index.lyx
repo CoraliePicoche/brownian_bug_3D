@@ -331,6 +331,38 @@ where
 \end_layout
 
 \begin_layout Standard
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We can also note that the density function in http://www.nisox.org/files/PDF/Johns
+onSpatialPointProc.pdf (example 4 p.
+ 13) is:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+f(r)=\frac{1}{\left(2\pi\sigma^{2}\right)^{d/2}}e^{-\left(\frac{r^{2}}{2\sigma^{2}}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Which does not give the solutions we have in other formulas (see the exponential
+).
+ Guess it's a typo.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 This will be used below to derive or check the Ripley's functions we find.
  
 \end_layout
@@ -542,7 +574,7 @@ In 3D, the easiest way would be to use the pair correlation function and
 \begin{array}{ccc}
 \frac{K'(r)}{4\pi r^{2}} & = & 1+\frac{1}{\lambda_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}\\
 \Leftrightarrow K'(r) & = & 4\pi r^{2}+\frac{1}{\lambda_{p}}\frac{4\pi r^{2}}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r}{2\sigma}\right)^{2}}\\
- & = & 4\pi r^{2}+\frac{1}{\lambda_{p}}\frac{1}{\sigma\sqrt{2\pi}}\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}
+ & = & 4\pi r^{2}+\frac{1}{\lambda_{p}}\frac{2}{\sigma\sqrt{\pi}}\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}
 \end{array}
 \end{equation}
 
@@ -553,16 +585,23 @@ In 3D, the easiest way would be to use the pair correlation function and
 
 \begin_layout Standard
 Let's have 
-\begin_inset Formula $F'(r)=\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}$
+\begin_inset Formula $F'(r)=\frac{2}{\sigma\sqrt{\pi}}\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}$
 \end_inset
 
- and find the primitive (see the 3D 'from scratch' for a proper integration).
+ and find the integral of 
+\begin_inset Formula $A(r)=\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-F(r)=A+\frac{1}{2}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)
+\begin{array}{ccc}
+A(r) & = & \int_{0}^{r}\left(\frac{x}{2\sigma}\right)^{2}e^{-\left(\frac{x}{2\sigma}\right)^{2}}dx\\
+ & = & 2\sigma\int_{0}^{(r/2\sigma)^{2}}te^{-t}dt
+\end{array}
 \end{equation}
 
 \end_inset
@@ -571,30 +610,50 @@ F(r)=A+\frac{1}{2}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\
 \end_layout
 
 \begin_layout Standard
-where 
-\begin_inset Formula $A$
+Let us define 
+\begin_inset Formula $z^{2}=t$
 \end_inset
 
- is a constant and 
-\begin_inset Formula $erf$
+, i.e.
+ 
+\begin_inset Formula $dt=2zdz$
 \end_inset
 
- is the error function.
- If we consider 
-\begin_inset Formula $K(r)_{r\rightarrow0}=0$
+, then partial integration.
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+A(r) & = & 2\sigma\int_{0}^{r/2\sigma}\sqrt{z^{2}}e^{-z^{2}}2zdz\\
+ & = & 4\sigma\int_{0}^{r/2\sigma}z^{2}e^{-z^{2}}dz\\
+ & = & 4\sigma\int_{0}^{r/2\sigma}z\left(ze^{-z^{2}}\right)dz\\
+ & = & 4\sigma\left(\left[-\frac{1}{2}ze^{-z^{2}}\right]_{0}^{r/2\sigma}+\int_{0}^{r/2\sigma}\frac{1}{2}e^{-z^{2}}dz\right)\\
+ & = & \frac{4}{\sqrt{\pi}}\left(-\frac{1}{2}\frac{r}{2\sigma}e^{-(r/2\sigma)^{2}}+\frac{1}{2}\frac{\sqrt{\pi}}{2}erf(r/2\sigma)\right)\\
+ & = & erf(r'/\sqrt{2})-\frac{r}{\sigma\sqrt{\pi}}e^{-(r/2\sigma)^{2}}\\
+\Rightarrow F(r) & = & \frac{2}{\sigma\sqrt{\pi}}\left[erf(r'/\sqrt{2})-\frac{r}{\sigma\sqrt{\pi}}e^{-(r/2\sigma)^{2}}\right]
+\end{array}
+\end{equation}
+
 \end_inset
 
-, we would have 
-\begin_inset Formula $A=0$
+
+\end_layout
+
+\begin_layout Standard
+We can therefore write 
+\begin_inset Formula $K(r)$
 \end_inset
 
-, so:
+:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K(r)=\frac{4}{3}\pi r^{3}+\frac{1}{2\lambda_{p}}\frac{1}{\sigma\sqrt{2\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:3D_Thomas}
+K(r)=\frac{4}{3}\pi r^{3}+\frac{2}{\lambda_{p}\sigma\sqrt{\pi}}\left(erf\left(\frac{r}{2\sigma}\right)-\frac{r}{\sigma\sqrt{\pi}}re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:3D_Thomas}
 \end{equation}
 
 \end_inset
@@ -611,13 +670,36 @@ In 2D
 \end_layout
 
 \begin_layout Standard
-Let us first note that the mean squared distance between a parent and its
- offspring is 
-\begin_inset Formula $2\sigma^{2}$
+Let us first compute that the mean squared distance between a parent at
+ 
+\begin_inset Formula $(x_{0},y_{0})'$
 \end_inset
 
-.
- Let 
+ and its offspring at 
+\begin_inset Formula $(x_{1},y_{1})'$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+d^{2} & = & (x_{0}-x_{1})^{2}+(y_{0}-y_{1})^{2}\\
+\Leftrightarrow\mathbb{E}(d^{2}) & = & \mathbb{E}(x_{0}-x_{1})^{2}+\mathbb{E}(y_{0}-y_{1})^{2}\\
+ & = & \mathbb{E}(x_{0}^{2}+x_{1}^{2}-2x_{0}x_{1})+\mathbb{E}(y_{0}^{2}+y_{1}^{2}-2y_{0}y_{1})\\
+ & = & x_{0}^{2}+\mathbb{E}(x_{1}^{2})-2x_{0}\mathbb{E}(x_{1})+y_{0}^{2}+\mathbb{E}(y_{1}^{2})-2y_{0}\mathbb{E}(y)\\
+ & = & x_{0}^{2}+\sigma^{2}+\mathbb{E}(x_{1})^{2}-2x_{0}\mathbb{E}(x_{1})+y_{0}^{2}+\sigma^{2}+\mathbb{E}(y_{1})^{2}-2y_{0}\mathbb{E}(y_{1})\\
+ & = & x_{0}^{2}+\sigma^{2}+x_{0}^{2}-2x_{0}^{2}+y_{0}^{2}+\sigma^{2}+y_{0}^{2}-2y_{0}^{2}\\
+\mathbb{E}(d^{2}) & = & 2\sigma^{2}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
 \begin_inset Formula $s_{1}$
 \end_inset
 
@@ -693,7 +775,7 @@ Therefore, we can define a variable
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-f_{d,Z}(z) & = & \frac{1}{2^{k/2}\Gamma(k/2)}z^{k/2-1}e^{-z/2}\\
+f_{d,Z}(z) & = & \frac{1}{2^{d/2}\Gamma(d/2)}z^{d/2-1}e^{-z/2}\\
 \Rightarrow f_{2,Z}(z) & = & \frac{1}{2}e^{-z/2}
 \end{array}
 \end{equation}
@@ -722,7 +804,7 @@ We can now define the distance between two points as
 \begin{equation}
 \begin{array}{ccc}
 f_{d,R}(r) & = & \left|\frac{1}{g'\left(g^{-1}(r)\right)}\right|f_{d,Z}(g^{-1}(r))\\
- & = & \left(g^{-1}\right)'(r)
+ & = & \left(g^{-1}\right)'(r)f_{d,Z}(g^{-1}(r))
 \end{array}
 \end{equation}
 
@@ -821,12 +903,106 @@ In 3D
 \end_layout
 
 \begin_layout Standard
+Let's define 
+\begin_inset Formula $\xi=\frac{1}{2\sigma^{2}}\left((x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}+(z_{1}-z_{2})^{2}\right)$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This is the strongest assumption I have to make here, but I find absolutely
+ no other way to find back the 
+\begin_inset Formula $e^{\ensuremath{-r^{2}/4\sigma^{2}}}$
+\end_inset
+
+ which is present in Chu's equation??? I would have written 
+\begin_inset Formula $\xi=\frac{1}{3\sigma^{2}}\left((x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}+(z_{1}-z_{2})^{2}\right)$
+\end_inset
+
+ following a similar logic as above.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we follow a similar logic as above:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+f_{d,\Xi}(\xi) & = & \frac{1}{2^{d/2}\Gamma(d/2)}\xi^{d/2-1}e^{-\xi/2}\\
+\Rightarrow f_{3,\Xi} & = & \frac{1}{\sqrt{2\pi}}\sqrt{\xi}e^{-\xi/2}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can now define the distance between two points as 
+\begin_inset Formula $r=g(z)=\sqrt{2\sigma^{2}\xi}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+f_{3,R} & = & \frac{r}{\sigma^{2}}\frac{1}{\sqrt{2\pi}}\sqrt{\xi}e^{-\xi/2}\\
+ & = & \frac{1}{\sqrt{2\pi}}\frac{r}{\sigma^{2}}\frac{r}{\sqrt{2}\sigma}e^{-\frac{r^{2}}{2\sigma^{2}}\frac{1}{2}}\\
+ & = & \frac{1}{\sigma\sqrt{\pi}}\frac{r^{2}}{2\sigma^{2}}e^{-\frac{r^{2}}{2\sigma^{2}}\frac{1}{2}}\\
+ & = & \frac{2}{\sigma\sqrt{\pi}}\left(\frac{r}{2\sigma}\right)^{2}e^{-(r/2\sigma)^{2}}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And we know that the solution of this equation from above, so:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K(r)=\frac{4}{3}\pi r^{3}+\frac{2}{\lambda_{p}\sigma\sqrt{\pi}}\left(erf\left(\frac{r}{2\sigma}\right)-\frac{r}{\sigma\sqrt{\pi}}re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TRYING WITH CHI-DISTRIBUTION: unfinished for now, due to computation error
+ AND/OR careless mistakes 
+\end_layout
+
+\begin_layout Plain Layout
 Let's define the variable 
 \begin_inset Formula $r'=r/\sqrt{2}\sigma$
 \end_inset
 
  as before (I don't know why, but it works, i.e.
- it gives us the .
+ it gives us the right formula.
  However, I really do not get why the radius should be the same as above.
  It means that in 3D, the mean squared distance is still 
 \begin_inset Formula $2\sigma^{2},$
@@ -845,7 +1021,18 @@ while I would have written
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+r'=\frac{1}{\sqrt{2}\sigma}\sqrt{(x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}+(z_{1}-z_{2})^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 \begin_inset Formula $R$
 \end_inset
 
@@ -856,7 +1043,7 @@ while I would have written
 -distribution, i.e.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 F_{3}(r')=\frac{1}{\Gamma(3/2)}\gamma(3/2,r'^{2}/2)
@@ -867,7 +1054,7 @@ F_{3}(r')=\frac{1}{\Gamma(3/2)}\gamma(3/2,r'^{2}/2)
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 where 
 \begin_inset Formula $\gamma(a,x)=\int_{0}^{x}t^{a-1}e^{-t}dt$
 \end_inset
@@ -875,7 +1062,7 @@ where
  is the incomplete gamma function.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -887,7 +1074,7 @@ F_{3}(r) & = & \frac{2}{\sqrt{\pi}}\int_{0}^{r'^{2}/2}\sqrt{t}e^{-t}dt\end{array
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Let us define 
 \begin_inset Formula $z^{2}=t$
 \end_inset
@@ -900,7 +1087,7 @@ Let us define
 , then partial integration.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \paragraph_spacing double
 \begin_inset Formula 
 \begin{equation}
@@ -919,7 +1106,7 @@ F_{3}(r) & = & \frac{4}{\sqrt{\pi}}\int_{0}^{r'/\sqrt{2}}\sqrt{z^{2}}e^{-z^{2}}z
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 If we replace 
 \begin_inset Formula $r'$
 \end_inset
@@ -931,7 +1118,7 @@ If we replace
 we obtain
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 \begin_inset Formula 
 \begin{equation}
 F_{3}(r)=erf(r/2\sigma)-\frac{r}{\sigma\sqrt{\pi}}e^{-r^{2}/4\sigma^{2}}
@@ -942,8 +1129,13 @@ F_{3}(r)=erf(r/2\sigma)-\frac{r}{\sigma\sqrt{\pi}}e^{-r^{2}/4\sigma^{2}}
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 which is the solution we had above at factor 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*

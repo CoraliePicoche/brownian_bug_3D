@@ -559,7 +559,7 @@ I am keeping the integral-calculator version here.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G(r,t)=2\lambda C\left(\frac{\sqrt{\pi}erf\left(\frac{r}{2^{3/2}\sqrt{t'D}}\right)}{8Dr}+K\right)'\label{eq:G_r_t}
+G(r,t)=2\lambda C\left(\frac{\sqrt{\pi}erf\left(\frac{r}{2^{3/2}\sqrt{t'D}}\right)}{8Dr}+K\right)\label{eq:G_r_t}
 \end{equation}
 
 \end_inset
