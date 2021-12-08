@@ -36,6 +36,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -1197,8 +1198,8 @@ We can therefore write the dominance index as:
 \begin{equation}
 \begin{array}{ccc}
 D_{i}(r) & = & \frac{\lambda_{i}K_{i}(r)}{\lambda_{i}K_{i}(r)+\sum_{j\neq i}\lambda_{j}K_{ij}(r)}\\
- & = & \frac{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p}}\right)}{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p}}\right)+\sum_{j\neq i}\lambda_{j}\frac{4}{3}\pi r^{3}}\\
- & = & \frac{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p}}\right)}{\lambda_{i}\frac{F(r)}{\lambda_{p}}+\sum_{j}\lambda_{j}\frac{4}{3}\pi r^{3}}
+ & = & \frac{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p,i}}\right)}{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p,i}}\right)+\sum_{j\neq i}\lambda_{j}\frac{4}{3}\pi r^{3}}\\
+ & = & \frac{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p},i}\right)}{\lambda_{i}\frac{F(r)}{\lambda_{p,i}}+\sum_{j}\lambda_{j}\frac{4}{3}\pi r^{3}}
 \end{array}
 \end{equation}
 
@@ -1222,6 +1223,49 @@ Note that this solution applies to every Neyman-Scott process.
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename dominance_thomas.pdf
+	width 55text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance index for 3 species with different total abundances (same number
+ of daughter point per parent), with 
+\begin_inset Formula $\sigma=0.01$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
