@@ -557,9 +557,10 @@ I am keeping the integral-calculator version here.
 \end_layout
 
 \begin_layout Standard
+.
 \begin_inset Formula 
 \begin{equation}
-G(r,t)=2\lambda C\left(\frac{\sqrt{\pi}erf\left(\frac{r}{2^{3/2}\sqrt{t'D}}\right)}{8Dr}+K\right)\label{eq:G_r_t}
+G(r,t)=2\lambda C\left(\frac{erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+K\right)\label{eq:G_r_t}
 \end{equation}
 
 \end_inset
@@ -599,8 +600,8 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-C^{2} & = & 2\lambda C\left(\frac{-\sqrt{\pi}}{8Dr}+K\right)\\
-\Leftrightarrow\frac{C}{2\lambda}+ & \frac{\sqrt{\pi}}{8Dr}= & K
+C^{2} & = & 2\lambda C\left(\frac{1}{8\pi Dr}+K\right)\\
+\Leftrightarrow\frac{C}{2\lambda}+ & \frac{1}{8\pi Dr}= & K
 \end{array}
 \end{equation}
 
@@ -617,9 +618,9 @@ We can finally compute G(r,t):
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-G(r,t) & = & 2\lambda C\left(\frac{\sqrt{\pi}erf\left(\frac{r}{2^{3/2}\sqrt{t'D}}\right)}{8Dr}+\frac{C}{2\lambda}+\frac{\sqrt{\pi}}{8Dr}\right)\\
- & = & \frac{2\lambda C\sqrt{\pi}}{8Dr}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\right)\right\} +C^{2}\\
-\Leftrightarrow g(r,t) & = & \frac{2\lambda\sqrt{\pi}}{8DrC}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\right)\right\} +1
+G(r,t) & = & 2\lambda C\left(\frac{erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+\frac{C}{2\lambda}+\frac{1}{8D\pi r}\right)\\
+ & = & \frac{\lambda C}{4\pi Dr}\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +C^{2}\\
+\Leftrightarrow g(r,t) & = & \frac{\lambda}{4D\pi rC}\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +1
 \end{array}
 \end{equation}
 
