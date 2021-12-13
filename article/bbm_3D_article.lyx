@@ -232,9 +232,9 @@ literal "false"
 \begin_inset Formula 
 \[
 \begin{cases}
-x(t+\tau) & =x(t+t')+U\tau/2\cos\left(ky(t+t')+\phi(t)\right)\\
-y(t+\tau) & =y(t+t')+U\tau/2\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+U\tau/2\cos\left(kx(t+\tau)+\psi(t)\right)
+x(t+\tau) & =x(t+t')+U\tau/3\cos\left(ky(t+t')+\phi(t)\right)\\
+y(t+\tau) & =y(t+t')+U\tau/3\cos\left(kz(t+t')+\theta(t)\right)\\
+z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
 \end{cases}
 \]
 
@@ -245,12 +245,12 @@ z(t+\tau) & =z(t+t')+U\tau/2\cos\left(kx(t+\tau)+\psi(t)\right)
 
 \begin_layout Standard
 where 
-\begin_inset Formula $U\tau/2$
+\begin_inset Formula $U$
 \end_inset
 
- determines the final velocity of the particle
+is the maximum velocity of the particle
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Velocity of the particle=
