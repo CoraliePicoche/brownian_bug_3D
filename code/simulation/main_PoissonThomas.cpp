@@ -16,11 +16,11 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=101;
+extern const int num_simu=100;
 
 //Define constant for simulation
-extern const char type_simul='T'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
-extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
+extern const char type_simul='P'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
+extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=0; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
 extern const int tmax=-10; //length of the simulation. Tmax is negative if we only want the initial distribution
@@ -49,11 +49,11 @@ extern const double proba_repro=growth_rate*tau; //Death and birth probability
 //Community definition
 extern const int nb_species=3;
 //extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
-//extern const std::vector<double> size_pop={10000,10000,10000}; 
+extern const std::vector<double> size_pop={10000,10000,10000}; 
 extern const int N_parent_init=200;
-extern const int N_children_init=50;
+extern const int N_children_init=0;
 extern const double sigma=0.01;
-extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
+//extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
 extern const double Lmax=pow(1000,1.0/3.0); //size of the grid
@@ -131,7 +131,7 @@ double vx,vy,vz,dx,dy,dz,dist,lmin,lmax,invweight,frac,kernel,coef,delta,tval,dt
 basic_particle temp, current;
 int l,p1=0,p2=0,s1=0,s2=0;
 double Concentration, h, Concentration_square;
-double lambda_K[nb_species][nb_species][nb_r_pcf];
+double lambda_K[nb_species][nb_species][nb_r_pcf],K[nb_species][nb_species][nb_r_pcf];
 clock_t t1, t2;
 double temps, num, denom;
 
@@ -147,6 +147,7 @@ for(p1=0;p1<nb_species;p1++){
                 for(p2=0;p2<nb_species;p2++){
                         pcf[p1][p2][l]=0.0;
                 	lambda_K[p1][p2][l]=0.0;
+                	K[p1][p2][l]=0.0;
                 }
         }
 }
@@ -208,6 +209,10 @@ for(p1=0;p1<nb_species;p1++){
 		dy = temp.get_y() - current.get_y();
 		dz = temp.get_z() - current.get_z();
 		dist = pow(dx * dx + dy * dy + dz * dz,0.5);
+		//Using periodic conditions as in Illian et al. (2008) p. 184: JUST A TEST, NOT RECOMMENDED
+		//dist=pow(min(abs(dx),Lmax-abs(dx)),2)+pow(min(abs(dy),Lmax-abs(dy)),2)+pow(min(abs(dz),Lmax-abs(dz)),2);
+		//dist=pow(dist, 0.5);
+		//Only corresponding to num 102 and 103 in simulations
 
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
 	        lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
@@ -215,11 +220,6 @@ for(p1=0;p1<nb_species;p1++){
 		//First, we need to compute dominance outside of the loop with lmin and lmax which depends on delta; that should not be the case for dominance
 		for(l = 0; l <nb_r_pcf; l++) {
 			      tval = pow(10,pow_min) + l * dt;
-				if(dist<tval){
-                                	lambda_K[s1][s2][l]+=1.0;
-				}//test on dist
-		//// }
-                
 		if(lmax >= 0 && lmin < nb_r_pcf) {
 	  /* kernel centred at 'dist' has nonempty intersection 
 	     with specified range of t values */
@@ -236,6 +236,12 @@ for(p1=0;p1<nb_species;p1++){
 			  if(invweight > 0.0) {
 		////	    for(l = lmin; l <nb_r_pcf; l++) {
 		////	      tval = pow(10,pow_min) + l * dt;
+				if(dist<tval){
+                                	lambda_K[s1][s2][l]+=1.0/(vx*vy*vz);
+                                	//lambda_K[s1][s2][l]+=1.0; // Only 102 and 103
+                                	K[s1][s2][l]+=1.0/(Concentration_square*vx*vy*vz);
+                                	//K[s1][s2][l]+=1.0/(Concentration_square); //Only 102 and 103
+				}//test on dist
 				if(l>=lmin){ ////
 	      /* unnormalised Epanechnikov kernel with halfwidth delta */
 			      frac = (dist - tval)/delta;
@@ -248,6 +254,7 @@ for(p1=0;p1<nb_species;p1++){
 					bias=1;
 				}
 				pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel / invweight*1/bias;
+				//pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel /bias * 1/(4*pi * dist * dist); //Only 102 and 103
 	   		 	} //end kernel>0
 				} /// end test on lmin
 	  		} //end loop on l
@@ -268,9 +275,9 @@ for(p1=0;p1<nb_species;p1++){
 			
                         for(s2=0;s2<nb_species;s2++){
                                 if(s2==s1){
-                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";"<<dominance[s1][l]<<";"<<lambda_K[s1][s2][l]<<std::endl;
+                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";"<<dominance[s1][l]<<";"<<lambda_K[s1][s2][l]<<";"<<K[s1][s2][l]<<std::endl;
                                 }else{
-                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";NA;"<<lambda_K[s1][s2][l]<<std::endl;
+                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";NA;"<<lambda_K[s1][s2][l]<<";"<<K[s1][s2][l]<<std::endl;
                                 }
                         }
                 }
@@ -450,7 +457,7 @@ int main()
                 nb_indiv[Part_table.at(j).get_species()]=nb_indiv[Part_table.at(j).get_species()]+1;
                 if(print_distrib==1)
                 {
-        	        f_space<< t <<";";
+        	        f_space<< j <<";";
                 	f_space<< Part_table[j].get_x()  << ';';
 	                f_space<< Part_table[j].get_y()  << ';';
         	        f_space<< Part_table[j].get_z()  << ';';
