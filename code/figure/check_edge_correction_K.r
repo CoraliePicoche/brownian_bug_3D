@@ -27,11 +27,11 @@ thomas_cdf=function(r,sigma){
 
 colo=c("red","blue","grey")
 
-pdf("K_Thomas_edge_correction.pdf",width=10,height=10)
+pdf("K_Poisson_edge_correction.pdf",width=10,height=10)
 par(mfrow=c(3,3),mar=c(4,4.5,3,1))
 
-sim=list(101,103,105)#Thomas 
-#sim=list(100,102,104)#Poisson
+#sim=list(101,103,105)#Thomas 
+sim=list(100,102,104)#Poisson
 type=c("Translation","Torus","Both")
 
 for (species in 1:3){
@@ -118,11 +118,12 @@ for (s in 1:length(sim)){
 		}
 	}
 	if(s==2){	
-		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory mono-specific", "Theory cross-specific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=2)
-		#legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA),lty=c(NA,1,1,2),lwd=2)
+		#legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory mono-specific", "Theory cross-specific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=2)
+		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA),lty=c(NA,1,1,2),lwd=2)
 	}
 	lines(unique(f_tot$r),th_poisson,lty=3,lwd=2)
-	lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
+	#lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
 }
 }
 dev.off()
+

@@ -16,11 +16,11 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=100;
+extern const int num_simu=107;
 
 //Define constant for simulation
-extern const char type_simul='P'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
-extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
+extern const char type_simul='T'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
+extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=0; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
 extern const int tmax=-10; //length of the simulation. Tmax is negative if we only want the initial distribution
@@ -49,11 +49,11 @@ extern const double proba_repro=growth_rate*tau; //Death and birth probability
 //Community definition
 extern const int nb_species=3;
 //extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
-extern const std::vector<double> size_pop={10000,10000,10000}; 
+//extern const std::vector<double> size_pop={10000,10000,10000}; 
 extern const int N_parent_init=200;
-extern const int N_children_init=0;
+extern const int N_children_init=50;
 extern const double sigma=0.01;
-//extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
+extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
 extern const double Lmax=pow(1000,1.0/3.0); //size of the grid
@@ -64,7 +64,7 @@ extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to anoth
 extern const double pow_max=-1;
 extern const double pow_min=-4;
 extern const int nb_r_pcf=5000; //Number of values for r when computing pcf
-extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
+extern const int delta_spatstat=1; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
 extern const double delta_fixed=pow(10,-5); //Only used if delta_spatstat==0
 
 
@@ -113,7 +113,7 @@ std::vector<basic_particle> initialize_thomas(std::vector<basic_particle> Part_t
         {
                 a_x=Part_table.at(i).get_x()+gsl_ran_gaussian(rgslbis2,sigma);
                 a_y=Part_table.at(i).get_y()+gsl_ran_gaussian(rgslbis2,sigma);
-                a_z=Part_table.at(i).get_y()+gsl_ran_gaussian(rgslbis2,sigma);
+                a_z=Part_table.at(i).get_z()+gsl_ran_gaussian(rgslbis2,sigma);
                 Part_table.push_back(basic_particle(a_x,a_y,a_z,a_y,i,s)); //Children are put after their parents
                 Part_table.at(Part_table.size()-1).check_boundaries(Lmax);
         } //end n_children
@@ -208,10 +208,10 @@ for(p1=0;p1<nb_species;p1++){
 		dx = temp.get_x() - current.get_x();
 		dy = temp.get_y() - current.get_y();
 		dz = temp.get_z() - current.get_z();
-		dist = pow(dx * dx + dy * dy + dz * dz,0.5);
+		//dist = pow(dx * dx + dy * dy + dz * dz,0.5);
 		//Using periodic conditions as in Illian et al. (2008) p. 184: JUST A TEST, NOT RECOMMENDED
-		//dist=pow(min(abs(dx),Lmax-abs(dx)),2)+pow(min(abs(dy),Lmax-abs(dy)),2)+pow(min(abs(dz),Lmax-abs(dz)),2);
-		//dist=pow(dist, 0.5);
+		dist=pow(min(abs(dx),Lmax-abs(dx)),2)+pow(min(abs(dy),Lmax-abs(dy)),2)+pow(min(abs(dz),Lmax-abs(dz)),2);
+		dist=pow(dist, 0.5);
 		//Only corresponding to num 102 and 103 in simulations
 
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
@@ -238,9 +238,9 @@ for(p1=0;p1<nb_species;p1++){
 		////	      tval = pow(10,pow_min) + l * dt;
 				if(dist<tval){
                                 	lambda_K[s1][s2][l]+=1.0/(vx*vy*vz);
-                                	//lambda_K[s1][s2][l]+=1.0; // Only 102 and 103
+                                	//lambda_K[s1][s2][l]+=1.0/pow(Lmax,3); // Only 102 and 103 and 108
                                 	K[s1][s2][l]+=1.0/(Concentration_square*vx*vy*vz);
-                                	//K[s1][s2][l]+=1.0/(Concentration_square); //Only 102 and 103
+                                	//K[s1][s2][l]+=1.0/(Concentration_square*pow(Lmax,3)); //Only 102 and 103 and 108
 				}//test on dist
 				if(l>=lmin){ ////
 	      /* unnormalised Epanechnikov kernel with halfwidth delta */
@@ -254,7 +254,7 @@ for(p1=0;p1<nb_species;p1++){
 					bias=1;
 				}
 				pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel / invweight*1/bias;
-				//pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel /bias * 1/(4*pi * dist * dist); //Only 102 and 103
+				//pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel /bias * 1/(pow(Lmax,3)*4*pi * dist * dist); //Only 102 and 103 and 108
 	   		 	} //end kernel>0
 				} /// end test on lmin
 	  		} //end loop on l

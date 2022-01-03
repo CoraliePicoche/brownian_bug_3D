@@ -32,7 +32,7 @@ par(mfrow=c(3,3),mar=c(4,4.5,3,1))
 
 #sim=list(101,103,105)#Thomas 
 sim=list(100,102,104)#Poisson
-type=c("Translation","Torus","Both")
+type=c("Translation","Torus","Both") 
 
 for (species in 1:3){
 	s1=species
@@ -43,6 +43,7 @@ for (species in 1:3){
 		xl=""
 	}
 for (s in 1:length(sim)){
+	print(type[s])
 	nb_simu_tot=sim[s][[1]]
 	if(s==1){
 		yl="PCF"
@@ -107,6 +108,7 @@ for (s in 1:length(sim)){
 	points(f_plot$r,f_plot$pcf,pch=16,col=colo[s1])
 	colors=colo[s1]
 
+	print(mean(f_plot$pcf))
 	for(s2 in 1:length(unique_sp)){
 		if(s1!=s2){
 			colors=c(colors,colo[s2])

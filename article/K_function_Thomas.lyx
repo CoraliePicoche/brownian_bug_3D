@@ -91,194 +91,18 @@
 \begin_body
 
 \begin_layout Title
-Theoretical formula for the dominance index
-\end_layout
-
-\begin_layout Standard
-According to p.
- 323 of 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "illian2008statistical"
-literal "false"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-which I suggest that we take as mathematical and notational reference for
- our further work
-\end_layout
-
-\end_inset
-
-, we have 
-\begin_inset Formula $M_{ij}(r)$
-\end_inset
-
- as defined by 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "wiegand_how_2007"
-literal "false"
-
-\end_inset
-
- the number of 
-\begin_inset Formula $j$
-\end_inset
-
- particles within a distance 
-\begin_inset Formula $r$
-\end_inset
-
- of a randomly chosen 
-\begin_inset Formula $i$
-\end_inset
-
- particle, which is equal to 
-\begin_inset Formula $\lambda_{j}K_{ij}(r)$
-\end_inset
-
-, so that the dominance index is:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-D_{i}(r)=\frac{\lambda_{i}K_{ii}(r)}{\sum_{j=1}^{S}\lambda_{j}K_{ij}(r)}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-Poisson point process
-\end_layout
-
-\begin_layout Standard
-In the case of a Poisson process, 
-\begin_inset Formula $K_{ii}(r)=b_{d}r^{d}$
-\end_inset
-
- with 
-\begin_inset Formula $b_{3}=\frac{4}{3}\pi$
-\end_inset
-
- (
-\begin_inset Formula $d$
-\end_inset
-
- is the dimension of the space).
- In general, the case of 
-\begin_inset Formula $K_{ij}(r)$
-\end_inset
-
- is a little more complicated, as we've got two options as explained p.
- 324 of 
-\begin_inset CommandInset citation
-LatexCommand citet
-key "illian2008statistical"
-literal "false"
-
-\end_inset
-
-, but it will simplify in the Poisson case: 
-\end_layout
-
-\begin_layout Itemize
-The general multitype point process is a marked point process (with random
- labelling of types), so that 
-\begin_inset Formula $K_{ij}=K(r)$
-\end_inset
-
-, which is equal to 
-\begin_inset Formula $b_{d}r^{d}$
-\end_inset
-
- in the Poisson case.
- 
-\end_layout
-
-\begin_layout Itemize
-The general multitype point process is a superposition of point processes
- with 
-\begin_inset Formula $K_{i}(r)$
-\end_inset
-
- and 
-\begin_inset Formula $K_{ij}(r)=b_{d}r^{d}$
-\end_inset
-
-.
- In the Poisson case, 
-\begin_inset Formula $K_{i}(r)=K_{ij}(r)=b_{d}r^{d}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Hence
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-D_{i}(r)=\frac{\lambda_{i}b_{d}r^{d}}{\sum_{j=1}^{S}\lambda_{j}b_{d}r^{d}}=\frac{\lambda_{i}}{\sum_{j=1}^{S}\lambda_{j}}
-\end{equation}
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-for the multitype Poisson process, no matter whether we defined it: 
-\end_layout
-
-\begin_layout Itemize
-by giving a probability of getting mark 
-\begin_inset Formula $i$
-\end_inset
-
-, 
-\begin_inset Formula $p_{i}=\lambda_{i}/\lambda$
-\end_inset
-
- where the total intensity is 
-\begin_inset Formula $\lambda=\sum_{j}^{S}\lambda_{j}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-or by a superposition of Poisson process with intensities 
-\begin_inset Formula $\lambda_{i}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Section*
-Thomas point process
+Ripley's K function for a Thomas process
 \end_layout
 
 \begin_layout Standard
 The Thomas point process is a specific case of a Neyman-Scott process, defined
- in two steps: parents points follow a Poisson point process of intensity
+ in two steps: parent points follow a Poisson point process of intensity
  
 \begin_inset Formula $\lambda_{p}$
 \end_inset
 
 , and each parent produces daughter points whose position follows a normal
- distribution centered on the parent point with standard deviation 
+ distribution centered on the parent point, with standard deviation 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -290,11 +114,8 @@ The Thomas point process is a specific case of a Neyman-Scott process, defined
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+\begin_layout Section*
+Theory
 \end_layout
 
 \begin_layout Subsection*
@@ -311,36 +132,7 @@ literal "false"
 \end_inset
 
  p.173 eq.
- (5.52)
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-We can also note that the density function in http://www.nisox.org/files/PDF/Johns
-onSpatialPointProc.pdf (example 4 p.
- 13) is:
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Formula 
-\begin{equation}
-f(r)=\frac{1}{\left(2\pi\sigma^{2}\right)^{d/2}}e^{-\left(\frac{r^{2}}{2\sigma^{2}}\right)}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-Which does not give the solutions we have in other formulas (see the exponential
-).
- Guess it's a typo.
-\end_layout
-
-\end_inset
-
-, 
+ (5.52), 
 \end_layout
 
 \begin_layout Standard
@@ -398,7 +190,7 @@ K(r)=\frac{\pi^{d/2}r^{d}}{\Gamma(1+\frac{d}{2})}+\frac{E(N(N-1))F(r)}{\lambda_{
 
 \begin_layout Standard
 where 
-\begin_inset Formula $\bar{}E(N)\equiv c$
+\begin_inset Formula $E(N)\equiv\bar{c}$
 \end_inset
 
  and 
@@ -884,7 +676,12 @@ Let's define
 \begin_inset Formula $\xi=\frac{1}{2\sigma^{2}}\left((x_{1}-x_{2})^{2}+(y_{1}-y_{2})^{2}+(z_{1}-z_{2})^{2}\right)\sim\chi^{2}(3)$
 \end_inset
 
- (for the same reasons as above).
+ (for the same reasons as above, i.e.
+ 
+\begin_inset Formula $\frac{x_{1}-x_{2}}{\sqrt{2}\sigma}\sim\mathcal{N}(0,1)$
+\end_inset
+
+, etc.).
 \end_layout
 
 \begin_layout Standard
@@ -975,7 +772,7 @@ status collapsed
 
 \begin_layout Plain Layout
 TRYING WITH CHI-DISTRIBUTION: unfinished for now, due to computation error
- AND/OR careless mistakes 
+ AND/OR careless mistakes
 \end_layout
 
 \begin_layout Plain Layout
@@ -1000,7 +797,6 @@ while I would have written
 \end_inset
 
  its corresponding random variable.
- 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1112,7 +908,7 @@ F_{3}(r)=erf(r/2\sigma)-\frac{r}{\sigma\sqrt{\pi}}e^{-r^{2}/4\sigma^{2}}
 \end_layout
 
 \begin_layout Plain Layout
-which is the solution we had above at factor 
+which is the solution we had above at factor
 \end_layout
 
 \end_inset
@@ -1122,6 +918,17 @@ which is the solution we had above at factor
 
 \begin_layout Subsubsection*
 Interspecific function
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We still need to ask J.
+ Illian
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1135,53 +942,47 @@ literal "false"
 
  p.324, eq.
  5.3.5, in the case of a random and stationary distributions, 
-\begin_inset Formula $K_{ij}(r)=b_{d}r^{d}$
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-We still need to ask J.
- Illian
-\end_layout
-
+\begin_inset Formula $K_{ij}(r)=b_{d}r^{d}=\frac{4}{3}\pi r^{3}$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Section*
+Simulations
 \end_layout
 
 \begin_layout Subsection*
-Dominance index with a Thomas point process
+About edge-corrections
 \end_layout
 
 \begin_layout Standard
-We know 
-\begin_inset Formula $K_{i}(r)$
+(I realized we obtained different results depending on the edge-corrections
+ we used)
+\end_layout
+
+\begin_layout Standard
+There are several ways to correct for edge effects, among which two seems
+ to be the more appropriate
+\end_layout
+
+\begin_layout Itemize
+The periodic edge-correction (e.g., p.184 in 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "illian2008statistical"
+literal "false"
+
 \end_inset
 
- with a Thomas point process in 3D.
- In the case of a random superposition model, 
-\begin_inset Formula $K_{ij}(r)=\frac{4}{3}\pi r^{3}$
-\end_inset
-
-.
+, not advocated by authors) relies on the redefinition of the distance (here,
+ I am extrapolating to 3D), based on torus:
 \end_layout
 
-\begin_layout Standard
-We can therefore write the dominance index as:
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing double
+\begin_layout LyX-Code
 \begin_inset Formula 
 \begin{equation}
-\begin{array}{ccc}
-D_{i}(r) & = & \frac{\lambda_{i}K_{i}(r)}{\lambda_{i}K_{i}(r)+\sum_{j\neq i}\lambda_{j}K_{ij}(r)}\\
- & = & \frac{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p,i}}\right)}{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p,i}}\right)+\sum_{j\neq i}\lambda_{j}\frac{4}{3}\pi r^{3}}\\
- & = & \frac{\lambda_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p},i}\right)}{\lambda_{i}\frac{F(r)}{\lambda_{p,i}}+\sum_{j}\lambda_{j}\frac{4}{3}\pi r^{3}}
-\end{array}
+||p_{1}-p_{2}||^{2}=\left[\min\left(|x_{1}-x_{2}|,L_{\max}-|x_{1}-x_{2}|\right)\right]^{2}+\left[\min\left(|y_{1}-y_{2}|,L_{\max}-|y_{1}-y_{2}|\right)\right]^{2}+\left[\min\left(|z_{1}-z_{2}|,L_{\max}-|z_{1}-z_{2}|\right)\right]^{2}
 \end{equation}
 
 \end_inset
@@ -1190,20 +991,149 @@ D_{i}(r) & = & \frac{\lambda_{i}K_{i}(r)}{\lambda_{i}K_{i}(r)+\sum_{j\neq i}\lam
 \end_layout
 
 \begin_layout Standard
-with 
-\begin_inset Formula $F(r)=\frac{2}{\sigma\sqrt{\pi}}\left(erf\left(\frac{r}{2\sigma}\right)-\frac{r}{\sigma\sqrt{\pi}}e^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)$
+While this method is deemed suitable for the result of a simulation with
+ periodic boundary conditions, as the ones we have, it creates spurious
+ values for the pcf (not for Ripley's function, though) for the Thomas process
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:PCF_Thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
 \end_inset
 
-.
+).
+\end_layout
+
+\begin_layout Itemize
+The stationary (or translational) edge-correction (e.g., p.188 in 
+\begin_inset CommandInset citation
+LatexCommand citealt
+key "illian2008statistical"
+literal "false"
+
+\end_inset
+
+) used in spatstat v2.3-0 (and in our code) relies on a weight 
+\begin_inset Formula $w$
+\end_inset
+
+ applied to the different distances between points.
+ 
 \end_layout
 
 \begin_layout Standard
-Note that this solution applies to every Neyman-Scott process.
- We just have to use the right formula for 
-\begin_inset Formula $F(r)$
+\begin_inset Formula 
+\begin{equation}
+w=\frac{1}{\nu(W\bigcap W_{p_{2}-p_{1}})}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\nu(W\bigcap W_{p_{1}-p_{2}})$
+\end_inset
+
+ is the volume of the intersection of the studied volume 
+\begin_inset Formula $W$
+\end_inset
+
+ and the translated volume 
+\begin_inset Formula $W_{p_{2}-p_{1}}$
 \end_inset
 
 .
+ In the case of a rectangular volume, we can rewrite:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\nu(W\bigcap W_{p_{1}-p_{2}})=\left(L_{\max}-|x_{1}-x_{2}|\right)\left(L_{\max}-|y_{1}-y_{2}|\right)\left(L_{\max}-|z_{1}-z_{2}|\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I used both methods separately and together for the Poisson and Thomas process.
+ (Note: in Pommerening & Stoyan 2006, periodic and translational edge-correction
+ are both used to qualify the same method)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Two further notes on spatstat corrections: The library spatstat adds another
+ correction to take into account small radii (lower than the bandwidth
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+which does not look as a very smart thing to do and which we do not do,
+ but still, this exists
+\end_layout
+
+\end_inset
+
+): if 
+\begin_inset Formula $r<\delta$
+\end_inset
+
+ , a new weight 
+\begin_inset Formula $w'=1/\nu'$
+\end_inset
+
+ is added, where:
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{equation}
+\nu'=\frac{3}{4}\left(\frac{r}{\delta}+\frac{2}{3}-\frac{1}{3}\left(\frac{r}{\delta}\right)^{3}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Note: I have no reference for this and am wondering where that comes from.
+\end_layout
+
+\begin_layout Plain Layout
+When computing the pcf, instead of using 
+\begin_inset Formula $\frac{1}{4\pi r^{2}}$
+\end_inset
+
+, they use 
+\begin_inset Formula $\frac{1}{4\pi||p_{1}-p_{2}||^{2}}$
+\end_inset
+
+ (see chap.
+ 7, p.
+ 229, in Spatial Point Patterns: Methodology and Applications in R)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Results
 \end_layout
 
 \begin_layout Standard
@@ -1215,8 +1145,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename dominance_thomas.pdf
-	width 55text%
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/PCF_Thomas_edge_correction.pdf
+	width 80text%
 
 \end_inset
 
@@ -1227,9 +1157,66 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance index for 3 species with different total abundances (same number
- of daughter point per parent), with 
+Mono and plurispecific pair correlation functions for a Thomas process with
+ 200 parents, 50 children per parent, 
 \begin_inset Formula $\sigma=0.01$
+\end_inset
+
+, and 3 species, for three edge-corrections methods, translational, periodic
+ distance (torus) and both.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:PCF_Thomas"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_Thomas_edge_correction.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mono and plurispecific Ripley's K functions for a Thomas process with 200
+ parents, 50 children per parent, 
+\begin_inset Formula $\sigma=0.01$
+\end_inset
+
+, and 3 species, for three edge-corrections methods, translational, periodic
+ distance (torus) and both.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:K_Thomas-1"
+
 \end_inset
 
 

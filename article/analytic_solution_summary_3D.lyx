@@ -360,7 +360,7 @@ Ripley's function
 \begin{equation}
 \begin{array}{ccc}
 G(r) & = & \frac{K'(r)}{4\pi r^{2}}\\
-\Leftrightarrow K(r) & = & 4\pi\int C^{2}r^{2}+\frac{\lambda C}{2\pi}\left[\frac{r}{2D}+\frac{\acute{\sqrt{\gamma}}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}-\frac{\sqrt{\gamma}\pi r^{2}}{4\sqrt{2}D\sqrt{D}}\right]dr
+\Leftrightarrow K(r) & = & 4\pi\int_{0}^{r}C^{2}r^{2}+\frac{\lambda C}{2\pi}\left[\frac{r}{2D}+\frac{\acute{\sqrt{\gamma}}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}-\frac{\sqrt{\gamma}\pi r^{2}}{4\sqrt{2}D\sqrt{D}}\right]dr
 \end{array}
 \end{equation}
 
@@ -371,19 +371,19 @@ G(r) & = & \frac{K'(r)}{4\pi r^{2}}\\
 
 \begin_layout Standard
 We define 
-\begin_inset Formula $A=\int C^{2}r^{2}dr$
+\begin_inset Formula $A=\int_{0}^{r}C^{2}r^{2}dr$
 \end_inset
 
  , 
-\begin_inset Formula $B=\int\frac{r}{2D}dr$
+\begin_inset Formula $B=\int_{0}^{r}\frac{r}{2D}dr$
 \end_inset
 
 , 
-\begin_inset Formula $C=\int r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)dr$
+\begin_inset Formula $C=\int_{0}^{r}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)dr$
 \end_inset
 
  and 
-\begin_inset Formula $E=\int\frac{\sqrt{\gamma}\pi r^{2}}{4\sqrt{2}D\sqrt{D}}dr$
+\begin_inset Formula $E=\int_{0}^{r}\frac{\sqrt{\gamma}\pi r^{2}}{4\sqrt{2}D\sqrt{D}}dr$
 \end_inset
 
 .
@@ -394,9 +394,9 @@ We define
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-A= & \frac{C^{2}}{3}r^{3}+K_{1}\\
-B= & \frac{r^{2}}{4D}+K_{2}\\
-E= & \frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}+K_{3}
+A= & \frac{C^{2}}{3}r^{3}\\
+B= & \frac{r^{2}}{4D}\\
+E= & \frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}
 \end{array}
 \end{equation}
 
@@ -407,7 +407,7 @@ E= & \frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}+K_{3}
 
 \begin_layout Standard
 We can also compute 
-\begin_inset Formula $C=\int r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)$
+\begin_inset Formula $C=\int_{0}^{r}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)dr$
 \end_inset
 
 .
@@ -426,8 +426,8 @@ We can also compute
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-C & = & \int(\sqrt{2D}u)^{2}\arctan(\sqrt{\gamma}u)\sqrt{2D}du\\
- & = & (2D)^{3/2}\int u^{2}\arctan(\sqrt{\gamma}u)du
+C & = & \int_{0}^{r/\sqrt{2D}}(\sqrt{2D}u)^{2}\arctan(\sqrt{\gamma}u)\sqrt{2D}du\\
+ & = & (2D)^{3/2}\int_{0}^{r/\sqrt{2D}}u^{2}\arctan(\sqrt{\gamma}u)du
 \end{array}
 \end{equation}
 
@@ -452,8 +452,8 @@ We can integrate by parts, with
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-C & = & (2D)^{3/2}\left(\frac{u^{3}}{3}\arctan(\sqrt{\gamma}u)-\int\frac{\sqrt{\gamma}u^{3}}{3(\gamma u^{2}+1)}du\right)\\
- & = & (2D)^{3/2}\left(\frac{u^{3}}{3}\arctan(\sqrt{\gamma}u)-\frac{\sqrt{\gamma}}{3}\int\frac{u^{3}}{(\gamma u^{2}+1)}du\right)
+C & = & (2D)^{3/2}\left(\frac{r^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}r)-\int_{0}^{r/\sqrt{2D}}\frac{\sqrt{\gamma}u^{3}}{3(\gamma u^{2}+1)}du\right)\\
+ & = & (2D)^{3/2}\left(\frac{r^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}r)-\frac{\sqrt{\gamma}}{3}\int_{0}^{r/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du\right)
 \end{array}
 \end{equation}
 
@@ -468,7 +468,7 @@ We can substitute
 \end_inset
 
 
-\begin_inset Formula $du=\frac{1}{2\gamma u}du$
+\begin_inset Formula $du=\frac{1}{2\gamma u}dv$
 \end_inset
 
 .
@@ -478,10 +478,9 @@ We can substitute
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\int\frac{u^{3}}{(\gamma u^{2}+1)}du & = & \frac{1}{2\gamma^{2}}\int\frac{v-1}{v}dv\left(\frac{r^{3}}{\sqrt{2D}}\right)^{3}\\
- & = & \frac{1}{2\gamma^{2}}\int1-\frac{1}{v}dv\\
- & = & \frac{1}{2\gamma^{2}}(v-\log(v))\\
- & = & \frac{1}{2\gamma^{2}}(\gamma u^{2}+1-\log(\gamma u^{2}+1))
+\int_{0}^{r/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du & = & \frac{1}{2\gamma^{2}}\int_{1}^{\gamma r^{2}/2D+1}\frac{v-1}{v}dv\\
+ & = & \frac{1}{2\gamma^{2}}\int_{1}^{\gamma r^{2}/2D+1}1-\frac{1}{v}dv\\
+ & = & \frac{1}{2\gamma^{2}}(\gamma\frac{r^{2}}{2D}-\log(\gamma\frac{r^{2}}{2D}+1))
 \end{array}
 \end{equation}
 
@@ -498,12 +497,8 @@ Going back to C, we obtain:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-C & = & (2D)^{3/2}\left(\frac{1}{3}\left(\frac{r}{\sqrt{2D}}\right)^{3}\arctan(\sqrt{\gamma}\frac{r}{\sqrt{2D}})-\frac{\sqrt{\gamma}}{3}\frac{1}{2\gamma^{2}}\left(\gamma\left(\frac{r}{\sqrt{2D}}\right)^{2}+1-\log\left(\gamma\left(\frac{r}{\sqrt{2D}}\right)^{2}+1\right)\right)\right)+K_{4}\\
- & = & (2D)^{3/2}\left(\frac{1}{3}\left(\frac{r}{\sqrt{2D}}\right)^{3}\arctan(\sqrt{\gamma}\frac{r}{\sqrt{2D}})-\frac{1}{6\gamma^{3/2}}\left(\gamma\left(\frac{r}{\sqrt{2D}}\right)^{2}+1-\log\gamma\left(\frac{r}{\sqrt{2D}}\right)^{2}+1\right)\right)+K_{4}\\
- & = & (2D)^{3/2}\left(\frac{1}{3}\frac{r^{3}}{(2D)^{3/2}}\arctan(\sqrt{\gamma}\frac{r}{\sqrt{2D}})-\frac{1}{6\gamma^{3/2}}\left(r^{2}\frac{\gamma}{2D}+1-\log(r^{2}\frac{\gamma}{2D}+1\right)\right)+K_{4}\\
- & = & \frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\left(2D\right)^{3/2}}{6\gamma^{3/2}}\left(\frac{\gamma}{2D}r^{2}+1-\log(\gamma r^{2}+2D)+\log(2D)\right)+K_{4}\\
- & = & \frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\sqrt{D}}{3\sqrt{2}\gamma^{3/2}}\left(\gamma r^{2}+2D-2D\log(\gamma r^{2}+2D)+2D\log(2D)\right)+K_{4}\\
- & = & \frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\sqrt{D}}{3\sqrt{2}\gamma^{3/2}}\left(\gamma r^{2}-2D\log(\gamma r^{2}+2D)\right)-\frac{\sqrt{D}}{3\sqrt{2}\gamma^{3/2}}\left(2D+2D\log(2D)\right)+K_{4}
+C & = & \frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\left(2D\right)^{3/2}\frac{\sqrt{\gamma}}{3}\frac{1}{2\gamma^{2}}\left(\frac{\gamma}{2D}r^{2}-\log(\gamma\frac{r^{2}}{2D}+1)\right)\\
+ & = & \frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\sqrt{2}D\sqrt{D}}{3\gamma^{3/2}}\left(\gamma r^{2}-\log(\gamma\frac{r^{2}}{2D}+1)\right)
 \end{array}
 \end{equation}
 
@@ -513,20 +508,14 @@ C & = & (2D)^{3/2}\left(\frac{1}{3}\left(\frac{r}{\sqrt{2D}}\right)^{3}\arctan(\
 \end_layout
 
 \begin_layout Standard
-Combining all equations, with 
-\begin_inset Formula $K(0)=0$
-\end_inset
-
-:
+Combining all equations:
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-K(r) & = & 4\pi\frac{C^{2}}{3}r^{3}+\frac{2\lambda C}{\pi}\left(\frac{r^{2}}{4D}+\frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\sqrt{D}}{3\sqrt{2}\gamma^{3/2}}\left(\gamma r^{2}-2D\log(\gamma r^{2}+2D)\right)-\frac{\sqrt{D}}{3\sqrt{2}\gamma^{3/2}}\left(2D+2D\log(2D)\right)-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}\right)+K_{5}\\
- & = & 4\pi\frac{C^{2}}{3}r^{3}+\frac{2\lambda C}{\pi}\left(\frac{r^{2}}{4D}+\frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\sqrt{D}}{3\sqrt{2}\gamma^{3/2}}\left(\gamma r^{2}-2D\log(\gamma r^{2}+2D)\right)-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}\right)-\frac{4\lambda CD^{3/2}}{3\sqrt{2}\gamma^{3/2}}
-\end{array}
+K(r) & = & 4\pi\frac{C^{2}}{3}r^{3}+\frac{2\lambda C}{\pi}\left(\frac{r^{2}}{4D}+\frac{r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{3}-\frac{\sqrt{2}D\sqrt{D}}{3\gamma^{3/2}}\left(\gamma r^{2}-\log(\gamma\frac{r^{2}}{2D}+1)\right)-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}\right)\end{array}
 \end{equation}
 
 \end_inset
@@ -829,8 +818,8 @@ Ripley's function
 \begin{equation}
 \begin{array}{ccc}
 G(r) & = & \frac{K'(r)}{4\pi r^{2}}\\
-\Leftrightarrow K(r) & = & \frac{\lambda C}{D}\int r\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +4\pi r^{2}C^{2}dr\\
- & = & \frac{\lambda C}{D}\left(\frac{r^{2}}{2}-\int r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr\right)+\frac{4}{3}\pi r^{3}C^{2}
+\Leftrightarrow K(r) & = & \frac{\lambda C}{D}\int_{0}^{r}r\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +4\pi r^{2}C^{2}dr\\
+ & = & \frac{\lambda C}{D}\left(\frac{r^{2}}{2}-\int_{0}^{r}r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr\right)+\frac{4}{3}\pi r^{3}C^{2}
 \end{array}
 \end{equation}
 
@@ -860,7 +849,7 @@ Let's find the primitive for
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\int r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & 8Dt\int u\times erf\left(u\right)du\end{array}
+\int_{0}^{r}r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & 8Dt\int_{0}^{r/\sqrt{8Dt}}u\times erf\left(u\right)du\end{array}
 \end{equation}
 
 \end_inset
@@ -884,7 +873,7 @@ We can integrate by parts, with
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-8Dt\int u\times erf\left(u\right)du & = & 8Dt\left(\frac{u^{2}}{2}erf(u)-\frac{1}{\sqrt{\pi}}\int u^{2}e^{-u^{2}}du\right)\end{array}
+8Dt\int_{0}^{r/\sqrt{8Dt}}u\times erf\left(u\right)du & = & 8Dt\left(\frac{r^{2}}{2}\frac{1}{8Dt}erf(\frac{r}{\sqrt{8Dt}})-\frac{1}{\sqrt{\pi}}\int_{0}^{r/\sqrt{8Dt}}u^{2}e^{-u^{2}}du\right)\end{array}
 \end{equation}
 
 \end_inset
@@ -912,9 +901,8 @@ We integrate by parts again, this time with
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-8Dt\int u\times erf\left(u\right)du & = & 8Dt\left(\frac{u^{2}}{2}erf(u)-\frac{erf(u)}{4}+\frac{ue^{-u^{2}}}{2\sqrt{\pi}}\right)+K_{1}\\
-\Leftrightarrow\int r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & 8Dt\left(\frac{1}{2}\frac{r^{2}}{8Dt}erf(\frac{r}{\sqrt{8Dt}})-\frac{erf(\frac{r}{\sqrt{8Dt}})}{4}+\frac{1}{2\pi}\frac{r}{\sqrt{8Dt}}e^{-r^{2}/8Dt}\right)+K_{1}\\
- & = & \frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)+\frac{\sqrt{2Dt}}{\sqrt{\pi}}e^{-r^{2}/8Dt}+K_{1}
+8Dt\int_{0}^{r/\sqrt{8Dt}}u\times erf\left(u\right)du & = & 8Dt\left(\frac{r^{2}}{2}\frac{1}{8Dt}erf(\frac{r}{\sqrt{8Dt}})-\frac{erf(\frac{r}{\sqrt{8Dt}})}{4}+\frac{1}{2\sqrt{\pi}}\frac{r}{\sqrt{8Dt}}e^{-r^{2}/8Dt}\right)\\
+\Leftrightarrow\int r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & \frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)+\frac{\sqrt{2Dt}}{\sqrt{\pi}}e^{-r^{2}/8Dt}
 \end{array}
 \end{equation}
 
@@ -939,9 +927,7 @@ We can now compute
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-K(r) & = & \frac{\lambda C}{D}\left(\frac{r^{2}}{2}-\frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}C^{2}+K'\\
- & = & \frac{\lambda C}{D}\left(\frac{r^{2}}{2}-\frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}C^{2}+\frac{\lambda C}{\sqrt{D}}\frac{\sqrt{2t}}{\sqrt{\pi}}
-\end{array}
+K(r) & = & \frac{\lambda C}{D}\left(\frac{r^{2}}{2}-\frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}C^{2}\end{array}
 \end{equation}
 
 \end_inset
