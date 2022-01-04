@@ -209,10 +209,9 @@ for(p1=0;p1<nb_species;p1++){
 		dy = temp.get_y() - current.get_y();
 		dz = temp.get_z() - current.get_z();
 		//dist = pow(dx * dx + dy * dy + dz * dz,0.5);
-		//Using periodic conditions as in Illian et al. (2008) p. 184: JUST A TEST, NOT RECOMMENDED
+		//Using periodic conditions as in Illian et al. (2008) p. 184 which they do not recommend
 		dist=pow(min(abs(dx),Lmax-abs(dx)),2)+pow(min(abs(dy),Lmax-abs(dy)),2)+pow(min(abs(dz),Lmax-abs(dz)),2);
 		dist=pow(dist, 0.5);
-		//Only corresponding to num 102 and 103 in simulations
 
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
 	        lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
@@ -238,9 +237,9 @@ for(p1=0;p1<nb_species;p1++){
 		////	      tval = pow(10,pow_min) + l * dt;
 				if(dist<tval){
                                 	lambda_K[s1][s2][l]+=1.0/(vx*vy*vz);
-                                	//lambda_K[s1][s2][l]+=1.0/pow(Lmax,3); // Only 102 and 103 and 108
+                                	//lambda_K[s1][s2][l]+=1.0/pow(Lmax,3); // Only simulations 102 and 103, i.e. simulations where we remove the translation
                                 	K[s1][s2][l]+=1.0/(Concentration_square*vx*vy*vz);
-                                	//K[s1][s2][l]+=1.0/(Concentration_square*pow(Lmax,3)); //Only 102 and 103 and 108
+                                	//K[s1][s2][l]+=1.0/(Concentration_square*pow(Lmax,3)); //Only simulations 102 and 103, i.e. simulations where we remove the translation
 				}//test on dist
 				if(l>=lmin){ ////
 	      /* unnormalised Epanechnikov kernel with halfwidth delta */
@@ -254,7 +253,7 @@ for(p1=0;p1<nb_species;p1++){
 					bias=1;
 				}
 				pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel / invweight*1/bias;
-				//pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel /bias * 1/(pow(Lmax,3)*4*pi * dist * dist); //Only 102 and 103 and 108
+				//pcf[s1][s2][l] = pcf[s1][s2][l] + coef*kernel /bias * 1/(pow(Lmax,3)*4*pi * dist * dist);  //Only simulations 102 and 103, i.e. simulations where we remove the translation
 	   		 	} //end kernel>0
 				} /// end test on lmin
 	  		} //end loop on l
