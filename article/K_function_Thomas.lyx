@@ -380,19 +380,28 @@ Let's have
 \begin_inset Formula $F'(r)=\frac{2}{\sigma\sqrt{\pi}}\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}$
 \end_inset
 
- and find the integral of 
-\begin_inset Formula $A(r)=\left(\frac{r}{2\sigma}\right)^{2}e^{-\left(\frac{r}{2\sigma}\right)^{2}}$
+ and find the integral 
+\begin_inset Formula $A(r)=\frac{1}{4\sigma^{2}}\int_{0}^{r}x^{2}e^{-\left(\frac{x}{2\sigma}\right)^{2}}dx$
 \end_inset
 
-:
+.
+ We first integrate by parts with 
+\begin_inset Formula $f=x$
+\end_inset
+
+ and 
+\begin_inset Formula $g'=xe^{-\left(\frac{x}{2\sigma}\right)^{2}}$
+\end_inset
+
+ .
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-A(r) & = & \int_{0}^{r}\left(\frac{x}{2\sigma}\right)^{2}e^{-\left(\frac{x}{2\sigma}\right)^{2}}dx\\
- & = & 2\sigma\int_{0}^{(r/2\sigma)^{2}}te^{-t}dt
+A(r) & = & \frac{1}{4\sigma^{2}}\left(\left[-2\sigma^{2}xe^{-\left(\frac{x}{2\sigma}\right)^{2}}\right]_{0}^{r}+2\sigma^{2}\int_{0}^{r}e^{-\left(\frac{x}{2\sigma}\right)^{2}}dx\right)\\
+ & = & -\frac{1}{2}re^{-\left(\frac{r}{2\sigma}\right)^{2}}+\frac{1}{2}\int_{0}^{r}e^{-\left(\frac{x}{2\sigma}\right)^{2}}dx
 \end{array}
 \end{equation}
 
@@ -403,15 +412,15 @@ A(r) & = & \int_{0}^{r}\left(\frac{x}{2\sigma}\right)^{2}e^{-\left(\frac{x}{2\si
 
 \begin_layout Standard
 Let us define 
-\begin_inset Formula $z^{2}=t$
+\begin_inset Formula $z=\frac{x}{2\sigma}$
 \end_inset
 
 , i.e.
  
-\begin_inset Formula $dt=2zdz$
+\begin_inset Formula $dx=2\sigma dz$
 \end_inset
 
-, then do a partial integration.
+.
 \end_layout
 
 \begin_layout Standard
@@ -419,13 +428,10 @@ Let us define
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-A(r) & = & 2\sigma\int_{0}^{r/2\sigma}\sqrt{z^{2}}e^{-z^{2}}2zdz\\
- & = & 4\sigma\int_{0}^{r/2\sigma}z^{2}e^{-z^{2}}dz\\
- & = & 4\sigma\int_{0}^{r/2\sigma}z\left(ze^{-z^{2}}\right)dz\\
- & = & 4\sigma\left(\left[-\frac{1}{2}ze^{-z^{2}}\right]_{0}^{r/2\sigma}+\int_{0}^{r/2\sigma}\frac{1}{2}e^{-z^{2}}dz\right)\\
- & = & \frac{4}{\sqrt{\pi}}\left(-\frac{1}{2}\frac{r}{2\sigma}e^{-(r/2\sigma)^{2}}+\frac{1}{2}\frac{\sqrt{\pi}}{2}erf(r/2\sigma)\right)\\
- & = & erf(r/2\sigma)-\frac{r}{\sigma\sqrt{\pi}}e^{-(r/2\sigma)^{2}}\\
-\Rightarrow F(r) & = & \frac{2}{\sigma\sqrt{\pi}}\left[erf(r/2\sigma)-\frac{r}{\sigma\sqrt{\pi}}e^{-(r/2\sigma)^{2}}\right]
+A(r) & = & -\frac{1}{2}re^{-\left(\frac{r}{2\sigma}\right)^{2}}+\sigma\int_{0}^{r/(2\sigma)}e^{-z^{2}}dz\\
+ & = & -\frac{1}{2}re^{-\left(\frac{r}{2\sigma}\right)^{2}}+\sigma\frac{\sqrt{\pi}}{2}erf\left(\frac{r}{2\sigma}\right)\\
+ & = & \frac{1}{2}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\\
+\Rightarrow F(r) & = & \frac{1}{\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)
 \end{array}
 \end{equation}
 
@@ -445,7 +451,7 @@ We can therefore write
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K(r)=\frac{4}{3}\pi r^{3}+\frac{2}{\lambda_{p}\sigma\sqrt{\pi}}\left(erf\left(\frac{r}{2\sigma}\right)-\frac{r}{\sigma\sqrt{\pi}}e^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:3D_Thomas}
+K(r)=\frac{4}{3}\pi r^{3}+\frac{1}{\lambda_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:3D_Thomas}
 \end{equation}
 
 \end_inset
@@ -758,7 +764,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K(r)=\frac{4}{3}\pi r^{3}+\frac{2}{\lambda_{p}\sigma\sqrt{\pi}}\left(erf\left(\frac{r}{2\sigma}\right)-\frac{r}{\sigma\sqrt{\pi}}e^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)
+K(r)=\frac{4}{3}\pi r^{3}+\frac{1}{\lambda_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)
 \end{equation}
 
 \end_inset
