@@ -16,7 +16,7 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=62;
+extern const int num_simu=84;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
@@ -27,8 +27,8 @@ extern const int tmax=1000; //length of the simulation. Tmax is negative if we o
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.0002; //in day
-//extern const double Utot=0.5; //advection, corresponds to U\tau/2
-extern const double Utot=0.0; //advection, corresponds to U\tau/2
+extern const double Utot=0.5; //advection, corresponds to U\tau/2
+//extern const double Utot=0.0; //advection, corresponds to U\tau/2
 
 //Define variables to compute diffusivity
 double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
@@ -56,16 +56,16 @@ extern const double sigma=0.01;
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(1000,1.0/3.0); //size of the grid
+extern const double Lmax=pow(1,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
 //PCF computation
-extern const double pow_max=-1;
-extern const double pow_min=-2;
-extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
-extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
-extern const double delta_fixed=pow(10,-5); //Only used if delta_spatstat==0
+extern const double pow_max=-0;
+extern const double pow_min=-4;
+extern const int nb_r_pcf=500; //Number of values for r when computing pcf
+extern const int delta_spatstat=1; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
+extern const double delta_fixed=pow(10,-3.5); //Only used if delta_spatstat==0
 
 
 using namespace std;
@@ -113,7 +113,7 @@ std::vector<basic_particle> initialize_thomas(std::vector<basic_particle> Part_t
         {
                 a_x=Part_table.at(i).get_x()+gsl_ran_gaussian(rgslbis2,sigma);
                 a_y=Part_table.at(i).get_y()+gsl_ran_gaussian(rgslbis2,sigma);
-                a_z=Part_table.at(i).get_y()+gsl_ran_gaussian(rgslbis2,sigma);
+                a_z=Part_table.at(i).get_z()+gsl_ran_gaussian(rgslbis2,sigma);
                 Part_table.push_back(basic_particle(a_x,a_y,a_z,a_y,i,s)); //Children are put after their parents
                 Part_table.at(Part_table.size()-1).check_boundaries(Lmax);
         } //end n_children
@@ -125,15 +125,15 @@ std::vector<basic_particle> initialize_thomas(std::vector<basic_particle> Part_t
 
 
 //This function is mostly a copy-paste of pcf3est in the spatstat package
-void PCF_kernel_spatstat(std::vector<basic_particle> Part_table, int nb_indiv[], double pcf[nb_species][nb_species][nb_r_pcf], double dominance[nb_species][nb_r_pcf],std::ofstream& f_pcf, std::ofstream& f_param)
+void K_PCF_kernel_spatstat(std::vector<basic_particle> Part_table, int nb_indiv[], double pcf[nb_species][nb_species][nb_r_pcf], double dominance[nb_species][nb_r_pcf],std::ofstream& f_pcf, std::ofstream& f_param, std::ofstream& f_min_dist)
 {
 double vx,vy,vz,dx,dy,dz,dist,lmin,lmax,invweight,frac,kernel,coef,delta,tval,dt,rondel,bias;
 basic_particle temp, current;
-int l,p1=0,p2=0,s1=0,s2=0;
+int l,p1=0,p2=0,s1=0,s2=0,s_enum=0;
 double Concentration, h, Concentration_square;
-double mingling[nb_species][2][nb_r_pcf];
+double lambda_K[nb_species][nb_species][nb_r_pcf],K[nb_species][nb_species][nb_r_pcf],min_dist[nb_species];
 clock_t t1, t2;
-double temps;
+double temps, num, denom;
 
 //Debug variables
 int p2_min=0,p1_min=0;
@@ -143,11 +143,11 @@ dt=(pow(10,pow_max)-pow(10,pow_min))/(nb_r_pcf-1);
 //Initialize
 for(p1=0;p1<nb_species;p1++){
         for(l=0;l<nb_r_pcf;l++){
-                mingling[p1][0][l]=0.0;
-                mingling[p1][1][l]=0.0;
                 dominance[p1][l]=0.0;
                 for(p2=0;p2<nb_species;p2++){
                         pcf[p1][p2][l]=0.0;
+			lambda_K[p1][p2][l]=0.0;
+			K[p1][p2][l]=0.0; 
                 }
         }
 }
@@ -155,6 +155,9 @@ for(p1=0;p1<nb_species;p1++){
     // double loop (or loop on all pairs)
     for(p1=0;p1<Part_table.size();p1++)
 {
+	for(s_enum=0;s_enum<nb_species;s_enum++){
+		min_dist[s_enum]=10000;
+	}
     current=Part_table.at(p1);
     s1=Part_table.at(p1).get_species();
     if(p1==0.25*Part_table.size()){
@@ -210,21 +213,26 @@ for(p1=0;p1<nb_species;p1++){
 		dz = temp.get_z() - current.get_z();
 		dist = pow(dx * dx + dy * dy + dz * dz,0.5);
 
+		if(min_dist[s2]>dist){
+			min_dist[s2]=dist;
+		}
+
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
-	        lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
+		lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
 		
 		//First, we need to compute dominance outside of the loop with lmin and lmax which depends on delta; that should not be the case for dominance
 		for(l = 0; l <nb_r_pcf; l++) {
 			      tval = pow(10,pow_min) + l * dt;
-				if(dist<tval){
-					if(s1==s2){ //Mingling index _ii
-                                		mingling[s1][0][l]+=1.0;
-                        		}else{
-                                		mingling[s1][1][l]+=1.0;
-                        		} //test on s1==s2
-				}//test on dist
-		//// }
-                
+	  		/* compute (inverse) edge correction weight */
+			  vx = Lmax - (dx > 0 ? dx : -dx);
+			  vy = Lmax - (dy > 0 ? dy : -dy);
+			  vz = Lmax - (dz > 0 ? dz : -dz);
+			  invweight = vx * vy * vz * 4*pi * dist * dist;
+		if(vx >= 0.0 && vy >= 0.0 && vz >= 0.0){
+		if(dist<tval){
+			lambda_K[s1][s2][l]+=1.0/(vx*vy*vz);
+			K[s1][s2][l]+=1.0/(Concentration_square*vx*vy*vz);
+		}}
 		if(lmax >= 0 && lmin < nb_r_pcf) {
 	  /* kernel centred at 'dist' has nonempty intersection 
 	     with specified range of t values */
@@ -233,11 +241,6 @@ for(p1=0;p1<nb_species;p1++){
 	   			 lmin = 0;
 			 if(lmax >= nb_r_pcf)
 	    			lmax = nb_r_pcf - 1;
-	  		/* compute (inverse) edge correction weight */
-			  vx = Lmax - (dx > 0 ? dx : -dx);
-			  vy = Lmax - (dy > 0 ? dy : -dy);
-			  vz = Lmax - (dz > 0 ? dz : -dz);
-			  invweight = vx * vy * vz * 4*pi * dist * dist;
 			  if(invweight > 0.0) {
 		////	    for(l = lmin; l <nb_r_pcf; l++) {
 		////	      tval = pow(10,pow_min) + l * dt;
@@ -260,17 +263,27 @@ for(p1=0;p1<nb_species;p1++){
              }// end checks on lmax and lmin
 	} //check p1\neq p2
     	} //end loop on p2
+		f_min_dist<<p1<<";"<<s1;
+		for(s2=0;s2<nb_species;s2++){
+			f_min_dist<<";"<<min_dist[s2];
+		}
+		f_min_dist<<";"<<std::endl;
   	 }//end loop on p1
         for(s1=0;s1<nb_species;s1++){
                 for(l=0;l<nb_r_pcf;l++){
 			tval=pow(10,pow_min) + l * dt;
-                        dominance[s1][l]=mingling[s1][0][l]/(mingling[s1][0][l]+mingling[s1][1][l]);
+			num=lambda_K[s1][s1][l];
+			denom=0;
+			for(s2=0;s2<nb_species;s2++){
+				denom=denom+lambda_K[s1][s2][l];
+			}
+			dominance[s1][l]=num/denom;
 			
                         for(s2=0;s2<nb_species;s2++){
                                 if(s2==s1){
-                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";"<<dominance[s1][l]<<std::endl;
+                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";"<<dominance[s1][l]<<";"<<lambda_K[s1][s2][l]<<";"<<K[s1][s2][l]<<std::endl;
                                 }else{
-                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";NA"<<std::endl;
+                                        f_pcf << tval<<";"<< s1 <<";"<< s2 <<";"<<pcf[s1][s2][l]<<";NA;"<<lambda_K[s1][s2][l]<<";"<<K[s1][s2][l]<<std::endl;
                                 }
                         }
                 }
@@ -289,7 +302,7 @@ int pow_dist,id_pow;
 std::ofstream f3;
 
 
-//f3.open("distance_table_Poisson.txt");
+//f3.open("distance_table_"+std::to_string(num_simu)+".txt");;
 
     for(p1=0;p1<Part_table.size();p1++)
 {
@@ -317,7 +330,7 @@ std::ofstream f3;
                         pow_dist=int(std::max(int(-10),int(round(log10(pow(d2,0.5))))));
                         id_pow=-1*pow_dist;
                         repart[id_pow]=repart[id_pow]+1;
-//                        f3<<p1<<";"<<p2<<";"<<pow(d2,0.5)<<std::endl;
+//                        f3<<p1<<";"<<p2<<";"<<Part_table.at(p1).get_species()<<";"<<Part_table.at(p2).get_species()<<";"<<pow(d2,0.5)<<std::endl;
 
 }
 }
@@ -358,7 +371,7 @@ int main()
 	int i,j,t,s,s1,s2;
 	double a_x,a_y,a_z,phi,theta,psi,a_n,tmp_pop;
 	std::vector<basic_particle> Part_table;
-	std::ofstream f_pcf,f_param,f_space,f_end_simu;
+	std::ofstream f_pcf,f_param,f_space,f_end_simu,f_debug,f_min_dist;
 	int nb_indiv[nb_species];
 	int repart[11];
 	double pcf[nb_species][nb_species][nb_r_pcf];
@@ -376,8 +389,10 @@ int main()
 	//Open the file in which we will have the x, y, parent of each particle
 	f_space.open("Spatial_distribution_"+std::to_string(num_simu)+".txt");
 	f_end_simu.open("nb_indiv_"+std::to_string(num_simu)+".txt");
-	f_pcf.open("pcf_"+std::to_string(num_simu)+".txt");
+	f_pcf.open("lambda_K_"+std::to_string(num_simu)+".txt");
 	f_param.open("param_"+std::to_string(num_simu)+".txt");
+	f_debug.open("debug_"+std::to_string(num_simu)+".txt");
+	f_min_dist.open("min_dist_"+std::to_string(num_simu)+".txt");
 
 	write_parameters(f_param);
 
@@ -450,7 +465,7 @@ int main()
                 nb_indiv[Part_table.at(j).get_species()]=nb_indiv[Part_table.at(j).get_species()]+1;
                 if(print_distrib==1)
                 {
-        	        f_space<< t <<";";
+        	        f_space<< j <<";";
                 	f_space<< Part_table[j].get_x()  << ';';
 	                f_space<< Part_table[j].get_y()  << ';';
         	        f_space<< Part_table[j].get_z()  << ';';
@@ -463,25 +478,27 @@ int main()
 	//End of the simulation
 
 //Distribution of distance between pairs of particles, for debugging purposes
- //       for(i=0;i<11;i++){
- //               repart[i]=0;
- //       }
+        for(i=0;i<11;i++){
+                repart[i]=0;
+        }
 //	distrib_distance(Part_table, repart);
-  /*      for(i=0;i<11;i++){
-              f0<<Utot<<";"<<i<<";"<<repart[i]<<std::endl;
-       } */
+//        for(i=0;i<11;i++){
+//              f_debug<<Utot<<";"<<i<<";"<<repart[i]<<std::endl;
+//       }
 
         for (s1=0;s1<nb_species;s1++)
         {
         	f_end_simu<<s1<<";"<<nb_indiv[s1]<<std::endl;
 	}
 
-        PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param);
+        K_PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param,f_min_dist);
 
 	f_space.close();
 	f_end_simu.close();
 	f_pcf.close();
 	f_param.close();
+	f_debug.close();
+	f_min_dist.close();
 	return 0;
 }
 

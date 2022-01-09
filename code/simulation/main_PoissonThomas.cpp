@@ -14,7 +14,9 @@
 #include <gsl/gsl_math.h>
 #include <time.h>
 
-gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
+//gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
+//gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_taus);
+gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_ranlxs2);
 
 extern const int num_simu=107;
 
@@ -22,7 +24,7 @@ extern const int num_simu=107;
 extern const char type_simul='T'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
 extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
-extern const int print_distrib=0; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
+extern const int print_distrib=1; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
 extern const int tmax=-10; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
@@ -56,7 +58,7 @@ extern const double sigma=0.01;
 extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(1000,1.0/3.0); //size of the grid
+extern const double Lmax=pow(1,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
@@ -208,10 +210,10 @@ for(p1=0;p1<nb_species;p1++){
 		dx = temp.get_x() - current.get_x();
 		dy = temp.get_y() - current.get_y();
 		dz = temp.get_z() - current.get_z();
-		//dist = pow(dx * dx + dy * dy + dz * dz,0.5);
+		dist = pow(dx * dx + dy * dy + dz * dz,0.5);
 		//Using periodic conditions as in Illian et al. (2008) p. 184 which they do not recommend
-		dist=pow(min(abs(dx),Lmax-abs(dx)),2)+pow(min(abs(dy),Lmax-abs(dy)),2)+pow(min(abs(dz),Lmax-abs(dz)),2);
-		dist=pow(dist, 0.5);
+		//dist=pow(min(abs(dx),Lmax-abs(dx)),2)+pow(min(abs(dy),Lmax-abs(dy)),2)+pow(min(abs(dz),Lmax-abs(dz)),2);
+		//dist=pow(dist, 0.5);
 
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
 	        lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
@@ -219,6 +221,19 @@ for(p1=0;p1<nb_species;p1++){
 		//First, we need to compute dominance outside of the loop with lmin and lmax which depends on delta; that should not be the case for dominance
 		for(l = 0; l <nb_r_pcf; l++) {
 			      tval = pow(10,pow_min) + l * dt;
+	  		/* compute (inverse) edge correction weight */
+			  vx = Lmax - (dx > 0 ? dx : -dx);
+			  vy = Lmax - (dy > 0 ? dy : -dy);
+			  vz = Lmax - (dz > 0 ? dz : -dz);
+			  invweight = vx * vy * vz * 4*pi * dist * dist;
+			  if(vx >= 0.0 && vy >= 0.0 && vz >= 0.0){
+				if(dist<tval){
+                                	lambda_K[s1][s2][l]+=1.0/(vx*vy*vz);
+                                	//lambda_K[s1][s2][l]+=1.0/pow(Lmax,3); // Only simulations 102 and 103, i.e. simulations where we remove the translation
+                                	K[s1][s2][l]+=1.0/(Concentration_square*vx*vy*vz);
+                                	//K[s1][s2][l]+=1.0/(Concentration_square*pow(Lmax,3)); //Only simulations 102 and 103, i.e. simulations where we remove the translation
+				}//test on dist
+		}
 		if(lmax >= 0 && lmin < nb_r_pcf) {
 	  /* kernel centred at 'dist' has nonempty intersection 
 	     with specified range of t values */
@@ -227,20 +242,9 @@ for(p1=0;p1<nb_species;p1++){
 	   			 lmin = 0;
 			 if(lmax >= nb_r_pcf)
 	    			lmax = nb_r_pcf - 1;
-	  		/* compute (inverse) edge correction weight */
-			  vx = Lmax - (dx > 0 ? dx : -dx);
-			  vy = Lmax - (dy > 0 ? dy : -dy);
-			  vz = Lmax - (dz > 0 ? dz : -dz);
-			  invweight = vx * vy * vz * 4*pi * dist * dist;
 			  if(invweight > 0.0) {
 		////	    for(l = lmin; l <nb_r_pcf; l++) {
 		////	      tval = pow(10,pow_min) + l * dt;
-				if(dist<tval){
-                                	lambda_K[s1][s2][l]+=1.0/(vx*vy*vz);
-                                	//lambda_K[s1][s2][l]+=1.0/pow(Lmax,3); // Only simulations 102 and 103, i.e. simulations where we remove the translation
-                                	K[s1][s2][l]+=1.0/(Concentration_square*vx*vy*vz);
-                                	//K[s1][s2][l]+=1.0/(Concentration_square*pow(Lmax,3)); //Only simulations 102 and 103, i.e. simulations where we remove the translation
-				}//test on dist
 				if(l>=lmin){ ////
 	      /* unnormalised Epanechnikov kernel with halfwidth delta */
 			      frac = (dist - tval)/delta;
@@ -295,7 +299,7 @@ int pow_dist,id_pow;
 std::ofstream f3;
 
 
-//f3.open("distance_table_Poisson.txt");
+//f3.open("distance_table_"+std::to_string(num_simu)+".txt");;
 
     for(p1=0;p1<Part_table.size();p1++)
 {
@@ -323,7 +327,7 @@ std::ofstream f3;
                         pow_dist=int(std::max(int(-10),int(round(log10(pow(d2,0.5))))));
                         id_pow=-1*pow_dist;
                         repart[id_pow]=repart[id_pow]+1;
-//                        f3<<p1<<";"<<p2<<";"<<pow(d2,0.5)<<std::endl;
+//                        f3<<p1<<";"<<p2<<";"<<Part_table.at(p1).get_species()<<";"<<Part_table.at(p2).get_species()<<";"<<pow(d2,0.5)<<std::endl;
 
 }
 }
@@ -364,7 +368,7 @@ int main()
 	int i,j,t,s,s1,s2;
 	double a_x,a_y,a_z,phi,theta,psi,a_n,tmp_pop;
 	std::vector<basic_particle> Part_table;
-	std::ofstream f_pcf,f_param,f_space,f_end_simu;
+	std::ofstream f_pcf,f_param,f_space,f_end_simu,f_debug;
 	int nb_indiv[nb_species];
 	int repart[11];
 	double pcf[nb_species][nb_species][nb_r_pcf];
@@ -384,6 +388,7 @@ int main()
 	f_end_simu.open("nb_indiv_"+std::to_string(num_simu)+".txt");
 	f_pcf.open("lambda_K_"+std::to_string(num_simu)+".txt");
 	f_param.open("param_"+std::to_string(num_simu)+".txt");
+	f_debug.open("debug_"+std::to_string(num_simu)+".txt");
 
 	write_parameters(f_param);
 
@@ -469,13 +474,13 @@ int main()
 	//End of the simulation
 
 //Distribution of distance between pairs of particles, for debugging purposes
- //       for(i=0;i<11;i++){
- //               repart[i]=0;
- //       }
-//	distrib_distance(Part_table, repart);
-  /*      for(i=0;i<11;i++){
-              f0<<Utot<<";"<<i<<";"<<repart[i]<<std::endl;
-       } */
+        for(i=0;i<11;i++){
+                repart[i]=0;
+        }
+	distrib_distance(Part_table, repart);
+        for(i=0;i<11;i++){
+              f_debug<<Utot<<";"<<i<<";"<<repart[i]<<std::endl;
+       }
 
         for (s1=0;s1<nb_species;s1++)
         {

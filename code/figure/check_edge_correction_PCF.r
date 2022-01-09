@@ -27,11 +27,12 @@ thomas_cdf=function(r,sigma){
 
 colo=c("red","blue","grey")
 
-pdf("PCF_Poisson_edge_correction.pdf",width=10,height=10)
+#pdf("PCF_Thomas_edge_correction.pdf",width=10,height=10)
 par(mfrow=c(3,3),mar=c(4,4.5,3,1))
 
-#sim=list(101,103,105)#Thomas 
-sim=list(100,102,104)#Poisson
+sim=list(110,103,105)#Thomas 
+#sim=list(107,103,105)#Thomas 107 is for large (i.e. spatstat default) bandwidth, 101 is for small
+#sim=list(100,102,104)#Poisson
 type=c("Translation","Torus","Both") 
 
 for (species in 1:3){
@@ -95,7 +96,7 @@ for (s in 1:length(sim)){
 	th_thomas=1+exp(-unique(f_tot$r)^2/(4*sigma^2))*(4*pi*sigma^2)^(-3/2)*1/(N_parent/volume)
 	th_poisson=rep(1,length(unique(f_tot$r)))
 
-	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$pcf)+10^(-4),main=paste("Species=",s1," correct=",type[s],sep=""))
+	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0]),main=paste("Species=",s1," correct=",type[s],sep=""))
 	#plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(th_poisson),main=paste("Species=",s1," correct=",type[s],sep=""))
 	axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
@@ -116,6 +117,12 @@ for (s in 1:length(sim)){
 				ss=c(ss,s2)
 			}
 			f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
+			print(paste("SP",s1," X ",s2,sep=""))
+			a=which(f_plot$K>0)
+			print(sum(a))
+			if(length(a)>0){
+				print(f_tot$r[a[1]])
+			}
 			lines(f_plot$r,f_plot$pcf,lty=1,col=colo[s2])
 		}
 	}
@@ -124,7 +131,7 @@ for (s in 1:length(sim)){
 		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA),lty=c(NA,1,1,2),lwd=2)
 	}
 	lines(unique(f_tot$r),th_poisson,lty=3,lwd=2)
-	#lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
+	lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
 }
 }
-dev.off()
+#dev.off()

@@ -12,7 +12,7 @@ BBM_cdf=function(r,gamma,D,Conc,lambda,t=NA){
 		Dd=log((gamma*r^2)/(2*D)+1)/(6*gamma)
 		E=(sqrt(gamma)*pi*r^3)/(12*sqrt(2)*D^1.5)
 		res=A+(2*lambda/Conc)*(B+C+Dd-E)
-	}else if(gamma==0){
+	}else{
 		B=r^2/2
 		C=1/2*erf(r/(sqrt(8*D*t)))*(r^2-4*D*t)
 		Dd=sqrt(2*D*t)*r/sqrt(pi)*exp(-r^2/(8*D*t))
@@ -57,22 +57,28 @@ for (i in 1:n_species){
 	dom[i,,2]=num/(den_1+num-poisson_cdf(seq_r)*concentration[i])
 }
 
+pdf("K_func_BBM_r.pdf")
+plot(seq_r,BBM_cdf(seq_r,0.5,a_D,concentration[i],a_lambda),t="l",xlab="r",ylab="K")
+dev.off()
+
 pdf("dominance_BBM_diat.pdf",width=10)
 par(mfrow=c(2,2))
-plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",log="x",main="Advection")
+plot(0,0,xlim=range(seq_r),ylim=range(-0.5,1.5),xlab="r",ylab="dominance",t="n",log="x",main="Advection")
 points(seq_r,dom[1,,1],lty=1,col="black",pch=16)
 points(seq_r,dom[2,,1],lty=2,col="blue",pch=16)
 points(seq_r,dom[3,,1],lty=3,col="red",pch=16)
 abline(h=1/3,lty=2,col="grey",lwd=2)
 legend("bottomleft",c("sp1=33%","sp2=33%","sp3=33%"),pch=16,col=c("black","blue","red"),bty="n")
+abline(h=c(0,1),col="grey",lty=3)
 
-plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",main="No advection",log="x")
+plot(0,0,xlim=range(seq_r),ylim=range(-0.5,1.5),xlab="r",ylab="dominance",t="n",main="No advection",log="x")
 points(seq_r,dom[1,,2],lty=1,col="black",pch=16)
 points(seq_r,dom[2,,2],lty=2,col="blue",pch=16)
 points(seq_r,dom[3,,2],lty=3,col="red",pch=16)
 abline(h=1/3,lty=2,col="grey",lwd=2)
+abline(h=c(0,1),col="grey",lty=3)
 
-mtext("Nano", outer = TRUE, cex = 1.5,line=-1.75)
+mtext("Diat", outer = TRUE, cex = 1.5,line=-1.75)
 
 #"Skewed distributions"
 concentration=c(1000,3333,5667)/1000 
@@ -88,16 +94,19 @@ for (i in 1:n_species){
         dom[i,,2]=num/(den_1+num-poisson_cdf(seq_r)*concentration[i])
 }
 
-plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",log="x",main="Advection")
+plot(0,0,xlim=range(seq_r),ylim=range(-0.5,1.5),xlab="r",ylab="dominance",t="n",log="x",main="Advection")
 points(seq_r,dom[1,,1],lty=1,col="black",pch=16)
 points(seq_r,dom[2,,1],lty=2,col="blue",pch=16)
 points(seq_r,dom[3,,1],lty=3,col="red",pch=16)
 legend("bottomleft",c("sp1=10%","sp2=33%","sp3=57%"),pch=16,col=c("black","blue","red"),bty="n")
+abline(h=c(0,1),col="grey",lty=3)
 
-plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",main="No advection",log="x")
+plot(0,0,xlim=range(seq_r),ylim=range(-0.5,1.5),xlab="r",ylab="dominance",t="n",main="No advection",log="x")
 points(seq_r,dom[1,,2],lty=1,col="black",pch=16)
 points(seq_r,dom[2,,2],lty=2,col="blue",pch=16)
 points(seq_r,dom[3,,2],lty=3,col="red",pch=16)
+abline(h=c(0,1),col="grey",lty=3)
 
-
+print(seq_r[1:5])
+print(seq_r[395:400])
 dev.off()

@@ -2,6 +2,7 @@ rm(list=ls())
 graphics.off()
 
 library(pracma)
+library("spatstat")
 
 ############################### Utilitary functions
 
@@ -27,12 +28,10 @@ thomas_cdf=function(r,sigma){
 
 colo=c("red","blue","grey")
 
-#pdf("K_Thomas_edge_correction.pdf",width=10,height=10)
-par(mfrow=c(3,3),mar=c(4,4.5,3,1))
+pdf("K_PCF_Thomas_edge_correction_large_bandwidth.pdf",width=8)
+par(mfrow=c(3,2))
 
-sim=list(110,103,105)#Thomas 107 is for large (i.e. spatstat default) bandwidth, 101 is for small
-#sim=list(100,102,104)#Poisson
-type=c("Translation","Torus","Both")
+nb_simu=107
 
 for (species in 1:3){
 	s1=species
@@ -42,13 +41,7 @@ for (species in 1:3){
 	}else{
 		xl=""
 	}
-for (s in 1:length(sim)){
-	nb_simu_tot=sim[s][[1]]
-	if(s==1){
-		yl="K"
-	}else{
-		yl=""
-	}
+	
 
 	f_tot=matrix(,0,7)
 	colnames(f_tot)=c("r","sp1","sp2","pcf","dominance","lambda_K","K")
@@ -57,7 +50,6 @@ for (s in 1:length(sim)){
 	f_param_tot=matrix(,0,2)
 	colnames(f_param_tot)=c("name","value")
 
-	for (nb_simu in nb_simu_tot){
 		f=read.table(paste("../simulation/lambda_K_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
 		colnames(f)=c("r","sp1","sp2","pcf","dominance","lambda_K","K")
 		f_tot=rbind(f_tot,f)
@@ -73,7 +65,6 @@ for (s in 1:length(sim)){
 		f_param[,2]=as.numeric(as.character(f_param[,2]))
 		colnames(f_param)=c("name","value")
 		f_param_tot=rbind(f_param_tot,f_param)
-	} #end loop on nb_simu
 	sigma=f_param_tot[f_param_tot$name=="sigma","value"]
 	if(length(unique(sigma))>1){
 		stop("sigma were different")
@@ -95,7 +86,7 @@ for (s in 1:length(sim)){
 	th_thomas=thomas_cdf(unique(f_tot$r),sigma)/(N_parent/volume)
 	th_poisson=4/3*pi*unique(f_tot$r)^3
 
-	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$K[f_tot$K>0]),main=paste("Species=",s1," correct=",type[s],sep=""))
+	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="K",axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$K[f_tot$K>0]),main=paste("Species=",s1,sep=""))
 	#plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(th_poisson),main=paste("Species=",s1," correct=",type[s],sep=""))
 	axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
@@ -105,28 +96,64 @@ for (s in 1:length(sim)){
 
 	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
 
-	points(f_plot$r,f_plot$K,pch=16,col=colo[s1])
+#Spatstat
+	tab_repart=read.table(paste("../simulation/Spatial_distribution_",nb_simu,".txt",sep=""), header=F, sep=";")
+	colnames(tab_repart)=c("t","x","y","z","yfirst","ancestor","species")
+
+	tab_repart_tmp=subset(tab_repart,species==unique_sp[s1])
+	ppp_repart=pp3(tab_repart_tmp$x,y=tab_repart_tmp$y,z=tab_repart_tmp$z,box3(c(0,1)))
+  	K_spat=K3est(ppp_repart,rmax=max(f$r),nrval=1000)
+	points(K_spat$r,K_spat$trans,col="orchid",pch=16,cex=1.5)
+
+	points(f_plot$r,f_plot$K,pch=16,col=colo[s1],cex=0.5)
 	colors=colo[s1]
 
 	for(s2 in 1:length(unique_sp)){
 		if(s1!=s2){
 			colors=c(colors,colo[s2])
-			if(s==2){ #Only for the legend
 				ss=c(ss,s2)
-			}
 			f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
 			print(paste("SP",s1," X ",s2,sep=""))
 			print(sum(which(f_plot$K>0)))
 			lines(f_plot$r,f_plot$K,lty=1,col=colo[s2])
 		}
 	}
-	if(s==2){	
+		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory mono-specific", "Theory cross-specific","Spatstat"),col=c(colors,"black","black","orchid"),bty="n",pch=c(16,NA,NA,NA,NA,16),lty=c(NA,1,1,2,3,NA),lwd=2)
 		#legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory mono-specific", "Theory cross-specific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=2)
-		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA),lty=c(NA,1,1,2),lwd=2)
-	}
 	lines(unique(f_tot$r),th_poisson,lty=3,lwd=2)
 	lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
+
+        th_thomas=1+exp(-unique(f_tot$r)^2/(4*sigma^2))*(4*pi*sigma^2)^(-3/2)*1/(N_parent/volume)
+        th_poisson=rep(1,length(unique(f_tot$r)))
+  	
+	PCF_spat=pcf3est(ppp_repart,rmax=max(f$r),nrval=1000,delta=10^(-5))
+
+        plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="PCF",axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0]),main=paste("Species=",s1,sep=""))
+        axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
+        axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
+        axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
+        axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
+        box()
+
+        f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
+
+	points(PCF_spat$r,PCF_spat$trans,col="orchid",pch=16,cex=1.5)
+        points(f_plot$r,f_plot$pcf,pch=16,col=colo[s1],cex=0.5)
+        colors=colo[s1]
+
+        for(s2 in 1:length(unique_sp)){
+                if(s1!=s2){
+                        f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
+                        print(paste("SP",s1," X ",s2,sep=""))
+                        print(sum(which(f_plot$pcf>0)))
+                        lines(f_plot$r,f_plot$pcf,lty=1,col=colo[s2])
+                }
+        }
+        lines(unique(f_tot$r),th_poisson,lty=3,lwd=2)
+        lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
+
+	#a=loess(f_plot$pcf~f_plot$r,span=1)
+	#lines(f_plot$r,predict(a,newdata=f_plot$r),col="orchid",lwd=2)
 }
-}
-#dev.off()
+dev.off()
 

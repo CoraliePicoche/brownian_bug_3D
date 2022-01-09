@@ -1,0 +1,1013 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{ae,aecompl}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{authblk}
+\date{}
+\author{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Answers to comments during discussion (05/01/22)
+\end_layout
+
+\begin_layout Section*
+Thomas process
+\end_layout
+
+\begin_layout Standard
+We show that interspecific pcf which seemed underestimated are actually
+ close to 1 when using the right bandwidth (here, the default value used
+ in the R package 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+verb|spatstat|
+\end_layout
+
+\end_inset
+
+, ie 
+\begin_inset Formula $\delta=0.26/\lambda^{1/3}$
+\end_inset
+
+).
+ We also confirm that results are the same when directly using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+verb|spatstat|
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_PCF_Thomas_edge_correction_3.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mono- and cross-specific Ripley's K function and PCF values for 3 species
+ following a Thomas process with parent intensity 
+\begin_inset Formula $\lambda_{p}=200$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, number of children per parent 
+\begin_inset Formula $N_{c}=50$
+\end_inset
+
+, in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma=0.01$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta\approx0.01$
+\end_inset
+
+2.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+quick_view_Thomas with sim=107
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Minimum distance between points
+\end_layout
+
+\begin_layout Subsection*
+Theory
+\end_layout
+
+\begin_layout Standard
+One of the reason why estimating K and g(r) is difficult is that for small
+ radii (below 10
+\begin_inset Formula $^{-2}$
+\end_inset
+
+), we can find very few observed distances between pairs of points.
+ As a first proxy, we want to estimate the minimum expected distance between
+ points when they are uniformly distributed.
+ 
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset Formula $d$
+\end_inset
+
+ dimensions, the probability distribution of the nearest-neighbour distribution
+ follows 
+\begin_inset Formula $f(r)=db_{d}\lambda r^{d-1}\exp(-b_{d}r^{_{d}}\lambda)$
+\end_inset
+
+).
+ If we want to find the distribution of the minimum distance between 
+\begin_inset Formula $n$
+\end_inset
+
+ realized points of a Poisson process with intensity 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, we can write:
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
+ & = & \Pi_{i}Pr(R_{1}>r)\\
+ & = & \Pi_{i}\exp(-b_{d}r^{_{d}}\lambda)\\
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}\lambda)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can then conclude that the distribution of the minimum distance follows
+ the same distribution as the nearest neighbour distribution, but with intensity
+ 
+\begin_inset Formula $n\lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "clark_generalization_1979"
+literal "false"
+
+\end_inset
+
+ show that a variable with probability distribution (with notations changed
+ to fit our own) 
+\begin_inset Formula $f(r)=\frac{d\lambda\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{\lambda\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=d\lambda b_{d}r^{d-1}\exp(-\lambda b_{d}r^{d})$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Remember that 
+\begin_inset Formula $b_{d}$
+\end_inset
+
+, the volume of the unit sphere is equal to 
+\begin_inset Formula $\frac{\pi^{d/2}}{\Gamma(\frac{d}{2}+1)}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ has a mean of 
+\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{\lambda^{1/d}\pi^{1/2}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+With intensity 
+\begin_inset Formula $n\lambda$
+\end_inset
+
+, we can write 
+\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{(n\lambda)^{1/d}\pi^{1/2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In 3D, 
+\begin_inset Formula $\mu=(n\lambda)^{-1/3}$
+\end_inset
+
+
+\begin_inset Formula $\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}=(n\lambda)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\approx0.554\frac{1}{(n\lambda)^{1/3}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This needs to be taken into account when defining 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ As a first proxy, using 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n\approx$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+ if we model a 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+ cube, we would expect the smallest distance to be 
+\begin_inset Formula $1.2\times10^{-3}$
+\end_inset
+
+ cm.
+\end_layout
+
+\begin_layout Subsection*
+Simulations
+\end_layout
+
+\begin_layout Standard
+(inconclusive for now because monospecific minimum distances can either
+ be above or below interspecific minimum distances, and we only have 3 species)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance.pdf
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean and minimum distance to the nearest neighbour of the same species,
+ or of a different species, compared to the prediction of a uniform distribution.
+ Values correspond to a simulation with 3 species using the Brownian Bug
+ Model with concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with advection, after 1000 time steps
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Brownian Bug Model
+\end_layout
+
+\begin_layout Standard
+Warning: we use the diatom parameters, with one big change: as we want to
+ focus on small radii, we increase the concentration from 
+\begin_inset Formula $10$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ to 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Comparison with spatstat package
+\end_layout
+
+\begin_layout Standard
+We show that we find the exact same result as the package 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+verb|spatstat|
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/compare_BBM_spatstat.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Monospecific Ripley's K function and PCF values for 3 species using the
+ Brownian Bug Model with concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with advection, after 1000 time steps, using a bandwidth 
+\begin_inset Formula $\delta=10^{-5}$
+\end_inset
+
+ and focusing on small radii around a particle.
+ Black stars correspond to observed distances in the simulation.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Monospecific-spatstat_small_bw"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+compare_spatstat_BBM with sim=70
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Current issues with estimated pcf
+\end_layout
+
+\begin_layout Subsubsection*
+Bandwidth
+\end_layout
+
+\begin_layout Standard
+In Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Monospecific-spatstat_small_bw"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we show that the parabole observed correspond to the shape of the kernel
+ when points are too rare and the bandwidth is too small (
+\begin_inset Formula $\delta=10^{-5})$
+\end_inset
+
+.
+ This also explains the sudden absence of points we observed previously.
+\end_layout
+
+\begin_layout Standard
+We thus compared the effect of different bandwidths in the same range of
+ radius in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Monospecific-spatstat-different_bw"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/compare_BBM_spatstat_bandwidth.pdf
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Monospecific PCF values for 3 species using the Brownian Bug Model with
+ concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with advection, after 1000 time steps, using different bandwidth 
+\begin_inset Formula $\delta$
+\end_inset
+
+ for small radius ranges (simulations were done with default 
+\begin_inset Formula $\delta$
+\end_inset
+
+ values, i.e.
+ 
+\begin_inset Formula $\delta\approx0.012$
+\end_inset
+
+).
+ Black stars correspond to observed distances in the simulation.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Monospecific-spatstat-different_bw"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+compare_bandwidth_BBM with sim=80
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can also look at the whole range of radius values we want to study in
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Monospecific-spatstat-large_bw-large_r"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/compare_BBM_spatstat_large_bandwidth.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Monospecific Ripley's K function and PCF values for 3 species using the
+ Brownian Bug Model with concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with advection, after 1000 time steps, using 
+\begin_inset Formula $\delta\approx0.012$
+\end_inset
+
+ with all ranges we want to consider.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Monospecific-spatstat-large_bw-large_r"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+compare_spatstat_BBM with sim=80bis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I suggest to stop computing pcf from now.
+ The search for the right bandwidth gets us nowhere, and our analyses and
+ conclusions depend on the dominance index, which is computed with Ripley's
+ function.
+\end_layout
+
+\begin_layout Subsection*
+Ripley's function
+\end_layout
+
+\begin_layout Subsubsection*
+Theoretical values
+\end_layout
+
+\begin_layout Standard
+By integrating the pcf, we found an analytical formula for Ripley's function.
+ 
+\end_layout
+
+\begin_layout Standard
+With advection,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K(\rho)=\frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{6D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{6\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Warning: for now, this formula gives aberrant results (including negative
+ dominance for rare species), which tend to show that it is most certainly
+ wrong (and simulations are also far from these values in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Monospecific-spatstat-large_bw-large_r"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which confirm the conclusion).
+ By default, we stick to it while waiting for Bill's algebra.
+\end_layout
+
+\begin_layout Standard
+Without advection,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+K(\rho) & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi\rho^{3}\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Simulations
+\end_layout
+
+\begin_layout Paragraph*
+Monospecific K
+\end_layout
+
+\begin_layout Standard
+We show in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Monospecific-spatstat_small_bw"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Monospecific-spatstat-large_bw-large_r"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ that for now, simulated values of K are far from the theoretical values
+ (the fit for larger r is only due to the prevalence of the 
+\begin_inset Formula $\frac{4}{3}\pi r^{3}$
+\end_inset
+
+ term and only illustrate the fit to the uniform distribution when 
+\begin_inset Formula $r\rightarrow\infty$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection*
+Interspecific K
+\end_layout
+
+\begin_layout Standard
+We can at least find the expected values of interspecific values of K (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Interspecific_K"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/BBM_interspecies.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interspecific Ripley's K function and PCF values for 3 species using the
+ Brownian Bug Model with concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with advection, after 1000 time steps, using 
+\begin_inset Formula $\delta\approx0.012$
+\end_inset
+
+ with all ranges we want to consider.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Interspecific_K"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+BBM_inter with sim=80bis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bibliography"
+options "ecol_let"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
