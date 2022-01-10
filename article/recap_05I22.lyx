@@ -234,8 +234,11 @@ In
 \begin_inset Formula $d$
 \end_inset
 
- dimensions, the probability distribution of the nearest-neighbour distribution
- follows 
+ dimensions, the probability distribution of the distance 
+\begin_inset Formula $r$
+\end_inset
+
+ to the nearest-neighbour follows 
 \begin_inset Formula $f(r)=db_{d}\lambda r^{d-1}\exp(-b_{d}r^{_{d}}\lambda)$
 \end_inset
 
@@ -266,7 +269,7 @@ Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
 
 \begin_layout Standard
 We can then conclude that the distribution of the minimum distance follows
- the same distribution as the nearest neighbour distribution, but with intensity
+ the same distribution as the nearest-neighbour distribution, but with intensity
  
 \begin_inset Formula $n\lambda$
 \end_inset
@@ -351,16 +354,12 @@ This needs to be taken into account when defining
 \begin_inset Formula $^{4}$
 \end_inset
 
-cm
+ cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
  and 
-\begin_inset Formula $n\approx$
-\end_inset
-
-10
-\begin_inset Formula $^{4}$
+\begin_inset Formula $n\approx10^{4}$
 \end_inset
 
  if we model a 1 cm
@@ -397,7 +396,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance.pdf
-	width 75text%
+	width 60text%
 
 \end_inset
 
@@ -419,7 +418,7 @@ Mean and minimum distance to the nearest neighbour of the same species,
 \begin_inset Formula $^{4}$
 \end_inset
 
-cm
+ cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -525,7 +524,7 @@ Monospecific Ripley's K function and PCF values for 3 species using the
 \begin_inset Formula $^{4}$
 \end_inset
 
-cm
+ cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -604,7 +603,7 @@ noprefix "false"
 
 \begin_layout Standard
 We thus compared the effect of different bandwidths in the same range of
- radius in Fig.
+ radii in Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -648,7 +647,7 @@ Monospecific PCF values for 3 species using the Brownian Bug Model with
 \begin_inset Formula $^{4}$
 \end_inset
 
-cm
+ cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -747,7 +746,7 @@ Monospecific Ripley's K function and PCF values for 3 species using the
 \begin_inset Formula $^{4}$
 \end_inset
 
-cm
+ cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -840,7 +839,7 @@ noprefix "false"
 \end_inset
 
 , which confirm the conclusion).
- By default, we stick to it while waiting for Bill's algebra.
+ By default, we stick to it while waiting for Bill's own formula.
 \end_layout
 
 \begin_layout Standard
@@ -951,7 +950,7 @@ Interspecific Ripley's K function and PCF values for 3 species using the
 \begin_inset Formula $^{4}$
 \end_inset
 
-cm
+ cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
