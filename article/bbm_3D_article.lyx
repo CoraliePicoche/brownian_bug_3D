@@ -446,7 +446,7 @@ This means that U=
 \noun off
 \color none
 
-\begin_inset Formula $U\tau/2=0.5$
+\begin_inset Formula $U\tau/3=0.5$
 \end_inset
 
  cm as in 
@@ -458,11 +458,11 @@ literal "false"
 \end_inset
 
 , we would have 
-\begin_inset Formula $\tau=2\times10^{-4}$
+\begin_inset Formula $\tau=2.8\times10^{-4}$
 \end_inset
 
 d
-\begin_inset Formula $=16$
+\begin_inset Formula $=24$
 \end_inset
 
 s.
@@ -770,7 +770,7 @@ Probability of reproducing/dying for diatom particles
 \uwave off
 \noun off
 \color none
-\begin_inset Formula $2\,10^{-4}$
+\begin_inset Formula $2.8\times10^{-4}$
 \end_inset
 
 
@@ -818,7 +818,7 @@ Probability of reproducing/dying for nanophytoplankton particles
 \uwave off
 \noun off
 \color none
-\begin_inset Formula $5\,10^{-4}$
+\begin_inset Formula $6.9\times10^{-4}$
 \end_inset
 
 
@@ -832,7 +832,7 @@ Probability of reproducing/dying for nanophytoplankton particles
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $U\tau/2$
+\begin_inset Formula $U\tau/3$
 \end_inset
 
 
@@ -885,7 +885,7 @@ Diffusion parameter for diatoms
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $5\times10^{-5}$
+\begin_inset Formula $6.4\times10^{-5}$
 \end_inset
 
  cm
@@ -920,7 +920,7 @@ Diffusion parameter for nanophytoplankton particles
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $2\times10^{-4}$
+\begin_inset Formula $2.6\times10^{-4}$
 \end_inset
 
  cm

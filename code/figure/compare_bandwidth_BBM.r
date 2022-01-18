@@ -19,11 +19,11 @@ log10Tck <- function(side, type){
   ))
 }
 
-BBM_cdf=function(r,gamma,Delta,Conc,lambda,t=NA){
-	tau=0.0002
+BBM_cdf=function(r,gamma,Delta,Conc,lambda,tau,t=NA){
 	D=(Delta^2)/(2*tau)
         res=NA
         A=4/3*pi*r^3
+	t=t*tau
         if(gamma>0){
                 B=r^2/(6*D)
                 C=(sqrt(gamma)/(6*sqrt(2)*(D^1.5)))*(r^3)*atan(r*sqrt(gamma/(2*D)))
@@ -39,9 +39,9 @@ BBM_cdf=function(r,gamma,Delta,Conc,lambda,t=NA){
         return(res)
 }
 
-G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of advection
-	tau=0.0002
+G_theoretical=function(gamma,r,lambda,Delta,C_0,tau,Tmax=NA){ #U=0 in the absence of advection
 	D=(Delta^2)/(2*tau)
+	Tmax=Tmax*tau
   if(gamma>0){
     tmp=lambda/(2*pi*C_0)*(sqrt(gamma)*atan(sqrt(gamma)*r/sqrt(2*D))/(2^1.5*D^1.5)+1/(2*D*r)-pi*sqrt(gamma)/(2^2.5*D^1.5))+1
   }else{ #This corresponds to the case U=0
@@ -58,14 +58,15 @@ G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of
 
 #####################################
 
-colo=c("red","blue","grey","orange","violet")
+colo=c("red","blue","black")
 
-nb_simu=80
+nb_simu=155
 
-a_gamma=0.5
+a_gamma=1231
+
+a_tau=0.00028
 
 pdf("compare_BBM_spatstat_bandwidth.pdf",width=15,height=5)
-#pdf("pcf_distances_BBM.pdf",width=15,height=5)
 par(mfrow=c(1,3),mar=c(4,5,3,4))
 
 f=read.table(paste("../simulation/lambda_K_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
@@ -106,7 +107,7 @@ for (sp in unique(f_count$species)){
 	a=sort(dist[dist>0],decreasing=F)
 	a=a[1:1000]
 	f_plot=subset(f,sp1==sp&sp2==sp)
-	seq_r=unique(f_plot$r)
+	seq_r=unique(f_plot$r[f_plot$r<10^(-2)])
 	tab_dist=rep(0,length(seq_r))
 	for (i in 1:length(a)){
 		if (a[i]<=seq_r[1]){
@@ -122,26 +123,28 @@ for (sp in unique(f_count$species)){
 		}
 	}
 #PCF
-  	pcf_spat_3=pcf3est(ppp_repart,rmax=max(f$r),nrval=1000,delta=10^(-3))
-  	pcf_spat_4=pcf3est(ppp_repart,rmax=max(f$r),nrval=1000,delta=10^(-4))
-  	pcf_spat_5=pcf3est(ppp_repart,rmax=max(f$r),nrval=1000,delta=10^(-5))
-  	pcf_spat_6=pcf3est(ppp_repart,rmax=max(f$r),nrval=1000)
+  	pcf_spat_3=pcf3est(ppp_repart,rmax=10^(-3),nrval=1000,delta=10^(-3))
+  	pcf_spat_3p5=pcf3est(ppp_repart,rmax=10^(-3),nrval=1000,delta=10^(-3.2))
+  	pcf_spat_4=pcf3est(ppp_repart,rmax=10^(-3),nrval=1000,delta=10^(-4))
+  	pcf_spat_5=pcf3est(ppp_repart,rmax=10^(-3),nrval=1000,delta=10^(-5))
+ # 	pcf_spat_6=pcf3est(ppp_repart,rmax=10^(-2),nrval=1000)
 
 	#Theory
-	th_bbm=G_theoretical(a_gamma,f_plot$r,a_lambda,a_Delta,Concentration[sp+1])
+	th_bbm=G_theoretical(a_gamma,f_plot$r,a_lambda,a_Delta,Concentration[sp+1],a_tau)
 
-	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=range(f$r[f$r>0]),cex.lab=1.5,ylim=c(range(range(th_bbm),range(f$pcf[f$pcf>0]))))
+	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),10^(-3)),cex.lab=1.5,ylim=c(range(range(th_bbm),range(f$pcf[f$pcf>0]))),main=paste("Species =",sp))
         axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
         axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
         axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
         axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
         box()
-	points(pcf_spat_3$r,pcf_spat_3$trans,col="orchid",cex=1.5,pch=16)
+#	points(pcf_spat_3$r,pcf_spat_3$trans,col="orchid",cex=1.5,pch=16)
+	points(pcf_spat_3p5$r,pcf_spat_3p5$trans,col="orchid",cex=1.5,pch=16)
 	points(pcf_spat_4$r,pcf_spat_4$trans,col="purple",cex=1.5,pch=17)
 	points(pcf_spat_5$r,pcf_spat_5$trans,col="orange",cex=1.5,pch=18)
-	points(pcf_spat_6$r,pcf_spat_6$trans,col="chartreuse",cex=1.5,pch=19)
-        lines(f_plot$r,f_plot$pcf,col="blue")
-	lines(f_plot$r,th_bbm,lty=2,col="grey")
+#	points(pcf_spat_6$r,pcf_spat_6$trans,col="chartreuse",cex=1.5,pch=19)
+        lines(f_plot$r,f_plot$pcf,col=colo[sp+1],lwd=2)
+	lines(f_plot$r,th_bbm,lty=2,col="grey",lwd=2)
 
 	par(new = TRUE)
 	tab_dist[tab_dist==0]=NA
@@ -150,7 +153,7 @@ for (sp in unique(f_count$species)){
 	mtext("dist obs.", side=4, line=3,cex=1.)
 
 	if(sp==2){
-		legend("topright",c(paste(expression(delta), "=10^",c("-3","-4","-5"),sep=""),paste(expression(delta), "=",delta_val,sep=""),"Sim.","Theory"),col=c("orchid","purple","orange","chartreuse","blue","grey"),pch=c(16,17,18,19,NA,NA),lty=c(NA,NA,NA,NA,1,2),bty="n",cex=1.5)
+		legend("topright",c(paste(expression(delta), "=10^",c("-3.2","-4","-5"),sep=""),"Sim.","Theory"),col=c("orchid","purple","orange","black","grey"),pch=c(16,17,18,NA,NA),lty=c(NA,NA,NA,1,2),bty="n",cex=1.5)
 		#legend("topright",c(paste(expression(delta), "=10^",c("-5"),sep=""),"Sim.","Theory"),col=c("orange","blue","grey"),pch=c(18,19,NA,NA),lty=c(NA,NA,1,2),bty="n",cex=1.5)
 	}
 

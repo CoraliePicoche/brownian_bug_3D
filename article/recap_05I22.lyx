@@ -210,10 +210,52 @@ quick_view_Thomas with sim=107
 \end_layout
 
 \begin_layout Section*
-Minimum distance between points
+Brownian Bug Model
+\end_layout
+
+\begin_layout Standard
+Warning: Unless otherwise specified, when we show results from simulations,
+ we use realistic parameters, with one big change: we increased the concentratio
+n from 
+\begin_inset Formula $10$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ to 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ for microphytoplankton and from 
+\begin_inset Formula $1000$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ to 
+\begin_inset Formula $10^{4}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ for nanophytoplankton.
 \end_layout
 
 \begin_layout Subsection*
+Minimum distance between points
+\end_layout
+
+\begin_layout Subsubsection*
 Theory
 \end_layout
 
@@ -256,7 +298,7 @@ In
 \begin{equation}
 \begin{array}{ccc}
 Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
- & = & \Pi_{i}Pr(R_{1}>r)\\
+ & = & \Pi_{i}Pr(R_{i}>r)\\
  & = & \Pi_{i}\exp(-b_{d}r^{_{d}}\lambda)\\
  & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}\lambda)
 \end{array}
@@ -278,6 +320,13 @@ We can then conclude that the distribution of the minimum distance follows
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset citation
 LatexCommand citet
 key "clark_generalization_1979"
@@ -288,24 +337,6 @@ literal "false"
  show that a variable with probability distribution (with notations changed
  to fit our own) 
 \begin_inset Formula $f(r)=\frac{d\lambda\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{\lambda\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=d\lambda b_{d}r^{d-1}\exp(-\lambda b_{d}r^{d})$
-\end_inset
-
-
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Remember that 
-\begin_inset Formula $b_{d}$
-\end_inset
-
-, the volume of the unit sphere is equal to 
-\begin_inset Formula $\frac{\pi^{d/2}}{\Gamma(\frac{d}{2}+1)}$
-\end_inset
-
-
-\end_layout
-
 \end_inset
 
  has a mean of 
@@ -326,6 +357,13 @@ With intensity
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -373,13 +411,41 @@ This needs to be taken into account when defining
  cm.
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
 Simulations
 \end_layout
 
 \begin_layout Standard
-(inconclusive for now because monospecific minimum distances can either
- be above or below interspecific minimum distances, and we only have 3 species)
+We can plot the simulated distance to the nearest neighbour compared to
+ what we should obtain with a uniform distribution (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distance_micro"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distance_nano"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -389,14 +455,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance.pdf
-	width 60text%
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_micro.pdf
+	width 90text%
 
 \end_inset
 
@@ -407,87 +469,50 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance to the nearest neighbour of the same species,
- or of a different species, compared to the prediction of a uniform distribution.
- Values correspond to a simulation with 3 species using the Brownian Bug
- Model with concentration 
-\begin_inset Formula $\lambda=$
-\end_inset
-
-10
-\begin_inset Formula $^{4}$
+Mean and minimum distance to the nearest neighbour for 3 microphytoplankton
+ species with density 
+\begin_inset Formula $\lambda=10^{4}$
 \end_inset
 
  cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
- in a volume of 1 cm
-\begin_inset Formula $^{3}$
-\end_inset
-
-, with advection, after 1000 time steps
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-Brownian Bug Model
-\end_layout
-
-\begin_layout Standard
-Warning: we use the diatom parameters, with one big change: as we want to
- focus on small radii, we increase the concentration from 
-\begin_inset Formula $10$
-\end_inset
-
- cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- to 
+, with and without advection, after 1000 time steps, compared to predictions
+ for a uniform distribution.
+ Horizontal lines show the average distance to the nearest neighbour (dashed
+ grey line) and the expected minimum distance to the nearest neighbour with
+ 
 \begin_inset Formula $10^{4}$
 \end_inset
 
- cm
-\begin_inset Formula $^{-3}$
+ realizations (solid blue line).
+ Filled symbols represent distances to a conspecifics while empty symbols
+ represent distances to heterospecifics.
+ Colors correspond to the different species (red for species 0, blue for
+ species 1, black for species 2).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distance_micro"
+
 \end_inset
 
-.
- 
+
 \end_layout
 
-\begin_layout Subsection*
-Comparison with spatstat package
-\end_layout
+\end_inset
 
-\begin_layout Standard
-We show that we find the exact same result as the package 
-\begin_inset ERT
-status open
+
+\end_layout
 
 \begin_layout Plain Layout
 
-
-\backslash
-verb|spatstat|
 \end_layout
 
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -497,14 +522,10 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/compare_BBM_spatstat.pdf
-	width 80text%
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_nano.pdf
+	width 90text%
 
 \end_inset
 
@@ -515,43 +536,32 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Monospecific Ripley's K function and PCF values for 3 species using the
- Brownian Bug Model with concentration 
-\begin_inset Formula $\lambda=$
-\end_inset
-
-10
-\begin_inset Formula $^{4}$
+Mean and minimum distance to the nearest neighbour for 3 nanophytoplankton
+ species with density 
+\begin_inset Formula $\lambda=10^{4}$
 \end_inset
 
  cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
- in a volume of 1 cm
-\begin_inset Formula $^{3}$
+, with and without advection, after 1000 time steps, compared to predictions
+ for a uniform distribution.
+ Horizontal lines show the average distance to the nearest neighbour (dashed
+ grey line) and the expected minimum distance to the nearest neighbour with
+ 
+\begin_inset Formula $10^{4}$
 \end_inset
 
-, with advection, after 1000 time steps, using a bandwidth 
-\begin_inset Formula $\delta=10^{-5}$
-\end_inset
-
- and focusing on small radii around a particle.
- Black stars correspond to observed distances in the simulation.
+ realizations (solid blue line).
+ Filled symbols represent distances to a conspecifics while empty symbols
+ represent distances to heterospecifics.
+ Colors correspond to the different species (red for species 0, blue for
+ species 1, black for species 2).
  
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Monospecific-spatstat_small_bw"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-compare_spatstat_BBM with sim=70
-\end_layout
+name "fig:Distance_nano"
 
 \end_inset
 
@@ -560,10 +570,6 @@ compare_spatstat_BBM with sim=70
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -585,28 +591,6 @@ In Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Monospecific-spatstat_small_bw"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we show that the parabole observed correspond to the shape of the kernel
- when points are too rare and the bandwidth is too small (
-\begin_inset Formula $\delta=10^{-5})$
-\end_inset
-
-.
- This also explains the sudden absence of points we observed previously.
-\end_layout
-
-\begin_layout Standard
-We thus compared the effect of different bandwidths in the same range of
- radii in Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
 reference "fig:Monospecific-spatstat-different_bw"
 plural "false"
 caps "false"
@@ -614,7 +598,20 @@ noprefix "false"
 
 \end_inset
 
+, we show that the parabola we previously observed correspond to the shape
+ of the kernel when points are too rare and the bandwidth is too small (
+\begin_inset Formula $\delta=10^{-5})$
+\end_inset
+
 .
+ This also explains the sudden absence of points we observed previously.
+ Choosing a bandwidth corresponding to half the expected minimum distance
+ between points (see above), i.e.
+ 
+\begin_inset Formula $10^{-3.2}$
+\end_inset
+
+ does not give better results.
 \end_layout
 
 \begin_layout Standard
@@ -659,13 +656,8 @@ Monospecific PCF values for 3 species using the Brownian Bug Model with
 \begin_inset Formula $\delta$
 \end_inset
 
- for small radius ranges (simulations were done with default 
-\begin_inset Formula $\delta$
-\end_inset
-
- values, i.e.
- 
-\begin_inset Formula $\delta\approx0.012$
+ for small radius ranges (simulations were done with 
+\begin_inset Formula $\delta\approx10^{-5}$
 \end_inset
 
 ).
@@ -682,7 +674,7 @@ name "fig:Monospecific-spatstat-different_bw"
 status open
 
 \begin_layout Plain Layout
-compare_bandwidth_BBM with sim=80
+compare_bandwidth_BBM with sim=155
 \end_layout
 
 \end_inset
@@ -701,99 +693,11 @@ compare_bandwidth_BBM with sim=80
 \end_layout
 
 \begin_layout Standard
-We can also look at the whole range of radius values we want to study in
- Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Monospecific-spatstat-large_bw-large_r"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/compare_BBM_spatstat_large_bandwidth.pdf
-	width 80text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Monospecific Ripley's K function and PCF values for 3 species using the
- Brownian Bug Model with concentration 
-\begin_inset Formula $\lambda=$
-\end_inset
-
-10
-\begin_inset Formula $^{4}$
-\end_inset
-
- cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- in a volume of 1 cm
-\begin_inset Formula $^{3}$
-\end_inset
-
-, with advection, after 1000 time steps, using 
-\begin_inset Formula $\delta\approx0.012$
-\end_inset
-
- with all ranges we want to consider.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Monospecific-spatstat-large_bw-large_r"
-
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-compare_spatstat_BBM with sim=80bis
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-I suggest to stop computing pcf from now.
+I suggest we stop computing pcf from now.
  The search for the right bandwidth gets us nowhere, and our analyses and
  conclusions depend on the dominance index, which is computed with Ripley's
- function.
+ function (fit between theory and simulations can also be checked through
+ this function).
 \end_layout
 
 \begin_layout Subsection*
@@ -825,24 +729,6 @@ K(\rho)=\frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{6D}+\frac
 \end_layout
 
 \begin_layout Standard
-Warning: for now, this formula gives aberrant results (including negative
- dominance for rare species), which tend to show that it is most certainly
- wrong (and simulations are also far from these values in Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Monospecific-spatstat-large_bw-large_r"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, which confirm the conclusion).
- By default, we stick to it while waiting for Bill's own formula.
-\end_layout
-
-\begin_layout Standard
 Without advection,
 \end_layout
 
@@ -858,66 +744,49 @@ K(\rho) & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}erf(\frac{\r
 
 \end_layout
 
-\begin_layout Subsubsection*
-Simulations
-\end_layout
-
-\begin_layout Paragraph*
-Monospecific K
-\end_layout
-
 \begin_layout Standard
-We show in Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Monospecific-spatstat_small_bw"
-plural "false"
-caps "false"
-noprefix "false"
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename K_dominance_BBM_r_diat.pdf
+	width 99text%
 
 \end_inset
 
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Monospecific-spatstat-large_bw-large_r"
-plural "false"
-caps "false"
-noprefix "false"
 
-\end_inset
-
- that for now, simulated values of K are far from the theoretical values
- (the fit for larger r is only due to the prevalence of the 
-\begin_inset Formula $\frac{4}{3}\pi r^{3}$
-\end_inset
-
- term and only illustrate the fit to the uniform distribution when 
-\begin_inset Formula $r\rightarrow\infty$
-\end_inset
-
-).
 \end_layout
 
-\begin_layout Subsubsection*
-Interspecific K
-\end_layout
+\begin_layout Plain Layout
+\begin_inset Caption Standard
 
-\begin_layout Standard
-We can at least find the expected values of interspecific values of K (Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Interspecific_K"
-plural "false"
-caps "false"
-noprefix "false"
+\begin_layout Plain Layout
+Expected values of the Ripley's function and dominance indices for microphytopla
+nkton (plot from theoretical formula, not simulations), with 
+\begin_inset Formula $\lambda=10$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+ Vertical lines in the central and right plot indicate the 10 radii limit
+ for nutrient depletion.
+\end_layout
 
 \end_inset
 
-).
- 
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -929,8 +798,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/BBM_interspecies.pdf
-	width 80text%
+	filename K_dominance_BBM_r_nano.pdf
+	width 99text%
 
 \end_inset
 
@@ -941,8 +810,69 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Interspecific Ripley's K function and PCF values for 3 species using the
- Brownian Bug Model with concentration 
+Expected values of the Ripley's function and dominance indices for nanophytoplan
+kton (plot from theoretical formula, not simulations), with 
+\begin_inset Formula $\lambda=10$
+\end_inset
+
+00 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+.
+ Vertical lines in the central and right plot indicate the 10 radii limit
+ for nutrient depletion.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Simulations
+\end_layout
+
+\begin_layout Subsubsection*
+Intraspecific K
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_micro.pdf
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between theoretical formula and simulated values of Ripley's
+ function for 3 species, without and without advection, for microphytoplankton,
+ with initial density 
 \begin_inset Formula $\lambda=$
 \end_inset
 
@@ -958,29 +888,152 @@ Interspecific Ripley's K function and PCF values for 3 species using the
 \begin_inset Formula $^{3}$
 \end_inset
 
-, with advection, after 1000 time steps, using 
-\begin_inset Formula $\delta\approx0.012$
+, after 1000 time steps.
+\end_layout
+
 \end_inset
 
- with all ranges we want to consider.
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_nano.pdf
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between theoretical formula and simulated values of Ripley's
+ function for 3 species, without and without advection, for nanophytoplankton,
+ with initial density 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, after 1000 time steps.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Interspecific K
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/BBM_interspecies_micro.pdf
+	width 90text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interspecific Ripley's K function for 3 species using the Brownian Bug Model
+ with microphytoplankton concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with and without advection, after 1000 time steps.
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:Interspecific_K"
+name "fig:Interspecific_K_micro"
 
 \end_inset
 
  
-\begin_inset Note Note
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
 status open
 
 \begin_layout Plain Layout
-BBM_inter with sim=80bis
-\end_layout
-
-\end_inset
-
-
-\end_layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/BBM_interspecies_nano.pdf
+	width 90text%
 
 \end_inset
 
@@ -988,6 +1041,38 @@ BBM_inter with sim=80bis
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Interspecific Ripley's K function for 3 species using the Brownian Bug Model
+ with nanophytoplankton concentration 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{4}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, with and without advection, after 1000 time steps.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Interspecific_K_nano"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

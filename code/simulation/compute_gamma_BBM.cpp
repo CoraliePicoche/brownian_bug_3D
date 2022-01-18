@@ -16,14 +16,14 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=155;
+extern const int num_simu=200;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
 extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=1; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
-extern const int tmax=1000; //length of the simulation. Tmax is negative if we only want the initial distribution
+extern const int tmax=100; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.00028; //in day
@@ -42,14 +42,15 @@ extern const double growth_rate=1; //in day^-1
 //extern const double radius=1.5*pow(10,-6);
 //extern const double growth_rate=2.5; //in day^-1
 
-extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
+//extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
+extern const double Delta=0.0; //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
 extern const double proba_repro=growth_rate*tau; //Death and birth probability
 
 //Community definition
-extern const int nb_species=3;
+extern const int nb_species=1;
 //extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
-extern const std::vector<double> size_pop={10000,10000,10000};//,10000,10000,10000,10000,10000,10000,10000}; 
+extern const std::vector<double> size_pop={800};//,10000,10000,10000,10000,10000,10000,10000}; 
 extern const int N_parent_init=0;
 extern const int N_children_init=50;
 extern const double sigma=0.01;
@@ -61,11 +62,11 @@ extern const double volume=Lmax*Lmax*Lmax;
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
 //PCF computation
-extern const double pow_max=-3;
+extern const double pow_max=-0;
 extern const double pow_min=-4;
-extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
+extern const int nb_r_pcf=50; //Number of values for r when computing pcf
 extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
-extern const double delta_fixed=pow(10,-5.); //Only used if delta_spatstat==0
+extern const double delta_fixed=pow(10,-3.5); //Only used if delta_spatstat==0
 
 
 using namespace std;
@@ -370,7 +371,7 @@ int main()
 {
 	int i,j,t,s,s1,s2;
 	double a_x,a_y,a_z,phi,theta,psi,a_n,tmp_pop;
-	std::vector<basic_particle> Part_table;
+	std::vector<basic_particle> Part_table_parent,Part_table_children;
 	std::ofstream f_pcf,f_param,f_space,f_end_simu,f_debug,f_min_dist;
 	int nb_indiv[nb_species];
 	int repart[11];
@@ -388,11 +389,8 @@ int main()
 
 	//Open the file in which we will have the x, y, parent of each particle
 	f_space.open("Spatial_distribution_"+std::to_string(num_simu)+".txt");
-	f_end_simu.open("nb_indiv_"+std::to_string(num_simu)+".txt");
-	f_pcf.open("lambda_K_"+std::to_string(num_simu)+".txt");
+	f_space.precision(8);
 	f_param.open("param_"+std::to_string(num_simu)+".txt");
-	f_debug.open("debug_"+std::to_string(num_simu)+".txt");
-	f_min_dist.open("min_dist_"+std::to_string(num_simu)+".txt");
 
 	write_parameters(f_param);
 
@@ -408,8 +406,9 @@ int main()
 			a_x=gsl_rng_uniform(rgslbis2)*Lmax;
 			a_y=gsl_rng_uniform(rgslbis2)*Lmax;
 			a_z=gsl_rng_uniform(rgslbis2)*Lmax;
-			Part_table.push_back(basic_particle(a_x,a_y,a_z,a_y,i,s));
-	                nb_indiv[Part_table.at(j).get_species()]=nb_indiv[Part_table.at(j).get_species()]+1;
+			Part_table_parent.push_back(basic_particle(a_x,a_y,a_z,a_y,i,s));
+	                nb_indiv[Part_table_parent.at(j).get_species()]=nb_indiv[Part_table_parent.at(j).get_species()]+1;
+                	Part_table_children.push_back(basic_particle(a_x,a_y+pow(10,-7),a_z,a_y+pow(10,-7),i,0)); //Here, I am cheating. The particles should be separated by 10^-7: I do not distribute it between x and y.
 			j++;
 		}
 	} else if (type_init=='T'){ //Thomas distribution
@@ -418,18 +417,31 @@ int main()
                 	a_x=gsl_rng_uniform(rgslbis2)*Lmax;
 	                a_y=gsl_rng_uniform(rgslbis2)*Lmax;
         	        a_z=gsl_rng_uniform(rgslbis2)*Lmax;
-                	Part_table.push_back(basic_particle(a_x,a_y,a_z,a_y,i,s));
+                	Part_table_parent.push_back(basic_particle(a_x,a_y,a_z,a_y,i,s));
 	                nb_indiv[s]=nb_indiv[s]+1;
                 	j++;
 	        }
-                tmp_pop=Part_table.size();
-                Part_table=initialize_thomas(Part_table,s);
-                nb_indiv[s]=nb_indiv[s]+Part_table.size()-tmp_pop;
+                tmp_pop=Part_table_parent.size();
+                Part_table_parent=initialize_thomas(Part_table_parent,s);
+                nb_indiv[s]=nb_indiv[s]+Part_table_parent.size()-tmp_pop;
                 std::cout<<"For sp="<<s<<" End parent="<<nb_indiv[s]<<std::endl;
 
 	} //End test on initial distribution
 		std::cout<<"SPECIES="<<s<<" INDIV="<<nb_indiv[s]<<std::endl;
 	} //End loop on species
+
+	for(i=0; i<size_pop.at(0);i++){
+                f_space<< 0 <<";";
+                f_space<< Part_table_parent[i].get_x()  << ';';
+                f_space<< Part_table_parent[i].get_y()  << ';'<<Part_table_parent[i].get_z()<<";";
+                f_space<< Part_table_parent[i].get_yfirst()  << ";";
+                f_space<< "P"  << ";";
+                f_space<< Part_table_parent[i].get_firstparent()  << std::endl;
+                f_space<< 0 <<";";
+                f_space<< Part_table_children[i].get_x()  << ';'<<Part_table_children[i].get_y()  << ';'<<Part_table_children[i].get_z()<<";"<<Part_table_children[i].get_yfirst()  << ";";
+                f_space<< "C"  << ";";
+                f_space<< Part_table_children[i].get_firstparent()  << std::endl;
+	}
 
 
 	//Run the simulation
@@ -440,65 +452,38 @@ int main()
 	theta=gsl_rng_uniform(rgslbis2)*2*pi;
 	psi=gsl_rng_uniform(rgslbis2)*2*pi;
 
-	//First step: birth and death	
-	branching_process(Part_table,proba_repro,proba_death);
-
-	//For each particle, diffusion, then advection
-	for(j=0; j<Part_table.size(); j++)
+	//For each particle, advection only
+	for(j=0; j<Part_table_parent.size(); j++)
 	{
-		Part_table[j].diffusion(Delta, Lmax);
-		Part_table[j].pierrehumbert_flow(Utot, k, phi,theta,psi, Lmax);
+		Part_table_parent.at(j).pierrehumbert_flow(Utot, k, phi,theta,psi, Lmax);
+		Part_table_children.at(j).pierrehumbert_flow(Utot, k, phi,theta,psi, Lmax);
+
+                f_space<< t <<";";
+                f_space<< Part_table_parent[j].get_x()  << ';';
+                f_space<< Part_table_parent[j].get_y()  << ';'<<Part_table_parent[j].get_z()<<";";
+                f_space<< Part_table_parent[j].get_yfirst()  << ";";
+                f_space<< "P"  << ";";
+                f_space<< Part_table_parent[j].get_firstparent()  << std::endl;
+                f_space<< t <<";";
+                f_space<< Part_table_children[j].get_x()  << ';';
+                f_space<< Part_table_children[j].get_y()  << ';'<<Part_table_children[j].get_z()<<";";
+                f_space<< Part_table_children[j].get_yfirst()  << ";";
+                f_space<< "C"  << ";";
+                f_space<< Part_table_children[j].get_firstparent()  << std::endl;
 
 	} //end j, i.e. the particle mvt
 	} //end t, i.e the whole simulation
 	std::cout<<"End simulation"<<std::endl;
 
-	//Reinitialize nb species to use it when computing PCF at the end
-	for (s=0; s< nb_species ; s++)
-	{
-		nb_indiv[s]=0;
-	}
-	
-	//This is not optimized, but makes the code a bit cleaner by separating the simulation part and the output part
-	for(j=0; j<Part_table.size(); j++)
-        {
-                nb_indiv[Part_table.at(j).get_species()]=nb_indiv[Part_table.at(j).get_species()]+1;
-                if(print_distrib==1)
-                {
-        	        f_space<< j <<";";
-                	f_space<< Part_table[j].get_x()  << ';';
-	                f_space<< Part_table[j].get_y()  << ';';
-        	        f_space<< Part_table[j].get_z()  << ';';
-                	f_space<< Part_table[j].get_yfirst()  << ";";
-	                f_space<< Part_table[j].get_firstparent() << ";";
-        	        f_space<< Part_table[j].get_species()  << std::endl;
-                }
-        }
-
-	//End of the simulation
-
 //Distribution of distance between pairs of particles, for debugging purposes
-        for(i=0;i<11;i++){
-                repart[i]=0;
-        }
-//	distrib_distance(Part_table, repart);
-//        for(i=0;i<11;i++){
-//              f_debug<<Utot<<";"<<i<<";"<<repart[i]<<std::endl;
-//       }
-
         for (s1=0;s1<nb_species;s1++)
         {
         	f_end_simu<<s1<<";"<<nb_indiv[s1]<<std::endl;
 	}
 
-        K_PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf,f_param,f_min_dist);
 
 	f_space.close();
-	f_end_simu.close();
-	f_pcf.close();
 	f_param.close();
-	f_debug.close();
-	f_min_dist.close();
 	return 0;
 }
 
