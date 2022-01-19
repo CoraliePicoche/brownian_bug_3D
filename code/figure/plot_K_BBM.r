@@ -2,47 +2,8 @@ rm(list=ls())
 graphics.off()
 
 library(spatstat)
-library(pracma)
-
-############################### Utilitary functions
-
-#Ticks for log scale from https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
-log10Tck <- function(side, type){
-  lim <- switch(side,
-                x = par('usr')[1:2],
-                y = par('usr')[3:4],
-                stop("side argument must be 'x' or 'y'"))
-  at <- floor(lim[1]) : ceiling(lim[2])
-  return(switch(type,
-                minor = outer(1:9, 10^(min(at):max(at))),
-                major = 10^at,
-                stop("type argument must be 'major' or 'minor'")
-  ))
-}
-
-BBM_cdf=function(r,gamma,Delta,Conc,lambda,tau,t=NA){
-	D=(Delta^2)/(2*tau)
-        res=NA
-        A=4/3*pi*r^3
-	t=t*tau
-        if(gamma>0){
-                B=r^2/(6*D)
-                C=(sqrt(gamma)/(6*sqrt(2)*(D^1.5)))*(r^3)*atan(r*sqrt(gamma/(2*D)))
-                Dd=log((gamma*r^2)/(2*D)+1)/(6*gamma)
-                E=(sqrt(gamma)*pi*r^3)/(12*sqrt(2)*D^1.5)
-                res=A+(2*lambda/Conc)*(B+C+Dd-E)
-        }else{
-                B=r^2/2
-                C=1/2*erf(r/(sqrt(8*D*t)))*(r^2-4*D*t)
-		print(D)
-		print(head(erf(r/(sqrt(8*D*t)))))
-                Dd=sqrt(2*D*t)*r/sqrt(pi)*exp(-r^2/(8*D*t))
-                res=A+(lambda/(Conc*D))*(B-C-Dd)
-        }
-        return(res)
-}
-
-#####################################
+source("utilitary_functions.r")
+source("theoretical_functions.r")
 
 colo=c("red","blue","black")
 

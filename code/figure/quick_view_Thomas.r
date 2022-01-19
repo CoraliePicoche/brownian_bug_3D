@@ -1,34 +1,14 @@
 rm(list=ls())
 graphics.off()
 
-library(pracma)
 library("spatstat")
+source("utilitary_functions.r")
+source("theoretical_functions.r")
 
-############################### Utilitary functions
 
-#Ticks for log scale from https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
-log10Tck <- function(side, type){
-  lim <- switch(side,
-                x = par('usr')[1:2],
-                y = par('usr')[3:4],
-                stop("side argument must be 'x' or 'y'"))
-  at <- floor(lim[1]) : ceiling(lim[2])
-  return(switch(type,
-                minor = outer(1:9, 10^(min(at):max(at))),
-                major = 10^at,
-                stop("type argument must be 'major' or 'minor'")
-  ))
-}
-thomas_cdf=function(r,sigma){
-	a=1/(sigma*sqrt(pi))*(sqrt(pi)*sigma*erf(r/(2*sigma))-r*exp(-(r^2/(4*sigma^2))))
-        return(a)
-}
+colo=c("red","blue","black")
 
-#####################################
-
-colo=c("red","blue","grey")
-
-pdf("K_PCF_Thomas_edge_correction_large_bandwidth.pdf",width=8)
+pdf("K_PCF_Thomas_edge_correction_large_bandwidth.pdf",width=8,height=12)
 par(mfrow=c(3,2))
 
 nb_simu=107
@@ -86,8 +66,7 @@ for (species in 1:3){
 	th_thomas=thomas_cdf(unique(f_tot$r),sigma)/(N_parent/volume)
 	th_poisson=4/3*pi*unique(f_tot$r)^3
 
-	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="K",axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$K[f_tot$K>0]),main=paste("Species=",s1,sep=""))
-	#plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab=yl,axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(th_poisson),main=paste("Species=",s1," correct=",type[s],sep=""))
+	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="K",axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$K[f_tot$K>0]),main=paste("Species=",unique_sp[s1],sep=""))
 	axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 	axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 	axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
@@ -111,24 +90,23 @@ for (species in 1:3){
 	for(s2 in 1:length(unique_sp)){
 		if(s1!=s2){
 			colors=c(colors,colo[s2])
-				ss=c(ss,s2)
+				ss=c(ss,unique_sp[s2])
 			f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s2])
 			print(paste("SP",s1," X ",s2,sep=""))
 			print(sum(which(f_plot$K>0)))
 			lines(f_plot$r,f_plot$K,lty=1,col=colo[s2])
 		}
 	}
-		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory mono-specific", "Theory cross-specific","Spatstat"),col=c(colors,"black","black","orchid"),bty="n",pch=c(16,NA,NA,NA,NA,16),lty=c(NA,1,1,2,3,NA),lwd=2)
-		#legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory mono-specific", "Theory cross-specific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=2)
-	lines(unique(f_tot$r),th_poisson,lty=3,lwd=2)
-	lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
+		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific","Spatstat"),col=c(colors,"grey","grey","orchid"),bty="n",pch=c(16,NA,NA,NA,NA,16),lty=c(NA,1,1,2,3,NA),lwd=c(rep(2,4),3,2),cex=1.25)
+	lines(unique(f_tot$r),th_poisson,lty=3,lwd=3,col="grey")
+	lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2,col="grey")
 
         th_thomas=1+exp(-unique(f_tot$r)^2/(4*sigma^2))*(4*pi*sigma^2)^(-3/2)*1/(N_parent/volume)
         th_poisson=rep(1,length(unique(f_tot$r)))
   	
 	PCF_spat=pcf3est(ppp_repart,rmax=max(f$r),nrval=1000,delta=10^(-5))
 
-        plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="PCF",axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0]),main=paste("Species=",s1,sep=""))
+        plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="PCF",axes=F,xlim=c(10^(-4),0.1),cex.lab=1.5,ylim=range(f_tot$pcf[f_tot$pcf>0]),main=paste("Species=",unique_sp[s1],sep=""))
         axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
         axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
         axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
@@ -149,8 +127,8 @@ for (species in 1:3){
                         lines(f_plot$r,f_plot$pcf,lty=1,col=colo[s2])
                 }
         }
-        lines(unique(f_tot$r),th_poisson,lty=3,lwd=2)
-        lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2)
+        lines(unique(f_tot$r),th_poisson,lty=3,lwd=3,col="grey")
+        lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2,col="grey")
 
 	#a=loess(f_plot$pcf~f_plot$r,span=1)
 	#lines(f_plot$r,predict(a,newdata=f_plot$r),col="orchid",lwd=2)
