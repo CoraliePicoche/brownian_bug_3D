@@ -4,7 +4,7 @@ graphics.off()
 library(pracma) #erf function
 
 thomas_cdf=function(r,sigma){
-	a=2/(sigma*sqrt(pi))*(erf(r/(2*sigma))-r/(sigma*sqrt(pi))*exp(-(r^2/(4*sigma^2))))
+	a=1/(sigma*sqrt(pi))*(sigma*sqrt(pi)*erf(r/(2*sigma))-r*exp(-(r^2/(4*sigma^2))))
 	return(a)
 }
 

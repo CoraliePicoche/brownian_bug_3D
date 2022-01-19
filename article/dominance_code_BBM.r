@@ -98,7 +98,7 @@ dom=array(NA,dim=c(n_species,length(seq_r),2))
 
 den_1=sum(concentration)*poisson_cdf(seq_r)
 
-pdf("K_dominance_BBM_r_diat.pdf",width=12)
+pdf("K_dominance_BBM_r_micro.pdf",width=12)
 par(mfcol=c(2,3),oma=c(1,1,1,1),cex=0.85)
 #plot(seq_r,G_theoretical(seq_r,a_gamma,a_lambda,a_Delta,concentration[1],a_tau),log="xy",ylab="pcf",xlab="r",t="l")
 plot(seq_r,BBM_cdf(seq_r,a_gamma,a_Delta,concentration[1],a_lambda,a_tau),t="l",xlab="r",ylab="K",log="xy",main="Advection")
@@ -114,21 +114,21 @@ for(i in 1:n_species){
 }
 
 plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",log="x",main="Advection")
-points(seq_r,dom[1,,1],lty=1,col="black",pch=16)
+points(seq_r,dom[1,,1],lty=1,col="red",pch=16)
 points(seq_r,dom[2,,1],lty=2,col="blue",pch=16)
-points(seq_r,dom[3,,1],lty=3,col="red",pch=16)
+points(seq_r,dom[3,,1],lty=3,col="black",pch=16)
 abline(h=1/3,lty=2,col="grey",lwd=2)
-legend("bottomleft",c("sp1=33%","sp2=33%","sp3=33%"),pch=16,col=c("black","blue","red"),bty="n")
-abline(v=lim,col="grey",lty=3,lwd=2)
+legend("bottomleft",c("sp1=33%","sp2=33%","sp3=33%"),pch=16,col=c("red","blue","black"),bty="n")
+abline(v=lim,col="grey",lty=3,lwd=3)
 
 plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",main="No advection",log="x")
-points(seq_r,dom[1,,2],lty=1,col="black",pch=16)
+points(seq_r,dom[1,,2],lty=1,col="red",pch=16)
 points(seq_r,dom[2,,2],lty=2,col="blue",pch=16)
-points(seq_r,dom[3,,2],lty=3,col="red",pch=16)
+points(seq_r,dom[3,,2],lty=3,col="black",pch=16)
 abline(h=1/3,lty=2,col="grey",lwd=2)
-abline(v=lim,col="grey",lty=3,lwd=2)
+abline(v=lim,col="grey",lty=3,lwd=3)
 
-mtext("Diat", outer = TRUE, cex = 1.5,line=-1.5)
+mtext("Micro", outer = TRUE, cex = 1.5,line=-1.5)
 
 #"Skewed distributions"
 concentration=c(1000,3333,5667)/1000
@@ -145,16 +145,16 @@ for (i in 1:n_species){
 }
 
 plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",log="x",main="Advection")
-points(seq_r,dom[1,,1],lty=1,col="black",pch=16)
+points(seq_r,dom[1,,1],lty=1,col="red",pch=16)
 points(seq_r,dom[2,,1],lty=2,col="blue",pch=16)
-points(seq_r,dom[3,,1],lty=3,col="red",pch=16)
-legend("bottomleft",c("sp1=10%","sp2=33%","sp3=57%"),pch=16,col=c("black","blue","red"),bty="n")
-abline(v=lim,col="grey",lty=3,lwd=2)
+points(seq_r,dom[3,,1],lty=3,col="black",pch=16)
+legend("bottomleft",c("sp1=10%","sp2=33%","sp3=57%"),pch=16,col=c("red","blue","black"),bty="n")
+abline(v=lim,col="grey",lty=3,lwd=3)
 
 plot(0,0,xlim=range(seq_r),ylim=c(0,1),xlab="r",ylab="dominance",t="n",main="No advection",log="x")
-points(seq_r,dom[1,,2],lty=1,col="black",pch=16)
+points(seq_r,dom[1,,2],lty=1,col="red",pch=16)
 points(seq_r,dom[2,,2],lty=2,col="blue",pch=16)
-points(seq_r,dom[3,,2],lty=3,col="red",pch=16)
-abline(v=lim,col="grey",lty=3,lwd=2)
+points(seq_r,dom[3,,2],lty=3,col="black",pch=16)
+abline(v=lim,col="grey",lty=3,lwd=3)
 
 dev.off()
