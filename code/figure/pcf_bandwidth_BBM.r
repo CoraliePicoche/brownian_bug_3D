@@ -1,55 +1,18 @@
 rm(list=ls())
 graphics.off()
 
-############################### Utilitary functions
+source("utilitary_functions.r")
+source("theoretical_functions.r")
 
-#Ticks for log scale from https://stackoverflow.com/questions/47890742/logarithmic-scale-plot-in-r
-log10Tck <- function(side, type){
-  lim <- switch(side,
-                x = par('usr')[1:2],
-                y = par('usr')[3:4],
-                stop("side argument must be 'x' or 'y'"))
-  at <- floor(lim[1]) : ceiling(lim[2])
-  return(switch(type,
-                minor = outer(1:9, 10^(min(at):max(at))),
-                major = 10^at,
-                stop("type argument must be 'major' or 'minor'")
-  ))
-}
+colo=c("darkorchid","green","darkblue","orange")
 
-#Theoretical value of G
-G_theoretical=function(gamma,r,lambda,Delta,C_0,Tmax=NA){ #U=0 in the absence of advection
-  tau=0.0002
-  D=Delta^2/(2*tau)
-  if(gamma>0){
-    tmp=lambda/(4*pi*C_0)*(sqrt(gamma)*atan(sqrt(gamma)*r/sqrt(2*D))/(2^1.5*D^1.5)+1/(2*D*r)-pi*sqrt(gamma)/(2^2.5*D^1.5))+1
-  }else{ #This corresponds to the case U=0
-        if(is.na(Tmax)){
-                print("Tmax should have a value")
-                stop()
-        }
-    tmp=2*lambda/(8*D*pi*C_0*r)*(1-erf(r/(2^1.5*sqrt(Tmax*D))))+1
-  }
-  return(tmp)
-}
+gamma=1231
 
-#####################################
-
-#colo=c("red","blue","grey","orange","violet")
-colo=c("darkorchid","green","grey","orange")
-
-pdf("bandwidth_BBM_diatom.pdf")
+pdf("bandwidth_BBM.pdf")
 par(mar=c(4,4,1,1))
 
-sim=list(21:24,25:28,29:32,33:36) #Diatoms
-#lim_min=5*10^(-3)
-####lim_max=2.4*10^(-1) ##Previously, when considering only phycosphere
-lim_max=25*10^(-4)*10
-#sim=list(37:40) #Nano
-#lim_min=3*10^(-4)
-#lim_max=1.5*10^(-4)*10
+sim=list(4,5,6,0) #Diatoms
 s1=1
-legend_m=c()
 
 plot(0.1,0.1,t="n",log="xy",xlab="r",ylab="g(r)",axes=F,xlim=c(10^(-4),1),cex.lab=1.5,ylim=c(1,2*10^7))
 axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
@@ -57,47 +20,37 @@ axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 axis(2, at=log10Tck('y','major'), tcl= 0.5,cex.axis=1.5) # bottom
 axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA) # bottom
 box()
+
 f_param_tot=matrix(,0,2)
 colnames(f_param_tot)=c("name","value") #We initialize this one before the loop to have *all* values of parameters so that we can check they are all the same across the simulations
 f_count_tot=matrix(,0,2)
 colnames(f_count_tot)=c("species","abundance") #Same reason as above
 
-for (s in 1:length(sim)){
+legend_m=c()
 
-	nb_simu_tot=sim[s][[1]]
+for (nb_simu in 1:length(sim)){
+	f=read.table(paste("../simulation/lambda_K_",sim[nb_simu],".txt",sep=""),sep=";",header=F,dec=".")
+	colnames(f)=c("r","sp1","sp2","pcf","dominance","lambda_K","K")
+	unique_sp=unique(f$sp1)
 
-	f_tot=matrix(,0,5)
-	colnames(f_tot)=c("r","sp1","sp2","pcf","dominance")
+	#Count species
+	f_count=read.table(paste("../simulation/nb_indiv_",sim[nb_simu],".txt",sep=""),header=F,sep=";",dec='.')
+	colnames(f_count)=c("species","abundance")
+	f_count_tot=rbind(f_count_tot,f_count)
 
-	for (nb_simu in nb_simu_tot){
-		f=read.table(paste("../simulation/pcf_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
-		colnames(f)=c("r","sp1","sp2","pcf","dominance")
-		f_tot=rbind(f_tot,f)
-		unique_sp=unique(f_tot$sp1)
+	#Param simu
+	f_param=read.table(paste("../simulation/param_",sim[nb_simu],".txt",sep=""),header=F,sep="=",dec='.')
+	f_param[,2]=as.numeric(as.character(f_param[,2]))
+	colnames(f_param)=c("name","value")
+	f_param_tot=rbind(f_param_tot,f_param)
 
-		#Count species
-		f_count=read.table(paste("../simulation/nb_indiv_",nb_simu,".txt",sep=""),header=F,sep=";",dec='.')
-		colnames(f_count)=c("species","abundance")
-		f_count_tot=rbind(f_count_tot,f_count)
+delta_val=unique(f_param[f_param$name=="delta","value"])
+legend_m=c(legend_m,eval(substitute(expression(paste(delta, "=",delta_val,sep="")),list(delta_val=delta_val))))
 
-		#Param simu
-		f_param=read.table(paste("../simulation/param_",nb_simu,".txt",sep=""),header=F,sep="=",dec='.')
-		f_param[,2]=as.numeric(as.character(f_param[,2]))
-		colnames(f_param)=c("name","value")
-		f_param_tot=rbind(f_param_tot,f_param)
-	} #end loop on nb_simu
-	delta_val=unique(f_param[f_param$name=="delta","value"])
-	print(delta_val)
-        if(s==1){
-                m=paste(expression(delta),"=", delta_val, " spatstat",sep="")
-        }else{
-                m=paste(expression(delta), "=",delta_val,sep="")
-        }
-	legend_m=c(legend_m,m)
+f_plot=subset(f,sp1==unique_sp[s1]&sp2==unique_sp[s1])
 
-	f_plot=subset(f_tot,sp1==unique_sp[s1]&sp2==unique_sp[s1])
-
-	points(f_plot$r,f_plot$pcf,lty=1,col=colo[s])
+lines(f_plot$r,f_plot$pcf,lty=1,col=colo[nb_simu],t="o")
+print(colo[nb_simu])
 } #end loop on series of simulations
 
 
@@ -125,6 +78,12 @@ if(length(unique(lambda))>1){
 }
 lambda=unique(lambda)
 
+tau=f_param_tot[f_param_tot$name=="tau","value"]
+if(length(unique(tau))>1){
+	stop("tau were different")
+}
+lambda=unique(lambda)
+
 nb_indiv=f_count_tot$abundance[f_count_tot$species==unique_sp[s1]]
 if(length(unique(nb_indiv))>1){
 	stop("nb indiv were different")
@@ -132,17 +91,8 @@ if(length(unique(nb_indiv))>1){
 nb_indiv=unique(nb_indiv)
 conc=nb_indiv/volume
 
-if(U_tot==0.5){
-	gamma=0.5
-}else{
-	stop("You don't have the right gamma")
-}
-
-th_bbm=G_theoretical(gamma,unique(f_tot$r),lambda,Delta,conc,Tmax=NA)
-lines(unique(f_tot$r),th_bbm,lty=2,lwd=2)
-legend("bottomleft",legend_m,lty=1,col=colo,bty="n",lwd=2)
-
-#abline(v=c(lim_min,lim_max),lty=3)
-abline(v=c(lim_max),lty=3)
+th_bbm=G_theoretical(gamma,unique(f$r),lambda,Delta,conc,tau,Tmax=NA)
+lines(unique(f$r),th_bbm,lty=2,lwd=2)
+legend("topright",legend_m,lty=1,col=colo,bty="n",lwd=2)
 
 dev.off()

@@ -10,39 +10,41 @@ library(scatterplot3d)
 png("spatial_distribution.png",width=1000)
 par(mfrow=c(1,2),cex=1.5)
 
-f=read.table("../simulation/Spatial_distribution_50.txt",header=F,sep=";",dec='.')
-colnames(f)=c("t","x","y","z","yfirst","first_parent","species")
+f=read.table("../simulation/Spatial_distribution_0.txt",header=F,sep=";",dec='.')
+colnames(f)=c("id","x","y","z","yfirst","first_parent","species")
 unique_sp=unique(f$species)
 nb_sp=length(unique_sp)
 
 palette=c("red","blue","grey")
 
-spl=scatterplot3d(0,0,0,type="n",xlim=c(0,10),ylim=c(0,10),zlim=c(0,10),xlab="x",ylab="",zlab="z",main="Diatom")
+spl=scatterplot3d(0,0,0,type="n",xlim=c(0,10),ylim=c(0,10),zlim=c(0,10),xlab="x",ylab="",zlab="z",main="Advection")
 for (s in 1:nb_sp){
 	ftmp=subset(f,species==unique_sp[s])
 	
-	x=ftmp$x
-	y=ftmp$y
-	z=ftmp$z
+	id=sample(1:nrow(ftmp),1000)
+
+	x=ftmp$x[id]
+	y=ftmp$y[id]
+	z=ftmp$z[id]
 
 	spl$points3d(x, y, z, col=palette[s],pch=16,cex=0.5)
 }
 
-f=read.table("../simulation/Spatial_distribution_51.txt",header=F,sep=";",dec='.')
-colnames(f)=c("t","x","y","z","yfirst","first_parent","species")
+f=read.table("../simulation/Spatial_distribution_1.txt",header=F,sep=";",dec='.')
+colnames(f)=c("id","x","y","z","yfirst","first_parent","species")
 unique_sp=unique(f$species)
 nb_sp=length(unique_sp)
-spl=scatterplot3d(0,0,0,type="n",xlim=c(0,2.),ylim=c(0,2.),zlim=c(0,2.),xlab="x",ylab="y",zlab="z",main="Nano")
+spl=scatterplot3d(0,0,0,type="n",xlim=c(0,10),ylim=c(0,10),zlim=c(0,10),xlab="x",ylab="y",zlab="z",main="No advection")
 for (s in 1:nb_sp){
         ftmp=subset(f,species==unique_sp[s])
-        
-        x=ftmp$x
-        y=ftmp$y
-        z=ftmp$z
+	
+	id=sample(1:nrow(ftmp),1000)
 
-	id=which(x<=2&y<=2&z<=2)
-
-        spl$points3d(x[id], y[id], z[id], col=palette[s],pch=16,cex=0.5)
+	x=ftmp$x[id]
+	y=ftmp$y[id]
+	z=ftmp$z[id]
+	
+        spl$points3d(x, y, z, col=palette[s],pch=16,cex=0.5)
 }
 
 

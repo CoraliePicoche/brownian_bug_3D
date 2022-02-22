@@ -6,7 +6,7 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-\usepackage{ae,aecompl}
+\usepackage{ae,lmodern}
 \usepackage{graphicx}
 \usepackage{lineno}
 \usepackage{authblk}
@@ -51,9 +51,9 @@
 \use_package stackrel 1
 \use_package stmaryrd 1
 \use_package undertilde 1
-\cite_engine basic
-\cite_engine_type default
-\biblio_style plain
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
@@ -152,13 +152,89 @@ setcounter{figure}{0}
 \end_layout
 
 \begin_layout Section
-Pair correlation function in the Brownian Bug Model
+Second moment of a point process
+\end_layout
+
+\begin_layout Standard
+In order to familiarize the reader with spatial process metrics, we present
+ here formula for the pair correlation function and Ripley's function for
+ standard point processes (a uniform distribution, i.e.
+ the Poisson point process, and a clustered distribution, the Thomas process),
+ and in the case of the Brownian Bug Model.
+\end_layout
+
+\begin_layout Subsection
+Pair correlation function
+\end_layout
+
+\begin_layout Subsubsection
+Standard examples
+\end_layout
+
+\begin_layout Standard
+In the case of a Poisson point process,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\forall r\geq0\text{, }g_{ii}(r)=1
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a Thomas point process with parent intensity 
+\begin_inset Formula $C_{p}$
+\end_inset
+
+ and child-point position following a normal distribution centered on the
+ parent point with standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, the expected value of the pcf is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+More generally, for a random superposition stationary point processes with
+ marks (species, in our model) 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+, 
+\begin_inset Formula $\forall i,j,r\geq0\text{, }g_{ij}(r)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Brownian Bug Model
 \end_layout
 
 \begin_layout Standard
 We show here how to compute the monospecific pair correlation function using
  the Brownian Bug Model.
- In 3 dimensions, when the growth rate 
+ In 3 dimensions, when the birth rate 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -201,7 +277,7 @@ noprefix "false"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 With advection
 \end_layout
 
@@ -215,6 +291,8 @@ In the presence of advection (
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
 \begin_inset Formula 
 \begin{align}
  & 0 & = & \frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\nonumber \\
@@ -248,6 +326,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
 \begin_inset Formula 
 \begin{eqnarray}
 \int_{\mathbb{R}^{3}}\delta(\boldsymbol{r})d^{3}\boldsymbol{r} & = & 1\nonumber \\
@@ -286,10 +366,12 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
 \begin_inset Formula 
 \begin{align}
- & 0 & = & 4\pi\left(2D\rho^{2}\frac{\partial G}{\partial r}+\gamma\rho^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
-\Leftrightarrow & \frac{\partial G}{\partial r} & = & -\frac{1}{4\pi}\frac{2\lambda C}{2D\rho^{2}+\gamma\rho^{4}}\label{eq:deriv_G_r}
+ & 0 & = & 4\pi\left(2Dr^{2}\frac{\partial G}{\partial r}+\gamma r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
+\Leftrightarrow & \frac{\partial G}{\partial r} & = & -\frac{1}{4\pi}\frac{2\lambda C}{2Dr^{2}+\gamma r^{4}}\label{eq:deriv_G_r}
 \end{align}
 
 \end_inset
@@ -314,9 +396,11 @@ We can integrate between
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
 \begin_inset Formula 
 \begin{align}
- & C^{2}-G(\rho) & = & -\frac{1}{4\pi}{\displaystyle \int_{\rho}^{\infty}}\frac{2\lambda C}{2Dr^{2}+\gamma r^{4}}dr\label{eq:deriv_G_r_int1}
+ & C^{2}-G(\rho) & = & -\frac{2\lambda C}{4\pi}{\displaystyle \int_{\rho}^{\infty}}\frac{1}{2Dr^{2}+\gamma r^{4}}dr\label{eq:deriv_G_r_int1}
 \end{align}
 
 \end_inset
@@ -325,10 +409,92 @@ We can integrate between
 \end_layout
 
 \begin_layout Standard
+We first compute the primitive 
+\begin_inset Formula $A=\int\frac{1}{2Dr^{2}+\gamma r^{4}}dr$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
-\begin{align}
-\Leftrightarrow & G(\rho) & = & C^{2}+\lambda C\frac{\sqrt{\gamma}\rho\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)+\sqrt{2D}}{2^{5/2}D^{3/2}\pi\rho}\label{eq:deriv_G_rint2}
-\end{align}
+\begin{equation}
+\begin{array}{ccc}
+A & = & \int\frac{1}{r^{2}\left(2D+\gamma r^{2}\right)}dr\\
+ & = & \int\frac{1}{2Dr^{2}}-\frac{\gamma}{2D\left(2D+\gamma r^{2}\right)}dr\\
+ & = & \frac{1}{2D}\int\frac{1}{r^{2}}dr-\frac{\gamma}{2D}\int\frac{1}{2D+\gamma r^{2}}dr\\
+ & = & -\frac{1}{2Dr}-\frac{\gamma}{2D}\int\frac{1}{2D\left(1+\left(\sqrt{\frac{\gamma}{2D}}r\right)^{2}\right)}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+With a change of variable 
+\begin_inset Formula $u=\sqrt{\frac{\gamma}{2D}}r$
+\end_inset
+
+, using 
+\begin_inset Formula $\int\frac{1}{1+u^{2}}=\arctan(u)$
+\end_inset
+
+, we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A=-\frac{1}{2Dr}-\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}+K
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ is a constant.
+\end_layout
+
+\begin_layout Standard
+We can know compute 
+\begin_inset Formula $B=[A]_{\rho}^{\infty}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+B=-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}+\frac{1}{2D\rho}+\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This leads to:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+G(\rho) & = & C^{2}+\frac{2\lambda C}{4\pi}B\\
+ & = & C^{2}+\frac{\lambda C}{2\pi}\left[\frac{1}{2D\rho}+\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}\right]
+\end{array}
+\end{equation}
 
 \end_inset
 
@@ -346,7 +512,7 @@ Finally, the pair correlation function
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-g=\frac{\lambda}{4\pi C}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2^{3/2}D^{3/2}}+\frac{1}{2Dr}-\frac{\pi\sqrt{\gamma}}{2^{5/2}D^{3/2}}\right)+1
+g(\rho)=\frac{\lambda}{4\pi CD}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{\sqrt{2D}}+\frac{1}{\rho}-\frac{\pi\sqrt{\gamma}}{2\sqrt{2D}}\right)+1\label{eq:pcf_adv_bbm}
 \end{equation}
 
 \end_inset
@@ -354,7 +520,7 @@ g=\frac{\lambda}{4\pi C}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Paragraph
 Without advection
 \end_layout
 
@@ -482,33 +648,6 @@ Using the Green's function theory, we know that
 \end_inset
 
  is the Green kernel (heat kernel).
- Here, y=(
-\family default
-\series bold
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-r
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-,t) and s=(r',t').
 \end_layout
 
 \begin_layout Standard
@@ -546,7 +685,6 @@ A solution for the Green's function using
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -557,9 +695,10 @@ A solution for the Green's function using
 \end_layout
 
 \begin_layout Standard
+.
 \begin_inset Formula 
 \begin{equation}
-G(r,t)=2\lambda C\left[-\frac{erf\left(\frac{r}{2^{3/2}\sqrt{t'D}}\right)}{8D\sqrt{\pi}r}\right]_{0}^{t}\label{eq:G_r_t}
+G(r,t)=2\lambda C\left(\frac{erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+K\right)\label{eq:G_r_t}
 \end{equation}
 
 \end_inset
@@ -598,7 +737,10 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-G(r,t)=\frac{2\lambda C}{8D\pi r}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\right)\right\} +C^{2}
+\begin{array}{ccc}
+C^{2} & = & 2\lambda C\left(\frac{1}{8\pi Dr}+K\right)\\
+\Leftrightarrow\frac{C}{2\lambda}+ & \frac{1}{8\pi Dr}= & K
+\end{array}
 \end{equation}
 
 \end_inset
@@ -607,9 +749,433 @@ G(r,t)=\frac{2\lambda C}{8D\pi r}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\r
 \end_layout
 
 \begin_layout Standard
+We can finally compute G(r,t):
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\Leftrightarrow g(r,t)=\frac{2\lambda}{8D\pi Cr}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\right)\right\} +1
+\begin{array}{ccc}
+G(r,t) & = & 2\lambda C\left(\frac{erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+\frac{C}{2\lambda}+\frac{1}{8D\pi r}\right)\\
+ & = & \frac{\lambda C}{4\pi Dr}\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +C^{2}\\
+\Leftrightarrow g(r,t) & = & \frac{\lambda}{4D\pi rC}\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +1
+\end{array}\label{eq:pcf_noadv_bbm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ripley's K-function
+\end_layout
+
+\begin_layout Subsubsection
+Standard examples
+\end_layout
+
+\begin_layout Standard
+In the case of a Poisson point process,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\forall r\geq0\text{, }K_{ii}(r)=\frac{4}{3}\pi r^{3}\label{eq:k_poisson}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a Thomas point process, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{\lambda_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:k_thomas}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+More generally, for a random superposition of stationary point processes,
+ 
+\begin_inset Formula $K_{ij}(r)=\frac{4}{3}\pi r^{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Brownian Bug Model
+\end_layout
+
+\begin_layout Standard
+We can integrate the pcf formula to compute Ripley's K-function, as 
+\begin_inset Formula $g(r)=\frac{K'(r)}{4\pi r^{2}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Paragraph
+With advection
+\end_layout
+
+\begin_layout Standard
+From eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pcf_adv_bbm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+K(\rho) & = & 4\pi\int_{0}^{\rho}r^{2}+\frac{\lambda}{2\pi C}\left[\frac{r}{2D}+\frac{\sqrt{\gamma}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}-\frac{\sqrt{\gamma}\pi r^{2}}{4\sqrt{2}D\sqrt{D}}\right]dr\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We define 
+\begin_inset Formula $A=\int_{0}^{\rho}r^{2}dr$
+\end_inset
+
+ , 
+\begin_inset Formula $B=\int_{0}^{\rho}\frac{r}{2D}dr$
+\end_inset
+
+, 
+\begin_inset Formula $C=\int_{0}^{\rho}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)dr$
+\end_inset
+
+ and 
+\begin_inset Formula $E=\int_{0}^{\rho}\frac{\sqrt{\gamma}\pi r^{2}}{4\sqrt{2}D\sqrt{D}}dr$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+A= & \frac{1}{3}\rho^{3}\\
+B= & \frac{\rho^{2}}{4D}\\
+E= & \frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can also compute 
+\begin_inset Formula $C=\int_{0}^{\rho}r^{2}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)dr$
+\end_inset
+
+.
+ We can first change variable, with 
+\begin_inset Formula $u=\frac{r}{\sqrt{2D}},$
+\end_inset
+
+
+\begin_inset Formula $dr=\sqrt{2D}du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+C & = & \int_{0}^{\rho/\sqrt{2D}}(\sqrt{2D}u)^{2}\arctan(\sqrt{\gamma}u)\sqrt{2D}du\\
+ & = & (2D)^{3/2}\int_{0}^{\rho/\sqrt{2D}}u^{2}\arctan(\sqrt{\gamma}u)du
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can integrate by parts, with 
+\begin_inset Formula $f=\arctan(\sqrt{\gamma}u)$
+\end_inset
+
+ and 
+\begin_inset Formula $g'=u^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+C & = & (2D)^{3/2}\left(\frac{\rho^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)-\int_{0}^{\rho/\sqrt{2D}}\frac{\sqrt{\gamma}u^{3}}{3(\gamma u^{2}+1)}du\right)\\
+ & = & (2D)^{3/2}\left(\frac{\rho^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)-\frac{\sqrt{\gamma}}{3}\int_{0}^{\rho/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du\right)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can substitute 
+\begin_inset Formula $v=\gamma u^{2}+1,$
+\end_inset
+
+
+\begin_inset Formula $du=\frac{1}{2\gamma u}dv$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\int_{0}^{\rho/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du & = & \frac{1}{2\gamma^{2}}\int_{1}^{\gamma\rho^{2}/2D+1}\frac{v-1}{v}dv\\
+ & = & \frac{1}{2\gamma^{2}}\int_{1}^{\gamma\rho^{2}/2D+1}1-\frac{1}{v}dv\\
+ & = & \frac{1}{2\gamma^{2}}(\gamma\frac{\rho^{2}}{2D}-\log(\gamma\frac{\rho^{2}}{2D}+1))
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Going back to C, we obtain:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+C & = & \frac{\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{3}-\left(2D\right)^{3/2}\frac{\sqrt{\gamma}}{3}\frac{1}{2\gamma^{2}}\left(\frac{\gamma}{2D}\rho^{2}-\log(\gamma\frac{\rho^{2}}{2D}+1)\right)\\
+ & = & \frac{\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{3}-\frac{\sqrt{2D}}{6\sqrt{\gamma}}\rho^{2}+\frac{\sqrt{2}D^{3/2}}{3\gamma^{3/2}}\log(\gamma\frac{\rho^{2}}{2D}+1)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining all equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+K(\rho) & = & \frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{4D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{6\sqrt{2}D^{3/2}}-\frac{\rho^{2}}{12D}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}\right)\\
+ & = & \frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{6D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{6\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}\right)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Without advection
+\end_layout
+
+\begin_layout Standard
+From eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pcf_noadv_bbm"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Paragraph
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+K(\rho) & = & \frac{\lambda}{DC}\int_{0}^{\rho}r\left\{ 1-erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +4\pi r^{2}dr\\
+ & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\int_{0}^{\rho}r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr\right)+\frac{4}{3}\pi\rho^{3}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first compute the primitive for 
+\begin_inset Formula $\int_{0}^{\rho}r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr$
+\end_inset
+
+.
+ We define 
+\begin_inset Formula $u=\frac{r}{\sqrt{8Dt}}$
+\end_inset
+
+, 
+\begin_inset Formula $dr=\sqrt{8Dt}du$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\int_{0}^{\rho}r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & 8Dt\int_{0}^{\rho/\sqrt{8Dt}}u\times erf\left(u\right)du\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can integrate by parts, with 
+\begin_inset Formula $f=erf(u)$
+\end_inset
+
+ and 
+\begin_inset Formula $g'=u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+8Dt\int_{0}^{\rho/\sqrt{8Dt}}u\times erf\left(u\right)du & = & 8Dt\left(\frac{\rho^{2}}{2}\frac{1}{8Dt}erf(\frac{\rho}{\sqrt{8Dt}})-\frac{1}{\sqrt{\pi}}\int_{0}^{\rho/\sqrt{8Dt}}u^{2}e^{-u^{2}}du\right)\end{array}\label{eq:parts}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We integrate by parts again, this time with 
+\begin_inset Formula $f=u$
+\end_inset
+
+ and 
+\begin_inset Formula $g'=ue^{-u^{2}}$
+\end_inset
+
+, which leads to 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\int u^{2}e^{-u^{2}}du=-\frac{ue^{-u^{2}}}{2}+\frac{1}{2}\int e^{-u^{2}}du=-\frac{ue^{-u^{2}}}{2}+\frac{\sqrt{\pi}erf(u)}{4}\label{eq:integrate_parts}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If we use eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:integrate_parts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:parts"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+8Dt\int_{0}^{\rho/\sqrt{8Dt}}u\times erf\left(u\right)du & = & 8Dt\left(\frac{\rho^{2}}{2}\frac{1}{8Dt}erf(\frac{\rho}{\sqrt{8Dt}})-\frac{erf(\frac{\rho}{\sqrt{8Dt}})}{4}+\frac{1}{2\sqrt{\pi}}\frac{\rho}{\sqrt{8Dt}}e^{-\rho^{2}/8Dt}\right)\\
+\Leftrightarrow\int_{0}^{\rho}r\times erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & \frac{1}{2}erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)+\frac{\sqrt{2Dt}}{\sqrt{\pi}}\rho e^{-\rho^{2}/8Dt}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can now compute 
+\begin_inset Formula $K(\rho)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+K(\rho) & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi\rho^{3}\end{array}
 \end{equation}
 
 \end_inset
@@ -618,11 +1184,184 @@ G(r,t)=\frac{2\lambda C}{8D\pi r}\left\{ 1-erf\left(\frac{r}{2^{3/2}\sqrt{tD}}\r
 \end_layout
 
 \begin_layout Section
-Computation of the (cross-)pair correlation function and dominance index
+Dominance index
+\end_layout
+
+\begin_layout Standard
+In this section, we define the dominance index, give its theoretical formula
+ for several point processes, and compare them to our own simulations.
+ 
 \end_layout
 
 \begin_layout Subsection
-Parameters for the computation
+Definition
+\end_layout
+
+\begin_layout Standard
+The dominance index 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "defined in Table S1 in the Supporting Information of"
+key "wiegand_how_2007"
+literal "false"
+
+\end_inset
+
+ is the ratio between conspecifics and all individuals surrounding a given
+ particle.
+ Formally, the dominance 
+\begin_inset Formula $D_{i}(r)$
+\end_inset
+
+ of species 
+\begin_inset Formula $i$
+\end_inset
+
+ for radius 
+\begin_inset Formula $r$
+\end_inset
+
+ can be written:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{i}(r)=\frac{C_{i}K_{ii}(r)}{\sum_{j=1}^{S}C_{j}K_{ij}(r)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ is the concentration of species 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the following, we assume we study a random superposition of point processes,
+ i.e.
+ 
+\begin_inset Formula $K_{ij}(r)=\frac{4}{3}\pi r^{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Classical point processes
+\end_layout
+
+\begin_layout Standard
+In the Poisson point process, 
+\begin_inset Formula $K_{ii}(r)=K_{ij}(r)$
+\end_inset
+
+, which means the dominance index can be reduced to ratios of concentrations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{i}(r)=\frac{C_{i}}{\sum_{j=1}^{S}C_{j}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the Thomas process, using eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:k_thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p,i}}\right)}{C_{i}\frac{F(r)}{\lambda_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $F(r)=\frac{1}{\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Brownian Bug Model
+\end_layout
+
+\begin_layout Standard
+Based on the formula for Ripley's function for the BBM , in the presence
+ of advection, the dominance index follows eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:dominance_K"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{i}(r,t)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda}{3C_{i}D}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2D}}+\frac{D\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{3D}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2D}}+\frac{D\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D}}\right)}\label{eq:dominance_K}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the absence of advection,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D_{i}(r,t)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{D}\left(\frac{r^{2}}{2}-\frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)}\label{eq:dominance_K_noadv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Computation of the pair correlation function and Ripley's function
 \end_layout
 
 \begin_layout Standard
@@ -639,44 +1378,144 @@ verb|pcf3est|
 
 \end_inset
 
- in spatstat 2.2-0 and adapted to also compute multispecific pcf.
- This function was first tested on known distributions (Poisson and Thomas
- distributions, see Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:PCF-and-dominance_TP"
-plural "false"
-caps "false"
-noprefix "false"
+ in spatstat 2.2-0 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "baddeley_spatstat"
+literal "false"
 
 \end_inset
 
-).
- When using the Thomas distribution, characterized by a stronger clustering
- at smaller scales, we found that the original bandwidth value used in spatstat,
+ and adapted to interspecific pcf.
  
-\begin_inset Formula $\delta=0.26/C^{1/3}$
+\end_layout
+
+\begin_layout Standard
+Schematically, 
+\begin_inset Formula $g(r)$
 \end_inset
 
-, could not adapt to small scale clusters and we had to switch to a fixed,
- smaller value of 
+ is estimated via the use of the Epanechnikov kernel 
+\begin_inset Formula $\kappa_{E}$
+\end_inset
+
+ with bandwidth 
 \begin_inset Formula $\delta$
 \end_inset
 
- (Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:bandwidth_Thomas"
-plural "false"
-caps "false"
-noprefix "false"
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\hat{g}(r) & = & \frac{1}{\hat{C}^{2}}\frac{1}{4\pi r^{2}}\sum_{_{i}}\sum_{j}\kappa_{E}(r-||x_{i}-x_{j}||)w(x_{i},x_{j})\end{array}\label{eq:pcf_estimate}
+\end{equation}
 
 \end_inset
 
-).
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $w(x_{i},x_{j})$
+\end_inset
+
+ is the Ohser translation correction estimator 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ohser_estimators_1983"
+literal "false"
+
+\end_inset
+
+ and the kernel is defined as follow.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\kappa_{E}(x)=\begin{cases}
+\frac{3}{4\delta}\left(1-\frac{x^{2}}{\delta^{2}}\right) & \text{for }-\delta\leq x\leq\delta\\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The estimate 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\hat{g}(r)$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ is therefore very sensitive to the bandwidth: if it is too small, the estimate
+ is noisy and may even be missing several pairs of points; if it is too
+ large, the smoothing might be so important that values are strongly underestima
+ted.
+ In spatstat 2.2-0 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "baddeley_spatstat"
+literal "false"
+
+\end_inset
+
+, the bandwidth default value is 
+\begin_inset Formula $\delta=0.26C^{-1/3}$
+\end_inset
+
+.
+ The pcf computation function was first tested on standard distributions
+ (with the default bandwidth), then on the Brownian Bug Model (with different
+ bandwidths, see below).
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estimates of the Ripley's function were also performed with the Ohser translatio
+n correction estimator but did not require any kernel smoothing.
+\end_layout
+
+\begin_layout Subsection
+Standard point processes
 \end_layout
 
 \begin_layout Standard
@@ -688,9 +1527,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/metrics_PoissonThomas.pdf
-	display false
-	width 99text%
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_PCF_Poisson.pdf
+	height 85theight%
 
 \end_inset
 
@@ -701,86 +1539,30 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Monospecific pcf and dominance for Poisson and Thomas distributions for
- 3 species with the same concentration (
-\begin_inset Formula $\approx$
+Intra- and inter-specific Ripley's K function and PCF values for 3 species
+ following a Poisson process with intensity 10 cm
+\begin_inset Formula $^{-3}$
 \end_inset
 
- 10 000 C/L).
- Theoretical values of the pcf are indicated by the dashed line.
+, in a volume of 1000 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+.
+ Values computed from our simulations (circles and solid lines for intra-
+ and interspecific values, respectively) are compared with theoretical formula
+ (dotted lines).
+ Note that theoretical values are the same for intra and interspecific moments
+ for the Poisson distribution.
+ Colors correspond to the different species (red for species 0, blue for
+ species 1, black for species 2).
  
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:PCF-and-dominance_TP"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-To compute the pcf with the Brownian Bug Model, we looked for a bandwidth
- that could get the monospecific pcf closer to its theoretical counterpart,
- assuming that it would be also adapted to the multispecific pcf.
- We found that 
-\begin_inset Formula $\delta=10^{-5}$
-\end_inset
-
- could give consistent values for both diatoms and nanophytoplankton particles
- (Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:bandwidth_BBM"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
+\begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/bandwidth_Thomas.pdf
-	display false
-	width 55text%
-
-\end_inset
-
-
+quick_view_Thomas with sim=100
 \end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Monospecific pcf computed for the Thomas distribution for 3 species, with
- different values of the bandwidth.
- The dashed line indicates the theoretical pcf.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:bandwidth_Thomas"
 
 \end_inset
 
@@ -806,9 +1588,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/bandwidth_BBM_diatom.pdf
-	display false
-	width 55text%
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_PCF_Thomas.pdf
+	width 80text%
 
 \end_inset
 
@@ -819,12 +1600,44 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Monospecific pcf computed for the Brownian bug model with diatom-like particles,
- after 1000 time steps, with different values of the bandwidth.
- The dashed line indicates the theoretical pcf.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:bandwidth_BBM"
+Intra- and inter-specific Ripley's K function and PCF values for 3 species
+ following a Thomas process with parent intensity 
+\begin_inset Formula $\lambda_{p}=200$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, number of children per parent 
+\begin_inset Formula $N_{c}=50$
+\end_inset
+
+, in a volume of 1 cm
+\begin_inset Formula $^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma=0.01$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta\approx0.01$
+\end_inset
+
+2.
+ Values computed from our simulations (circles and solid lines for intra-
+ and interspecific values, respectively) are compared with theoretical formula
+ (dashed and dotted lines for intra- and interspecific values, respectively).
+ Colors correspond to the different species (red for species 0, blue for
+ species 1, black for species 2).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+quick_view_Thomas with sim=107
+\end_layout
 
 \end_inset
 
@@ -842,104 +1655,322 @@ name "fig:bandwidth_BBM"
 \end_layout
 
 \begin_layout Subsection
-Mono- and multispecific pcf in the Brownian Bug Model
+Brownian Bug Model
 \end_layout
 
 \begin_layout Standard
-We show here the values of mono- and multispecific pcf for diatoms and nanophyto
-plankton particles with and without advection.
+While the pcf was one of the first indices we intended to use, we quickly
+ realized that the combination of the large range of radii we wanted to
+ explore (from 
+\begin_inset Formula $10^{-4}$
+\end_inset
+
+ to 1 cm) and the low density of particles, at least for microphytoplankton,
+ made the estimation difficult as the choice of the bandwidth was critical.
+ We give an example of the sensitivity of the pcf computation to the bandwidth
+ below (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bandwidth_BBM"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
+\begin_inset Note Note
+status collapsed
 
 \begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/indices_diatom_nano_3sp.pdf
-	display false
-	width 99text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Monospecific (left), multispecific (middle) and dominance (right) for diatoms
- (top) and nanophytoplankton (bottom), after 1000 time steps, with advection
+To find the a good estimate for the bandwidth, we can consider expected
+ distances between points.
+ For a Poisson process, these are easy to compute.
  
-\begin_inset Formula $(U\tau/2=0.5).$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/indices_diatom_nano_3sp_no_advection.pdf
-	display false
-	width 99text%
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Caption Standard
+\paragraph_spacing double
+In 
+\begin_inset Formula $d$
+\end_inset
+
+ dimensions, the probability distribution of the distance 
+\begin_inset Formula $r$
+\end_inset
+
+ to the nearest-neighbour follows 
+\begin_inset Formula $f(r)=db_{d}\lambda r^{d-1}\exp(-b_{d}r^{_{d}}\lambda)$
+\end_inset
+
+).
+ If we want to find the distribution of the minimum distance between 
+\begin_inset Formula $n$
+\end_inset
+
+ realized points of a Poisson process with intensity 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, we can write:
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
+ & = & \Pi_{i}Pr(R_{i}>r)\\
+ & = & \Pi_{i}\exp(-b_{d}r^{_{d}}\lambda)\\
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}\lambda)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
 
 \begin_layout Plain Layout
-Monospecific (left), multispecific (middle) and dominance (right) for diatoms
- (top) and nanophytoplankton (bottom), after 1000 time steps, without advection
+We can then conclude that the distribution of the minimum distance follows
+ the same distribution as the nearest-neighbour distribution, but with intensity
  
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $(U\tau/2=0.0)$
+\begin_inset Formula $n\lambda$
 \end_inset
 
 .
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
 \end_inset
 
 
 \end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset citation
+LatexCommand citet
+key "clark_generalization_1979"
+literal "false"
+
+\end_inset
+
+ show that a variable with probability distribution (with notations changed
+ to fit our own) 
+\begin_inset Formula $f(r)=\frac{d\lambda\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{\lambda\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=d\lambda b_{d}r^{d-1}\exp(-\lambda b_{d}r^{d})$
+\end_inset
+
+ has an expectid value of 
+\begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{\lambda^{1/d}\pi^{1/2}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+With intensity 
+\begin_inset Formula $n\lambda$
+\end_inset
+
+, we can write 
+\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{(n\lambda)^{1/d}\pi^{1/2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+In 3D, 
+\end_layout
+
+\begin_layout Plain Layout
+\paragraph_spacing double
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mu_{d} & = & (n\lambda)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
+ & = & (n\lambda)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
+ & \approx & 0.554\frac{1}{(n\lambda)^{1/3}}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This needs to be taken into account when defining 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ As a first proxy, using 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n\approx10^{4}$
+\end_inset
+
+ (microphytoplankton) or 
+\begin_inset Formula $\lambda=$
+\end_inset
+
+10
+\begin_inset Formula $^{3}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n\approx10^{4}$
+\end_inset
+
+ (nanophytoplankton), we would expect the smallest distances to be 
+\begin_inset Formula $1.2\times10^{-2}$
+\end_inset
+
+ cm and 
+\begin_inset Formula $2.6\times10^{-3}$
+\end_inset
+
+ cm, respectively.
+ Assuming a uniform distribution, we could therefore use 
+\begin_inset Formula $\delta=$
+\end_inset
+
+ and 
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/bandwidth_BBM.pdf
+	width 60text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Intraspecific pcf computed for the Brownian bug model with microphytoplankton
+ particles, after 1000 time steps, with different values of the bandwidth
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ The dashed line indicates the theoretical pcf.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:bandwidth_BBM"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We decided, from these results, to focus on Ripley's function, which enabled
+ us to compute the dominance index without having to calibrate a bandwidth
+ beforehand.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_micronano.pdf
+	display false
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ripley's K function for microphytoplankton (a-b) and nanophytoplankton (b-c)
+ in a 3-species community with even distributions after 1000 timesteps,
+ with (a, c) and without (b, d) advection.
+ Each color represents a different species.
+ The black dashed line corresponds to the 10-diameter threshold considered
+ as the maximum range for nutrient-based competition.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "bibliography"
+options "ecol_let"
 
 \end_inset
 
