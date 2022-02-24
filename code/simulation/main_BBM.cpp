@@ -16,7 +16,7 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=155;
+extern const int num_simu=6;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
@@ -37,10 +37,12 @@ double factor=pow(R*T/(Na*3*pi*eta),0.5);
 //Diatoms
 extern const double radius=25*pow(10,-6);
 extern const double growth_rate=1; //in day^-1
+extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 //Nanophytoplankton
 //extern const double radius=1.5*pow(10,-6);
 //extern const double growth_rate=2.5; //in day^-1
+//extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
@@ -56,16 +58,15 @@ extern const double sigma=0.01;
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
-extern const double Lmax=pow(1,1.0/3.0); //size of the grid
 extern const double volume=Lmax*Lmax*Lmax; 
 extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to another flow which does not have the same properties 
 
 //PCF computation
-extern const double pow_max=-3;
+extern const double pow_max=-0;
 extern const double pow_min=-4;
-extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
+extern const int nb_r_pcf=5000; //Number of values for r when computing pcf
 extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
-extern const double delta_fixed=pow(10,-5.); //Only used if delta_spatstat==0
+extern const double delta_fixed=pow(10,-4.); //Only used if delta_spatstat==0
 
 
 using namespace std;
