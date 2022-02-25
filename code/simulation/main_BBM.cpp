@@ -16,33 +16,33 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=6;
+extern const int num_simu=23;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
-extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
+extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=1; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
 extern const int tmax=1000; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.00028; //in day
-extern const double Utot=0.5; //advection, corresponds to U\tau/2
-//extern const double Utot=0.0; //advection, corresponds to U\tau/2
+//extern const double Utot=0.5; //advection, corresponds to U\tau/2
+extern const double Utot=0.0; //advection, corresponds to U\tau/2
 
 //Define variables to compute diffusivity
 double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
 double factor=pow(R*T/(Na*3*pi*eta),0.5);
 
 //Diatoms
-extern const double radius=25*pow(10,-6);
-extern const double growth_rate=1; //in day^-1
-extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
+//extern const double radius=25*pow(10,-6);
+//extern const double growth_rate=1; //in day^-1
+//extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 //Nanophytoplankton
-//extern const double radius=1.5*pow(10,-6);
-//extern const double growth_rate=2.5; //in day^-1
-//extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
+extern const double radius=1.5*pow(10,-6);
+extern const double growth_rate=2.5; //in day^-1
+extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
@@ -52,9 +52,9 @@ extern const double proba_repro=growth_rate*tau; //Death and birth probability
 extern const int nb_species=3;
 //extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
 extern const std::vector<double> size_pop={10000,10000,10000};//,10000,10000,10000,10000,10000,10000,10000}; 
-extern const int N_parent_init=0;
+extern const int N_parent_init=200;
 extern const int N_children_init=50;
-extern const double sigma=0.01;
+extern const double sigma=0.001;
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
@@ -64,7 +64,7 @@ extern const double k=2*pi; //could be 2pi/Lmax, but then scaling leads to anoth
 //PCF computation
 extern const double pow_max=-0;
 extern const double pow_min=-4;
-extern const int nb_r_pcf=5000; //Number of values for r when computing pcf
+extern const int nb_r_pcf=1000; //Number of values for r when computing pcf
 extern const int delta_spatstat=0; //delta is the bandwidth for the computation. If the boolean is 1, we used delta=0.26/lambda^(1/3). If not, we use a fixed delta
 extern const double delta_fixed=pow(10,-4.); //Only used if delta_spatstat==0
 
@@ -372,7 +372,7 @@ int main()
 	int i,j,t,s,s1,s2;
 	double a_x,a_y,a_z,phi,theta,psi,a_n,tmp_pop;
 	std::vector<basic_particle> Part_table;
-	std::ofstream f_pcf,f_param,f_space,f_end_simu,f_debug,f_min_dist;
+	std::ofstream f_pcf,f_param,f_space,f_end_simu,f_debug,f_min_dist,f_param_t0,f_pcf_t0,f_min_dist_t0;
 	int nb_indiv[nb_species];
 	int repart[11];
 	double pcf[nb_species][nb_species][nb_r_pcf];
@@ -390,9 +390,12 @@ int main()
 	//Open the file in which we will have the x, y, parent of each particle
 	f_space.open("Spatial_distribution_"+std::to_string(num_simu)+".txt");
 	f_end_simu.open("nb_indiv_"+std::to_string(num_simu)+".txt");
+	f_pcf_t0.open("lambda_K_"+std::to_string(num_simu)+"_init.txt");
 	f_pcf.open("lambda_K_"+std::to_string(num_simu)+".txt");
+	f_param_t0.open("param_"+std::to_string(num_simu)+"_init.txt");
 	f_param.open("param_"+std::to_string(num_simu)+".txt");
 	f_debug.open("debug_"+std::to_string(num_simu)+".txt");
+	f_min_dist_t0.open("min_dist_"+std::to_string(num_simu)+"_init.txt");
 	f_min_dist.open("min_dist_"+std::to_string(num_simu)+".txt");
 
 	write_parameters(f_param);
@@ -432,6 +435,10 @@ int main()
 		std::cout<<"SPECIES="<<s<<" INDIV="<<nb_indiv[s]<<std::endl;
 	} //End loop on species
 
+        K_PCF_kernel_spatstat(Part_table, nb_indiv, pcf, dominance,f_pcf_t0,f_param_t0,f_min_dist_t0);
+	f_pcf_t0.close();
+	f_param_t0.close();
+	f_min_dist_t0.close();
 
 	//Run the simulation
 	for(t=0;t<=tmax;t++)
