@@ -5,15 +5,15 @@ source("utilitary_functions.r")
 
 colo=c("red","blue","grey")
 
-pdf("dominance_diatom_nano_compare_advection.pdf",width=13)
+pdf("dominance_diatom_nano_compare_advection_10sp.pdf",width=13)
 par(mfrow=c(1,2))
 
 #Diatom
-sim_diatom=list(0,1) #Advection, no advection
+sim_diatom=list(10,11) #Advection, no advection
 lim_max_diatom=25*10^(-4)*10*2
 
 #Nano
-sim_nano=list(2,3)
+sim_nano=list(12,13)
 lim_max_nano=1.5*10^(-4)*10*2
 
 tot_sim=list(sim_diatom,sim_nano)
@@ -26,6 +26,11 @@ for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
         	f_tot=read.table(paste("../simulation/lambda_K_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
 		colnames(f_tot)=c("r","sp1","sp2","pcf","dominance","lambda_K","K")
         	unique_sp=unique(f_tot$sp1)
+		if(length(unique_sp)>length(colo)){colo=rainbow(length(unique_sp))}
+        	
+		f_count=read.table(paste("../simulation/nb_indiv_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
+		colnames(f_count)=c("species","abundance")
+
 
 		if(orga==1){
 			yl="dominance"
@@ -44,10 +49,14 @@ for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 		}
 
 		if(orga==1){
-			legend("bottomleft",paste("Sp=",unique_sp),col=colo[unique_sp+1],pch=1,bty="n",lwd=2,lty=NA)
+			leg=c()
+			for(l in 1:length(unique_sp)){
+				leg=c(leg,paste("Sp=",unique_sp[l],", ",format(100*f_count$abundance[f_count$species==unique_sp[l]]/sum(f_count$abundance),digits=2),"%",sep=""))
+			}	
+			legend("bottomleft",leg,col=colo[unique_sp+1],pch=1,bty="n",lwd=2,lty=NA)
 			mtext("a",side=3,line=1.5,font=2,at=8*10^(-5))
 		}else{
-			legend("topright",c(expression(U~tau~"/"~2~"="~0),expression(U~tau~"/"~2~"="~0.5)),col="black",pch=c(NA,1),lty=c(1,NA),bty="n",lwd=2)
+			legend("topright",c(expression(U~tau~"/"~3~"="~0),expression(U~tau~"/"~3~"="~0.5)),col="black",pch=c(NA,1),lty=c(1,NA),bty="n",lwd=2)
 			mtext("b",side=3,line=1.5,font=2,at=8*10^(-5))
 		}
 

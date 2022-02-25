@@ -2404,14 +2404,6 @@ Results
 \end_layout
 
 \begin_layout Standard
-NOTE: do we show the spatial distribution here or in the SI? There is nothing
- to comment in the Results, as they look pretty similar.
- This could go to SI, just for info, but that's it.
- I would rather put the Ripley's function fit here.
- 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -2420,7 +2412,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/spatial_distribution.png
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/spatial_distribution_zoom_nano.pdf
 	width 99text%
 
 \end_inset
@@ -2432,9 +2424,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Spatial distributions of a 3-species community of microphytoplankton with
+Spatial distributions of a 3-species community of nanophytoplankton with
  and without advection with density 
-\begin_inset Formula $\lambda=10$
+\begin_inset Formula $\lambda=10^{3}$
 \end_inset
 
  cm
@@ -2443,7 +2435,16 @@ Spatial distributions of a 3-species community of microphytoplankton with
 
  after 1000 time steps.
  Each color corresponds to a different species.
- For visualization purposes, only a 1000-point sample is showed.
+ On the left-hand side, only a zoom on a 
+\begin_inset Formula $0.5\times0.5$
+\end_inset
+
+ cm
+\begin_inset Formula $^{2}$
+\end_inset
+
+ cube is shown, and its projection on the x-y plane is shown on the right
+ hand-side.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2482,18 +2483,7 @@ noprefix "false"
 \end_inset
 
 ), which imply that simulated dominance indices also correspond to theoretical
- predictions
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-I could still show it, should I?
-\end_layout
-
-\end_inset
-
-.
- 
+ predictions.
 \end_layout
 
 \begin_layout Standard
@@ -2617,6 +2607,13 @@ Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
  Each color represents a different species.
  The black dashed line corresponds to the 10-diameter threshold considered
  as the maximum range for nutrient-based competition.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-3sp"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2630,7 +2627,50 @@ Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
 \end_layout
 
 \begin_layout Standard
-Fig3: Result for dominance index for 10 species
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/dominance_diatom_nano_compare_advection_10sp.pdf
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
+ a 10-species community with a skewed distribution (final proportion in
+ the community is indicated in the legend) after 1000 timesteps, with (circles)
+ and without (lines) advection.
+ Each color represents a different species.
+ The black dashed line corresponds to the 10-diameter threshold considered
+ as the maximum range for nutrient-based competition.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-10sp"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*

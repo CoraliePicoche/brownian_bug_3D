@@ -888,7 +888,475 @@ We decided, from these results, to focus on Ripley's function, which enabled
  
 \end_layout
 
+\begin_layout Section
+Spatial distributions
+\end_layout
+
 \begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/spatial_distribution_zoom_micro0.pdf
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Spatial distributions of a 3-species community of nanophytoplankton with
+ and without advection with density 
+\begin_inset Formula $\lambda=10$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ after 1000 time steps.
+ Each color corresponds to a different species.
+ On the left-hand side, only a zoom on a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ cm
+\begin_inset Formula $^{2}$
+\end_inset
+
+ cube is shown, and its projection on the x-y plane is shown on the right
+ hand-side.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Spatial-distributions"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Minimum distances between points
+\end_layout
+
+\begin_layout Subsubsection*
+Theory
+\end_layout
+
+\begin_layout Standard
+One of the reason why estimating K and g(r) is difficult is that for small
+ radii (below 10
+\begin_inset Formula $^{-2}$
+\end_inset
+
+), we can find very few observed distances between pairs of points.
+ As a first proxy, we want to estimate the minimum expected distance between
+ points when they are uniformly distributed.
+ 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+In 
+\begin_inset Formula $d$
+\end_inset
+
+ dimensions, the probability distribution of the distance 
+\begin_inset Formula $r$
+\end_inset
+
+ to the nearest-neighbour follows 
+\begin_inset Formula $f(r)=db_{d}\lambda r^{d-1}\exp(-b_{d}r^{_{d}}\lambda)$
+\end_inset
+
+).
+ If we want to find the distribution of the minimum distance between 
+\begin_inset Formula $n$
+\end_inset
+
+ realized points of a Poisson process with intensity 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, we can write:
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
+ & = & \Pi_{i}Pr(R_{i}>r)\\
+ & = & \Pi_{i}\exp(-b_{d}r^{_{d}}\lambda)\\
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}\lambda)
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can then conclude that the distribution of the minimum distance follows
+ the same distribution as the nearest-neighbour distribution, but with intensity
+ 
+\begin_inset Formula $n\lambda$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset citation
+LatexCommand citet
+key "clark_generalization_1979"
+literal "false"
+
+\end_inset
+
+ show that a variable with probability distribution (with notations changed
+ to fit our own) 
+\begin_inset Formula $f(r)=\frac{d\lambda\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{\lambda\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=d\lambda b_{d}r^{d-1}\exp(-\lambda b_{d}r^{d})$
+\end_inset
+
+ has an expectid value of 
+\begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{\lambda^{1/d}\pi^{1/2}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+With intensity 
+\begin_inset Formula $n\lambda$
+\end_inset
+
+, we can write 
+\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{(n\lambda)^{1/d}\pi^{1/2}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 3D, 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mu_{d} & = & (n\lambda)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
+ & = & (n\lambda)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
+ & \approx & 0.554\frac{1}{(n\lambda)^{1/3}}
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This needs to be taken into account when defining 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ For microphytoplankton, using 
+\begin_inset Formula $\lambda=10$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n\approx10^{4}$
+\end_inset
+
+, the smallest expected distance for a uniform distribution is 
+\begin_inset Formula $1.2\times10^{-2}$
+\end_inset
+
+ cm.
+ For nanophytoplankton, using 
+\begin_inset Formula $\lambda=10^{3}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n\approx10^{4}$
+\end_inset
+
+, it is reduced to 
+\begin_inset Formula $2.6\times10^{-3}$
+\end_inset
+
+ cm.
+ 
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Simulations
+\end_layout
+
+\begin_layout Standard
+We can plot the simulated distance to the nearest neighbour compared to
+ what we should obtain with a uniform distribution (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distance_micro"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distance_nano"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_micro.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean and minimum distance to the nearest neighbour for 3 microphytoplankton
+ species with density 
+\begin_inset Formula $\lambda=10$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, with and without advection, after 1000 time steps, compared to predictions
+ for a uniform distribution.
+ Horizontal lines show the average distance to the nearest neighbour (dashed
+ grey line) and the expected minimum distance to the nearest neighbour with
+ the actual number of realizations (solid green line).
+ Filled symbols represent distances to a conspecifics while empty symbols
+ represent distances to heterospecifics.
+ Colors correspond to the different species (red for species 0, blue for
+ species 1, black for species 2).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distance_micro"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_nano.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean and minimum distance to the nearest neighbour for 3 nanophytoplankton
+ species with density 
+\begin_inset Formula $\lambda=10^{3}$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, with and without advection, after 1000 time steps, compared to predictions
+ for a uniform distribution.
+ Horizontal lines show the average distance to the nearest neighbour (dashed
+ grey line) and the expected minimum distance to the nearest neighbour with
+ the actual number of realizations (solid green line).
+ Filled symbols represent distances to a conspecifics while empty symbols
+ represent distances to heterospecifics.
+ Colors correspond to the different species (red for species 0, blue for
+ species 1, black for species 2).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distance_nano"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Effect of the initial distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/shift_of_dominance.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
+ a 3-species community with even distributions after 1000 timesteps starting
+ from a superposition of species-specific Thomas point processes, with (circles)
+ and without (lines) advection.
+ The triangles correspond to the dominance index at the start of the simulation,
+ i.e.
+ when points are only distributed according to a Thomas point process with
+ parent intensity 
+\begin_inset Formula $\lambda_{p}=200$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, number of children per parent 
+\begin_inset Formula $N_{c}=50$
+\end_inset
+
+, and 
+\begin_inset Formula $\sigma=0.001$
+\end_inset
+
+.
+ Each color represents a different species.
+ The black points and line corresponds to the theoretical values of the
+ dominance index.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-after_Thomas"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

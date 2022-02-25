@@ -1,11 +1,11 @@
 rm(list=ls())
 graphics.off()
 
-nb_simu_list=c(152,153)
+nb_simu_list=c(0,1)
 amain_list=c("Advection","No advection")
 colo=c("red","blue","black")
 
-pdf("distrib_distance_nano.pdf",width=7.5,height=10)
+pdf("distrib_distance_micro.pdf",width=7.5,height=10)
 par(mfrow=c(2,1))
 
 for(i in 1:length(nb_simu_list)){
@@ -52,7 +52,7 @@ for(a_sp in unique_sp){
 } #end loop on unique_sp
 if(i==1){
 legend("topleft",c("Mean theory","Min theory","Monospecific","Mean Interspecific1","Min Interspecific2"),lty=c(2,1,NA,NA,NA),pch=c(NA,NA,16,1,2),col=c("grey","green","black","black","blue"),ncol=2,lwd=2)
-mtext("Nano", outer = TRUE, cex = 1.5,line=-1.5)
+mtext("Micro", outer = TRUE, cex = 1.5,line=-1.5)
 } 
 }
 
