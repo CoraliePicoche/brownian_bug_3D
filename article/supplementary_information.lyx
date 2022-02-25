@@ -1360,6 +1360,72 @@ name "fig:Dominance-after_Thomas"
 
 \end_layout
 
+\begin_layout Section
+Sensitivity to the computation of the advection parameter
+\end_layout
+
+\begin_layout Standard
+If we we define a length 
+\begin_inset Formula $L_{v}$
+\end_inset
+
+ corresponding to the equivalent sphere diameter, i.e.:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cccc}
+ & \frac{4}{3}\pi\left(\frac{L_{v}}{2}\right)^{3} & = & L_{c}^{3}\\
+\Leftrightarrow & L_{v} & = & 2L_{c}\left(\frac{3}{4\pi}\right)^{1/3}\\
+\Leftrightarrow & L_{v} & = & 1.24\text{ cm}
+\end{array}\label{eq:re_lv}
+\end{equation}
+
+\end_inset
+
+If we use 
+\begin_inset Formula $U\approx\nu/L_{v}$
+\end_inset
+
+, 
+\begin_inset Formula $U\approx8.1\times10^{-5}$
+\end_inset
+
+ m.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+ Using 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $U\tau/3=0.5$
+\end_inset
+
+ cm, we have 
+\begin_inset Formula $\tau=185\text{ s}=2.1\times10^{-3}$
+\end_inset
+
+ d.
+ This means that 
+\begin_inset Formula $\gamma=164$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
