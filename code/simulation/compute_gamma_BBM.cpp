@@ -16,7 +16,7 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=200;
+extern const int num_simu=201;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
@@ -26,9 +26,9 @@ extern const int print_distrib=1; //If 1, we output the position of each particl
 extern const int tmax=100; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
-extern const double tau=0.00028; //in day
-extern const double Utot=0.5; //advection, corresponds to U\tau/2
-//extern const double Utot=0.0; //advection, corresponds to U\tau/2
+extern const double tau=0.0021; //in day
+extern const double Utot=0.5; //advection, corresponds to U\tau/3
+//extern const double Utot=0.0; //advection, corresponds to U\tau/3
 
 //Define variables to compute diffusivity
 double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);

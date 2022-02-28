@@ -2452,6 +2452,16 @@ name "fig:Spatial-distributions"
 
 \end_inset
 
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+spatial_distribution.r 0:3
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
@@ -2517,6 +2527,16 @@ Ripley's K function for microphytoplankton (a-b) and nanophytoplankton (b-c)
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Ripley's-K-function"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+plot_K_BBM_micronano.r avec c(0,1,2,3)
+\end_layout
 
 \end_inset
 

@@ -869,6 +869,16 @@ name "fig:bandwidth_BBM"
 \end_inset
 
  
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(pcf_bandwidth_BBM.r avec simulations list(4,5,6,0))
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -938,6 +948,16 @@ Spatial distributions of a 3-species community of nanophytoplankton with
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Spatial-distributions"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+spatial_distribution.r 0:3
+\end_layout
 
 \end_inset
 

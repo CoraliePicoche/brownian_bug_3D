@@ -16,14 +16,14 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=23;
+extern const int num_simu=27;
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
 extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=1; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
-extern const int tmax=1000; //length of the simulation. Tmax is negative if we only want the initial distribution
+extern const int tmax=1000000; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.00028; //in day
@@ -35,14 +35,14 @@ double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
 double factor=pow(R*T/(Na*3*pi*eta),0.5);
 
 //Diatoms
-//extern const double radius=25*pow(10,-6);
-//extern const double growth_rate=1; //in day^-1
-//extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
+extern const double radius=25*pow(10,-6);
+extern const double growth_rate=1; //in day^-1
+extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 //Nanophytoplankton
-extern const double radius=1.5*pow(10,-6);
-extern const double growth_rate=2.5; //in day^-1
-extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
+//extern const double radius=1.5*pow(10,-6);
+//extern const double growth_rate=2.5; //in day^-1
+//extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
