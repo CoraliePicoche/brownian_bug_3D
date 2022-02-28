@@ -3,8 +3,8 @@ library(pracma)
 
 # Thomas and Poisson processes
 
-thomas_cdf=function(r,sigma){
-        a=1/(sigma*sqrt(pi))*(sqrt(pi)*sigma*erf(r/(2*sigma))-r*exp(-(r^2/(4*sigma^2))))
+thomas_cdf=function(r,sigma,conc){
+        a=((4/3)*pi*r^3)+1/(sigma*sqrt(pi)*conc)*(sqrt(pi)*sigma*erf(r/(2*sigma))-r*exp(-(r^2/(4*sigma^2))))
         return(a)
 }
 

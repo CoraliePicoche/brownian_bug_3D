@@ -4,13 +4,16 @@ graphics.off()
 source("utilitary_functions.r")
 source("theoretical_functions.r")
 
-palette=c("red","blue","grey")
+nb_simu_tot=c(21,23)
+nb_simu_na=c(25,26)
+palette=c("cyan","blue","darkblue")
+palette_grey=rev(gray.colors(100, start = 0, end = 0.75))
 
-nb_simu_tot=c(20,22)
-nb_simu_na=c(21,23)
+s=2 #We choose only one species
 
-pdf("shift_of_dominance.pdf",width=13)
-par(mfrow=c(1,2))
+pdf("shift_of_dominance_noadv.pdf")
+par(mfcol=c(2,2))
+
 
 for(n in 1:length(nb_simu_tot)){
 	    nb_simu=nb_simu_tot[n]
@@ -44,24 +47,23 @@ th_r=10^pow_th
 
 th_poisson=4/3*pi*th_r^3
 th_thomas=thomas_cdf(th_r,a_sigma,N_parent/volume)
-plot(0,0,t="n",xlim=range(u_r),ylim=c(0.3,1),xlab="r",ylab=yl,log="x",main=ml,axes=F)
-                        axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
-                        axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
-                        axis(2,tcl=0.5,cex.axis=1.5) # left
-			box()
 
-        for(s in 1:length(unique_sp)){
-		th_dominance_thomas=(concentrations[s]*th_thomas)/(sum(concentrations)*th_poisson+concentrations[s]*(th_thomas-th_poisson))
-#		th_dominance_thomas=(concentrations[s]*(th_thomas+th_poisson))/(sum(concentrations)*th_poisson+concentrations[s]*th_thomas)
-	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
-        	id_b=seq(1,length(f_tmp$r),length.out=50)
-	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
-        	points(f_tmp$r[id_b],f_tmp$dominance[id_b],col="blue",pch=2,cex=1)
-	}
-        points(th_r,th_dominance_thomas,col="black",pch=2,cex=1)
+
+plot(0,0,t="n",xlim=range(u_r),ylim=c(0.3,1),xlab="r",ylab=yl,log="x",main=ml,axes=F)
+axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
+axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
+axis(2,tcl=0.5,cex.axis=1.5) # left
+box()
+
+th_dominance_thomas=concentrations[s]*(th_thomas)/(sum(concentrations)*th_poisson+concentrations[s]*(th_thomas-th_poisson))
+f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
+id_b=floor(seq(1,length(f_tmp$r),length.out=50))
+lines(f_tmp$r[id_b],f_tmp$dominance[id_b],col=palette[1],lty=1,lwd=3)
+lines(th_r,th_dominance_thomas,col="black",lty=3,lwd=2)
+
 
 #Then check after simulations
-###WITH ADVECTION
+###WITH SHORT TIME
 
 f_tot=read.table(paste("../simulation/lambda_K_",nb_simu,".txt",sep=""),sep=";",header=F,dec=".")
 colnames(f_tot)=c("r","sp1","sp2","pcf","dominance","lambda_K","K")
@@ -83,16 +85,14 @@ a_lambda=f_param[f_param$name=="growth_rate","value"]
 a_tau=f_param[f_param$name=="tau","value"]
 a_tmax=f_param[f_param$name=="tmax","value"]
 
-        for(s in 1:length(unique_sp)){
-		th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
-        	th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
-	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
-        	points(f_tmp$r,f_tmp$dominance,col=palette[s],pch=16)
-	}
-	points(th_r,th_dominance,col="black",pch=1)
+th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
+th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
+f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
+lines(f_tmp$r,f_tmp$dominance,col=palette[2])
+points(th_r,th_dominance,col="black",pch=1)
 
-	#Then check after simulations
-##WITHOUT ADVECTION
+#Then check after simulations
+##WITH LONG_TIME
 f_tot=read.table(paste("../simulation/lambda_K_",nb_simu_na[n],".txt",sep=""),sep=";",header=F,dec=".")
 colnames(f_tot)=c("r","sp1","sp2","pcf","dominance","lambda_K","K")
 unique_sp=unique(f_tot$sp1)
@@ -118,25 +118,39 @@ a_lambda=f_param[f_param$name=="growth_rate","value"]
 a_tau=f_param[f_param$name=="tau","value"]
 a_tmax=f_param[f_param$name=="tmax","value"]
 
-        for(s in 1:length(unique_sp)){
-        	th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
-        	th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
-	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
-        	lines(f_tmp$r,f_tmp$dominance,col=palette[s],lwd=3)
-	}
-        lines(th_r,th_dominance,col="black",lwd=3,lty=2)
+th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
+th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
+f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
+lines(f_tmp$r,f_tmp$dominance,col=palette[3],lwd=2)
+points(th_r,th_dominance,col="black",pch=0)
 
 if(n==1){
- 	legend("bottomleft",c(paste("Sp=",unique_sp),"Theory"),col=c(palette,"black"),pch=1,bty="n",lwd=2,lty=NA)
+ 	legend("bottomleft",c("t=0","t=1000","t=100000"),col=palette,bty="n",lwd=2,lty=1,pch=NA)
         mtext("a",side=3,line=1.5,font=2,at=8*10^(-5))
 }else{
-        legend("bottomleft",c(expression(U~tau~"/"~3~"="~0),expression(U~tau~"/"~3~"="~0.5),"Init Thomas"),col="black",pch=c(NA,1,2),lty=c(1,NA,NA),bty="n",lwd=2)
+        legend("bottomleft",c("Init Thomas","Th 1000","Th 100000"),col="black",pch=c(NA,1,0),lty=c(3,NA,NA),bty="n",lwd=2)
         mtext("b",side=3,line=1.5,font=2,at=8*10^(-5))
 }
 
+pow_time=seq(2,5,length.out=100)
+seq_time=10^pow_time
+
+plot(0,0,xlim=range(th_r),ylim=c(0,1),ylab=yl,xlab="r",t="n",log="x")
+for(time in 1:length(seq_time)){
+	th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=seq_time[time])
+	th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
+	lines(th_r,th_dominance,col=palette_grey[time])
+}
+
+if(n==1){
+ 	legend("bottomleft",c("t=100","t=100000"),col=c(palette_grey[1],palette_grey[100]),bty="n",lwd=3,lty=1,pch=NA)
+        mtext("c",side=3,line=1.5,font=2,at=8*10^(-5))
+}else{
+        mtext("d",side=3,line=1.5,font=2,at=8*10^(-5))
+}
+
 
 
 }
-
 dev.off()
 

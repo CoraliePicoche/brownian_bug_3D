@@ -21,8 +21,6 @@ tot_max=list(lim_max_diatom,lim_max_nano)
 u_r=seq(10^(-4),1,length.out=1000)
 th_poisson=4/3*pi*u_r^3
 
-concentration=10^3
-
 for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
         for(adv in 1:length(tot_sim[orga][[1]])){ #Advection or no advection
 		nb_simu=tot_sim[orga][[1]][[adv]]
@@ -41,6 +39,16 @@ a_Delta=f_param[f_param$name=="Delta","value"]
 a_lambda=f_param[f_param$name=="growth_rate","value"]
 a_tau=f_param[f_param$name=="tau","value"]
 a_tmax=f_param[f_param$name=="tmax","value"]
+                
+if(orga==1){
+                        yl="dominance"
+                        ml="Micro"
+			concentration=10
+                }else{
+                        yl=""
+                        ml="Nano"
+			concentration=10^3
+                }
 
 th_bbm=BBM_cdf(u_r,gamma,a_Delta,concentration,a_lambda,a_tau,t=a_tmax)
 th_dominance=concentration*th_bbm/(3*concentration*th_poisson+concentration*(th_bbm-th_poisson))
@@ -53,13 +61,6 @@ if(Utot==0.5){
 tau_bis=0.0021
 th_bbm_bis=BBM_cdf(u_r,gamma_bis,a_Delta,concentration,a_lambda,tau_bis,t=a_tmax)
 th_dominance_bis=concentration*th_bbm_bis/(3*concentration*th_poisson+concentration*(th_bbm_bis-th_poisson))
-                if(orga==1){
-                        yl="dominance"
-                        ml="Micro"
-                }else{
-                        yl=""
-                        ml="Nano"
-                }
 
                 if(adv==1){
                         plot(1,1,t="n",xlim=range(u_r),ylim=c(0.3,1),xlab="r",ylab=yl,log="x",cex.lab=1.5,cex.axis=1.5,axes=F,main=ml)

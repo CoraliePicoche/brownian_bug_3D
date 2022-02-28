@@ -8,13 +8,13 @@ x=seq(-2*pi,2*pi,0.1)
 #List of estimated coefficients
 coef_estimated=c()
 
-pdf("gamma_compute.pdf")
+pdf("gamma_compute_lowest_adv.pdf")
 par(mfrow=c(1,1))
 
-f=read.table("../simulation/Spatial_distribution_200.txt",header=F,sep=";",dec='.')
+f=read.table("../simulation/Spatial_distribution_201.txt",header=F,sep=";",dec='.')
 colnames(f)=c("t","x","y","z","yfirst","type","first_parent")
 
-f_param=read.table(paste("../simulation/param_200.txt",sep=""),header=F,sep="=",dec='.')
+f_param=read.table(paste("../simulation/param_201.txt",sep=""),header=F,sep="=",dec='.')
 f_param[,2]=as.numeric(as.character(f_param[,2]))
 tau=f_param[f_param[,1]=="tau",2]
 Utot_tmp=f_param[f_param[,1]=="Utot",2]

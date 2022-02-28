@@ -8,10 +8,10 @@ source("theoretical_functions.r")
 
 colo=c("red","blue","grey")
 
-pdf("K_PCF_Poisson.pdf",width=9,height=12)
+pdf("K_PCF_Thomas.pdf",width=9,height=12)
 par(mfrow=c(3,2),mar=c(4,5,4,3))
 
-nb_simu=100
+nb_simu=107
 
 for (s1 in 1:3){
 	if(s1==3){
@@ -61,7 +61,7 @@ for (s1 in 1:3){
 		stop("volume were different")
 	}
 	volume=unique(volume)
-	th_thomas=thomas_cdf(unique(f_tot$r),sigma)/(N_parent/volume)
+	th_thomas=thomas_cdf(unique(f_tot$r),sigma,N_parent/volume)
 	th_poisson=4/3*pi*unique(f_tot$r)^3
 
 	plot(0.1,0.1,t="n",log="xy",xlab=xl,ylab="K",axes=F,xlim=c(10^(-4),0.1),cex.lab=2,ylim=range(f_tot$K[f_tot$K>0]),main=paste("Species=",unique_sp[s1],sep=""),cex.main=2)
@@ -97,10 +97,10 @@ for (s1 in 1:3){
 		}
 	}
 		#legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific","Spatstat"),col=c(colors,"grey","grey","orchid"),bty="n",pch=c(16,NA,NA,NA,NA,16),lty=c(NA,1,1,2,3,NA),lwd=c(rep(2,4),3,2),cex=1.25)
-	#	legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=c(rep(2,4),3),cex=1.25)
-		legend("topleft",c(paste("S=",unique_sp[s1]," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2),lwd=c(rep(2,4),3),cex=1.75)
+		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=c(rep(2,4),3),cex=1.25)
+	#	legend("topleft",c(paste("S=",unique_sp[s1]," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2),lwd=c(rep(2,4),3),cex=1.75)
 	lines(unique(f_tot$r),th_poisson,lty=3,lwd=2,col="black")
-#	lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2,col="black")
+	lines(unique(f_tot$r),th_thomas,lty=2,lwd=2,col="black")
 
         th_thomas=1+exp(-unique(f_tot$r)^2/(4*sigma^2))*(4*pi*sigma^2)^(-3/2)*1/(N_parent/volume)
         th_poisson=rep(1,length(unique(f_tot$r)))
@@ -130,7 +130,7 @@ for (s1 in 1:3){
                 }
         }
         lines(unique(f_tot$r),th_poisson,lty=2,lwd=2,col="black")
-#        lines(unique(f_tot$r),th_thomas+th_poisson,lty=2,lwd=2,col="black")
+        lines(unique(f_tot$r),th_thomas,lty=2,lwd=2,col="black")
 }
 dev.off()
 
