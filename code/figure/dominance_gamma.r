@@ -71,6 +71,7 @@ th_dominance_bis=concentration*th_bbm_bis/(3*concentration*th_poisson+concentrat
                 }
 
                 if(orga==1){
+                        legend("bottomleft",c(eval(substitute(expression(paste(tau,"=",a_tau,sep="")),list(a_tau=a_tau))),eval(substitute(expression(paste(tau,"=",a_tau,sep="")),list(a_tau=tau_bis)))),col=c("black","grey"),lty=c(1),bty="n",lwd=2)
                         mtext("a",side=3,line=1.5,font=2,at=8*10^(-5))
                 }else{
                         legend("topright",c(expression(U~tau~"/"~3~"="~0),expression(U~tau~"/"~3~"="~0.5)),col="black",pch=c(NA,1),lty=c(1,NA),bty="n",lwd=2)

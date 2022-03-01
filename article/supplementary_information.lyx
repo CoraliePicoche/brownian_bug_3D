@@ -325,6 +325,70 @@ with
 \end_layout
 
 \begin_layout Section
+Theoretical behaviour of the dominance index in the BBM
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/theory_dominance.pdf
+	width 80text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Theoretical dominance indices as a function of the distance from a particle
+ of a given species, for a microphytoplankton (a) and nanophytoplankton
+ (b) 3-species community with an even abundance-distribution, with (red
+ line) and without (grey to black lines) advection.
+ The vertical dashed line corresponds to the 10-diameter threshold.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Theoretical-dom"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+theory_dominance
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Computation of the pair correlation function and Ripley's function
 \end_layout
 
@@ -923,7 +987,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Spatial distributions of a 3-species community of nanophytoplankton with
+Spatial distributions of a 3-species community of microphytoplankton with
  and without advection with density 
 \begin_inset Formula $\lambda=10$
 \end_inset
@@ -990,7 +1054,8 @@ One of the reason why estimating K and g(r) is difficult is that for small
 
 ), we can find very few observed distances between pairs of points.
  As a first proxy, we want to estimate the minimum expected distance between
- points when they are uniformly distributed.
+ points (distance to the nearest neighbour, DNN) when they are uniformly
+ distributed.
  
 \end_layout
 
@@ -1009,7 +1074,7 @@ In
 \end_inset
 
 ).
- If we want to find the distribution of the minimum distance between 
+ If we want to find the distribution of the minimum DNN between 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1035,8 +1100,7 @@ Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
 
 \begin_layout Standard
 We can then conclude that the distribution of the minimum distance follows
- the same distribution as the nearest-neighbour distribution, but with intensity
- 
+ the same distribution as the DNN, but with intensity 
 \begin_inset Formula $n\lambda$
 \end_inset
 
@@ -1162,8 +1226,8 @@ Simulations
 \end_layout
 
 \begin_layout Standard
-We can plot the simulated distance to the nearest neighbour compared to
- what we should obtain with a uniform distribution (Fig.
+We can compute the simulated distance to the nearest neighbour compared
+ to what we should obtain with a uniform distribution (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1184,7 +1248,10 @@ noprefix "false"
 
 \end_inset
 
-).
+): the simulated average DNN are close to the expected value for a uniform
+ distribution, but the minimum distance to a conspecific is much lower than
+ expected.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1208,7 +1275,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance to the nearest neighbour for 3 microphytoplankton
+Mean and minimum distance to the nearest neighbour for 10 microphytoplankton
  species with density 
 \begin_inset Formula $\lambda=10$
 \end_inset
@@ -1219,13 +1286,14 @@ Mean and minimum distance to the nearest neighbour for 3 microphytoplankton
 
 , with and without advection, after 1000 time steps, compared to predictions
  for a uniform distribution.
- Horizontal lines show the average distance to the nearest neighbour (dashed
- grey line) and the expected minimum distance to the nearest neighbour with
- the actual number of realizations (solid green line).
- Filled symbols represent distances to a conspecifics while empty symbols
- represent distances to heterospecifics.
- Colors correspond to the different species (red for species 0, blue for
- species 1, black for species 2).
+ Horizontal lines show the average distance to the nearest neighbour (grey
+ line) and the expected minimum distance to the nearest neighbour with the
+ actual number of realizations (black line).
+ Circles and triangles represent mean and minimum distance to a conspecific,
+ respectively.
+ Boxplot corresponds to the distribution of mean (grey outlines) and minimum
+ (black outlines) distances to a heterospecific.
+ Colors correspond to different species.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1267,7 +1335,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance to the nearest neighbour for 3 nanophytoplankton
+Mean and minimum distance to the nearest neighbour for 10 nanophytoplankton
  species with density 
 \begin_inset Formula $\lambda=10^{3}$
 \end_inset
@@ -1278,13 +1346,14 @@ Mean and minimum distance to the nearest neighbour for 3 nanophytoplankton
 
 , with and without advection, after 1000 time steps, compared to predictions
  for a uniform distribution.
- Horizontal lines show the average distance to the nearest neighbour (dashed
- grey line) and the expected minimum distance to the nearest neighbour with
- the actual number of realizations (solid green line).
- Filled symbols represent distances to a conspecifics while empty symbols
- represent distances to heterospecifics.
- Colors correspond to the different species (red for species 0, blue for
- species 1, black for species 2).
+ Horizontal lines show the average distance to the nearest neighbour (grey
+ line) and the expected minimum distance to the nearest neighbour with the
+ actual number of realizations (black line).
+ Circles and triangles represent mean and minimum distance to a conspecific,
+ respectively.
+ Boxplot corresponds to the distribution of mean (grey outlines) and minimum
+ (black outlines) distances to a heterospecific.
+ Colors correspond to different species.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1307,6 +1376,28 @@ name "fig:Distance_nano"
 
 \begin_layout Section
 Effect of the initial distribution
+\end_layout
+
+\begin_layout Standard
+Particles are uniformly distributed in the cube at the start of all simulations
+ shown in the manuscript.
+ However, we have no reason to believe that such spatial distribution is
+ more appropriate than a more clustered one to begin with.
+ In Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dominance-after_Thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we show the final dominances obtained with and without advection, starting
+ from a superposition of Thomas processes, i.e.
+ each species was distributed with its own Thomas process.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -1380,6 +1471,87 @@ name "fig:Dominance-after_Thomas"
 
 \end_layout
 
+\begin_layout Standard
+While there was a good fit between the expected dominance index and the
+ simulated dominance index when advection was present, this was not the
+ case when only diffusion and growth were taken into account.
+ This might be due to the time needed to shift to the expected distribution
+ from a non-uniform distribution (the nanophytoplankton dominance index
+ finally reaches the expected value for a longer simulation duration), but
+ even very long simulations, up to 
+\begin_inset Formula $10^{6}$
+\end_inset
+
+ timesteps did not lead to a match for microphytoplankton particles.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/shift_of_dominance_noadv_zoom.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance indices for one species in a microphytoplankton (a) and nanophytoplank
+ton (b) 3-species community with even distributions after 1000 timesteps
+ starting from a superposition of species-specific Thomas point processes
+ in the absence of advection.
+ The dotted line corresponds to the dominance index at the start of the
+ simulation, i.e.
+ when points are only distributed according to a Thomas point process with
+ parent intensity 
+\begin_inset Formula $\lambda_{p}=200$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, number of children per parent 
+\begin_inset Formula $N_{c}=50$
+\end_inset
+
+, and 
+\begin_inset Formula $\sigma=0.001$
+\end_inset
+
+.
+ Each colored line represents a different simulation duration, and black
+ symbols correspond to the theoretical values of the dominance index.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-noadv_Thomas"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Sensitivity to the computation of the advection parameter
 \end_layout
@@ -1444,6 +1616,48 @@ If we use
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/theoretical_dominance_with_adv.pdf
+	width 99text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance indices for one species in a microphytoplankton (a) and nanophytoplank
+ton (b) 3-species community with even distributions after 1000 timesteps
+ with (circles) and without (lines) advection for different duration of
+ the timesteps.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

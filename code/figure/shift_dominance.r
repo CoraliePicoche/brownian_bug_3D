@@ -44,7 +44,7 @@ th_r=10^pow_th
 
 th_poisson=4/3*pi*th_r^3
 th_thomas=thomas_cdf(th_r,a_sigma,N_parent/volume)
-plot(0,0,t="n",xlim=range(u_r),ylim=c(0.3,1),xlab="r",ylab=yl,log="x",main=ml,axes=F)
+plot(0,0,t="n",xlim=range(u_r),ylim=c(0.3,1),xlab="r",ylab=yl,log="x",main=ml,axes=F,cex.lab=1.5,cex.main=1.25)
                         axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
                         axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
                         axis(2,tcl=0.5,cex.axis=1.5) # left
@@ -128,10 +128,10 @@ a_tmax=f_param[f_param$name=="tmax","value"]
 
 if(n==1){
  	legend("bottomleft",c(paste("Sp=",unique_sp),"Theory"),col=c(palette,"black"),pch=1,bty="n",lwd=2,lty=NA)
-        mtext("a",side=3,line=1.5,font=2,at=8*10^(-5))
+        mtext("a",side=3,line=1.5,font=2,at=8*10^(-5),cex=1.25)
 }else{
         legend("bottomleft",c(expression(U~tau~"/"~3~"="~0),expression(U~tau~"/"~3~"="~0.5),"Init Thomas"),col="black",pch=c(NA,1,2),lty=c(1,NA,NA),bty="n",lwd=2)
-        mtext("b",side=3,line=1.5,font=2,at=8*10^(-5))
+        mtext("b",side=3,line=1.5,font=2,at=8*10^(-5),cex=1.25)
 }
 
 
