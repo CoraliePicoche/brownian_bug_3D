@@ -1,7 +1,7 @@
 rm(list=ls())
 graphics.off()
 
-nb_simu_list=c(10,11)
+nb_simu_list=c(30,31)
 amain_list=c("Advection","No advection")
 colo=c("red","blue","black")
 colo=rainbow(10)
@@ -46,13 +46,13 @@ for(a_sp in unique_sp){
 		list_dist_min[b_sp]=min(tab_1[,3+osp[b_sp]])
 		print(paste("CROSS:",osp[b_sp]," Mean=",list_dist_mean[b_sp]," and min=",list_dist_min[b_sp],sep=""))
 	}
-	boxplot(list_dist_mean,at=a_sp+0.35,col=colo[a_sp+1],add=T,border="grey")
+	boxplot(list_dist_mean,at=a_sp+0.35,col=colo[a_sp+1],add=T,border=colo[a_sp+1],pt.col=colo[a_sp+1])
 	boxplot(list_dist_min,at=a_sp+0.35,col=colo[a_sp+1],add=T,border="black")
 
 	lines(c(a_sp,a_sp+0.25),rep(0.554/((realization[a_sp+1]*intensity)^(1/3)),2),col="black",lwd=3,lty=1)
 } #end loop on unique_sp
 if(i==1){
-legend("bottomright",c("Mean","Minimum","Monospecific","Interspecific"),lty=c(1,1,NA,NA,NA),pch=c(NA,NA,17,15),col=c("grey","black","red","red"),lwd=2,pt.cex=c(1,1,1,2))
+legend("bottomright",c("Mean","Minimum","Monospecific","Interspecific"),lty=c(1,1,NA,NA,NA),pch=c(NA,NA,17,15),col=c("grey","black","red","red"),lwd=2,pt.cex=c(1,1,1,2),ncol=2)
 mtext("Micro", outer = TRUE, cex = 1.5,line=-1.5)
 } 
 }

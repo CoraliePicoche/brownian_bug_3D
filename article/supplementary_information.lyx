@@ -329,6 +329,16 @@ Theoretical behaviour of the dominance index in the BBM
 \end_layout
 
 \begin_layout Standard
+With the theoretical formula for the dominance index in the Brownian Bug
+ Model, we can show the progressive clutering of particles with time when
+ advection is absent.
+ Even after a short period of time, the dominance index without advection
+ is larger than with advection, the difference being much more pronounced
+ for larger cells.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -351,8 +361,9 @@ status open
 \begin_layout Plain Layout
 Theoretical dominance indices as a function of the distance from a particle
  of a given species, for a microphytoplankton (a) and nanophytoplankton
- (b) 3-species community with an even abundance-distribution, with (red
- line) and without (grey to black lines) advection.
+ (b) 3-species community with an even abundance distribution, with (red
+ line) and without (grey to black lines, with darker lines for longer duration)
+ advection.
  The vertical dashed line corresponds to the 10-diameter threshold.
  
 \begin_inset CommandInset label
@@ -999,11 +1010,11 @@ Spatial distributions of a 3-species community of microphytoplankton with
  after 1000 time steps.
  Each color corresponds to a different species.
  On the left-hand side, only a zoom on a 
-\begin_inset Formula $2\times2$
+\begin_inset Formula $2\times2\times2$
 \end_inset
 
  cm
-\begin_inset Formula $^{2}$
+\begin_inset Formula $^{3}$
 \end_inset
 
  cube is shown, and its projection on the x-y plane is shown on the right
@@ -1263,7 +1274,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_micro.pdf
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_micro_box_10sp.pdf
 	width 70text%
 
 \end_inset
@@ -1323,7 +1334,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_nano.pdf
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_nano_box_10sp.pdf
 	width 70text%
 
 \end_inset
@@ -1482,7 +1493,18 @@ While there was a good fit between the expected dominance index and the
 \begin_inset Formula $10^{6}$
 \end_inset
 
- timesteps did not lead to a match for microphytoplankton particles.
+ timesteps did not lead to a match for microphytoplankton particles (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dominance-noadv_Thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
  
 \end_layout
 

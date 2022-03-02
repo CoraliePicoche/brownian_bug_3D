@@ -2634,11 +2634,11 @@ In the presence of advection, species tend to start mixing at lower radii
 
 \begin_layout Standard
 In a 3-species community with the same initial abundances, microphytoplankton
- dominance indices between 0.37 and 0.47 at a distance equal to 10 diameters
- of a particle, while it is around 0.80 and 0.94 for nanophytoplankton species
+ dominance indices are between 0.37 and 0.47 at a distance equal to 10 diameters
+ of a particle, while it is between 0.80 and 0.94 for nanophytoplankton species
  when advection is present.
- When there is no turbulence, dominances indices are all above 0.98 when
- the 10-diameter threshold is reached (Fig.
+ When there is no turbulence, dominance indices are all above 0.98 when the
+ 10-diameter threshold is reached (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2651,8 +2651,8 @@ noprefix "false"
 
 ).
  Microphytoplankton organisms are as likely to share their depletion zone
- with conspecifics or heterospecifics, whereas nanophytoplankton have almost
- only conspecifics around them in this volume.
+ with conspecifics or heterospecifics, whereas nanophytoplankton organisms
+ have almost only conspecifics around them in this volume.
  
 \end_layout
 
@@ -2734,8 +2734,8 @@ noprefix "false"
  0.90 and 0.85 when advection was not taken into account.
  Nanophytoplankton species were more mixed when there were larger differences
  in distributions: dominance indices varied between 0.54 and 0.2 when the
- depletion-zone limit was reached (with an expection of 0 for one particular
- species which had no conspecific for radius below 
+ depletion-zone limit was reached (with an exception of 0 for one particular
+ species which had no conspecific for radii below 
 \begin_inset Formula $10^{-2}$
 \end_inset
 
@@ -2818,7 +2818,7 @@ noprefix "false"
  When turbulence was taken into account, the dominance index decreased at
  lower radius around a particle when abundance was higher: species which
  are more abundant tend to be omnipresent when they are mixed in the environment
-, which also makes them more likely to be close to an heterospecific.
+, which also makes them more likely to be close to a heterospecific.
  However, they also had more conspecifics close to them than the less abundant
  species.
  When turbulence was absent, the effect of abundance on the dominance index
