@@ -324,6 +324,13 @@ with
 .
 \end_layout
 
+\begin_layout Standard
+[[There will be here a 2x2 panels with a)spatial distribution b)pcf c)K
+ function d)dominance index computed only from theoretical formula, just
+ to give an idea of what we obtain with standard distributions in a more
+ visual way.]]
+\end_layout
+
 \begin_layout Section
 Theoretical behaviour of the dominance index in the BBM
 \end_layout
