@@ -159,9 +159,43 @@ Characteristics of standard spatial point processes
 \begin_layout Standard
 In order to familiarize the reader with spatial process metrics, we present
  here well-known formula for the pair correlation function, Ripley's function
- and dominance index for standard point processes (a uniform distribution,
- i.e.
- the Poisson point process, and a clustered distribution, the Thomas process).
+ and dominance index for standard point processes.
+ We focus on the uniform distribution, i.e.
+ the Poisson point process, and a clustered distribution, the Thomas point
+ process.
+ The Thomas point process is the result of a two-stage mechanism: a Poisson
+ point process generates 
+\begin_inset Quotes eld
+\end_inset
+
+parent points
+\begin_inset Quotes erd
+\end_inset
+
+ around which 
+\begin_inset Quotes eld
+\end_inset
+
+daughter points
+\begin_inset Quotes erd
+\end_inset
+
+ are scattered, their position following a Gaussian distribution centered
+ on the parent oiubt, with standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+ The numbers of parents and daughters per parent follow two Poisson distribution
+s with mean 
+\begin_inset Formula $C_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{d}$
+\end_inset
+
+ respectively.
 \end_layout
 
 \begin_layout Subsection
@@ -184,16 +218,7 @@ In the case of a Poisson point process,
 \end_layout
 
 \begin_layout Standard
-For a Thomas point process with parent intensity 
-\begin_inset Formula $C_{p}$
-\end_inset
-
- and child-point position following a normal distribution centered on the
- parent point with standard deviation 
-\begin_inset Formula $\sigma$
-\end_inset
-
-, the expected value of the pcf is
+For a Thomas point process, the expected value of the pcf is
 \end_layout
 
 \begin_layout Standard

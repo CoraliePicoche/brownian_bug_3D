@@ -120,6 +120,155 @@ Institute of Mathematics of Bordeaux, University of Bordeaux and CNRS, Talence,
  France
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-1cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+The coexistence of multiple phytoplankton species despite their reliance
+ on similar resources is often explained with mean-field models assuming
+ mixed populations.
+ In reality, observations of phytoplankton indicate aggregation at all scales,
+ possibly hindering competitive exclusion if patches are mostly monospecific,
+ thus reducing the probability of competing with other species.
+ Here, we present a 3D, individual-based model including stochastic birth
+ and death processes as well as diffusion and advection to represent the
+ viscous and turbulent environment experienced by organisms at the microscale.
+ Parameters are based on phytoplankters’ ecological and physical characteristics
+, as well as hydrodynamics laws.
+ The model is analysed through spatial moment equations and simulations,
+ which show a good fit.
+ The hydrodynamics of the environment is key in our model, as its absence
+ ensures that clusters of organisms are mostly monospecific, while species
+ tend to mix more in a turbulent environment.
+ The size of a particle also determines its vicinity: larger cells have
+ more heterospecifics around them than smaller cells.
+ Defining a zone of possible interactions as the overlap between nutrient
+ depletion volume around a particle, we show that larger cells compete more
+ with heterospecifics than smaller cells.
+ With a (realistic) skewed abundance distribution, even smaller cells are
+ susceptible to be surrounded by more heterospecifics than conspecifics.
+ Our model should be taken as a first step towards multi-specific spatial
+ models for phytoplankton ito identify mechanisms behind coexistence: with
+ basic ecological and hydrodynamics processes, we show that, while particles
+ do aggregate, this clustering is not sufficient to avoid interspecific
+ competition completely.
+ .
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+150-250 -> 250
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Keywords
+\series default
+: aggregation; coexistence; individual-based model; phytoplankton; spatial
+ moment equations; spatial point proces 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+4-6 keywords
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $^{*}$
+\end_inset
+
+corresponding author: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+verb|coralie.picoche@u-bordeaux.fr|
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+linenumbers
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+doublespacing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+If an appendix appears in your article and it contains one or more figures,
+ continue the consecutive numbering of the main text.
+ Do not number the appendix figures,"A1, A2, A3, etc." Figures in online
+ appendices [Supplementary Information (SI)] should, however, be numbered
+ separately.
+\end_layout
+
+\begin_layout Plain Layout
+No punctuation is to be included after the number, nor is any punctuation
+ to be placed at the end of the caption.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section*
 Introduction
 \end_layout
@@ -139,8 +288,8 @@ literal "false"
  Their contribution to ecosystem functions is only matched by their contribution
  to biodiversity.
  Indeed, phytoplankton communities are characterized by a surprisingly high
- biodiversity, up to hundreds of species within multiple genera and even
- classes in volumes as small as 10 mL.
+ biodiversity, up to dozens of species within multiple genera and even classes
+ in volumes as small as 10 mL.
  This observation has led to the formulation of the so-called 
 \begin_inset Quotes eld
 \end_inset
@@ -170,7 +319,7 @@ literal "false"
 \end_inset
 
  and benefit from the support of coexistence theory which proposes mechanisms
- to escape from competitive exclusion including non-linear responses to
+ to escape from competitive exclusion, including non-linear responses to
  a temporally fluctuating environment 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -217,17 +366,9 @@ literal "false"
 
 \begin_layout Standard
 Phytoplankton patchiness can at least be partly explained by the hydrodynamics
- of their environment 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "martin_phytoplankton_2003"
-literal "false"
-
-\end_inset
-
-: their size being mostly below the size of the smallest eddy (i.e., the Kolmogoro
-v scale) in a typical environment such as the ocean, they are embedded in
- viscous micro-structures at the individual level 
+ of their environment: their size being mostly below the size of the smallest
+ eddy (i.e., the Kolmogorov scale) in a typical environment such as the ocean,
+ they are embedded in viscous micro-structures at the individual level 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "peters_effects_2000"
@@ -235,7 +376,16 @@ literal "false"
 
 \end_inset
 
- while being displaced by a common flow at the larger scale, due to turbulence.
+ while being displaced by a common flow at the larger scale, due to turbulence
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "martin_phytoplankton_2003"
+literal "false"
+
+\end_inset
+
+.
  Viscosity decreases diffusivity, which can in turn generate an heterogeneous
  landscape by limiting movements and mixing.
  At the other end of the hydrodynamics spectrum, studies on the fluid mechanics
@@ -282,9 +432,25 @@ literal "false"
 \begin_layout Standard
 This leads us to consider demography in the context of environmental variation
  created by hydrodynamics processes.
- Indeed, including simple processes such as reproduction and death in a
- spatial model can also create a patchy environment: individuals are born
- close to their parents which can lead to clusters of `kin' by itself 
+ As hydrodynamics processes generate heterogeneity in both the distributions
+ and the environment at the scale of the individuals, the continuum-hypothesis,
+ which assumes that a population of discrete individuals can be approximated
+ by a continuous density of organisms sharing the same properties, needs
+ to be rejected.
+ Individual-based, or agent-based, models are more likely to represent the
+ micro-scale behaviour of individuals 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hellweger_bunch_2009"
+literal "false"
+
+\end_inset
+
+.
+ In this framework, population growth is a result of all individual births,
+ deaths and survivals, which can in turn create a patchy environment as
+ individuals are born close to their parents which can lead to clusters
+ of `kin' by itself 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -343,21 +509,32 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-However, spatial models of individuals at the microscale rarely include
- multiple species 
+Many spatial models of individuals at the microscale already show the clustering
+ of organisms within a single species 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bouderbala_3d_2018,breier_emergence_2018"
+key "young_reproductive_2001,birch_bounding_2007,bouderbala_3d_2018,breier_emergence_2018"
+literal "false"
+
+\end_inset
+
+, and we can safely assume that clustering between species would be enforced,
+ as individuals of the same species share common parameters which rule their
+ reaction to their environment.
+ Models including different species often compare relative clustering of
+ only two sets of organisms with opposite characteristics, e.g.
+ increase or decrease in density with turbulence 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "borgnino_turbulence_2019,arrieta_fate_2020"
 literal "false"
 
 \end_inset
 
 .
- Clustering can be enforced at the species level, as individuals of the
- same species share common parameters which rule their reaction to their
- environment.
- For example, experiments often relate a major trait of phytoplankton organisms,
- their size, to the viscosity of their environment 
+ However, responses to the environment can be less drastically different.
+ For example, experiments often relate a major continuous trait of phytoplankton
+ organisms, their size, to the viscosity of their environment 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "guadayol_microrheology_2021"
@@ -382,7 +559,7 @@ literal "false"
 \end_inset
 
 .
- On a more theoretical point of view, 
+ This can allow for more species to be modeled: in 1D, 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "barton_impact_2014"
@@ -390,25 +567,36 @@ literal "false"
 
 \end_inset
 
- have already shown that coexistence between organisms of different sizes
- can be increased by the presence of turbulence.
+ have already shown that coexistence between organisms of up to 40 different
+ sizes can be increased by the presence of turbulence, and in 2D, 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "benczik_coexistence_2006"
+literal "false"
+
+\end_inset
+
+ have highlighted the role of size-related inertia in diversity maintenance
+ for up to 5 species.
+ To go even further, even with the same characteristics, considering several
+ species also reinforces clustering due to local, within-species reproduction.
  While taking diversity of organisms into account is the first step towards
- studying coexistence in spatial models, the lack of studies with multiple
- species can be explained by the computational cost of modeling many individuals
-, especially because very large numbers are required for phytoplankton organisms
- which can reach concentrations up to 
+ studying coexistence in spatial models, the paucity of studies with multiple
+ (more than two) species can be explained by the computational cost of modeling
+ many, possibly interacting, individuals, especially because very large
+ numbers are required for phytoplankton organisms which can reach concentrations
+ up to 
 \begin_inset Formula $10^{6}$
 \end_inset
 
- C/L, for many species.
+ C/L.
  Numerical costs could be partially offset by favoring mathematical analyses
- of spatial models, which can predict spatial distributions in many scenarii.
+ of spatial models, which can predict distributions in many scenarii.
 \end_layout
 
 \begin_layout Standard
-Mathematical analyses of spatial models can quantify the degree of clustering
- in the environment by measuring correlations between positions of pairs
- (or more) of particles 
+Mathematical models of the distribution of events randomly located in space
+ are called spatial point processes 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "illian2008statistical"
@@ -417,9 +605,26 @@ literal "false"
 \end_inset
 
 .
- A model of individuals randomly reproducing and moving in space, which
- is the type we have focused on here, is also called a spatial point process,
- for which a master equation can often be derived 
+ Point processes span distributions as simple as the uniform distribution
+ (the Poisson point process), to the combination of several random distributions
+ (e.g., the Thomas point process, see Section SX in SI), to time-dependent
+ distributions generated by the accumulation of several stochastic mechanisms,
+ as is the case here.
+ Spatial statistics focusing on point processes constitute a well-developed
+ discipline 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "illian2008statistical,baddeley_spatstat,cressie2015statistics"
+literal "false"
+
+\end_inset
+
+ and can be used to characterize the structure underlying complex distributions.
+ For example, the degree of clustering in the environment can be quantified
+ by measuring correlations between positions of pairs (or more) of particles.
+ The expected distribution of points emerging from a model of individuals
+ randomly reproducing and moving in space, which is the type we have focused
+ on here, can be described with a master equation 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dieckmann_relaxation_2000,birch_master_2006"
@@ -427,10 +632,7 @@ literal "false"
 
 \end_inset
 
- to describe the behaviour of the particles through time.
- The moment measures, which can be seen as the extension of moments of random
- variables, can also be used to compute the expected characteristics of
- the spatial distribution of individuals 
+, or with spatial moment measures 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "plank_spatial_2015"
@@ -438,7 +640,7 @@ literal "false"
 
 \end_inset
 
-.
+, which can be seen as the extension of moments of random variables.
  However, the spatial moments of a process are mainly mathematical quantities
  which then need to be related to ecological processes (see, e.g., 
 \begin_inset CommandInset citation
@@ -2893,15 +3095,16 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-We designed a stochastic, 3D, multispecific model of particles in a viscous
- and turbulent flow, and conducted both analytical and numerical analyses
- to quantify spatial correlations in particle distributions.
+We designed a stochastic, 3D, individual-based model of multiple species
+ of particles in a viscous and turbulent flow, and conducted both analytical
+ and numerical analyses to quantify spatial correlations in particle distributio
+ns.
  We focused on correlations between pairs of points, for which numerical
  and theoretical analyses showed a good agreement.
  From the pair correlation function and corresponding Ripley's function,
  we extracted the dominance index to quantify the degree of intraspecific
  clustering and interspecific mixing.
- Comparing the behaviour of organisms of different sizes and demography,
+ Comparing the distributions of organisms of different sizes and demography,
  we showed that proximity between particles of different communities depends
  on the traits of the particles.
  While turbulence always leads to more mixing, microphytoplankton, larger
@@ -3164,9 +3367,9 @@ literal "false"
  are defined within a specific range of distances around a particle (defining
  a kernel of interactions), clusters of organisms emerge.
  Even in the absence of demographic processes, attraction between particles
- able to propulse themselves is sufficient to create dense clusters at the
- micro-scale in a turbulent environment - especially when length scales
- associated to interactions and turbulence are close 
+ able to control their location, whether by active movement or by buoyancy/orien
+tation regulation, is sufficient to create dense clusters - especially when
+ length scales associated to interactions and turbulence are close 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "breier_emergence_2018"
@@ -3184,6 +3387,18 @@ literal "false"
 \end_inset
 
 .
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Cite here models of coagulation, such as Arton et al.
+ 2004 and li et al.
+ 2004?
+\end_layout
+
+\end_inset
+
  This is common for microphytoplankton: our model should be considered a
  null model for independent cells, but can also highlight the importance
  of coloniality for larger cells to be able to be closer to conspecifics.
@@ -3193,10 +3408,42 @@ literal "false"
  this scale, by introducing a multispecific community, with organisms defined
  by their traits (sizes, average concentrations in the environment).
  Introducing new traits and/or spatial heterogeneity in terms of environmental
- quality [[Cite North and Ovaskainen 2007??]] could constitute help to understan
-d the observed patchiness of phytoplankton, and the way their diversity
- may be sustained by phenomena that cannot be considered with usual mean-field
- models.
+ quality 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+[[Cite North and Ovaskainen 2007??]] 
+\end_layout
+
+\end_inset
+
+could constitute help to understand the observed patchiness of phytoplankton,
+ and the way their diversity may be sustained by phenomena that cannot be
+ considered with usual mean-field models.
+\end_layout
+
+\begin_layout Subsubsection*
+Declaration of Competing Interest
+\end_layout
+
+\begin_layout Standard
+The authors declare that they have no known competing financial interests
+ or personal relationships that could have appeared to influence the work
+ reported in this paper.
+\end_layout
+
+\begin_layout Subsubsection*
+Author contribution statement
+\end_layout
+
+\begin_layout Subsubsection*
+Acknowledgments
+\end_layout
+
+\begin_layout Standard
+FB and CP were supported by the grant ANR-20-CE45-0004.
+ CP was supported by a PhD grant from the French Ministry of Research.
 \end_layout
 
 \begin_layout Section*
