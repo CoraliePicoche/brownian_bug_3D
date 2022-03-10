@@ -156,21 +156,20 @@ The coexistence of multiple phytoplankton species despite their reliance
  The size of a particle also determines its vicinity: larger cells have
  more heterospecifics around them than smaller cells.
  Defining a zone of possible interactions as the overlap between nutrient
- depletion volume around a particle, we show that larger cells compete more
- with heterospecifics than smaller cells.
+ depletion volumes around a particle, we show that intraspecific interactions
+ are more likely for smaller cells than for larger cells.
  With a (realistic) skewed abundance distribution, even smaller cells are
  susceptible to be surrounded by more heterospecifics than conspecifics.
  Our model should be taken as a first step towards multi-specific spatial
  models for phytoplankton to identify mechanisms behind coexistence: with
- basic ecological and hydrodynamics processes, we show that, while particles
- do aggregate, this clustering is not sufficient to avoid interspecific
- competition entirely.
+ basic ecological and hydrodynamics processes, we show that, particles do
+ aggregate, but remain close to their heterospecifics.
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-150-250 -> 246
+150-250 -> 245
 \end_layout
 
 \end_inset
@@ -184,7 +183,7 @@ status open
 Keywords
 \series default
 : aggregation; coexistence; individual-based model; phytoplankton; spatial
- moment equations; spatial point proces 
+ moment equations; spatial point process 
 \begin_inset Note Note
 status open
 
@@ -3115,25 +3114,30 @@ Discussion
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
 We designed a stochastic, 3D, individual-based model of multiple species
  of particles in a viscous and turbulent flow, and conducted both analytical
  and numerical analyses to quantify spatial correlations in particle distributio
 ns.
- We focused on correlations between pairs of points, for which numerical
- and theoretical analyses showed a good agreement.
- From the pair correlation function and corresponding Ripley's function,
- we extracted the dominance index to quantify the degree of intraspecific
- clustering and interspecific mixing.
+ We focused on the pair correlation functions and Ripley's K-functions,
+ for which numerical and theoretical analyses showed a good agreement, and
+ computed the corresponding dominance index to quantify the degree of intraspeci
+fic clustering and interspecific mixing.
  Comparing the distributions of organisms of different sizes and demography,
  we showed that the composition of the environment of a particle depends
  on its traits.
- While turbulence always leads to more mixing, microphytoplankton, larger
+ While turbulence always leads to more mixing, microphytoplankters, larger
  cells with a lower diffusivity, encountered heterospecifics at larger distances
- from the particle than nanophytoplankton, but still within what we defined
- as a possible zone of nutrient depletion surrounding a particle.
+ from the particle than nanophytoplankton, but the zone in which competition
+ for nutrient was more likely also had a more diverse composition than for
+ smaller cells.
+ 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Intraspecific clustering at small distances from a particle was a constant
  in our model.
  It shows a balance between diffusivity and turbulence, possibly speeding
@@ -3298,7 +3302,7 @@ m, precise niche differences between species (article on light repartition),
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Our model focuses on size as the defining trait of the communities we consider,
  with microphytoplankton being larger than nanophytoplankton by an order
  of magnitude.
@@ -3373,7 +3377,7 @@ on sizes did not change the emergence of clustering at small scales, relevant
  for interactions.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Here, interactions are only defined indirectly as we consider distances
  from a particle in which competition for nutrients may happen.
  However, particles interactions can be modeled a much more direct way.
@@ -3415,7 +3419,7 @@ literal "false"
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Plain Layout
 Our model should be considered as a null model for the spatial distribution
  a community of equivalent species made of independent cells, for which
  a given trait, size, can define hydrodynamics and demographics characteristics.
@@ -3426,7 +3430,7 @@ ns, as well as spatial heterogeneity in terms of environmental quality
 status open
 
 \begin_layout Plain Layout
-[[Cite North and Ovaskainen 2007??]] 
+[[Cite North and Ovaskainen 2007??]]
 \end_layout
 
 \end_inset
@@ -3434,6 +3438,392 @@ status open
 could help to understand the observed patchiness of phytoplankton, and the
  way their diversity may be sustained by phenomena that cannot be considered
  with usual mean-field models.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We designed a stochastic, 3D, individual-based model of multiple species
+ of particles in a viscous and turbulent flow, and conducted both the mathematic
+al analyses and numerical simulations to quantify spatial correlations in
+ particle distributions.
+ We focused on the pair correlation function and Ripley's K-function, for
+ which numerical and theoretical analyses showed a good agreement, and computed
+ the corresponding dominance index to quantify the degree of intraspecific
+ clustering and interspecific mixing.
+ Comparing the distributions of organisms of different sizes and demography,
+ we showed that the composition of the environment of a particle depends
+ on its traits.
+ While turbulence always leads to more mixing, microphytoplankters, larger
+ cells with a lower diffusivity, were further away from heterospecifics
+ than nanophytoplankters, but the zone in which competition for nutrient
+ was more likely also had a more diverse composition than for smaller cells.
+ 
+\end_layout
+
+\begin_layout Standard
+Intraspecific clustering was a constant in our model: there was always a
+ volume where a particle was only surrounded by conspecifics, and its radius
+ was much lower than would be expected in a uniform distribution (Section
+ SX).
+ This is due to the prevalence of demographics processes at small scales,
+ because a particle acts as a source point for other organisms of the same
+ species, and hydrodynamics processes do not separate conspecifics fast
+ enough to prevent aggregation.
+ As a phytoplankter creates a gradient of depletion around itself, where
+ nutrient concentrations are lower as we get closer to the cell 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+, competition for nutrient is likely stronger between closer neighbours,
+ i.e.
+ between conspecifics.
+ Nutrients are not the only components that can be traded between particles:
+ for example, sharing the phycosphere, a micro-environment where communities
+ of bacteria exchange with the particle 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "seymour_zooming_2017"
+literal "false"
+
+\end_inset
+
+, can also impact organisms, both positively and negatively.
+ The ratio between conspecifics and heterospecifics at different distances
+ is therefore key in the relative proportions of interactions.
+ Provided all species are equivalent with regards to their nutrient requirement
+ and consumption, the possible interaction structure emerges from the spatial
+ structure, and intraspecific interactions are more likely to be stronger
+ than interspecific interactions, which is itself a crucial parameter in
+ coexistence theory 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barabas_self-regulation_2017"
+literal "false"
+
+\end_inset
+
+.
+ While a high intra-to-interspecific interaction strength ratio is often
+ associated with niche differences related to finite resources (nutrient,
+ light, vitamins, etc.), we propose here that it can also emerge from the
+ balance between demographics and hydrodynamics processes leading to clustering
+ and mixing respectively.
+\end_layout
+
+\begin_layout Standard
+The type of environment and organism considered affects the composition
+ of a particle neighbourhood, which is especially relevant at distances
+ in which depletion zones can overlap.
+ It should be noted that interactions via zone of depletion overlap have
+ sometimes been negated, but usely in the context of a uniform distribution
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "siegel_resource_1998"
+literal "false"
+
+\end_inset
+
+ and/or with diffusion only 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hulburt_competition_1970"
+literal "false"
+
+\end_inset
+
+, which does not correspond to a realistic environment.
+ Even though our model of turbulence is far from the complexity of `real'
+ turbulence, previous studies 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g., "
+key "breier_emergence_2018"
+literal "false"
+
+\end_inset
+
+ show that Navier-Stokes equation and simplified synthetic turbulence can
+ give similar results in terms of particle aggregation.
+ Here, in the absence of advection by turbulence, the neighbourhood is almost
+ only made of conspecifics, for both microphytoplankton and nanophytoplankton,
+ i.e.
+ interactions are likely only intraspecific.
+ When turbulence increases, mixing increases (Section SXX) and the neighbourhood
+ composition is size-dependent: nanophytoplankton organisms mainly share
+ this space with conspecifics (the dominance index remains close to 1, even
+ near the overlap threshold) while microphytoplankton organisms can affect
+ both conspecifics and heterospecifics (the dominance index is often below
+ 50% at the overlap threshold, i.e.
+ a particle's depletion zone is more likely to overlap more with a heterospecifi
+c's than a conspecific's).
+ The size-dependence is the same if we consider the phycosphere previously
+ mentioned: for a particle of microphytoplankton with a diameter of 50 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m, the phycosphere radius reaches 1200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m, while it is nearly non-existent for particles below 3 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "jackson_simulating_1987,seymour_zooming_2017"
+literal "false"
+
+\end_inset
+
+.
+ This tends to confirm that microphytoplankters are more likely to interact
+ with heterospecifics than nanophytoplankters, via exchanges of compounds
+ necessary for their survival.
+ The dominance of heterospecifics in a microphytplankter's vicinity may
+ however be debated.
+ Indeed, when computing the volumes of zones relevant for interactions (either
+ for nutrients or for other components linked to the phycosphere), we use
+ maximum volumes, corresponding to a diffusive-only flow.
+ When turbulence increases, uptake increases and the size of the depletion
+ zone decreases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karp-boss_nutrient_1996"
+literal "false"
+
+\end_inset
+
+.
+ The proportion of change increases with the size of organism, meaning that
+ larger cells such as microphytoplankters are much more sensitive to turbulence
+ increases than smaller cells 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "karp-boss_nutrient_1996,barton_impact_2014"
+literal "false"
+
+\end_inset
+
+.
+ If we adjusted depletion zone sizes with turbulence in mind, conspecifics
+ might be as predominant for microphytoplankton as they are for nanophytoplankto
+n 
+\shape italic
+within
+\shape default
+ relevant zones.
+ While there are certainly different mechanisms behind diversity maintenance
+ for microphytoplankton and nanophytoplankton, we should therefore be cautious
+ in saying that interspecific interactions could dominate for microphytoplankter
+s.
+ 
+\end_layout
+
+\begin_layout Standard
+Our model focuses on size as the defining trait of the communities we consider,
+ with microphytoplankton being larger than nanophytoplankton by an order
+ of magnitude.
+ Indeed, size is considered as a major functional trait 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "maranon_cell_2015"
+literal "false"
+
+\end_inset
+
+, correlated with other capacities such as growth rate or nutrient affinities
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "edwards_allometric_2012"
+literal "false"
+
+\end_inset
+
+, or even average abundances 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "agusti_algal_1987"
+literal "false"
+
+\end_inset
+
+.
+ In this model, smaller sizes lead to a higher diffusivity, i.e.
+ less clustering, and a higher growth rate, i.e.
+ more clustering, but they also lead to a smaller zone of depletion.
+ In reality, phytoplankton size classes cover a much wider range than showed
+ here: nanophytoplankton sizes vary between 2 and 20 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m and microphytoplankton sizes, between 20 and 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
+\end_inset
+
+ m 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "reynolds2006ecology"
+literal "false"
+
+\end_inset
+
+.
+ Even within a single species, organism diameters may vary greatly 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "harrison_cell_2015"
+literal "false"
+
+\end_inset
+
+.
+ Taking into account this variability creates new mechanisms sustaining
+ diversity: for example, size-based inertia in a chaotic flow creates size-speci
+fic aggregates, implying more conspecifics clusters 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "benczik_coexistence_2006"
+literal "false"
+
+\end_inset
+
+.
+ These results complement ours as they highlight the relevance of turbulence
+ at microscale to produce new spatial niches for particles of different
+ sizes.
+ We can assume that, in our model, introducing a size gradient for species
+ within a single phytoplankton community would create more complex spatial
+ distributions.
+ However, patterns of the dominance index were consistent between organisms:
+ more than one order of magnitude between nanophytoplankton and microphytoplankt
+on sizes did not change the emergence of clustering at small scales, relevant
+ for interactions.
+\end_layout
+
+\begin_layout Standard
+The model presented here is one of the first multispecific, spatial phytoplankto
+n model focusing on the microscale, modeling only basic hydrodynamics and
+ demographics processes, from which we can only guesstimate the differences
+ in interactions due to distances between organisms.
+ To our knowledge, no such model has been built with explicit interactions.
+ In a monospecific context, density-dependence 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bouderbala_3d_2018"
+literal "false"
+
+\end_inset
+
+, predation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bouderbala_simulation_2019"
+literal "false"
+
+\end_inset
+
+, attraction between motile mechanisms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "breier_emergence_2018"
+literal "false"
+
+\end_inset
+
+ have been modeled, based on the definition of a kernel of interactions,
+ and these mechanisms also lead to clustering, especially when length scales
+ associated to interactions and turbulence are close 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "breier_emergence_2018"
+literal "false"
+
+\end_inset
+
+.
+ The mathematical analysis of such processes leads to much more complex
+ moment equations 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bolker_spatial_1999"
+literal "false"
+
+\end_inset
+
+, but remains feasible, and should be encouraged alongside with numerical
+ simulations.
+ Finally, clustering would be even stronger if taking into account a very
+ common trait in microphytoplantkon, coloniality 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kiorboe_coagulation_1990"
+literal "false"
+
+\end_inset
+
+.
+ With independent and equivalent individuals, our model should therefore
+ be taken as a first null model to which more complex, maybe more mechanistic
+ models should be compared.
+ 
 \end_layout
 
 \begin_layout Subsubsection*

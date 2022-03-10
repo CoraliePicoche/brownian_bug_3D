@@ -1587,6 +1587,16 @@ Effect of the initial distribution
 \end_layout
 
 \begin_layout Standard
+[[NOTE: We should compute the analytical formula in the absence of advection
+ with a different initial condition.
+ The formula we show and use everywhere else assumes 
+\begin_inset Formula $G(r,0)=C^{2}$
+\end_inset
+
+ - thanks Fred]]
+\end_layout
+
+\begin_layout Standard
 Particles are uniformly distributed in the cube at the start of all simulations
  shown in the manuscript.
  However, we have no reason to believe that such spatial distribution is
