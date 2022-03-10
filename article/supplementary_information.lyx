@@ -158,8 +158,29 @@ Characteristics of standard spatial point processes
 
 \begin_layout Standard
 In order to familiarize the reader with spatial process metrics, we present
- here well-known formula for the pair correlation function, Ripley's function
- and dominance index for standard point processes.
+ here well-known formula and corresponding figures (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-Poisson"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-Thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) for the pair correlation function, Ripley's function and dominance index
+ for standard point processes.
  We focus on the uniform distribution, i.e.
  the Poisson point process, and a clustered distribution, the Thomas point
  process.
@@ -181,18 +202,18 @@ daughter points
 \end_inset
 
  are scattered, their position following a Gaussian distribution centered
- on the parent oiubt, with standard deviation 
+ on the parent position, with standard deviation 
 \begin_inset Formula $\sigma$
 \end_inset
 
 .
  The numbers of parents and daughters per parent follow two Poisson distribution
 s with mean 
-\begin_inset Formula $C_{p}$
+\begin_inset Formula $N_{p}$
 \end_inset
 
  and 
-\begin_inset Formula $C_{d}$
+\begin_inset Formula $N_{d}$
 \end_inset
 
  respectively.
@@ -230,6 +251,14 @@ g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $C_{p}=N_{p}/V$
+\end_inset
+
+ is the concentration/intensity of the parent process.
 \end_layout
 
 \begin_layout Standard
@@ -275,7 +304,7 @@ For a Thomas point process,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{\lambda_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:k_thomas}
+K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:k_thomas}
 \end{equation}
 
 \end_inset
@@ -333,7 +362,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{\lambda_{p,i}}\right)}{C_{i}\frac{F(r)}{\lambda_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}
+D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}
 \end{equation}
 
 \end_inset
@@ -350,10 +379,142 @@ with
 \end_layout
 
 \begin_layout Standard
-[[There will be here a 2x2 panels with a)spatial distribution b)pcf c)K
- function d)dominance index computed only from theoretical formula, just
- to give an idea of what we obtain with standard distributions in a more
- visual way.]]
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/example_Poisson_distribution.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of spatial distribution (a) and theoretical pcf (b), Ripley's K-function
+ (c) and dominance index (d) for a Poisson point process in 3-species community
+ with different intensities (10000 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, 1000 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, 5000 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-Poisson"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dominance_code_poisson
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/example_Thomas_distribution.pdf
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of spatial distribution (a) and theoretical pcf (b), Ripley's K-function
+ (c) and dominance index (d) for a Thomas point process in 3-species community
+ with different parent intensities (200 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, 100 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, 100 cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+), children per parent averages (50, 10, 50), with 
+\begin_inset Formula $\sigma=0.01$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-Thomas"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+dominance_code_thomas
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -362,7 +523,7 @@ Theoretical behaviour of the dominance index in the BBM
 
 \begin_layout Standard
 With the theoretical formula for the dominance index in the Brownian Bug
- Model, we can show the progressive clutering of particles with time when
+ Model, we can show the progressive clustering of particles with time when
  advection is absent.
  Even after a short period of time, the dominance index without advection
  is larger than with advection, the difference being much more pronounced
@@ -673,7 +834,7 @@ status open
 \begin_layout Plain Layout
 Intra- and inter-specific Ripley's K function and PCF values for 3 species
  following a Thomas process with parent intensity 
-\begin_inset Formula $\lambda_{p}=200$
+\begin_inset Formula $C_{p}=200$
 \end_inset
 
  cm
@@ -1032,7 +1193,7 @@ status open
 \begin_layout Plain Layout
 Spatial distributions of a 3-species community of microphytoplankton with
  and without advection with density 
-\begin_inset Formula $\lambda=10$
+\begin_inset Formula $C=10$
 \end_inset
 
  cm
@@ -1113,16 +1274,20 @@ In
 \end_inset
 
  to the nearest-neighbour follows 
-\begin_inset Formula $f(r)=db_{d}\lambda r^{d-1}\exp(-b_{d}r^{_{d}}\lambda)$
+\begin_inset Formula $f(r)=db_{d}Cr^{d-1}\exp(-b_{d}r^{_{d}}C)$
 \end_inset
 
-).
+) where 
+\begin_inset Formula $C$
+\end_inset
+
+ is the intensity of the process.
  If we want to find the distribution of the minimum DNN between 
 \begin_inset Formula $n$
 \end_inset
 
  realized points of a Poisson process with intensity 
-\begin_inset Formula $\lambda$
+\begin_inset Formula $C$
 \end_inset
 
 , we can write:
@@ -1131,8 +1296,8 @@ In
 \begin{array}{ccc}
 Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
  & = & \Pi_{i}Pr(R_{i}>r)\\
- & = & \Pi_{i}\exp(-b_{d}r^{_{d}}\lambda)\\
- & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}\lambda)
+ & = & \Pi_{i}\exp(-b_{d}r^{_{d}}C)\\
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}C)
 \end{array}
 \end{equation}
 
@@ -1144,7 +1309,7 @@ Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
 \begin_layout Standard
 We can then conclude that the distribution of the minimum distance follows
  the same distribution as the DNN, but with intensity 
-\begin_inset Formula $n\lambda$
+\begin_inset Formula $nC$
 \end_inset
 
 .
@@ -1167,11 +1332,11 @@ literal "false"
 
  show that a variable with probability distribution (with notations changed
  to fit our own) 
-\begin_inset Formula $f(r)=\frac{d\lambda\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{\lambda\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=d\lambda b_{d}r^{d-1}\exp(-\lambda b_{d}r^{d})$
+\begin_inset Formula $f(r)=\frac{dC\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{C\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=dCb_{d}r^{d-1}\exp(-Cb_{d}r^{d})$
 \end_inset
 
  has an expectid value of 
-\begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{\lambda^{1/d}\pi^{1/2}}$
+\begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{C^{1/d}\pi^{1/2}}$
 \end_inset
 
 .
@@ -1180,11 +1345,11 @@ literal "false"
 
 \begin_layout Standard
 With intensity 
-\begin_inset Formula $n\lambda$
+\begin_inset Formula $nC$
 \end_inset
 
 , we can write 
-\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{(n\lambda)^{1/d}\pi^{1/2}}$
+\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{(nC)^{1/d}\pi^{1/2}}$
 \end_inset
 
 .
@@ -1206,9 +1371,9 @@ In 3D,
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\mu_{d} & = & (n\lambda)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
- & = & (n\lambda)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
- & \approx & 0.554\frac{1}{(n\lambda)^{1/3}}
+\mu_{d} & = & (nC)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
+ & = & (nC)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
+ & \approx & 0.554\frac{1}{(nC)^{1/3}}
 \end{array}
 \end{equation}
 
@@ -1219,12 +1384,12 @@ In 3D,
 
 \begin_layout Standard
 This needs to be taken into account when defining 
-\begin_inset Formula $\lambda$
+\begin_inset Formula $C$
 \end_inset
 
 .
  For microphytoplankton, using 
-\begin_inset Formula $\lambda=10$
+\begin_inset Formula $C=10$
 \end_inset
 
  cm
@@ -1241,7 +1406,7 @@ This needs to be taken into account when defining
 
  cm.
  For nanophytoplankton, using 
-\begin_inset Formula $\lambda=10^{3}$
+\begin_inset Formula $C=10^{3}$
 \end_inset
 
  cm
@@ -1320,7 +1485,7 @@ status open
 \begin_layout Plain Layout
 Mean and minimum distance to the nearest neighbour for 10 microphytoplankton
  species with density 
-\begin_inset Formula $\lambda=10$
+\begin_inset Formula $C=10$
 \end_inset
 
  cm
@@ -1380,7 +1545,7 @@ status open
 \begin_layout Plain Layout
 Mean and minimum distance to the nearest neighbour for 10 nanophytoplankton
  species with density 
-\begin_inset Formula $\lambda=10^{3}$
+\begin_inset Formula $C=10^{3}$
 \end_inset
 
  cm
@@ -1472,7 +1637,7 @@ Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
  i.e.
  when points are only distributed according to a Thomas point process with
  parent intensity 
-\begin_inset Formula $\lambda_{p}=200$
+\begin_inset Formula $C_{p}=200$
 \end_inset
 
  cm
@@ -1569,7 +1734,7 @@ ton (b) 3-species community with even distributions after 1000 timesteps
  simulation, i.e.
  when points are only distributed according to a Thomas point process with
  parent intensity 
-\begin_inset Formula $\lambda_{p}=200$
+\begin_inset Formula $C_{p}=200$
 \end_inset
 
  cm
@@ -1673,6 +1838,12 @@ If we use
 \end_layout
 
 \begin_layout Standard
+As could be expected, when the flow velocity decreases, mixing decreases
+ (Fig.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
@@ -1696,7 +1867,8 @@ status open
 Dominance indices for one species in a microphytoplankton (a) and nanophytoplank
 ton (b) 3-species community with even distributions after 1000 timesteps
  with (circles) and without (lines) advection for different duration of
- the timesteps.
+ the timesteps, with reference parameters (black) and lower flow velocity
+ (grey).
  
 \end_layout
 

@@ -16,7 +16,7 @@ intensity_children=c(50,10,50)
 intensity_total=intensity_parent*intensity_children
 
 
-pdf("example_Thomas_distribution.pdf",width=5,height=5)
+pdf("example_Poisson_distribution.pdf",width=5,height=5)
 
 layout(matrix(c(1,1,2,2,3,3,4,4), c(2,4),byrow=T))
 
@@ -29,7 +29,7 @@ for(i in 1:length(intensity_parent)){
 	x=c()
 	y=c()
 	z=c()
-	m_p=rpois(1,intensity_parent[i])
+	m_p=rpois(1,intensity_total[i])
 	for (j in 1:m_p){
 		xtmp=runif(1,0,1)
 		ytmp=runif(1,0,1)
@@ -37,15 +37,6 @@ for(i in 1:length(intensity_parent)){
 		x=c(x,xtmp)
 		y=c(y,ytmp)
 		z=c(z,ztmp)
-		m_c=rpois(1,intensity_children[i])
-		for (c in 1:m_c){
-			x_bis=rnorm(1,xtmp,asigma)
-			y_bis=rnorm(1,ytmp,asigma)
-			z_bis=rnorm(1,ztmp,asigma)
-			x=c(x,x_bis)
-			y=c(y,y_bis)
-			z=c(z,z_bis)
-		}
 	}
 	spl$points3d(x, y, z, col=colo[i],pch=16,cex=0.5)
 }
@@ -55,7 +46,7 @@ seq_r=10^pow_r
 
 par(mar=c(4,4,4,4))
 ###########PCF
-plot(0,0,xlim=range(seq_r),ylim=c(0,250),xlab="r",ylab="g",t="n",log="x",axes=F)
+plot(0,0,xlim=range(seq_r),ylim=c(0.5,1.5),xlab="r",ylab="g",t="n",log="x",axes=F)
 axis(1, at=log10Tck('x','major'), tcl= 0.5) # bottom
 axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 axis(2)
@@ -63,25 +54,25 @@ box()
 mtext("b",side=3,line=2.1,font=2,at=8e-5,cex=0.7)
 
 
+th_poisson=rep(1,length(seq_r))
 for(i in 1:length(intensity_parent)){
-	th_thomas=1+exp(-seq_r^2/(4*asigma^2))*(4*pi*asigma^2)^(-3/2)*1/intensity_parent[i]
-	lines(seq_r,th_thomas,col=colo[i],lty=alty[i],lwd=2)
+	lines(seq_r,th_poisson,col=colo[i],lty=alty[i],lwd=2)
 }
 
 ###########Ripley's functions
-plot(0.1,0.1,xlim=range(seq_r),ylim=c(1e-7,5),xlab="r",ylab="K",t="n",log="xy",axes=F)
+plot(0.1,0.1,xlim=range(seq_r),ylim=c(1e-12,5),xlab="r",ylab="K",t="n",log="xy",axes=F)
 axis(1, at=log10Tck('x','major'), tcl= 0.5) # bottom
 axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 axis(2, at=log10Tck('y','major'), tcl= 0.5)
 axis(2, at=log10Tck('y','minor'), tcl= 0.1, labels=NA)
 box()
 mtext("c",side=3,line=2.1,font=2,at=8e-5,cex=0.7)
+legend("topleft",c(paste("Sp1=",round(100*intensity_total[1]/sum(intensity_total)),"%"),paste("Sp2=",round(100*intensity_total[2]/sum(intensity_total)),"%"),paste("Sp3=",round(100*intensity_total[3]/sum(intensity_total)),"%")),col=colo,lty=alty,lwd=2,bty="n")
 
 
+th_poisson=4/3*pi*seq_r^3
 for(i in 1:length(intensity_parent)){
-	th_thomas=thomas_cdf(seq_r,asigma,intensity_parent[i])
-	print(range(th_thomas))
-	lines(seq_r,th_thomas,col=colo[i],lwd=2,lty=alty[i])
+	lines(seq_r,th_poisson,col=colo[i],lwd=2,lty=alty[i])
 }
 
 ###########Dominance
@@ -96,12 +87,10 @@ th_poisson=4/3*pi*seq_r^3
 den_1=sum(intensity_total)*th_poisson
 
 for(i in 1:length(intensity_parent)){
-	th_thomas=thomas_cdf(seq_r,asigma,intensity_parent[i])
-	num=intensity_total[i]*th_thomas
+	num=intensity_total[i]*th_poisson
 	th_dom=num/(den_1+num-intensity_total[i]*th_poisson)
 	lines(seq_r,th_dom,lty=alty[i],col=colo[i],lwd=2)
 }
 
-legend("bottomleft",c(paste("Sp1=",round(100*intensity_total[1]/sum(intensity_total)),"%"),paste("Sp2=",round(100*intensity_total[2]/sum(intensity_total)),"%"),paste("Sp3=",round(100*intensity_total[3]/sum(intensity_total)),"%")),col=colo,lty=alty,lwd=2,bty="n")
 
 dev.off()
