@@ -24,7 +24,7 @@ tot_max=list(lim_max_diatom,lim_max_nano)
 
 keep_results=matrix(NA,nrow=10,ncol=9)
 colnames(keep_results)=c("Abundances","Dlower_adv_micro","Dlower_noadv_micro","Rthreshold_adv_micro","Rthreshold_noadv_micro","Dlower_adv_nano","Dlower_noadv_nano","Rthreshold_adv_nano","Rthreshold_noadv_nano")
-corresponding_names=c("r/D_i<95%","D_i/r=10 diam")
+corresponding_names=c(expression(r[95~"%"]),expression(D[threshold]))
 
 for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 	for(adv in 1:length(tot_sim[orga][[1]])){ #Advection or no advection
@@ -112,24 +112,24 @@ write.table(keep_results,"dom_indices_10sp.txt",sep=";",dec=".",col.names=TRUE,r
 pdf("carac_10species.pdf")
 par(mfrow=c(2,2),mar=c(2,4,4,2))
 plot(0,0,t="n",xlim=range(keep_results[,"Abundances"]),ylim=range(keep_results[,c("Dlower_adv_micro","Dlower_noadv_micro")]),xlab="",ylab=corresponding_names[1],main="Micro",log="x")
-points(keep_results[,"Abundances"],keep_results[,"Dlower_adv_micro"],pch=16)
-lines(keep_results[,"Abundances"],keep_results[,"Dlower_noadv_micro"],lty=1)
+points(keep_results[,"Abundances"],keep_results[,"Dlower_adv_micro"],pch=1)
+lines(keep_results[,"Abundances"],keep_results[,"Dlower_noadv_micro"],lty=1,t="o",pch=16)
 mtext("a",side=3,line=1.5,font=2,at=500)
 
 plot(0,0,t="n",xlim=range(keep_results[,"Abundances"]),ylim=range(keep_results[,c("Dlower_adv_nano","Dlower_noadv_nano")]),xlab="",ylab="",main="Nano",log="x")
-points(keep_results[,"Abundances"],keep_results[,"Dlower_adv_nano"],pch=16)
-lines(keep_results[,"Abundances"],keep_results[,"Dlower_noadv_nano"],lty=1)
+points(keep_results[,"Abundances"],keep_results[,"Dlower_adv_nano"],pch=1)
+lines(keep_results[,"Abundances"],keep_results[,"Dlower_noadv_nano"],lty=1,t="o",pch=16)
 mtext("b",side=3,line=1.5,font=2,at=500)
 
 par(mar=c(4,4,2,2))
 plot(0,0,t="n",xlim=range(keep_results[,"Abundances"]),ylim=range(keep_results[,c("Rthreshold_adv_micro","Rthreshold_noadv_micro","Rthreshold_adv_nano","Rthreshold_noadv_nano")]),xlab="abundances",ylab=corresponding_names[2],log="x")
-points(keep_results[,"Abundances"],keep_results[,"Rthreshold_adv_micro"],pch=16)
-lines(keep_results[,"Abundances"],keep_results[,"Rthreshold_noadv_micro"],lty=1)
+points(keep_results[,"Abundances"],keep_results[,"Rthreshold_adv_micro"],pch=1)
+lines(keep_results[,"Abundances"],keep_results[,"Rthreshold_noadv_micro"],lty=1,t="o",pch=16)
 mtext("c",side=3,line=0.5,font=2,at=500)
 
 plot(0,0,t="n",xlim=range(keep_results[,"Abundances"]),ylim=range(keep_results[,c("Rthreshold_adv_micro","Rthreshold_noadv_micro","Rthreshold_adv_nano","Rthreshold_noadv_nano")]),xlab="abundances",ylab="",log="x")
-points(keep_results[,"Abundances"],keep_results[,"Rthreshold_adv_nano"],pch=16)
-lines(keep_results[,"Abundances"],keep_results[,"Rthreshold_noadv_nano"],lty=1)
+points(keep_results[,"Abundances"],keep_results[,"Rthreshold_adv_nano"],pch=1)
+lines(keep_results[,"Abundances"],keep_results[,"Rthreshold_noadv_nano"],lty=1,t="o",pch=16)
 mtext("d",side=3,line=0.5,font=2,at=500)
-legend("bottomright",c("Adv","No adv"),pch=c(16,NA),lty=c(NA,1))
+legend("bottomright",c("Adv","No adv"),pch=c(1,16),lty=c(NA,1))
 dev.off()
