@@ -156,9 +156,8 @@ The coexistence of multiple phytoplankton species despite their reliance
  Defining a zone of possible interactions as the overlap between nutrient
  depletion volumes around a particle, we show that the composition of the
  interacting neighbourhood is size-dependent.
- Larger cells are surrounded by more species different from their own within
- the depletion zone, while smaller organisms remain in mostly monospecific
- clusters.
+ Larger cells are surrounded by cells from other species, while smaller
+ organisms remain in mostly monospecific clusters.
  Intraspecific interactions are therefore more likely than interspecific
  interactions for smaller organisms, which is a major explanation of diversity
  maintenance.
@@ -172,7 +171,7 @@ The coexistence of multiple phytoplankton species despite their reliance
 status open
 
 \begin_layout Plain Layout
-150-250 -> 250
+150-250 -> 244
 \end_layout
 
 \end_inset
@@ -397,7 +396,7 @@ literal "false"
 \end_inset
 
 .
- Viscosity decreases diffusivity, which can in turn generate an heterogeneous
+ Viscosity decreases diffusivity, which can in turn generate a heterogeneous
  landscape by limiting movements and mixing.
  At the other end of the hydrodynamics spectrum, studies on the fluid mechanics
  of phytoplankton show that a turbulent flow, sometimes associated with
@@ -458,7 +457,7 @@ literal "false"
  In this framework, population growth is a result of all individual births,
  deaths and survivals, which can in turn create a patchy environment as
  individuals are born close to their parents which can lead to clusters
- of `kin' by itself 
+ of `kin' 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -497,8 +496,8 @@ literal "false"
  Intraspecific clustering increases the likelihood of a particle interacting
  with an organism of its own species (a conspecific) instead of a different
  species (a heterospecific).
- Knowing that a high intra-to-interspecific interaction strength is associated
- with coexistence in models 
+ Knowing that a high intra-to-interspecific interaction strength ratio is
+ associated with coexistence in models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "levine_importance_2009,barabas_self-regulation_2017"
@@ -607,9 +606,21 @@ stics of the cell (the inertia related to the size of the organism) allow
 
  C/L.
  Numerical costs could however be partially offset by favoring mathematical
- analyses of aggregated quantities describing the expected behaviour of
- the considered spatial random distributions of events, aka spatial point
- processes.
+ analyses.
+ Indeed, the random distributions of events emerging from a series of stochastic
+ processes that constitute the type of model we describe here are known
+ as spatial point processes, and can be studied by spatial statistics, via
+ the evaluation of aggregated quantities such as correlations between pairs
+ of points.
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "illian2008statistical"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -643,9 +654,9 @@ literal "false"
 \end_inset
 
 , which can be seen as the extension of moments of random variables.
- This enables us to characterize the composition of their neighbourhood
- for different distances from a particle, and use this information to make
- informed guesses about mechanisms supporting diversity within different
+ This enables us to characterize the composition of the neighbourhood of
+ a particle at different distances from it, and use this information to
+ make informed guesses about mechanisms supporting diversity within different
  communities of phytoplankton.
  
 \begin_inset Note Note
