@@ -105,8 +105,8 @@
 \begin_body
 
 \begin_layout Title
-Size-dependent clustering in phytoplankton communities in a three-dimensional
- environment
+Local intraspecific aggregation in phytoplankton model communities: spatial
+ scales of occurrence and implications for coexistence
 \end_layout
 
 \begin_layout Author
@@ -141,38 +141,40 @@ vspace{-1cm}
 The coexistence of multiple phytoplankton species despite their reliance
  on similar resources is often explained with mean-field models assuming
  mixed populations.
- In reality, observations of phytoplankton indicate aggregation at all scales,
- possibly hindering competitive exclusion as monospecific patches reduce
- the probability of competing with other species.
- Here, we present a three-dimension, individual-based model including stochastic
- birth and death processes as well as a simplified model of viscosity and
- turbulence at the microscale.
- We extract the corresponding spatial moment equations and show a good fit
- between theory and simulations.
+ In reality, observations of phytoplankton indicate spatial aggregation
+ at all scales, including at the scale of individuals, possibly hindering
+ competitive exclusion since monospecific patches reduce competition with
+ other species.
+ To evaluate how such local spatial aggregation could explain phytoplankton
+ diversity maintenance, an individual-based, multispecific representation
+ of cells in a realistic hydrodynamic environment is required.
+ Here, we generalize a mathematically tractable individual-based model of
+ phytoplankton population dynamics in a viscous and turbulent environment
+ to multiple species and three dimensions.
+ The model is studied through both simulations and the derivation of spatial
+ moment equations, in connection with point process theory.
+ The spatial moment equations show a good match between theory and simulations.
  Parameters are based on phytoplankters’ ecological and physical characteristics
-, as we compare two types of communities: large species at low density vs.
- small species at high density.
- The hydrodynamics of the environment is key in our model: when the environment
- is turbulent, species are more mixed than in a viscous-only environment.
- Defining a zone of possible interactions as the overlap between nutrient
- depletion volumes, we show that the composition of the interacting neighbourhoo
-d depends on the modeled community.
- Large species are surrounded by cells from other species, while smaller
- species remain in mostly monospecific clusters.
+, for both large and small phytoplankton.
+ We find that when turbulence is considered, species are more mixed than
+ in an environment dominated solely by viscosity.
+ Defining a zone of potential interaction as the overlap between nutrient
+ depletion volumes, we show that local species composition - within the
+ range of possible interactions - depends on the type of phytoplankton considere
+d.
+ In large phytoplankton, individuals are surrounded by cells from other
+ species, while in small phytoplankton, individuals remain in mostly monospecifi
+c clusters.
  Intraspecific interactions are therefore more likely than interspecific
- interactions for smaller phytoplankton, which is a major explanation of
- diversity maintenance.
- Our model should be taken as a first step towards multispecific spatial
- models for phytoplankton to identify mechanisms behind coexistence: with
- basic ecological and hydrodynamics processes, we show that organisms of
- the same species do aggregate, but still encounter other species within
- range of interaction.
+ interactions for small phytoplankton, which is a possible explanation for
+ diversity maintenance, while other mechanisms of coexistence must be examined
+ for large phytoplankton.
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-150-250 -> 248
+150-250 -> 249
 \end_layout
 
 \end_inset
@@ -331,31 +333,10 @@ literal "false"
 \end_inset
 
 .
- Most of these models consider mean-field dynamics in a non-spatial setting,
- i.e.
- keep the premise of a homogeneous habitat.
- Such assumption needs to be challenged, as we know that spatialized models
- including a heterogeneous environment and/or non-mixed populations can
- lead to highly different outcomes from their nonspatial counterparts 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "law_population_2003"
-literal "false"
-
-\end_inset
-
-, or even from mean-field spatial models which do not take into account
- the limitation in interaction and movement ranges 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "plank_spatial_2015"
-literal "false"
-
-\end_inset
-
-.
- This is even more relevant as field observations themselves have higlighted
- phytoplankton patchiness for more than a century 
+ However, most of these models consider mean-field dynamics in a non-spatial
+ setting, i.e., keep the premise of a homogeneous habitat.
+ Such assumption needs to be challenged, as field observations themselves
+ have revealed phytoplankton patchiness for more than a century 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bainbridge_size_1957"
@@ -372,7 +353,6 @@ literal "false"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -443,10 +423,8 @@ literal "false"
 \begin_layout Standard
 This leads us to consider demography in the context of environmental variation
  created by hydrodynamics processes.
- As hydrodynamics processes generate heterogeneity in both the distributions
- and the environment at the scale of the individuals, individual-based models
- can provide a better depiction of the behaviour of these organisms at the
- microscale 
+ Individual-based models provide a convenient depiction of population dynamics
+ and movement at the microscale 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hellweger_bunch_2009"
@@ -455,8 +433,8 @@ literal "false"
 \end_inset
 
 .
- In this framework, population growth is a result of all individual births
- and deaths.
+ In this framework, population growth is a result of individual births and
+ deaths.
  Aggregation of particles can emerge from local reproduction coupled with
  limited dispersal, which can happen in a fluid where turbulence and diffusion
  are not too high too disperse kin aggregates 
@@ -502,9 +480,8 @@ literal "false"
 \end_inset
 
 .
- Therefore, microscale spatial distribution of individuals likely affect
+ Therefore, the microscale spatial distribution of individuals likely affect
  the interaction structure within a community, and may sustain diversity.
- 
 \end_layout
 
 \begin_layout Standard
@@ -530,8 +507,17 @@ literal "false"
 \end_inset
 
 .
- When models consider different types of organisms, they focus on the segregatio
-n of only two sets of organisms with opposite, binary characteristics 
+ They share a similarity to dynamic point process models 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "law_population_2003,bolker_spatial_1999,plank_spatial_2015"
+literal "false"
+
+\end_inset
+
+ developed initially with larger organisms in mind.
+ When phytoplankton individual-based models consider multiple types of organisms
+, they focus for now on how organisms with opposite characteristics 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g., increase vs decrease in density with turbulence in"
@@ -540,7 +526,8 @@ literal "false"
 
 \end_inset
 
-, or on species with different niche along the same trait 
+ segregate spatially, or coexistence for species that have constrasted trait
+ values 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g., size in"
@@ -550,8 +537,18 @@ literal "false"
 \end_inset
 
 .
- In order to understand coexistence within a single trophic level, we need
- to focus on much more similar species and measure their segregation.
+ This is quite useful to understand how species with marked differences
+ coexist.
+ However, the difficulty of the coexistence problems is precisely that we
+ have to explain how species such as e.g.
+ diatoms, many of whom have similar size, buoyancy, chemical composition,
+ etc., manage to coexist within a single trophic level.
+ This requires to model 
+\emph on
+similar
+\emph default
+ species in spatially realistic environment and measure whether they aggregate
+ or segregate in space.
  
 \begin_inset Note Note
 status collapsed
@@ -639,20 +636,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Here, we present a multispecific version of the Brownian Bug Model (BBM),
- an individual-based model which includes turbulence and diffusion, as well
- as stochastic births and deaths.
- In its initial, two-dimension, monospecific version 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "young_reproductive_2001"
-literal "false"
-
-\end_inset
-
-, coupling limiting dispersal and local reproduction with ocean-like hydrodynami
-cs created clusters of individuals of the same species.
- However, the model presented in 
+To do so, we build a multispecific version of the Brownian Bug Model (BBM)
+ of 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -660,7 +645,20 @@ literal "false"
 
 \end_inset
 
- was not strongly quantitative 
+, an individual-based model which includes fluid turbulence and passive
+ diffusion, as well as stochastic birth and death processes.
+ The initial version of this model 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "young_reproductive_2001"
+literal "false"
+
+\end_inset
+
+ coupled limited dispersal and local reproduction with ocean-like hydrodynamics
+ and showed spatial clusters of individuals of the same species.
+ It was limited to a single species and a two-dimensional environment.
+ Furthermore, the model was not strongly quantitative 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "picoche_rescience_2022"
@@ -668,11 +666,13 @@ literal "false"
 
 \end_inset
 
-: as phytoplankton organisms evolve in a three-dimension environment, informing
- the model with realistic parameters required us to shift to a three-dimension
- representation, as well as multiple species to study coexistence.
- We consider two types of communities, which are either made of nanophytoplankto
-n (3 
+ in the sense that parameters were not informed by current knowledge on
+ phytoplankton biology (numbers of cells per liter, diffusion characteristics,
+ etc.).
+ As phytoplankton organisms live in a three-dimensional environment, informing
+ the model with realistic parameters required us to shift to three dimensions.
+ We also added the possibility for multiple species, and consider two types
+ of communities, which are either made of nanophytoplankton (3 
 \begin_inset ERT
 status open
 
@@ -711,8 +711,36 @@ textmu
 \end_layout
 
 \begin_layout Standard
-Our model is linked to spatial branching processes and constitute a spatial
- point process 
+The Brownian Bug model (in its original form and the multispecies version
+ considered here) is linked to spatial branching processes, in the sense
+ that it combines a continuous-time, discrete-state model for population
+ growth and a continuous-time, continuous-space Brownian motion for particles
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "birch_bounding_2007"
+literal "false"
+
+\end_inset
+
+.
+ It is further complexified by the presence of a turbulent flow 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "young_reproductive_2001,picoche_rescience_2022"
+literal "false"
+
+\end_inset
+
+.
+ It is possible to derive the dynamics of the pair density function, which
+ quantifies the degree of intra- and interspecific clustering of organisms,
+ via correlations between positions of organisms (see Methods).
+ This means that in addition to simulations, we can keep track analytically
+ of spatial structure.
+ Furthermore, because we do not consider direct interactions between particles,
+ the multispecies spatial point process is mathematically a random superposition
+ of point processes, one for each species 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "illian2008statistical"
@@ -721,15 +749,10 @@ literal "false"
 \end_inset
 
 .
- As every realization of our model can be seen as the superposition of different
- point processes (one per species), we are able to provide the analytical
- formula for the pair density function, which quantifies the degree of intra-
- and interspecific clustering of organisms, via correlations between positions
- of organisms.
- This enables us to characterize the composition of the neighbourhood of
- a particle at different distances from it, and use this information to
- make informed guesses about mechanisms supporting diversity within different
- communities of phytoplankton.
+ This enables us to derive, in addition to the pair correlation function,
+ analytical formulas for the species composition of the neighbourhood of
+ an individual, which are more readily ecologically interpreted than the
+ pair density or correlation function.
  
 \begin_inset Note Note
 status collapsed
@@ -738,6 +761,16 @@ status collapsed
 We mentioned the idea that we derive here equations for a point process
  mingling spatial jump process and continuous-time process, as opposed to
  Dieckman and Law but I cannot find a way to introduce this idea smoothly.
+ –> this is a Discussion point actually.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+to make informed guesses about mechanisms supporting diversity within different
+ communities of phytoplankton.
+ -> the fact that we're limited to informed guesses rather than clear-cut
+ conclusions is something that we probably want to keep for the discussion.
+ 
 \end_layout
 
 \end_inset
@@ -833,7 +866,7 @@ In this model, we consider a community of particles, each individual being
 \end_inset
 
  and its position 
-\begin_inset Formula $\mathbf{x}^{T}=(x\,y\,z)$
+\begin_inset Formula $\mathbf{x}^{T}=(x,\,y,\,z)$
 \end_inset
 
 .
@@ -3577,10 +3610,10 @@ could help to understand the observed patchiness of phytoplankton, and the
 \end_layout
 
 \begin_layout Standard
-We designed a stochastic, three-dimension, individual-based model of multiple
- species of particles in a viscous and turbulent flow, and conducted both
- the mathematical analyses and numerical simulations to quantify spatial
- correlations in particle distributions.
+We designed a stochastic, three-dimension, individual-based model of the
+ spatial distribution of multiple species in a viscous and turbulent flow.
+ We conducted both mathematical analyses and numerical simulations to quantify
+ spatial correlations in particle distributions.
  We focused on the pair correlation function and Ripley's K-function, for
  which numerical and theoretical analyses showed a good agreement, and computed
  the corresponding dominance index to quantify the degree of intraspecific
@@ -3590,22 +3623,39 @@ We designed a stochastic, three-dimension, individual-based model of multiple
  on its size, which mechanically determines its hydrodynamics properties
  (diffusivity), and is linked with its ecological characteristics (growth
  rate and density).
- While turbulence always led to more mixing, microphytoplankters, larger
- cells with lower diffusivity, growth rate and abundance, were further away
- from heterospecifics than nanophytoplankters, but they were more likely
- to interact with individuals from other species than with individuals of
- their own species.
+ While turbulence always led to more mixing, microphytoplankters (20 to
+ 200 
+\begin_inset Formula $\mu m$
+\end_inset
+
+), larger cells with lower diffusivity, growth rate and abundance, were
+ further away on average from other cells, due to their lower density
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+check
+\end_layout
+
+\end_inset
+
+, than nanophytoplankters (2 to 20 
+\begin_inset Formula $\mu m$
+\end_inset
+
+), but they were more likely to interact with individuals from other species
+ than with individuals of their own species.
  Indeed, even though all microphytoplankton and nanophytoplankton species
  showed a strong intraspecific aggregation at small scales, a microphytoplankter
- was, on average, surrounded by more heterospecifics than conspecifics at
- distances defining a volume of possible interaction.
+ was, on average, surrounded by more heterospecifics than conspecifics within
+ a volume of possible interaction.
 \end_layout
 
 \begin_layout Standard
-If we first focus on the smallest interaction distances between particles,
- we note that the nearest neighbour of a particle was always a particle
- of the species, and that the minimum distance between conspecifics was
- always lower than expected with a uniform distribution (Section SX).
+We first focus on the smallest interaction distances between particles.
+ The nearest neighbour of a particle was always a particle of the same species,
+ and that the minimum distance between conspecifics was always lower than
+ expected for a uniform distribution (Section SX).
  The dominance index remained close to 1 for distances below 
 \begin_inset Formula $10^{-2}$
 \end_inset
@@ -3615,15 +3665,33 @@ If we first focus on the smallest interaction distances between particles,
 \end_inset
 
  cm for microphytoplankton and nanophytoplankton respectively.
- This is due to the prevalence of demographics processes at small scales,
+ There is therefore always 
+\emph on
+some
+\emph default
+ intraspecific aggregation.
+ This is due to the prevalence of demographic processes at individual scales,
  because a particle acts as a source point for other organisms of the same
  species, and hydrodynamics processes do not separate conspecifics fast
  enough to prevent aggregation.
- In addition to this balance between diffusion and fission rate, the abundance
- of a species within the volume of observation also impacts the distance
- between its individuals: a higher density automatically reduces the expected
- distances between particles, and therefore the distance to the nearest
- neighbour (Section SX).
+ This spatial aggregation created by the balance between diffusion and fission
+ rate is also modulated by the abundance of a species within the volume
+ of observation.
+ Indeed, as we model communities at a steady-state population size (on average),
+ population densities are parameters in our model.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+[F: There is interesting information in there but it is unclear what we
+ the reader should make of it.] Changes in average density also impact the
+ distance between conspecifics: a higher density automatically reduces the
+ expected distances between particles, and therefore the distance to the
+ nearest neighbour (Section SX).
  Distances between individuals can have a direct effect on their interactions:
  as a phytoplankter creates a gradient of depletion around itself, where
  nutrient concentrations are lower as we get closer to the cell 
@@ -3648,14 +3716,11 @@ literal "false"
 \end_inset
 
 , can also impact organisms, both positively and negatively.
- Thus, the spatial aggregation of individuals of the same species and segregatio
-n of different species at the microscale can have consequences at larger
- scales.
- If all species are equivalent with regards to their nutrient requirement
+ If all species are equivalent with regards to their nutrient requirements
  and consumption, only the distances between individuals, not the identity
  of the individuals, changes the strength (or even existence) of their interacti
 on.
- In this case, the interaction structure of the community can emerge from
+ In this case, the interaction structure of the community will emerge from
  the spatial structure of individuals at distances relevant for interactions,
  i.e.
  at the microscale, and intraspecific aggregates make intraspecific interactions
@@ -3674,6 +3739,11 @@ literal "false"
  light, vitamins, etc.) in models of community, we propose here that it can
  also emerge from the spatial distribution of individuals, which is affected
  by the trade-off between demographics and hydrodynamics processes.
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
