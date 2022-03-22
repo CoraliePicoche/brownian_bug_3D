@@ -3622,7 +3622,7 @@ i.e.
 
 \shape default
  the dominance index.
- This statistics is the average ratio of the number of organisms of a given
+ This statistic is the average ratio of the number of organisms of a given
  species in the neighbourhood of a particle of the same species, compared
  to the total number of organisms, as a function of the distance from the
  particle.
@@ -3639,11 +3639,21 @@ i.e.
  increased mixing, and that the species composition around a particle depended
  on its size, which mechanically determines its hydrodynamics properties
  (diffusivity), and is linked with its ecological characteristics (growth
- rate and density) Microphytoplankters (20 to 200 
-\begin_inset Formula $\mu m$
+ rate and density).
+ Microphytoplankters (20 to 200 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
 \end_inset
 
-), larger cells with lower diffusivity, growth rate and abundance, were
+ m), larger cells with lower diffusivity, growth rate and abundance, were
  on average further away from other cells, due to their lower density
 \begin_inset Note Note
 status open
@@ -3655,14 +3665,23 @@ check
 \end_inset
 
 , than nanophytoplankters (2 to 20 
-\begin_inset Formula $\mu m$
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textmu
+\end_layout
+
 \end_inset
 
-), but they were more likely to interact with individuals from other species
+ m), but they were more likely to interact with individuals from other species
  than with individuals of their own species.
  Indeed, a microphytoplankton particle was surrounded by more heterospecifics
  than conspecifics within its volume of possible interactions, defined as
- maximum the distance for which depletion volumes may overlap.
+ the maximum distance for which nutrient depletion volumes may overlap.
  However, if we consider different distances within this volume, this affirmatio
 n needs to be nuanced: there was always a (potentially small) radius around
  a particle for which the community remained monospecific.
@@ -3673,8 +3692,8 @@ n needs to be nuanced: there was always a (potentially small) radius around
 \begin_layout Standard
 We first focus on the smallest interaction distances between particles.
  The nearest neighbour of a particle was always a particle of the same species,
- and that the minimum distance between conspecifics was always lower than
- expected for a uniform distribution (Section SX).
+ and the minimum distance between conspecifics was always lower than expected
+ for a uniform distribution (Section SX).
  The dominance index remained close to 1 for distances below 
 \begin_inset Formula $10^{-2}$
 \end_inset
@@ -3684,18 +3703,18 @@ We first focus on the smallest interaction distances between particles.
 \end_inset
 
  cm for microphytoplankton and nanophytoplankton respectively.
- There is therefore always 
+ There was therefore always 
 \emph on
 some
 \emph default
  intraspecific aggregation, i.e.
- conspecifics are always closer than heterospecifics.
+ some conspecifics were always closer than heterospecifics.
  This is due to the prevalence of demographic processes at individual scales,
  because a particle acts as a source point for other organisms of the same
  species, and hydrodynamics processes do not separate conspecifics fast
  enough to prevent aggregation.
- If we consider that interaction strengths are a decaying function of distance,
- a common assumption in spatial coexistence models 
+ If we consider that interaction strengths are a smooth decaying function
+ of distance, a common assumption in spatial coexistence models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bolker_spatial_1999,law_population_2003"
@@ -3815,34 +3834,33 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Dominances begins to decrease at distances above 
+Dominances began to decrease at distances above 
 \begin_inset Formula $10^{-3}$
 \end_inset
 
  cm, still below the maximum distance for interactions.
  At this distance and above, the balance between heterospecifics and conspecific
-s is much more sensitive to different phytoplankton's demographics and hydrodyna
-mics traits.
- The species composition of a particle's neighbourhood depends on its size:
- nanophytoplankton organisms mainly share their volume of interactions with
- conspecifics (the dominance index remains close to 1, even near the overlap
- threshold) while microphytoplankton organisms can affect both conspecifics
- and heterospecifics (the dominance index is often below 50% at the overlap
- threshold, i.e.
- a particle's depletion zone is likely to overlap with more heterospecifics'
+s was much more sensitive to different phytoplankton's demographics and
+ hydrodynamics traits.
+ The species composition of a particle's neighbourhood depended on its size:
+ nanophytoplankton organisms mainly shared their volume of interactions
+ with conspecifics (the dominance index remained close to 1, even near the
+ overlap threshold) while microphytoplankton organisms could affect both
+ conspecifics and heterospecifics (the dominance index was often below 50%
+ at the overlap threshold, i.e.
+ a particle's depletion zone probably overlapped with more heterospecifics'
  than conspecifics').
- Microphytoplankters are therefore more likely to interact with heterospecifics
+ Microphytoplankters were therefore more likely to interact with heterospecifics
  than nanophytoplankters, due to their lower reproduction rate.
- The rate of production of new conspecifics is not able to compensate for
- the separation velocity due to turbulence and diffusivity, even though
- the diffusion range of microphytoplankter's is smaller than the nanophytoplankt
-er's.
+ The rate of production of new conspecifics was not sufficient compensate
+ for the separation velocity due to turbulence and diffusivity, even though
+ the diffusion range of microphytoplankter's was smaller than the nanophytoplank
+ter's.
  There may therefore be different mechanisms at play at the community level
  for microphytoplankton and nanophytoplankton.
- For nanophytoplankton, whose interactions are mostly with conspecifics,
- the interactions network of the community is likely characterized by intraspeci
-fic interactions stronger than interspecific interactions, which is key
- in coexistence theory 
+ For nanophytoplankton, the interactions network of the community is likely
+ characterized by intraspecific interactions stronger than interspecific
+ interactions, which is key in coexistence theory 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "barabas_self-regulation_2017"
@@ -3859,9 +3877,9 @@ literal "false"
  interactions at the community level.
  The dominance of heterospecifics in a microphytoplankter's neighbourhood
  may however be debated.
- Indeed, when computing the volumes of zones relevant for interactions (either
- for nutrients or for other components linked to the phycosphere), we use
- maximum volumes, corresponding to a diffusive-only flow.
+ Indeed, when computing the volumes of zones relevant for interactions based
+ on nutrient concentrations around a cell, we used maximum volumes, correspondin
+g to a diffusive-only flow.
  When turbulence increases, uptake increases and the size of the depletion
  zone decreases 
 \begin_inset CommandInset citation
@@ -3903,17 +3921,18 @@ Up to now, we have only focused on the dominance index, a ratio of average
  on the absolute numbers of individuals.
  Mechanically, when density decreases, the distances between neighbours
  increases, which explains that the distances between the low-abundance
- microphytoplankters tend to be greater than distances between high-abundance
+ microphytoplankters tended to be greater than distances between high-abundance
  nanophytoplankters.
  The separation can even reach the maximum threshold for interactions to
  happen: there might therefore be a point for which a particle is only surrounde
 d by its own children, which are then advected further.
  Interactions may therefore be scarce in both space and time.
- When interactions remain possible, density can have a paradoxical effect:
- a species with a higher density is more omnipresent, and heterospecifics
- are closer when compared to a lower-density species.
- These observations are however dependent on the densities we consider in
- our model, which corresponds to annual average.
+ At the other end of the spectrum, high densities could have a paradoxical
+ effect: a species with a higher density was omnipresent, and heterospecifics
+ were closer when compared to a lower-density species, even though this
+ species was more dominant in its interaction range.
+ These observations are however dependent on the densities we considered
+ in our model, which correspond to annual average.
  If we were to model populations in a bloom, during which microphytoplankton
  particles can reach 
 \begin_inset Formula $10^{6}$
@@ -3928,12 +3947,16 @@ literal "false"
 
 \end_inset
 
-, we would likely see the dominance of the blooming species at all scales.
- When abundance increases, the competition can also increase due to depletion
- of nutrients in the whole environment.
+, we would likely see the dominance of the single blooming species at all
+ scales.
+ The environment is also modified by a bloom: the competition can increase
+ due to depletion of nutrients in the whole environment.
  If we want to make more general conclusions on interactions structure in
- different conditions (e.g.
- blooms or not), we therefore need a more mechanistic representation of
+ different conditions (
+\shape italic
+e.g.
+\shape default
+, blooms or not), we therefore need a more mechanistic representation of
  interactions.
  
 \end_layout
