@@ -1549,7 +1549,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 K_{ii}(r,t)=\begin{cases}
-\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right) & \text{for }U=0\\
+\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right) & \text{for }U=0\\
 \frac{4}{3}\pi r^{3}+\frac{2\lambda}{C_{i}}\left(\frac{r^{2}}{6D}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{6\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}\right) & \forall U>0
 \end{cases}\label{eq:K_intraspecific}
 \end{equation}
@@ -3654,17 +3654,8 @@ textmu
 \end_inset
 
  m), larger cells with lower diffusivity, growth rate and abundance, were
- on average further away from other cells, due to their lower density
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-check
-\end_layout
-
-\end_inset
-
-, than nanophytoplankters (2 to 20 
+ on average further away from other cells, due to their lower density (Section
+ SX), than nanophytoplankters (2 to 20 
 \begin_inset ERT
 status open
 
@@ -4805,7 +4796,7 @@ A solution for the Green's function using
 .
 \begin_inset Formula 
 \begin{equation}
-G(r,t)=2\lambda C\left(\frac{\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+K\right)\label{eq:G_r_t}
+G(r,t)=2\lambda C\left(\frac{-\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+K\right)\label{eq:G_r_t}
 \end{equation}
 
 \end_inset
@@ -4846,7 +4837,7 @@ noprefix "false"
 \begin{equation}
 \begin{array}{ccc}
 C^{2} & = & 2\lambda C\left(\frac{1}{8\pi Dr}+K\right)\\
-\Leftrightarrow\frac{C}{2\lambda}+ & \frac{1}{8\pi Dr}= & K
+\Leftrightarrow\frac{C}{2\lambda}- & \frac{1}{8\pi Dr}= & K
 \end{array}
 \end{equation}
 
@@ -4863,7 +4854,7 @@ We can finally compute G(r,t):
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-G(r,t) & = & 2\lambda C\left(\frac{\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+\frac{C}{2\lambda}+\frac{1}{8D\pi r}\right)\\
+G(r,t) & = & 2\lambda C\left(-\frac{\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+\frac{C}{2\lambda}+\frac{1}{8D\pi r}\right)\\
  & = & \frac{\lambda C}{4\pi Dr}\left\{ 1-\erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +C^{2}\\
 \Leftrightarrow g(r,t) & = & \frac{\lambda}{4D\pi rC}\left\{ 1-\erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +1
 \end{array}\label{eq:pcf_noadv_bbm}

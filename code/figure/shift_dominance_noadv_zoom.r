@@ -85,7 +85,7 @@ a_tau=f_param[f_param$name=="tau","value"]
 a_tmax=f_param[f_param$name=="tmax","value"]
 
 th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
-th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
+th_dominance=concentrations[s]*(th_bbm+th_thomas-th_poisson)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm+th_thomas-2*th_poisson))
 f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
 lines(f_tmp$r,f_tmp$dominance,col=palette[2])
 points(th_r,th_dominance,col="black",pch=1)
@@ -104,6 +104,7 @@ u_r=unique(f_tot$r)
 f_count=read.table(paste("../simulation/nb_indiv_",nb_simu_na[[n]][m],".txt",sep=""),sep=";",header=F,dec=".")
 colnames(f_count)=c("species","abundance")
 concentrations=f_count$abundance/volume
+print(concentrations)
 
 f_param=read.table(paste("../simulation/param_",nb_simu_na[[n]][m],".txt",sep=""),sep="=",header=F,dec=".")
 f_param[,2]=as.numeric(as.character(f_param[,2]))
@@ -121,7 +122,7 @@ a_tau=f_param[f_param$name=="tau","value"]
 a_tmax=f_param[f_param$name=="tmax","value"]
 
 th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
-th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
+th_dominance=concentrations[s]*(th_bbm+th_thomas-th_poisson)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm+th_thomas-2*th_poisson))
 f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
 lines(f_tmp$r,f_tmp$dominance,col=palette[2+m],lwd=2)
 points(th_r,th_dominance,col="black",pch=c(0,2)[m])

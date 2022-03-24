@@ -52,7 +52,6 @@ plot(0,0,t="n",xlim=range(u_r),ylim=c(0.3,1),xlab="r",ylab=yl,log="x",main=ml,ax
 
         for(s in 1:length(unique_sp)){
 		th_dominance_thomas=(concentrations[s]*th_thomas)/(sum(concentrations)*th_poisson+concentrations[s]*(th_thomas-th_poisson))
-#		th_dominance_thomas=(concentrations[s]*(th_thomas+th_poisson))/(sum(concentrations)*th_poisson+concentrations[s]*th_thomas)
 	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
         	id_b=seq(1,length(f_tmp$r),length.out=50)
 	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
@@ -120,7 +119,7 @@ a_tmax=f_param[f_param$name=="tmax","value"]
 
         for(s in 1:length(unique_sp)){
         	th_bbm=BBM_cdf(th_r,gamma,a_Delta,concentrations[s],a_lambda,a_tau,t=a_tmax)
-        	th_dominance=concentrations[s]*(th_bbm)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm-th_poisson))
+        	th_dominance=concentrations[s]*(th_bbm+th_thomas-th_poisson)/(sum(concentrations)*th_poisson+concentrations[s]*(th_bbm+th_thomas-2*th_poisson))
 	        f_tmp=subset(f_tot,sp1==unique_sp[s] & sp2==unique_sp[s])
         	lines(f_tmp$r,f_tmp$dominance,col=palette[s],lwd=3)
 	}
