@@ -1627,10 +1627,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean distance to the nearest conspecific as a function of density in the
- environment for both microphytoplankton (black) and nanophytoplankton (grey)
- communities with a skewed abundance distribution, with (points) and without
- (squares) advection.
+Mean distance to the nearest conspecific (filled circle) or heterospecific
+ (empty square) as a function of density in the environment for both microphytop
+lankton (black) and nanophytoplankton (grey) communities with a skewed abundance
+ distribution, in the presence of advection.
  
 \end_layout
 
