@@ -3,10 +3,13 @@ graphics.off()
 
 nb_simu_list=c(10,12)
 
-pdf("dist_abundances_10sp_v2.pdf")
+pdf("dist_abundances_10sp_v2_minimum.pdf")
 
-lims=c(0.01,0.8)
-plot(0,0,t="n",xlim=c(500,5e6),ylim=lims,log="x",xlab="C/L",ylab="Mean dist. to nearest neighbour",xaxt="n")
+#lims=c(0.01,0.8)
+#plot(0,0,t="n",xlim=c(500,5e6),ylim=lims,log="x",xlab="C/L",ylab="Min dist. to nearest neighbour",xaxt="n")
+
+lims=c(1e-5,0.015)
+plot(0,0,t="n",xlim=c(500,5e6),ylim=lims,log="x",xlab="C/L",ylab="Min dist. to nearest neighbour",xaxt="n")
 axis(1)
 
 for(i in 1:length(nb_simu_list)){
@@ -35,14 +38,16 @@ for(a_sp in unique_sp){
 
 	print(paste("For sp",a_sp))
 	print(paste("MONO: Mean=",mean(dist_mono)," and min=",min(dist_mono),sep=""))
-	points(realization[a_sp+1]/volume,mean(dist_mono),pch=16,cex=1.,col=colo)
+	#points(realization[a_sp+1]/volume,mean(dist_mono),pch=16,cex=1.,col=colo)
+	points(realization[a_sp+1]/volume,min(dist_mono),pch=16,cex=1.,col=colo)
 	
 	osp=setdiff(unique_sp,a_sp)
 	dist=c()
 	for(b_sp in 1:length(osp)){
 		dist=c(dist,tab_1[,3+osp[b_sp]])
 	}
-	points(realization[a_sp+1]/volume,mean(dist),pch=0,col=colo)
+	#points(realization[a_sp+1]/volume,mean(dist),pch=0,col=colo)
+	points(realization[a_sp+1]/volume,min(dist),pch=0,col=colo)
 
 } #end loop on unique_sp
 }	
