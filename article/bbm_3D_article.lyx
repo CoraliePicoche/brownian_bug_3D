@@ -339,7 +339,7 @@ literal "false"
  have revealed phytoplankton patchiness for more than a century 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bainbridge_size_1957"
+key "bainbridge_size_1957,stocker_marine_2012"
 literal "false"
 
 \end_inset
@@ -3622,18 +3622,23 @@ i.e.
 
 \shape default
  the dominance index.
- This statistic is the average ratio of the number of organisms of a given
- species in the neighbourhood of a particle of the same species, compared
- to the total number of organisms, as a function of the distance from the
- particle.
+ This statistic is the 
+\shape italic
+local
+\shape default
+ average ratio of the number of organisms of a given species in the neighbourhoo
+d of a particle of the same species, compared to the total number of organisms,
+ as a function of the distance from the particle.
  Intraspecific clustering corresponds to a dominance index close to 1, which
  decreases when interspecific mixing increases.
  The choice of this index was motivated by two reasons: it is at its core
- a proportion of a focus species in a certain volume, bounded between 0
- and 1 as opposed to other statistics whose values are less directly interpreted
-, and is easy to relate to coexistence theory as it describes the environment
- of a particle in terms of heterospecifics and conspecifics, which can then
- be related to interspecific and intraspecific interactions.
+ a proportion of a focus species in a certain volume, i.e.
+ a scale-dependent, localized metric bounded between 0 and 1 as opposed
+ to other statistics whose values are less directly interpreted, and is
+ easy to relate to coexistence theory as it describes the environment of
+ a particle in terms of heterospecifics and conspecifics, which can, under
+ certain hypotheses we discuss below, be related to interspecific and intraspeci
+fic interactions.
  Comparing the distributions of organisms of different sizes and demography,
  we showed that the presence and intensity (Section SX) of turbulence always
  increased mixing, and that the species composition around a particle depended
@@ -3668,20 +3673,21 @@ textmu
 
 \end_inset
 
- m), but they were more likely to interact with individuals from other species
- than with individuals of their own species.
- Indeed, a microphytoplankton particle was surrounded by more heterospecifics
- than conspecifics within its volume of possible interactions, defined as
- the maximum distance for which nutrient depletion volumes may overlap.
- However, if we consider different distances within this volume, this affirmatio
-n needs to be nuanced: there was always a (potentially small) radius around
- a particle for which the community remained monospecific.
+ m), but they were surrounded by more heterospecifics than conspecifics
+ within a volume of potential interactions, defined as the maximum distance
+ for which nutrient depletion volumes may overlap.
+ Microphytoplankters were therefore more likely to interact with individuals
+ from other species than with individuals of their own species.
+ However, if we consider different distances within the volume of potential
+ interactions, this affirmation needs to be nuanced: there was always a
+ (potentially small) radius around a particle for which the community remained
+ monospecific.
  Variability in species composition of the neighbourhood only intervened
  for larger distances.
 \end_layout
 
 \begin_layout Standard
-We first focus on the smallest interaction distances between particles.
+We first focus on the smallest distances between particles.
  The nearest neighbour of a particle was always a particle of the same species,
  and the minimum distance between conspecifics was always lower than expected
  for a uniform distribution (Section SX).
@@ -3708,6 +3714,7 @@ some
  of distance, a common assumption in spatial coexistence models 
 \begin_inset CommandInset citation
 LatexCommand citep
+before "e.g., "
 key "bolker_spatial_1999,law_population_2003"
 literal "false"
 
@@ -3903,13 +3910,25 @@ within
  than nanophytoplankton individuals, we should therefore be cautious in
  saying that microphytoplankton individuals interact with more heterospecifics
  than conspecifics.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Introduce the idea of Péclet and or Sherwoord number somewhere here, would
+ quantify
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Up to now, we have only focused on the dominance index, a ratio of average
- densities multiplied by the local average number of neighbours of a particle,
- therefore focusing on relative densities, but interactions also depend
- on the absolute numbers of individuals.
+Up to now, we have only focused on the dominance index, a localized ratio
+ of average densities multiplied by the local average number of neighbours
+ of a particle, therefore focusing on relative densities, but interactions
+ also depend on the absolute numbers of individuals.
  Mechanically, when density decreases, the distances between neighbours
  increases, which explains that the distances between the low-abundance
  microphytoplankters tended to be greater than distances between high-abundance
@@ -3949,7 +3968,6 @@ e.g.
 \shape default
 , blooms or not), we therefore need a more mechanistic representation of
  interactions.
- 
 \end_layout
 
 \begin_layout Standard
@@ -4126,8 +4144,30 @@ textmu
 \end_inset
 
  m-diameter particle).
- Once more, the phytoplankton traits may define its interactions with the
- others.
+ Predation is another, indirect way interactions can happen: if a predator
+ shifts to more abundant preys, alleviating the pressure on less abundant
+ species, this creates an apparent facilitative interaction at the population
+ level 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "abrams_apparent_1998"
+literal "false"
+
+\end_inset
+
+.
+ Experiments show that predation increases with aggregation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bjaerke_is_2015"
+literal "false"
+
+\end_inset
+
+, creating a new balance between indirect interactions and spatial distributions.
+ These trade-offs cannot be taken into account if explicit particles are
+ not modeled, either representing elements necessary for plankton metabolism,
+ or natural enemies.
 \end_layout
 
 \begin_layout Standard
