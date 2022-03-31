@@ -2808,7 +2808,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/spatial_distribution_zoom_nano.pdf
+	filename ../code/figure/spatial_distribution_zoom_nano.pdf
 	width 99text%
 
 \end_inset
@@ -2902,7 +2902,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_micronano.pdf
+	filename ../code/figure/K_micronano.pdf
 	display false
 	width 99text%
 
@@ -3034,7 +3034,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/dominance_diatom_nano_compare_advection.pdf
+	filename ../code/figure/dominance_diatom_nano_compare_advection.pdf
 	width 99text%
 
 \end_inset
@@ -3122,7 +3122,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/dominance_diatom_nano_compare_advection_10sp.pdf
+	filename ../code/figure/dominance_diatom_nano_compare_advection_10sp.pdf
 	width 99text%
 
 \end_inset
@@ -3226,7 +3226,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/carac_10species.pdf
+	filename ../code/figure/carac_10species.pdf
 	width 80text%
 
 \end_inset

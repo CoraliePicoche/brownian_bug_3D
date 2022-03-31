@@ -387,7 +387,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/example_Poisson_distribution.pdf
+	filename ../code/figure/example_Poisson_distribution.pdf
 	width 100text%
 
 \end_inset
@@ -457,7 +457,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/example_Thomas_distribution.pdf
+	filename ../code/figure/example_Thomas_distribution.pdf
 	width 75text%
 
 \end_inset
@@ -540,7 +540,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/theory_dominance.pdf
+	filename ../code/figure/theory_dominance.pdf
 	width 80text%
 
 \end_inset
@@ -759,7 +759,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_PCF_Poisson.pdf
+	filename ../code/figure/K_PCF_Poisson.pdf
 	height 85theight%
 
 \end_inset
@@ -820,7 +820,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/K_PCF_Thomas.pdf
+	filename ../code/figure/K_PCF_Thomas.pdf
 	width 80text%
 
 \end_inset
@@ -1110,7 +1110,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/bandwidth_BBM.pdf
+	filename ../code/figure/bandwidth_BBM.pdf
 	width 60text%
 
 \end_inset
@@ -1179,7 +1179,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/spatial_distribution_zoom_micro0.pdf
+	filename ../code/figure/spatial_distribution_zoom_micro0.pdf
 	width 99text%
 
 \end_inset
@@ -1471,7 +1471,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_micro_box_10sp.pdf
+	filename ../code/figure/distrib_distance_micro_box_10sp.pdf
 	width 70text%
 
 \end_inset
@@ -1531,7 +1531,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/distrib_distance_nano_box_10sp.pdf
+	filename ../code/figure/distrib_distance_nano_box_10sp.pdf
 	width 70text%
 
 \end_inset
@@ -1615,7 +1615,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/dist_abundances_10sp_v2.pdf
+	filename ../code/figure/dist_abundances_10sp_v2.pdf
 	width 75text%
 
 \end_inset
@@ -1714,7 +1714,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/shift_of_dominance.pdf
+	filename ../code/figure/shift_of_dominance.pdf
 	width 95text%
 
 \end_inset
@@ -1804,7 +1804,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/shift_of_dominance_noadv_zoom.pdf
+	filename ../code/figure/shift_of_dominance_noadv_zoom.pdf
 	width 95text%
 
 \end_inset
@@ -1942,7 +1942,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/code/figure/theoretical_dominance_with_adv.pdf
+	filename ../code/figure/theoretical_dominance_with_adv.pdf
 	width 99text%
 
 \end_inset
