@@ -95,11 +95,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -110,15 +111,19 @@ Local intraspecific aggregation in phytoplankton model communities: spatial
 \end_layout
 
 \begin_layout Author
-Coralie Picoche, William R.
- Young, Frédéric Barraquand
+Coralie Picoche¹, William R.
+ Young², Frédéric Barraquand¹
 \end_layout
 
 \begin_layout Address
 \noindent
 \align center
-Institute of Mathematics of Bordeaux, University of Bordeaux and CNRS, Talence,
- France
+¹Institute of Mathematics of Bordeaux, University of Bordeaux and CNRS,
+ Talence, France
+\begin_inset Newline newline
+\end_inset
+
+²Scripps Institution of Oceanography, La Jolla, California, USA
 \end_layout
 
 \begin_layout Standard
@@ -142,39 +147,136 @@ The coexistence of multiple phytoplankton species despite their reliance
  on similar resources is often explained with mean-field models assuming
  mixed populations.
  In reality, observations of phytoplankton indicate spatial aggregation
- at all scales, including at the scale of individuals, possibly hindering
- competitive exclusion since monospecific patches reduce competition with
- other species.
- To evaluate how such local spatial aggregation could explain phytoplankton
- diversity maintenance, an individual-based, multispecific representation
- of cells in a realistic hydrodynamic environment is required.
- Here, we generalize a mathematically tractable individual-based model of
- phytoplankton population dynamics in a viscous and turbulent environment
+ at all scales, including at the scale of 
+\change_inserted -666822487 1650527466
+a handful of 
+\change_unchanged
+individuals
+\change_deleted -666822487 1650527474
+, possibly hindering
+\change_inserted -666822487 1650528232
+.
+ Local spatial aggregation can hinder
+\change_unchanged
+ competitive exclusion since 
+\change_deleted -666822487 1650528134
+monospecific patches reduce competition with other species
+\change_inserted -666822487 1650528209
+individuals then interact mostly with other individuals of their own species,
+ rather than competitors from different species
+\change_unchanged
+.
+ To evaluate how such
+\change_deleted -666822487 1650527584
+ local
+\change_inserted -666822487 1650527586
+microscale
+\change_unchanged
+ spatial aggregation could explain phytoplankton diversity maintenance,
+ an individual-based, multispecific representation of cells in a realistic
+ hydrodynamic environment is required.
+ 
+\change_deleted -666822487 1650527745
+Here, we generalize a
+\change_inserted -666822487 1650527858
+We therefore used as a starting point a
+\change_unchanged
+ mathematically tractable individual-based model of phytoplankton population
+ dynamics in a viscous and turbulent environment
+\change_inserted -666822487 1650528291
+, and generalize it here
+\change_unchanged
  to multiple species and three dimensions.
  The model is studied through both simulations and the derivation of spatial
  moment equations, in connection with point process theory.
  The spatial moment equations show a good match between theory and simulations.
- Parameters are based on phytoplankters’ ecological and physical characteristics
-, for both large and small phytoplankton.
+ 
+\change_deleted -666822487 1650527915
+Parameters are
+\change_inserted -666822487 1650527918
+We parameterized the model
+\change_unchanged
+ based on phytoplankters’ ecological and physical characteristics, for both
+ large and small phytoplankton.
+
+\change_deleted -666822487 1650527388
  We find that when turbulence is considered, species are more mixed than
  in an environment dominated solely by viscosity.
+\change_inserted -666822487 1650528007
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650528029
+This is correct but I am afraid it may be too obvious for the abstract,
+ so I deleted the sentence.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
  Defining a zone of potential interaction as the overlap between nutrient
- depletion volumes, we show that local species composition - within the
- range of possible interactions - depends on the type of phytoplankton considere
-d.
+ depletion volumes, we show that local species composition
+\change_deleted -666822487 1650527392
+ - 
+\change_inserted -666822487 1650527392
+—
+\change_unchanged
+within the range of possible interactions
+\change_deleted -666822487 1650527396
+ - 
+\change_inserted -666822487 1650527396
+—
+\change_unchanged
+depends on the 
+\change_deleted -666822487 1650527948
+type
+\change_inserted -666822487 1650527950
+size class
+\change_unchanged
+ of phytoplankton
+\change_deleted -666822487 1650527962
+ considered
+\change_unchanged
+.
  In large phytoplankton, individuals are surrounded by cells from other
  species, while in small phytoplankton, individuals remain in mostly monospecifi
 c clusters.
+
+\change_deleted -666822487 1650528457
  Intraspecific interactions are therefore more likely than interspecific
- interactions for small phytoplankton, which is a possible explanation for
- diversity maintenance, while other mechanisms of coexistence must be examined
- for large phytoplankton.
+ interactions
+\change_inserted -666822487 1650528487
+Spatial structure therefore favours intra- over inter-specific interactions
+\change_unchanged
+ for small phytoplankton, which 
+\change_deleted -666822487 1650528588
+is a possible explanation for diversity maintenance
+\change_inserted -666822487 1650528593
+likely contributes to coexistence mechanisms
+\change_unchanged
+, while other 
+\change_deleted -666822487 1650528722
+mechanisms of coexistence 
+\change_inserted -666822487 1650528731
+factors behind diversity maintenance 
+\change_unchanged
+must be examined for large phytoplankton.
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
 150-250 -> 249
+\change_inserted -666822487 1650528416
+/ A recompter!
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -280,7 +382,26 @@ Introduction
 \begin_layout Standard
 Phytoplankton communities are among the most important photosynthetic groups
  on Earth, being at the bottom of the marine food chain, and responsible
- for half the global primary production 
+ for 
+\change_inserted -666822487 1650530228
+approximately
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650530256
+J'ai rajouté ça en me disant que ce n'était pas mal de ne pas trop s'avancer,
+ mais tu peux l'enlever si c'est vraiment moitié
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ 
+\change_unchanged
+half the global primary production 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "field_primary_1998"
@@ -292,7 +413,62 @@ literal "false"
  Their contribution to ecosystem functions is only matched by their contribution
  to biodiversity.
  Indeed, phytoplankton communities are characterized by a surprisingly high
- biodiversity, up to dozens of species within multiple genera and even classes
+ biodiversity, up to dozens of species
+\change_inserted -666822487 1650530299
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650530362
+isn't it sometimes more? Up to suggests a maximum
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ within multiple genera and even classes
+\change_inserted -666822487 1650530318
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650530456
+could be interpreted as 
+\begin_inset Quotes eld
+\end_inset
+
+dozens of species within classes
+\begin_inset Quotes erd
+\end_inset
+
+, which is not much, given there's families and orders in between...
+ Perhaps the formulation should be revised a bit, to give a better account
+ of the 
+\begin_inset Quotes eld
+\end_inset
+
+branching
+\begin_inset Quotes erd
+\end_inset
+
+ structure.
+ Perhaps a couple of references too.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
  in volumes as small as 10 mL.
  This observation has led to the formulation of the so-called 
 \begin_inset Quotes eld
@@ -322,9 +498,16 @@ literal "false"
 
 \end_inset
 
- and benefit from the support of coexistence theory which proposes mechanisms
- to escape from competitive exclusion, including non-linear responses to
- a temporally fluctuating environment 
+ and 
+\change_inserted -666822487 1650530478
+some 
+\change_unchanged
+benefit from the support of coexistence theory
+\change_inserted -666822487 1650530487
+,
+\change_unchanged
+ which proposes mechanisms to escape from competitive exclusion, including
+ non-linear responses to a temporally fluctuating environment 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "li_effects_2016,chesson_updates_2018"
@@ -333,8 +516,29 @@ literal "false"
 \end_inset
 
 .
- However, most of these models consider mean-field dynamics in a non-spatial
- setting, i.e., keep the premise of a homogeneous habitat.
+ However, most of these models consider mean-field dynamics 
+\change_deleted -666822487 1650530504
+in a non-spatial setting
+\change_inserted -666822487 1650530509
+at the microscale
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650530521
+There are many spatial models but at larger scales
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -666822487 1650530545
+, i.e., keep the premise of a homogeneous habitat
+\change_unchanged
+.
  Such assumption needs to be challenged, as field observations themselves
  have revealed phytoplankton patchiness for more than a century 
 \begin_inset CommandInset citation
@@ -357,9 +561,44 @@ literal "false"
 
 \begin_layout Standard
 Phytoplankton patchiness can at least be partly explained by the hydrodynamics
- of their environment: their size being mostly below the size of the smallest
- eddy (i.e., the Kolmogorov scale) in a typical environment such as the ocean,
- they are embedded in viscous micro-structures at the individual level 
+ of their environment: their size
+\change_inserted -666822487 1650530699
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650530733
+it's the size of organisms right? I was a little unclear as to what 
+\begin_inset Quotes eld
+\end_inset
+
+their
+\begin_inset Quotes erd
+\end_inset
+
+ refers to.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ being mostly below the size of the smallest eddy (i.e., the Kolmogorov scale)
+ in a typical environment such as the ocean, 
+\change_deleted -666822487 1650530894
+they
+\change_inserted -666822487 1650530901
+phytoplankton individuals
+\change_unchanged
+ are embedded in viscous micro-structures
+\change_deleted -666822487 1650530908
+ at the individual level
+\change_unchanged
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "peters_effects_2000"
@@ -367,8 +606,49 @@ literal "false"
 
 \end_inset
 
- while being displaced by a common flow at the larger scale, due to turbulence
+ while 
+\change_inserted -666822487 1650530917
+phytoplankton populations are 
+\change_unchanged
+being displaced by a 
+\change_deleted -666822487 1650530928
+common 
+\change_inserted -666822487 1650530931
+turbulent 
+\change_unchanged
+flow at 
+\change_inserted -666822487 1650531438
+slighly 
+\change_deleted -666822487 1650530852
+the 
+\change_unchanged
+larger scale
+\change_inserted -666822487 1650530855
+s
+\change_deleted -666822487 1650530935
+, due to turbulence
+\change_unchanged
  
+\change_inserted -666822487 1650531562
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650531605
+Il me semble que la ref de Martin est à une échelle largement supérieure.
+ On peut continuer à la citer mais est-ce qu'on aurait pas une ref sur les
+ effets de la turbulence à des échelle plus petites? 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset CommandInset citation
 LatexCommand citep
 key "martin_phytoplankton_2003"
@@ -377,7 +657,36 @@ literal "false"
 \end_inset
 
 .
- Viscosity decreases diffusivity, which can in turn generate a heterogeneous
+ 
+\change_inserted -666822487 1650531407
+Phytoplankton organisms therefore live in an environment where fluid viscosity
+ dominates at the scale of an individual 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kiorboe2018mechanistic"
+literal "false"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650531370
+A corriger si je dis une bêtise
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ but effects of turbulence can be seen as soon as one considers the volume
+ required for a small population of those individuals.
+ 
+\change_deleted -666822487 1650530997
+Viscosity decreases diffusivity, which can in turn generate a heterogeneous
  landscape by limiting movements and mixing.
  At the other end of the hydrodynamics spectrum, studies on the fluid mechanics
  of phytoplankton show that a turbulent flow, sometimes associated with
@@ -418,11 +727,76 @@ literal "false"
 
 , therefore affecting organism reproduction.
  
+\change_inserted -666822487 1650531318
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650531643
+
+\series bold
+[This is interesting but in my opinion more discussion stuff since we don't
+ directly discuss partners, predators, etc.]
+\series default
+ Viscosity decreases diffusivity, which can in turn generate a heterogeneous
+ landscape by limiting movements and mixing.
+ At the other end of the hydrodynamics spectrum, studies on the fluid mechanics
+ of phytoplankton show that a turbulent flow, sometimes associated with
+ other phenomena such as motility can encourage the formation of clusters
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "reigada_plankton_2003,durham_turbulence_2013,arrieta_microscale_2015,breier_emergence_2018"
+literal "false"
+
+\end_inset
+
+.
+ Turbulence also modifies phytoplankton interactions with their environment
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "guasto_fluid_2012"
+literal "false"
+
+\end_inset
+
+, by increasing nutrient consumption 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "peters_effects_2006"
+literal "false"
+
+\end_inset
+
+ and encounter rates with either potential partners or predators 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kiorboe2018mechanistic"
+literal "false"
+
+\end_inset
+
+, therefore affecting organism reproduction.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-This leads us to consider demography in the context of environmental variation
- created by hydrodynamics processes.
+This leads us to consider demography in the context of 
+\change_inserted -666822487 1650531035
+this 
+\change_unchanged
+environmental variation created by hydrodynamics processes.
  Individual-based models provide a convenient depiction of population dynamics
  and movement at the microscale 
 \begin_inset CommandInset citation
@@ -485,8 +859,36 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Some models of phytoplankton individuals already exist at the microscale,
- i.e.
+Some models of phytoplankton 
+\change_deleted -666822487 1650531670
+individuals
+\change_inserted -666822487 1650531674
+populations
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650531709
+I thought you mean 
+\begin_inset Quotes eld
+\end_inset
+
+populations
+\begin_inset Quotes erd
+\end_inset
+
+ as the entity being represented, even though the models may be individual-based
+ mathematically speaking
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ already exist at the microscale, i.e.
  near the Kolmogorov scale, between 1 mm and 1 cm in an oceanic environment
  
 \begin_inset CommandInset citation
@@ -526,8 +928,11 @@ literal "false"
 
 \end_inset
 
- segregate spatially, or coexistence for species that have constrasted trait
- values 
+ segregate spatially, or 
+\change_inserted -666822487 1650531785
+on 
+\change_unchanged
+coexistence for species that have constrasted trait values 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g., size in"
@@ -539,10 +944,34 @@ literal "false"
 .
  This is quite useful to understand how species with marked differences
  coexist.
- However, the difficulty of the coexistence problems is precisely that we
- have to explain how species such as e.g.
- diatoms, many of whom have similar size, buoyancy, chemical composition,
- etc., manage to coexist within a single trophic level.
+ However, the difficulty of the coexistence problem
+\change_deleted -666822487 1650531795
+s
+\change_unchanged
+ is precisely that we have to explain how 
+\change_inserted -666822487 1650531860
+closely related 
+\change_unchanged
+species
+\change_inserted -666822487 1650531867
+ or genera
+\change_unchanged
+ 
+\change_deleted -666822487 1650531842
+such as 
+\change_inserted -666822487 1650531842
+(
+\change_unchanged
+e.g.
+\change_inserted -666822487 1650531855
+, within
+\change_unchanged
+ diatoms
+\change_inserted -666822487 1650531850
+)
+\change_unchanged
+, many of whom have similar size, buoyancy, chemical composition, etc., manage
+ to coexist within a single trophic level.
  This requires to model 
 \emph on
 similar
@@ -645,8 +1074,19 @@ literal "false"
 
 \end_inset
 
-, an individual-based model which includes fluid turbulence and passive
- diffusion, as well as stochastic birth and death processes.
+, an individual-based model which includes 
+\change_deleted -666822487 1650531933
+fluid turbulence
+\change_inserted -666822487 1650532045
+a chaotic advection process mimicking a turbulent fluid flow,
+\change_deleted -666822487 1650531933
+ and
+\change_unchanged
+ passive diffusion
+\change_inserted -666822487 1650532020
+ of organisms
+\change_unchanged
+, as well as stochastic birth and death processes.
  The initial version of this model 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -655,7 +1095,14 @@ literal "false"
 
 \end_inset
 
- coupled limited dispersal and local reproduction with ocean-like hydrodynamics
+ coupled limited dispersal and local reproduction with ocean-like 
+\change_inserted -666822487 1650532068
+microscale 
+\change_unchanged
+hydrodynamics
+\change_inserted -666822487 1650532084
+,
+\change_unchanged
  and showed spatial clusters of individuals of the same species.
  It was limited to a single species and a two-dimensional environment.
  Furthermore, the model was not strongly quantitative 
@@ -671,8 +1118,25 @@ literal "false"
  etc.).
  As phytoplankton organisms live in a three-dimensional environment, informing
  the model with realistic parameters required us to shift to three dimensions.
- We also added the possibility for multiple species, and consider two types
- of communities, which are either made of nanophytoplankton (3 
+ We also 
+\change_deleted -666822487 1650532099
+added the possibility for
+\change_inserted -666822487 1650532116
+extended the model to
+\change_unchanged
+ multiple species, and consider two 
+\change_deleted -666822487 1650532133
+types
+\change_inserted -666822487 1650532134
+size classes
+\change_unchanged
+ 
+\change_deleted -666822487 1650532145
+of
+\change_inserted -666822487 1650532153
+for our phytoplankton
+\change_unchanged
+ communities, which are either made of nanophytoplankton (3 
 \begin_inset ERT
 status open
 
@@ -706,41 +1170,143 @@ textmu
 \begin_inset Formula $\approx10^{4}$
 \end_inset
 
- C/L), and populate them with 3 to 10 different species.
+ C/L)
+\change_deleted -666822487 1650532161
+, and
+\change_inserted -666822487 1650532162
+We
+\change_unchanged
+ populate 
+\change_deleted -666822487 1650532167
+them
+\change_inserted -666822487 1650532170
+each community
+\change_unchanged
+ with 3 to 10 different species.
+
+\change_deleted -666822487 1650532111
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-The Brownian Bug model (in its original form and the multispecies version
- considered here) is linked to spatial branching processes, in the sense
- that it combines a continuous-time, discrete-state model for population
- growth and a continuous-time, continuous-space Brownian motion for particles
+The Brownian Bug model (in its original 
+\change_inserted -666822487 1650532201
+single-species 
+\change_unchanged
+form 
+\change_deleted -666822487 1650532190
+and
+\change_inserted -666822487 1650532190
+as in
+\change_unchanged
+ the multispecies version considered here) is linked to spatial branching
+ processes
+\change_deleted -666822487 1650532214
+, in the sense that i
+\change_inserted -666822487 1650532214
+.
+ 
+\change_deleted -666822487 1650532302
+t
+\change_inserted -666822487 1650532334
+Without advection, it
+\change_unchanged
+ combines a continuous-time, discrete-state model for population growth
+ and a continuous-time, continuous-space Brownian motion for particle
+\change_deleted -666822487 1650532345
+s
+\change_inserted -666822487 1650532346
+ diffusion
+\change_unchanged
  
 \begin_inset CommandInset citation
 LatexCommand citep
-key "birch_bounding_2007"
+key "birch_master_2006"
 literal "false"
 
 \end_inset
 
+
+\change_inserted -666822487 1650532258
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650532283
+This was the TPB Birch and Young not the Birch et al.
+ 2007 - I corrected the ref.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 .
- It is further complexified by the presence of a turbulent flow 
+ It is further complexified by the presence of a turbulent
+\change_inserted -666822487 1650532383
+ fluid
+\change_unchanged
+ flow
+\change_inserted -666822487 1650532367
+ in
+\change_unchanged
+ 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "young_reproductive_2001,picoche_rescience_2022"
 literal "false"
 
 \end_inset
 
+
+\change_inserted -666822487 1650532377
+ as well as here
+\change_unchanged
 .
- It is possible to derive the dynamics of the pair density function, which
- quantifies the degree of intra- and interspecific clustering of organisms,
- via correlations between positions of organisms (see Methods).
+ 
+\change_deleted -666822487 1650532395
+It is
+\change_inserted -666822487 1650532470
+In spite of this complexity, it remains
+\change_unchanged
+ possible to derive the dynamics of 
+\change_deleted -666822487 1650532487
+the 
+\change_unchanged
+pair density function
+\change_inserted -666822487 1650532490
+s
+\change_unchanged
+, which quantif
+\change_deleted -666822487 1650532494
+ies
+\change_inserted -666822487 1650532494
+y
+\change_unchanged
+ the degree of intra- and interspecific clustering of organisms, via correlation
+s between positions of organisms (see Methods).
  This means that in addition to simulations, we can keep track analytically
  of spatial structure.
  Furthermore, because we do not consider direct interactions between particles,
- the multispecies spatial point process is mathematically a random superposition
- of point processes, one for each species 
+ the multispecies spatial point process 
+\change_inserted -666822487 1650532663
+that represents the stable state of the Brownian Bug model 
+\change_unchanged
+is mathematically a random superposition of 
+\change_inserted -666822487 1650532670
+spatial 
+\change_unchanged
+point processes
+\change_deleted -666822487 1650532682
+, one
+\change_unchanged
+ for each species 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "illian2008statistical"
@@ -749,15 +1315,33 @@ literal "false"
 \end_inset
 
 .
- This enables us to derive, in addition to the pair correlation function,
- analytical formulas for the species composition of the neighbourhood of
- an individual, which are more readily ecologically interpreted than the
- pair density or correlation function.
+ This enables us to derive, in addition to 
+\change_deleted -666822487 1650532695
+the 
+\change_unchanged
+pair correlation function
+\change_inserted -666822487 1650532699
+s
+\change_unchanged
+, analytical formulas for the species composition of the neighbourhood of
+ an individual, which are more readily ecologically interpreted than 
+\change_deleted -666822487 1650532716
+the 
+\change_unchanged
+pair density or correlation function
+\change_inserted -666822487 1650532719
+s
+\change_unchanged
+.
  
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1650532756
+Old note // 
+\change_unchanged
 We mentioned the idea that we derive here equations for a point process
  mingling spatial jump process and continuous-time process, as opposed to
  Dieckman and Law but I cannot find a way to introduce this idea smoothly.
@@ -783,6 +1367,10 @@ to make informed guesses about mechanisms supporting diversity within different
 status collapsed
 
 \begin_layout Plain Layout
+
+\change_inserted -666822487 1650532750
+Old note // 
+\change_unchanged
 For example, the degree of clustering in the environment can be quantified
  by measuring correlations between positions of pairs (or more) of particles
  
@@ -908,7 +1496,7 @@ In this model, we consider a community of particles, each individual being
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Such combination of a branching process with a Brownian motion is also called
@@ -1023,7 +1611,11 @@ diffusion: each particle moves to a new position
 
 \begin_layout Enumerate
 turbulence: each particle is displaced by a turbulent flow, following the
- Pierrrehumbert map 
+ Pier
+\change_deleted -666822487 1650532796
+r
+\change_unchanged
+rehumbert map 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pierrehumbert_tracer_1994"
@@ -1041,6 +1633,25 @@ literal "false"
 
 .
  
+\change_inserted -666822487 1650532825
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650532868
+Perhaps not here but at least for the thesis, the connection between continuous
+ and discrete time for the fluid flow needs to be explained.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1055,6 +1666,24 @@ z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
 
 \end_inset
 
+
+\change_inserted -666822487 1650532878
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1650532896
+Is it always cosinus?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -1092,6 +1721,8 @@ where
 \end_inset
 
 .
+\change_deleted -666822487 1650533192
+
 \end_layout
 
 \begin_layout Standard
