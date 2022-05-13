@@ -314,7 +314,7 @@ Characteristics of standard spatial point processes
 
 \begin_layout Standard
 In order to familiarize the reader with spatial process metrics, we present
- here well-known formula and corresponding figures (Fig.
+ here the analytical formulas and corresponding figures (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -357,8 +357,8 @@ daughter points
 \begin_inset Quotes erd
 \end_inset
 
- are scattered, their position following a Gaussian distribution centered
- on the parent position, with standard deviation 
+ are scattered, their location following a Gaussian distribution centered
+ on the parent location, with standard deviation 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -418,8 +418,8 @@ where
 \end_layout
 
 \begin_layout Standard
-More generally, for a random superposition stationary point processes with
- marks (species, in our model) 
+More generally, for a random superposition of stationary point processes
+ with marks (species) 
 \begin_inset Formula $i$
 \end_inset
 
@@ -472,6 +472,15 @@ K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{
 More generally, for a random superposition of stationary point processes,
  
 \begin_inset Formula $K_{ij}(r)=\frac{4}{3}\pi r^{3}$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after "p. 324"
+key "illian2008statistical"
+literal "false"
+
 \end_inset
 
 .
@@ -528,7 +537,7 @@ D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i
 
 \begin_layout Standard
 with 
-\begin_inset Formula $F(r)=\frac{1}{\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)$
+\begin_inset Formula $F(r)=\frac{1}{\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)$
 \end_inset
 
 .
@@ -774,13 +783,13 @@ literal "false"
 
 \end_inset
 
- and adapted to interspecific pcf.
+ and adapted to the interspecific pcf (i.e., pcf for marked point processes).
  
 \end_layout
 
 \begin_layout Standard
 Schematically, 
-\begin_inset Formula $g(r)$
+\begin_inset Formula $g_{ij}(r)$
 \end_inset
 
  is estimated via the use of the Epanechnikov kernel 
@@ -798,7 +807,7 @@ Schematically,
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\hat{g}(r) & = & \frac{1}{\hat{C}^{2}}\frac{1}{4\pi r^{2}}\sum_{_{i}}\sum_{j}\kappa_{E}(r-||x_{i}-x_{j}||)w(x_{i},x_{j})\end{array}\label{eq:pcf_estimate}
+\hat{g}_{ij}(r) & = & \frac{1}{\hat{C_{i}}}\frac{1}{\hat{C_{j}}}\frac{1}{4\pi r^{2}}\sum_{_{i}}\sum_{j}\kappa_{E}(r-||x_{i}-x_{j}||)w(x_{i},x_{j})\end{array}\label{eq:pcf_estimate}
 \end{equation}
 
 \end_inset
@@ -851,7 +860,7 @@ The estimate
 \noun off
 \color none
 
-\begin_inset Formula $\hat{g}(r)$
+\begin_inset Formula $\hat{g}_{ij}(r)$
 \end_inset
 
 
@@ -899,7 +908,17 @@ literal "false"
 
 \begin_layout Standard
 Estimates of the Ripley's function were also performed with the Ohser translatio
-n correction estimator but did not require any kernel smoothing.
+n correction estimator 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+FB asks why we needed this
+\end_layout
+
+\end_inset
+
+ but did not require any kernel smoothing.
 \end_layout
 
 \begin_layout Subsection
@@ -1047,7 +1066,7 @@ Brownian Bug Model
 \end_layout
 
 \begin_layout Standard
-While the pcf was one of the first indices we intended to use, we quickly
+While the pcf was one of the first indices that we intended to use, we quickly
  realized that the combination of the large range of radii we wanted to
  explore (from 
 \begin_inset Formula $10^{-4}$
@@ -1407,8 +1426,15 @@ Theory
 \end_layout
 
 \begin_layout Standard
-One of the reason why estimating K and g(r) is difficult is that for small
- radii (below 10
+One of the reason why estimating 
+\begin_inset Formula $K$
+\end_inset
+
+ and 
+\begin_inset Formula $g(r)$
+\end_inset
+
+ is difficult is that for small radii (below 10
 \begin_inset Formula $^{-2}$
 \end_inset
 
@@ -1450,8 +1476,8 @@ In
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
- & = & \Pi_{i}Pr(R_{i}>r)\\
+\mathbb{P}(\min(R_{1},...,R_{n})>r) & = & \mathbb{P}(R_{1}>r,...,R_{n}>r)\\
+ & = & \Pi_{i}\mathbb{P}(R_{i}>r)\\
  & = & \Pi_{i}\exp(-b_{d}r^{_{d}}C)\\
  & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}C)
 \end{array}
@@ -1947,7 +1973,17 @@ noprefix "false"
 
 \end_inset
 
-).
+) 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+FB: Is that logical?
+\end_layout
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -2081,12 +2117,32 @@ If we use
 \end_inset
 
 .
-\end_layout
 
-\begin_layout Standard
-As could be expected, when the flow velocity decreases, mixing decreases
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ As could be expected, when the flow velocity decreases, mixing decreases
  (Fig.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dominance_advection"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -2116,6 +2172,13 @@ ton (b) 3-species community with even distributions after 1000 timesteps
  the timesteps, with reference parameters (black) and lower flow velocity
  (grey).
  
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance_advection"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
