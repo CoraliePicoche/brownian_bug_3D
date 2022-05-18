@@ -81,11 +81,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -2100369821 "cpicoche"
 \end_header
 
 \begin_body
@@ -335,8 +336,11 @@ noprefix "false"
 
 \end_inset
 
-) for the pair correlation function, Ripley's function and dominance index
- for standard point processes.
+) for the pair correlation function, Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function and dominance index for standard point processes.
  We focus on the uniform distribution, i.e.
  the Poisson point process, and a clustered distribution, the Thomas point
  process.
@@ -431,11 +435,24 @@ More generally, for a random superposition of stationary point processes
 \begin_inset Formula $\forall i,j,r\geq0\text{, }g_{ij}(r)=1$
 \end_inset
 
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+after " p. 326, eq. 5.3.13"
+key "illian2008statistical"
+literal "false"
+
+\end_inset
+
 .
 \end_layout
 
 \begin_layout Subsection
-Ripley's K-function
+Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function
 \end_layout
 
 \begin_layout Standard
@@ -477,7 +494,7 @@ More generally, for a random superposition of stationary point processes,
  
 \begin_inset CommandInset citation
 LatexCommand citep
-after "p. 324"
+after "p. 324, eq. 5.3.5"
 key "illian2008statistical"
 literal "false"
 
@@ -564,9 +581,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical pcf (b), Ripley's K-function
- (c) and dominance index (d) for a Poisson point process in 3-species community
- with different intensities (10000 cm
+Example of spatial distribution (a) and theoretical pcf (b), Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function (c) and dominance index (d) for a Poisson point process in 3-species
+ community with different intensities (10000 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -634,9 +654,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical pcf (b), Ripley's K-function
- (c) and dominance index (d) for a Thomas point process in 3-species community
- with different parent intensities (200 cm
+Example of spatial distribution (a) and theoretical pcf (b), Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function (c) and dominance index (d) for a Thomas point process in 3-species
+ community with different parent intensities (200 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -907,13 +930,23 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Estimates of the Ripley's function were also performed with the Ohser translatio
-n correction estimator 
+Estimates of the Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function were also performed with the Ohser translation correction estimator
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
 FB asks why we needed this
+\change_inserted -2100369821 1652864441
+.
+ CP: I do not understand the question.
+ We need an edge-correction; and it is also present in spatstat
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -946,8 +979,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Intra- and inter-specific Ripley's K function and PCF values for 3 species
- following a Poisson process with intensity 10 cm
+Intra- and inter-specific Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function and PCF values for 3 species following a Poisson process with
+ intensity 10 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1007,8 +1044,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Intra- and inter-specific Ripley's K function and PCF values for 3 species
- following a Thomas process with parent intensity 
+Intra- and inter-specific Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function and PCF values for 3 species following a Thomas process with parent
+ intensity 
 \begin_inset Formula $C_{p}=200$
 \end_inset
 
@@ -1335,9 +1376,12 @@ status open
 \end_layout
 
 \begin_layout Standard
-We decided, from these results, to focus on Ripley's function, which enabled
- us to compute the dominance index without having to calibrate a bandwidth
- beforehand.
+We decided, from these results, to focus on Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function, which enabled us to compute the dominance index without having
+ to calibrate a bandwidth beforehand.
  
 \end_layout
 
@@ -1979,6 +2023,12 @@ status open
 
 \begin_layout Plain Layout
 FB: Is that logical?
+\change_inserted -2100369821 1652864479
+ CP: No.
+ I actually do not really know what happens here.
+ Will check again.
+\change_unchanged
+
 \end_layout
 
 \end_inset
