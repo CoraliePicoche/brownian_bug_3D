@@ -97,14 +97,26 @@
 Supporting Information
 \series default
  for 
+\change_deleted -2100369821 1652891629
+
 \shape italic
 Size-dependent clustering in phytoplankton communities in a 3D environment
+\change_inserted -2100369821 1652891629
+Local intraspecific aggregation in phytoplankton model communities: spatial
+ scales of occurrence and implications for coexistence
+\change_unchanged
+
 \shape default
 \emph on
  
 \emph default
 by C.
- Picoche & F.
+ Picoche
+\change_inserted -2100369821 1652891663
+, W.R.
+ Young
+\change_unchanged
+ & F.
  Barraquand.
 \end_layout
 
@@ -146,6 +158,32 @@ arabic{figure}}
 
 \backslash
 setcounter{figure}{0}
+\change_inserted -2100369821 1652891960
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1652891969
+
+
+\backslash
+renewcommand
+\backslash
+theequation{S
+\backslash
+arabic{equation}}
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1652891973
+
+
+\backslash
+setcounter{equation}{0}
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -161,11 +199,11 @@ Derivation of the turbulent map
 We show here how to derive a discrete-time map for turbulence from the continuou
 s-time formula.
  We consider that the velocity field 
-\begin_inset Formula $\textbf{u}$
+\begin_inset Formula $\textbf{u}^{T}=(u_{x}\,u_{y}\,u_{z})$
 \end_inset
 
  at position 
-\begin_inset Formula $\mathbf{x}=(x,\,y,\,z)^{T}$
+\begin_inset Formula $\mathbf{x}^{T}=(x,\,y,\,z)$
 \end_inset
 
  alternates between the three dimensions during a period 
@@ -178,11 +216,11 @@ s-time formula.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\textbf{u}(\textbf{x},t)=\begin{cases}
-\begin{array}{ccc}
-u_{x}(\textbf{x},t)= & \left(Ucos(ky+\phi),0,0\right) & \text{for }n\tau\leq t<(n+\frac{1}{3})\tau\\
-u_{y}(\textbf{x},t)= & \left(0,Ucos(kz+\theta),0\right) & \text{for }(n+\frac{1}{3})\tau\leq t<(n+\frac{2}{3})\tau\\
-u_{z}(\textbf{x},t)= & \left(0,0,Ucos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau
+\textbf{u}^{T}(\textbf{x},t)=\begin{cases}
+\begin{array}{cc}
+\left(Ucos(ky+\phi),0,0\right) & \text{for }n\tau\leq t<(n+\frac{1}{3})\tau\\
+\left(0,Ucos(kz+\theta),0\right) & \text{for }(n+\frac{1}{3})\tau\leq t<(n+\frac{2}{3})\tau\\
+\left(0,0,Ucos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau
 \end{array}\end{cases}\label{eq:pierrehumber_continuous_time}
 \end{equation}
 
@@ -418,7 +456,23 @@ where
 \begin_inset Formula $C_{p}=N_{p}/V$
 \end_inset
 
- is the concentration/intensity of the parent process.
+ is the concentration/intensity of the parent process
+\change_inserted -2100369821 1652892107
+ in the volume 
+\begin_inset Formula $V$
+\end_inset
+
+
+\change_unchanged
+.
+\change_inserted -2100369821 1652892080
+
+\begin_inset Newline newline
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -512,7 +566,11 @@ In the Poisson point process,
 \begin_inset Formula $K_{ii}(r)=K_{ij}(r)$
 \end_inset
 
-, which means the dominance index can be reduced to ratios of concentrations:
+, which means
+\change_inserted -2100369821 1652892077
+ that
+\change_unchanged
+ the dominance index can be reduced to ratios of concentrations:
 \end_layout
 
 \begin_layout Standard
@@ -581,12 +639,21 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical pcf (b), Ripley's 
+Example of spatial distribution (a) and theoretical 
+\change_deleted -2100369821 1652892186
+pcf
+\change_inserted -2100369821 1652892189
+pair correlation function
+\change_unchanged
+ (b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
--function (c) and dominance index (d) for a Poisson point process in 3-species
- community with different intensities (10000 cm
+-function (c) and dominance index (d) for a Poisson point process in 
+\change_inserted -2100369821 1652892150
+a 
+\change_unchanged
+3-species community with different intensities (10000 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -654,7 +721,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical pcf (b), Ripley's 
+Example of spatial distribution (a) and theoretical 
+\change_deleted -2100369821 1652892192
+pcf
+\change_inserted -2100369821 1652892195
+pair correlation function
+\change_unchanged
+ (b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
@@ -671,7 +744,17 @@ Example of spatial distribution (a) and theoretical pcf (b), Ripley's
 \begin_inset Formula $^{-3}$
 \end_inset
 
-), children per parent averages (50, 10, 50), with 
+), 
+\change_inserted -2100369821 1652892224
+and different 
+\change_unchanged
+children per parent 
+\change_deleted -2100369821 1652892229
+averages
+\change_inserted -2100369821 1652892232
+intensities
+\change_unchanged
+ (50, 10, 50), with 
 \begin_inset Formula $\sigma=0.01$
 \end_inset
 
@@ -748,7 +831,17 @@ Theoretical dominance indices as a function of the distance
 lankton (b) 3-species community with an even abundance distribution, with
  (red line) and without (grey to black lines, with darker lines for longer
  duration) advection.
- The vertical dashed line corresponds to the 10-diameter threshold.
+ The vertical dashed line corresponds to the
+\change_deleted -2100369821 1652892269
+ 10-diameter
+\change_inserted -2100369821 1652892271
+ distance
+\change_unchanged
+ threshold
+\change_inserted -2100369821 1652892275
+ for interaction
+\change_unchanged
+.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -788,7 +881,11 @@ Computation of the pair correlation function and Ripley's function
 \end_layout
 
 \begin_layout Standard
-The algorithm for pcf computation was mostly taken from the function 
+The algorithm for 
+\change_inserted -2100369821 1652892298
+the 
+\change_unchanged
+pcf computation was mostly taken from the function 
 \begin_inset ERT
 status open
 
@@ -986,7 +1083,13 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and PCF values
+-function and 
+\change_deleted -2100369821 1652892362
+PCF
+\change_inserted -2100369821 1652892366
+pair correlation function
+\change_unchanged
+ values
 \change_deleted -2100369821 1652864794
  
 \change_inserted -2100369821 1652864794
@@ -1056,7 +1159,13 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and PCF values
+-function and 
+\change_deleted -2100369821 1652892369
+PCF
+\change_inserted -2100369821 1652892372
+pair correlation function
+\change_unchanged
+ values
 \change_deleted -2100369821 1652864797
  
 \change_inserted -2100369821 1652864799
@@ -1121,8 +1230,13 @@ Brownian Bug Model
 
 \begin_layout Standard
 While the pcf was one of the first indices that we intended to use, we quickly
- realized that the combination of the large range of radii we wanted to
- explore (from 
+ realized that the combination of the large range of 
+\change_deleted -2100369821 1652892452
+radii
+\change_inserted -2100369821 1652892453
+distances
+\change_unchanged
+ we wanted to explore (from 
 \begin_inset Formula $10^{-4}$
 \end_inset
 
@@ -1351,8 +1465,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Intraspecific pcf
-\change_deleted -2100369821 1652864804
+Intraspecific 
+\change_deleted -2100369821 1652892473
+pcf
+\change_inserted -2100369821 1652892476
+pair correlation function
+\change_deleted -2100369821 1652892473
  
 \change_inserted -2100369821 1652864805
  as a function of distance (in cm) 
@@ -1488,7 +1606,11 @@ Theory
 \end_layout
 
 \begin_layout Standard
-One of the reason why estimating 
+One of the reason
+\change_inserted -2100369821 1652892514
+s
+\change_unchanged
+ why estimating 
 \begin_inset Formula $K$
 \end_inset
 
@@ -1496,11 +1618,23 @@ One of the reason why estimating
 \begin_inset Formula $g(r)$
 \end_inset
 
- is difficult is that for small radii (below 10
+ is difficult is that for small 
+\change_deleted -2100369821 1652892521
+radii
+\change_inserted -2100369821 1652892522
+distances
+\change_unchanged
+ (below 10
 \begin_inset Formula $^{-2}$
 \end_inset
 
-), we can find very few observed distances between pairs of points.
+), we can find very few 
+\change_deleted -2100369821 1652892533
+observed distances between
+\change_inserted -2100369821 1652892535
+observations of
+\change_unchanged
+ pairs of points.
  As a first proxy, we want to estimate the minimum expected distance between
  points (distance to the nearest neighbour, DNN) when they are uniformly
  distributed.
@@ -1539,9 +1673,9 @@ In
 \begin{equation}
 \begin{array}{ccc}
 \mathbb{P}(\min(R_{1},...,R_{n})>r) & = & \mathbb{P}(R_{1}>r,...,R_{n}>r)\\
- & = & \Pi_{i}\mathbb{P}(R_{i}>r)\\
- & = & \Pi_{i}\exp(-b_{d}r^{_{d}}C)\\
- & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}C)
+ & = & \Pi_{i}^{n}\mathbb{P}(R_{i}>r)\\
+ & = & \Pi_{i}^{n}\exp(-b_{d}r^{_{d}}C)\\
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}^{n}C)
 \end{array}
 \end{equation}
 
@@ -1579,7 +1713,13 @@ literal "false"
 \begin_inset Formula $f(r)=\frac{dC\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{C\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=dCb_{d}r^{d-1}\exp(-Cb_{d}r^{d})$
 \end_inset
 
- has an expectid value of 
+ has an expect
+\change_deleted -2100369821 1652892608
+i
+\change_inserted -2100369821 1652892608
+e
+\change_unchanged
+d value of 
 \begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{C^{1/d}\pi^{1/2}}$
 \end_inset
 
@@ -1678,7 +1818,12 @@ Simulations
 \end_layout
 
 \begin_layout Standard
-We can compute the simulated distance to the nearest neighbour compared
+We can compute the simulated distance to the nearest neighbour 
+\change_deleted -2100369821 1652892633
+compared
+\change_inserted -2100369821 1652892635
+and compare it
+\change_unchanged
  to what we should obtain with a uniform distribution (Fig.
  
 \begin_inset CommandInset ref
