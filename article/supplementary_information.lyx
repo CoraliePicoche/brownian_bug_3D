@@ -740,11 +740,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Theoretical dominance indices as a function of the distance from a particle
- of a given species, for a microphytoplankton (a) and nanophytoplankton
- (b) 3-species community with an even abundance distribution, with (red
- line) and without (grey to black lines, with darker lines for longer duration)
- advection.
+Theoretical dominance indices as a function of the distance
+\change_inserted -2100369821 1652864822
+ (in cm)
+\change_unchanged
+ from a particle of a given species, for a microphytoplankton (a) and nanophytop
+lankton (b) 3-species community with an even abundance distribution, with
+ (red line) and without (grey to black lines, with darker lines for longer
+ duration) advection.
  The vertical dashed line corresponds to the 10-diameter threshold.
  
 \begin_inset CommandInset label
@@ -983,8 +986,13 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and PCF values for 3 species following a Poisson process with
- intensity 10 cm
+-function and PCF values
+\change_deleted -2100369821 1652864794
+ 
+\change_inserted -2100369821 1652864794
+ as a function of distance (in cm) 
+\change_unchanged
+for 3 species following a Poisson process with intensity 10 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1048,8 +1056,13 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and PCF values for 3 species following a Thomas process with parent
- intensity 
+-function and PCF values
+\change_deleted -2100369821 1652864797
+ 
+\change_inserted -2100369821 1652864799
+ as a function of distance (in cm) 
+\change_unchanged
+for 3 species following a Thomas process with parent intensity 
 \begin_inset Formula $C_{p}=200$
 \end_inset
 
@@ -1338,9 +1351,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Intraspecific pcf computed for the Brownian bug model with microphytoplankton
- particles, after 1000 time steps, with different values of the bandwidth
+Intraspecific pcf
+\change_deleted -2100369821 1652864804
  
+\change_inserted -2100369821 1652864805
+ as a function of distance (in cm) 
+\change_unchanged
+computed for the Brownian bug model with microphytoplankton particles, after
+ 1000 time steps, with different values of the bandwidth 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -1709,8 +1727,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance to the nearest neighbour for 10 microphytoplankton
- species with density 
+Mean and minimum distance
+\change_inserted -2100369821 1652864836
+ (in cm)
+\change_unchanged
+ to the nearest neighbour for 10 microphytoplankton species with density
+ 
 \begin_inset Formula $C=10$
 \end_inset
 
@@ -1769,8 +1791,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance to the nearest neighbour for 10 nanophytoplankton
- species with density 
+Mean and minimum distance
+\change_inserted -2100369821 1652864841
+ (in cm)
+\change_unchanged
+ to the nearest neighbour for 10 nanophytoplankton species with density
+ 
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
@@ -1853,9 +1879,15 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean distance to the nearest conspecific (filled circle) or heterospecific
- (empty square) as a function of density in the environment for both microphytop
-lankton (black) and nanophytoplankton (grey) communities with a skewed abundance
+Mean distance
+\change_deleted -2100369821 1652864862
+ 
+\change_inserted -2100369821 1652864863
+ (in cm) 
+\change_unchanged
+to the nearest conspecific (filled circle) or heterospecific (empty square)
+ as a function of density in the environment for both microphytoplankton
+ (black) and nanophytoplankton (grey) communities with a skewed abundance
  distribution, in the presence of advection.
  
 \end_layout
@@ -1952,10 +1984,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
- a 3-species community with even distributions after 1000 timesteps starting
- from a superposition of species-specific Thomas point processes, with (circles)
- and without (lines) advection.
+Dominance indices
+\change_inserted -2100369821 1652864873
+ as a function of distance (in cm)
+\change_unchanged
+ for microphytoplankton (a) and nanophytoplankton (b) in a 3-species community
+ with even distributions after 1000 timesteps starting from a superposition
+ of species-specific Thomas point processes, with (circles) and without
+ (lines) advection.
  The triangles correspond to the dominance index at the start of the simulation,
  i.e.
  when points are only distributed according to a Thomas point process with
@@ -2058,10 +2094,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices for one species in a microphytoplankton (a) and nanophytoplank
-ton (b) 3-species community with even distributions after 1000 timesteps
- starting from a superposition of species-specific Thomas point processes
- in the absence of advection.
+Dominance indices
+\change_inserted -2100369821 1652864879
+ as a function of distance (in cm)
+\change_unchanged
+ for one species in a microphytoplankton (a) and nanophytoplankton (b) 3-species
+ community with even distributions after 1000 timesteps starting from a
+ superposition of species-specific Thomas point processes in the absence
+ of advection.
  The dotted line corresponds to the dominance index at the start of the
  simulation, i.e.
  when points are only distributed according to a Thomas point process with
@@ -2216,11 +2256,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices for one species in a microphytoplankton (a) and nanophytoplank
-ton (b) 3-species community with even distributions after 1000 timesteps
- with (circles) and without (lines) advection for different duration of
- the timesteps, with reference parameters (black) and lower flow velocity
- (grey).
+Dominance indices
+\change_inserted -2100369821 1652864882
+ as a function of distance (in cm)
+\change_unchanged
+ for one species in a microphytoplankton (a) and nanophytoplankton (b) 3-species
+ community with even distributions after 1000 timesteps with (circles) and
+ without (lines) advection for different duration of the timesteps, with
+ reference parameters (black) and lower flow velocity (grey).
  
 \begin_inset CommandInset label
 LatexCommand label

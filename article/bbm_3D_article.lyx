@@ -4091,7 +4091,11 @@ K
 \change_inserted -2100369821 1652775419
 -
 \change_unchanged
-function for microphytoplankton (a-b) and nanophytoplankton (b-c) in a 3-species
+function
+\change_inserted -2100369821 1652864781
+ as a function of distance (in cm)
+\change_unchanged
+ for microphytoplankton (a-b) and nanophytoplankton (b-c) in a 3-species
  community with even distributions after 1000 timesteps, with (a, c) and
  without (b, d) advection.
  Each color represents a different species.
@@ -4222,9 +4226,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
- a 3-species community with even distributions after 1000 timesteps, with
- (circles) and without (lines) advection.
+Dominance indices
+\change_inserted -2100369821 1652864773
+ as a function of distance (in cm)
+\change_unchanged
+ for microphytoplankton (a) and nanophytoplankton (b) in a 3-species community
+ with even distributions after 1000 timesteps, with (circles) and without
+ (lines) advection.
  Each color represents a different species.
  The black dashed line corresponds to the 10-diameter threshold considered
  as the maximum range for nutrient-based competition.
@@ -4310,10 +4318,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices for microphytoplankton (a) and nanophytoplankton (b) in
- a 10-species community with a skewed abundance distribution (final proportion
- in the community is indicated in the legend) after 1000 timesteps, with
- (circles) and without (lines) advection.
+Dominance indices
+\change_inserted -2100369821 1652864763
+ as a function of distance (in cm)
+\change_unchanged
+ for microphytoplankton (a) and nanophytoplankton (b) in a 10-species community
+ with a skewed abundance distribution (final proportion in the community
+ is indicated in the legend) after 1000 timesteps, with (circles) and without
+ (lines) advection.
  Each color represents a different species.
  The black dashed line corresponds to the 10-diameter threshold considered
  as the maximum range for nutrient-based competition.
@@ -4473,10 +4485,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Minimum distances between points for dominance to drop below 95% (a and
- b) and dominance at a distance corresponding to the 10-diameter threshold
- (c and d) as a function of abundances (note the logarithmic scale on the
- x-axis) for microphytoplankton and nanophytoplankton.
+Minimum distances
+\change_inserted -2100369821 1652864682
+ (in cm)
+\change_unchanged
+ between points for dominance to drop below 95% (a and b) and dominance
+ at a distance corresponding to the 10-diameter threshold (c and d) as a
+ function of abundances (note the logarithmic scale on the x-axis) for microphyt
+oplankton and nanophytoplankton.
  We consider cases with and without advection in a 10-species community
  with a skewed abundance distribution.
  
