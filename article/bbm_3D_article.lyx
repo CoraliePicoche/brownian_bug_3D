@@ -148,23 +148,13 @@ The coexistence of multiple phytoplankton species despite their reliance
  on similar resources is often explained with mean-field models assuming
  mixed populations.
  In reality, observations of phytoplankton indicate spatial aggregation
- at all scales, including at the scale of a 
-\change_deleted -2100369821 1652368393
-handful of
-\change_inserted -2100369821 1652368394
-few
-\change_unchanged
- individuals.
+ at all scales, including at the scale of a few individuals.
  Local spatial aggregation can hinder competitive exclusion since individuals
  then interact mostly with other individuals of their own species, rather
  than competitors from different species.
- To evaluate how 
-\change_deleted -2100369821 1652877999
-such
-\change_unchanged
-microscale spatial aggregation could explain phytoplankton diversity maintenance
-, an individual-based, multispecific representation of cells in a realistic
- hydrodynamic environment is required.
+ To evaluate how microscale spatial aggregation could explain phytoplankton
+ diversity maintenance, an individual-based, multispecific representation
+ of cells in a realistic hydrodynamic environment is required.
  We therefore used as a starting point a mathematically tractable individual-bas
 ed model of phytoplankton population dynamics in a viscous and turbulent
  environment, and generalize it here to multiple species and three dimensions.
@@ -173,21 +163,13 @@ ed model of phytoplankton population dynamics in a viscous and turbulent
  The spatial moment equations show a good match between theory and simulations.
  We parameterized the model based on phytoplankters’ ecological and physical
  characteristics, for both large and small phytoplankton.
-
-\change_inserted -2100369821 1652878062
- 
-\change_unchanged
-Defining a zone of potential interaction as the overlap between nutrient
+ Defining a zone of potential interaction as the overlap between nutrient
  depletion volumes, we show that local species composition—within the range
  of possible interactions—depends on the size class of phytoplankton.
  In large phytoplankton, individuals are surrounded by cells from other
  species, while in small phytoplankton, individuals remain in mostly monospecifi
 c clusters.
-
-\change_inserted -2100369821 1652878097
- 
-\change_unchanged
-Spatial structure therefore favours intra- over inter-specific interactions
+ Spatial structure therefore favours intra- over inter-specific interactions
  for small phytoplankton, which likely contributes to coexistence mechanisms,
  while other factors behind diversity maintenance must be examined for large
  phytoplankton.
@@ -196,18 +178,8 @@ Spatial structure therefore favours intra- over inter-specific interactions
 status open
 
 \begin_layout Plain Layout
-150-250 -> 249
-\change_inserted -666822487 1650528416
-/ 
-\change_inserted -2100369821 1652368409
-FB: 
-\change_inserted -666822487 1650528416
-A recompter!
-\change_inserted -2100369821 1652877988
- CP: J'ai fait une micro modif pour arriver à 250 (on était à 252 avec ta
- version)
-\change_unchanged
-
+150-250 -> 249/ FB: A recompter! CP: J'ai fait une micro modif pour arriver
+ à 250 (on était à 252 avec ta version)
 \end_layout
 
 \end_inset
@@ -325,69 +297,9 @@ literal "false"
  Their contribution to ecosystem functions is only matched by their contribution
  to biodiversity.
  Indeed, phytoplankton communities are characterized by a surprisingly high
- biodiversity, up to 
-\change_inserted -2100369821 1652711900
-seventy species 
-\change_deleted -2100369821 1652711877
-dozens of species
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1650530362
-isn't it sometimes more? Up to suggests a maximum
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- within multiple genera and even classes
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1650530456
-could be interpreted as 
-\begin_inset Quotes eld
-\end_inset
-
-dozens of species within classes
-\begin_inset Quotes erd
-\end_inset
-
-, which is not much, given there's families and orders in between...
- Perhaps the formulation should be revised a bit, to give a better account
- of the 
-\begin_inset Quotes eld
-\end_inset
-
-branching
-\begin_inset Quotes erd
-\end_inset
-
- structure.
- Perhaps a couple of references too.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- in volumes as small as 
-\change_deleted -2100369821 1652713364
-10
-\change_inserted -2100369821 1652713365
-a few
-\change_unchanged
- mL
-\change_inserted -2100369821 1652771939
- 
+ biodiversity.
+ For example, a single sample as small as a few mL can contain up to seventy
+ species 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "REPHY_db,widdicombe_2021"
@@ -400,17 +312,11 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652771956
 10 mL for REPHY, 200 mL for L4; focus on diatom and dino
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 .
  This observation has led to the formulation of the so-called 
 \begin_inset Quotes eld
@@ -441,11 +347,7 @@ literal "false"
 \end_inset
 
  and some benefit from the support of coexistence theory, which proposes
- mechanisms to escape from competitive exclusion
-\change_deleted -2100369821 1652880324
-, including non-linear responses to a temporally fluctuating environment
-\change_unchanged
- 
+ mechanisms to escape from competitive exclusion 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "li_effects_2016,chesson_updates_2018"
@@ -507,28 +409,19 @@ literal "false"
 
  while phytoplankton populations are being displaced by a turbulent flow
  at slighly larger scales 
-\change_inserted -666822487 1650531562
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1650531605
 Il me semble que la ref de Martin est à une échelle largement supérieure.
  On peut continuer à la citer mais est-ce qu'on aurait pas une ref sur les
- effets de la turbulence à des échelle plus petites? 
-\change_inserted -2100369821 1652714232
-On parle d'échelles légèrement supérieures, pas directement du micro ; mais
- Prairie a une vision assez large
-\change_unchanged
-
+ effets de la turbulence à des échelle plus petites? On parle d'échelles
+ légèrement supérieures, pas directement du micro ; mais Prairie a une vision
+ assez large
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -540,37 +433,17 @@ literal "false"
 .
  Phytoplankton organisms therefore live in an environment where fluid viscosity
  dominates at the scale of an individual 
-\change_deleted -2100369821 1652771966
-
-\begin_inset CommandInset citation
-LatexCommand citep
-key "kiorboe2018mechanistic"
-literal "false"
-
-\end_inset
-
-
-\change_inserted -2100369821 1652771969
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652771992
 That is not exactly the subject of Kiorboe 2008
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
  but effects of turbulence can be seen as soon as one considers the volume
- required for a small population of those individuals
-\change_inserted -2100369821 1652772413
- 
+ required for a small population of those individuals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "estrada_effects_1987,prairie_biophysical_2012"
@@ -583,27 +456,17 @@ literal "false"
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652772432
 Estrada -> experiments in 30L; could not find smaller than that
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 .
  
-\change_inserted -666822487 1650531407
-
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1650531643
 
 \series bold
 [This is interesting but in my opinion more discussion stuff since we don't
@@ -649,14 +512,10 @@ literal "false"
 \end_inset
 
 , therefore affecting organism reproduction.
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -703,11 +562,8 @@ literal "false"
 .
  Basically, a high intra-to-interspecific interaction strength ratio makes
  a species control its abundance more than it controls the abundance of
- other species, which is associated with coexistence in 
-\change_inserted -2100369821 1652880501
-theoretical 
-\change_unchanged
-models 
+ other species, which is associated with coexistence in theoretical models
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "levine_importance_2009,barabas_self-regulation_2017"
@@ -798,11 +654,7 @@ similar
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652369106
 //Old note: 
-\change_unchanged
-
 \begin_inset Note Note
 status collapsed
 
@@ -921,12 +773,9 @@ literal "false"
  etc.).
  As phytoplankton organisms live in a three-dimensional environment, informing
  the model with realistic parameters required us to shift to three dimensions.
- We also extend
-\change_deleted -2100369821 1652368882
-ed
-\change_unchanged
- the model to multiple species, and consider two size classes for our phytoplank
-ton communities, which are either made of nanophytoplankton (3 
+ We also extend the model to multiple species, and consider two size classes
+ for our phytoplankton communities, which are either made of nanophytoplankton
+ (3 
 \begin_inset ERT
 status open
 
@@ -978,10 +827,7 @@ literal "false"
 \end_inset
 
 .
- It is further complexified by the presence of a turbulent fluid flow
-\change_inserted -666822487 1650532367
- in
-\change_unchanged
+ It is further complexified by the presence of a turbulent fluid flow in
  
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -990,29 +836,7 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -666822487 1650532377
- as well as here
-\change_inserted -2100369821 1652368980
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1652706102
-What about stopping at 'turbulent fluid flow.' ? We already cite the papers
- before and already mention that we have a turbulent flow in the previous
- paragraph.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ as well as here.
  In spite of this complexity, it remains possible to derive the dynamics
  of pair density functions, which quantify the degree of intra- and interspecifi
 c clustering of organisms, via correlations between positions of organisms
@@ -1232,11 +1056,7 @@ demography: each particle can either reproduce with probability
 \begin_inset Formula $p=\lambda\tau$
 \end_inset
 
- (forming a new particle of the same
-\change_deleted -2100369821 1652882362
-s
-\change_unchanged
- species 
+ (forming a new particle of the same species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1317,14 +1137,10 @@ diffusion: each particle moves to a new position
 
 \begin_layout Enumerate
 turbulence
-\change_inserted -2100369821 1652882454
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652882459
 Should I replace by 
 \begin_inset Quotes eld
 \end_inset
@@ -1334,14 +1150,25 @@ advection?
 \end_inset
 
 
+\change_inserted -666822487 1653310669
+ F: in this case, 
+\begin_inset Quotes eld
+\end_inset
+
+chaotic advection
+\begin_inset Quotes erd
+\end_inset
+
+ (but probably not needed).
+ And, we would have to check that this process as positive (stochastic)
+ Lyapunov exponent following our Theor Ecol article.
+ 
 \change_unchanged
 
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 : each particle is displaced by a turbulent flow, following the Pierrehumbert
  map 
 \begin_inset CommandInset citation
@@ -1360,12 +1187,8 @@ literal "false"
 \end_inset
 
 .
-
-\change_inserted -2100369821 1652882415
  The shift from continuous to discrete time is described in the Supplementary
  Information.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1380,30 +1203,6 @@ z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
 
 \end_inset
 
-
-\change_deleted -2100369821 1652706130
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1652369143
-FB: 
-\change_inserted -666822487 1650532896
-Is it always cosinus?
-\change_inserted -2100369821 1652369164
- CP: No, but it should not change anything.
- We can ask Bill why they chose cos over sin.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -1520,9 +1319,7 @@ Let
 \end_inset
 
 .
- 
-\change_inserted -2100369821 1652884953
-We note that the point distributions remain the same for all transitions
+ We note that the point distributions remain the same for all translations
  
 \begin_inset Formula $\xi$
 \end_inset
@@ -1536,27 +1333,16 @@ We note that the point distributions remain the same for all transitions
 \end_inset
 
 : the process is stationary.
- 
 \end_layout
 
 \begin_layout Standard
 One of the most common methods to describe a spatial point process is through
- its moment
-\change_inserted -2100369821 1652794668
- measures (hereafter, moments)
-\change_deleted -2100369821 1652777700
-s
-\change_unchanged
-, that can be theoretically derived and allow us to check our simulations.
+ its spatial moments, that can be theoretically derived and allow us to
+ check our simulations.
  However, the spatial moments of a process are merely statistical indicators
- which then need to be related to more easily interpretable quantities.
- This is the role of the dominance index, which we present 
-\change_deleted -2100369821 1652882563
-afterwards
-\change_inserted -2100369821 1652882563
-below
-\change_unchanged
-.
+ which then need to be related to more easily ecologically interpretable
+ quantities.
+ This is the role of the dominance index, which we present below.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1564,15 +1350,8 @@ Spatial moments
 \end_layout
 
 \begin_layout Standard
-The first
-\change_inserted -2100369821 1652777718
--order
-\change_unchanged
- moment is the intensity of the process, or 
-\change_inserted -2100369821 1652777582
-mean 
-\change_unchanged
-concentration of particles 
+The first-order moment is the intensity of the process, or mean concentration
+ of particles 
 \begin_inset Formula $C_{i}=\frac{N_{i}(W)}{V(W)}$
 \end_inset
 
@@ -1593,89 +1372,28 @@ concentration of particles
 \end_inset
 
  is the volume of the cube; it does not give any information regarding the
- spatial distribution, and possibly spatial correlation between particles.
-
-\change_deleted -2100369821 1652369235
- 
-\change_unchanged
-
+ spatial distribution of particles, and possibly their spatial correlations.
 \end_layout
 
 \begin_layout Standard
-The 
-\change_inserted -2100369821 1652882624
-second-order product density, or pair density 
+The second-order product density, or pair density 
 \begin_inset Formula $G(r,t)$
 \end_inset
 
-, approximates
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1652781957
-Don't want to discuss moment vs factorial moment
-\change_unchanged
-
-\end_layout
-
+, is the expected density of pairs of points separated by a distance 
+\begin_inset Formula $r$
 \end_inset
 
- the 
-\change_unchanged
-second
-\change_deleted -2100369821 1652777563
- moment, hereafter referred to as the pair correlation function 
-\change_inserted -2100369821 1652886439
--order moment.
- Let us first define 
-\begin_inset Formula $P(r,t)=\mathbb{E}\left(\Sigma_{h}^{n}\Sigma_{l,l\neq h}^{n}\mathbf{1}\left(||\mathbf{x}_{h}(t)-\mathbf{x}_{l}(t)||\leq r\right)\right)/\left(k(k-1)\right)$
-\end_inset
-
-, the distribution function of the distance between two randomly chosen
- particles, which can be expressed as a function of 
-\begin_inset Formula $G(r,t)$
-\end_inset
-
- (
+ 
 \begin_inset CommandInset citation
-LatexCommand citealp
-key "illian2008statistical"
+LatexCommand citep
+key "law_population_2003"
 literal "false"
 
 \end_inset
 
-, p.
-\begin_inset space ~
-\end_inset
-
-132, eq.
-\begin_inset space ~
-\end_inset
-
-3.5.17-3.5.18).
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -2100369821 1652782207
-\begin_inset Formula 
-\begin{equation}
-P(r,t)=\int_{W}\int_{W}\mathbf{1}(||\mathbf{x}_{h}(t)-\mathbf{x}_{l}(t)||G(r,t)d\mathbf{x}_{h}d\mathbf{x}_{l}\label{eq:def_pair_density}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -2100369821 1652886619
-A similar characteristic can be used for marked spatial point process.
+.
+ A similar characteristic can be used for marked spatial point process.
  In our case, the marks are the species, and we can define 
 \begin_inset Formula $G_{ij}(r,t)$
 \end_inset
@@ -1712,12 +1430,28 @@ A similar characteristic can be used for marked spatial point process.
 \begin_inset Formula $r$
 \end_inset
 
-.
- We can show that the intraspecific pair density 
+ (pages 219 and 325 in 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "illian2008statistical"
+literal "false"
+
+\end_inset
+
+).
+ We show in 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "picoche_rescience_2022"
+literal "false"
+
+\end_inset
+
+ that the intraspecific pair density 
 \begin_inset Formula $G_{ii}(r,t)$
 \end_inset
 
- is a solution of eq.
+, in three dimensions, is a solution of eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1728,54 +1462,28 @@ noprefix "false"
 
 \end_inset
 
- (see 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "picoche_rescience_2022"
-literal "false"
-
-\end_inset
-
- for a derivation).
- 
-\change_unchanged
-
+:
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1652782208
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial G_{ii}}{\partial t}(r,t)=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G_{ii}}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G_{ii}}{\partial r}\right)+2(\lambda-\mu)G_{ii}+2\lambda C_{i}\delta(\boldsymbol{r})\label{eq:Young3D}
+\frac{\partial G_{ii}}{\partial t}(r,t)=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G_{ii}}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G_{ii}}{\partial r}\right)+2(\lambda-\mu)G_{ii}+2\lambda C_{i}\delta(\boldsymbol{r}).\label{eq:Young3D}
 \end{equation}
 
 \end_inset
 
 
+\change_inserted -2100369821 1652782208
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1652793749
 The pair correlation function 
 \begin_inset Formula $g_{ij}(r,t)$
 \end_inset
 
-, or pcf, which can be thought of as the mean number of points of species
- 
-\begin_inset Formula $j$
-\end_inset
-
- at distance 
-\begin_inset Formula $r$
-\end_inset
-
- of a particle of species 
-\begin_inset Formula $i$
-\end_inset
-
- can be derived from the pair density (eq.
+, or pcf, can be derived from the pair density (eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1787,11 +1495,18 @@ noprefix "false"
 \end_inset
 
 ).
+ It is equal to one when the spatial distribution of species 
+\begin_inset Formula $i$
+\end_inset
+
+ individuals is random relative to species 
+\begin_inset Formula $j$
+\end_inset
+
+ individuals.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1652782113
 \begin_inset Formula 
 \begin{equation}
 g_{ij}(r,t)=\frac{G_{ij}(r,t)}{C_{i}C_{j}}\label{eq:def_pcf}
@@ -1803,161 +1518,7 @@ g_{ij}(r,t)=\frac{G_{ij}(r,t)}{C_{i}C_{j}}\label{eq:def_pcf}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -666822487 1652247782
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652248107
-Le second moment est par définition qqchose qui ressemble à la variance,
- et donc la pair density dans ce contyexte, la pair correlation étant sa
- version normalisée, ce n'est pas un 
-\begin_inset Quotes eld
-\end_inset
-
-moment
-\begin_inset Quotes erd
-\end_inset
-
-.
- Regarde comment Illian définit tout cela.
- Des fois on parle de second-order 
-\begin_inset Quotes eld
-\end_inset
-
-characteristics
-\begin_inset Quotes erd
-\end_inset
-
-.
- Ca me paraît plus classique de définir d'abord la pair density et ensuite
- la pair correlation, mais j'imagine que différentes options sont possible.
- 
-\change_inserted -2100369821 1652781975
-Tried another way, what do you think?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -2100369821 1652782289
-
-\begin_inset Formula $g(r,t)$
-\end_inset
-
-, or pcf, can be thought of as the mean number of points at distance 
-\begin_inset Formula $r$
-\end_inset
-
- of a particle.
- If we define 
-\begin_inset Formula $C_{i}(t)$
-\end_inset
-
- and 
-\begin_inset Formula $C_{j}(t)$
-\end_inset
-
- the concentrations of species 
-\begin_inset Formula $i$
-\end_inset
-
- and 
-\begin_inset Formula $j$
-\end_inset
-
- respectively, and 
-\begin_inset Formula $P_{ij}(r,t)$
-\end_inset
-
- the probability of finding a particle of species 
-\begin_inset Formula $i$
-\end_inset
-
- in the sphere 
-\begin_inset Formula $dV_{1}$
-\end_inset
-
- and a particle of species 
-\begin_inset Formula $j$
-\end_inset
-
- in the sphere 
-\begin_inset Formula $dV_{2}$
-\end_inset
-
- where the centers of 
-\begin_inset Formula $dV_{1}$
-\end_inset
-
- and 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\begin_inset Formula $dV_{2}$
-\end_inset
-
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- are separated by distance 
-\begin_inset Formula $r$
-\end_inset
-
-, we can write:
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652782289
-\begin_inset Formula 
-\begin{equation}
-P_{ij}(r,t)=C_{i}(t)C_{j}(t)dV_{1}dV_{2}g_{ij}(r,t)
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652782203
-The pcf is commonly used to describe spatial point patterns (see formula
- for other standard processes in the Supplementary).
- In the Brownian Bug Model, the pair density 
-\begin_inset Formula $G(r)$
-\end_inset
-
- (where 
-\begin_inset Formula $G(r)=C^{2}g(r)$
-\end_inset
-
-) is a solution of eq.
+By integration of eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1968,61 +1529,11 @@ noprefix "false"
 
 \end_inset
 
- (see 
-\begin_inset CommandInset citation
-LatexCommand citealp
-key "picoche_rescience_2022"
-literal "false"
-
-\end_inset
-
- for a derivation).
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652782203
-\begin_inset Formula 
-\begin{equation}
-\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2(\lambda-\mu)G+2\lambda C\delta(\boldsymbol{r})\label{eq:Young3D}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing double
-
-\change_deleted -2100369821 1652782203
-In our version of the model, to keep a stable population, 
-\begin_inset Formula $\lambda=\mu$
-\end_inset
-
-.
-
-\change_unchanged
- By integration of eq.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Young3D"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\change_inserted -2100369821 1652886586
 , with 
 \begin_inset Formula $\lambda=\mu$
 \end_inset
 
- (population at equilibrium)
-\change_unchanged
-, the intraspecific pcf 
+ (population at equilibrium), the intraspecific pcf 
 \begin_inset Formula $g_{ii}(r,t)$
 \end_inset
 
@@ -2037,9 +1548,7 @@ noprefix "false"
 
 \end_inset
 
- (see
-\change_inserted -2100369821 1652775897
- eqs.
+ (see eqs.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2060,11 +1569,12 @@ noprefix "false"
 
 \end_inset
 
- in
-\change_unchanged
- the Appendices).
- The system stabilizes in the presence of advection, but depends on time
- in its absence.
+ in the Appendices for a derivation).
+ The system stabilizes in the presence of advection (
+\begin_inset Formula $U>0$
+\end_inset
+
+), but depends on time in its absence.
 \begin_inset Formula 
 \begin{equation}
 g_{ii}(r,t)=\begin{cases}
@@ -2079,45 +1589,13 @@ g_{ii}(r,t)=\begin{cases}
 \end_layout
 
 \begin_layout Standard
-As populations of different species do not directly interact
-\change_inserted -2100369821 1652794794
-, each population is an independent realization of a point process
-\change_unchanged
-,
-\change_inserted -2100369821 1652794810
- which means that
-\change_unchanged
- 
-\change_deleted -2100369821 1652794834
-they
-\change_inserted -2100369821 1652794851
-the distribution of all particles within the community
-\change_unchanged
- constitute
-\change_inserted -2100369821 1652794854
-s
-\change_unchanged
- a random superposition of stationary point processes 
-\change_deleted -666822487 1652248451
-(Ilian 2008)
-\change_deleted -2100369821 1652775550
-
-\begin_inset CommandInset citation
-LatexCommand citep
-after " p. 326, eq. 5.3.13"
-key "illian2008statistical"
-literal "false"
-
-\end_inset
-
-
-\change_unchanged
- and 
+As populations of different species do not directly interact, each population
+ is an independent realization of a point process, which means that the
+ distribution of all particles within the community constitutes a random
+ superposition of stationary point processes and 
 \begin_inset Formula $g_{ij}(r,t)=1\text{ }\forall i\neq j,\,\forall U$
 \end_inset
 
-
-\change_inserted -2100369821 1652775553
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2127,42 +1605,6 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -666822487 1652248483
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652248617
-The 
-\begin_inset Quotes eld
-\end_inset
-
-U
-\begin_inset Quotes erd
-\end_inset
-
- seems isolated here? I would add at the end of this sentence where this
- is explained in Illian et al.
- , i.e.
- the page number – there are two things for which we use Illian et al.
- here: (1) the idea of a random superposition of stationary point processes
- and (2) the fact that for a random superposition, 
-\begin_inset Formula $g_{ij}(r,t)=1$
-\end_inset
-
-.
- Remember that it was initially far from obvious for us! 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
 \begin_inset VSpace defskip
 \end_inset
@@ -2171,69 +1613,16 @@ U
 \end_layout
 
 \begin_layout Standard
-Related to the pair correlation function is 
-\change_deleted -666822487 1652248628
-the 
-\change_unchanged
-Ripley's
-\change_inserted -666822487 1652248634
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652248660
-Related to Bill's comments - do we always want to call it Ripley's? What
- do Illian et al.
- use in most places?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- 
-\change_deleted -666822487 1652248667
-K
-\change_inserted -666822487 1652248667
-
+Related to the pair correlation function is Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
-
-\change_deleted -2100369821 1652775332
- 
-\change_inserted -2100369821 1652775332
--
-\change_unchanged
-function
-\change_inserted -2100369821 1652886983
- 
+-function 
 \begin_inset Formula $K(r)$
 \end_inset
 
-
-\change_deleted -2100369821 1652886986
-, through equation eq.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:pcf_to_K"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\change_unchanged
 .
- 
-\change_inserted -2100369821 1652887331
-Its marked version, 
+ Its marked version, 
 \begin_inset Formula $K_{ij}(r)$
 \end_inset
 
@@ -2258,102 +1647,9 @@ literal "false"
 \end_inset
 
 .
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1652887170
-\begin_inset Formula 
-\begin{equation}
-g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}\label{eq:pcf_to_K}
-\end{equation}
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652887130
-The Ripley's
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652248722
-\begin_inset Quotes eld
-\end_inset
-
-The Ripley's K
-\begin_inset Quotes erd
-\end_inset
-
- feels weird to me, I'd write 
-\begin_inset Quotes eld
-\end_inset
-
-Ripley's K
-\begin_inset Quotes erd
-\end_inset
-
- or 
-\begin_inset Quotes eld
-\end_inset
-
-The K function
-\begin_inset Quotes erd
-\end_inset
-
-, but check how Illian et al.
- say it.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- K-function 
-\begin_inset Formula $K_{ij}(r)$
-\end_inset
-
- is the average number of points surrounding a particle within a sphere
- of radius 
-\begin_inset Formula $r$
-\end_inset
-
- 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "illian2008statistical"
-literal "false"
-
-\end_inset
-
-.
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652793707
-\begin_inset Formula 
-\begin{equation}
-\forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C}\mathbb{E}\left(N\left(b(o,r)\backslash\{o\}\right)\right)
-\end{equation}
-
-\end_inset
-
-
-\change_inserted -2100369821 1652793707
-
 \begin_inset Formula 
 \begin{equation}
 \forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\right)\right)
@@ -2362,47 +1658,25 @@ literal "false"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
 where 
-\change_deleted -2100369821 1652793819
-
-\begin_inset Formula $C$
-\end_inset
-
- is the concentration of particles
-\change_inserted -2100369821 1652887297
-
 \begin_inset Formula $\mathbb{E}_{i}$
 \end_inset
 
- is the mean with respect to points of species 
+ is the expectation with respect to points of species 
 \begin_inset Formula $i$
 \end_inset
 
-
-\change_unchanged
  and 
 \begin_inset Formula $N_{j}\left(b(o,r)\backslash\{o\}\right)$
 \end_inset
 
- is the number of points of 
-\change_deleted -2100369821 1652793833
-the process 
-\begin_inset Formula $N$
-\end_inset
-
-
-\change_inserted -2100369821 1652793835
-species 
+ is the number of points of species 
 \begin_inset Formula $j$
 \end_inset
 
-
-\change_unchanged
  in the sphere of radius 
 \begin_inset Formula $r$
 \end_inset
@@ -2416,9 +1690,7 @@ species
 \end_inset
 
  itself.
- 
-\change_inserted -2100369821 1652887260
-The relationship between 
+ The relationship between 
 \begin_inset Formula $K_{ij}(r)$
 \end_inset
 
@@ -2441,8 +1713,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1652887200
 \begin_inset Formula 
 \begin{equation}
 g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}\label{eq:pcf_to_K}
@@ -2450,61 +1720,6 @@ g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}\label{eq:pcf_to_K}
 
 \end_inset
 
-
-\change_deleted -2100369821 1652793860
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652793860
-This definition can be extended to multivariate processes.
- 
-\begin_inset Formula $C_{j}K_{ij}(r)$
-\end_inset
-
- is the mean number of points of species 
-\begin_inset Formula $j$
-\end_inset
-
- in a sphere of radius 
-\begin_inset Formula $r$
-\end_inset
-
- centred on a point of species 
-\begin_inset Formula $i$
-\end_inset
-
-, so that
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652793860
-\begin_inset Formula 
-\begin{equation}
-\forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\right)\right)
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1652793860
-where 
-\begin_inset Formula $\mathbb{E}_{i}$
-\end_inset
-
-is the mean with respect to points of species 
-\begin_inset Formula $i$
-\end_inset
-
-.
- 
-\change_unchanged
 
 \end_layout
 
@@ -2531,9 +1746,7 @@ noprefix "false"
 
 \end_inset
 
-
-\change_inserted -2100369821 1652887364
- (see also eqs.
+ (derivation in eqs.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2554,29 +1767,7 @@ noprefix "false"
 
 \end_inset
 
- in the Appendices)
-\change_unchanged
-, we can show that
-\change_inserted -666822487 1652248770
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1652369423
-FB: 
-\change_inserted -666822487 1652248780
-Indicate where we show this in the Appendices!!!
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-:
+ in the Appendices), we can show that:
 \end_layout
 
 \begin_layout Standard
@@ -2599,16 +1790,10 @@ For random superposition of stationary point processes,
 \begin_inset Formula $K_{ij}(r,t)=\frac{4}{3}\pi r^{3}$
 \end_inset
 
-
-\change_inserted -2100369821 1652775363
- 
-\change_inserted -666822487 1652248807
-whenever 
+ whenever 
 \begin_inset Formula $i\neq j$
 \end_inset
 
-
-\change_inserted -2100369821 1652775077
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -2618,25 +1803,6 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -666822487 1652248807
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652248830
-Indicate where this is mentioned in Illian et al.
- 2008, with page number.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
 \end_layout
 
@@ -2654,26 +1820,13 @@ literal "false"
 
 \end_inset
 
- is the ratio between the number of conspecific
-\change_inserted -2100369821 1652887407
-s
-\change_unchanged
- 
-\change_deleted -2100369821 1652887405
-individuals
-\change_unchanged
- 
-\change_deleted -2100369821 1652887401
-to
-\change_inserted -2100369821 1652887401
-and
-\change_unchanged
- the number of individuals of all species surrounding a given particle.
+ is the ratio between the number of conspecifics and the number of individuals
+ of all species surrounding a given individual.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Quotes eld
@@ -2686,15 +1839,9 @@ It is similar to a continuous-space version of the mingling index.
  [If we want readers to be closer to their literature, maybe? Mingling index
  seems often used even if it is not exactly the same] Lewandowski A, Pommerening
  A (1997) On the description of forest structure — Expected and observed
- mingling of species
-\change_inserted -666822487 1652248953
- F: I'm agnostic about this but we can discuss it.
- 
-\change_inserted -2100369821 1652706422
-CP: Let's not use it, might confuse the reader even more if we also need
+ mingling of species F: I'm agnostic about this but we can discuss it.
+ CP: Let's not use it, might confuse the reader even more if we also need
  to define mingling index.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2712,20 +1859,10 @@ CP: Let's not use it, might confuse the reader even more if we also need
 \end_inset
 
 , which can also be written with Ripley's 
-\change_deleted -2100369821 1652775454
-K
-\change_inserted -2100369821 1652775454
-
 \begin_inset Formula $K$
 \end_inset
 
-
-\change_deleted -2100369821 1652775454
- 
-\change_inserted -2100369821 1652775378
--
-\change_unchanged
-function as 
+-function as 
 \begin_inset Formula $M_{i.}(r)=C_{.}K_{i}(r)$
 \end_inset
 
@@ -2755,7 +1892,6 @@ noprefix "false"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -2778,11 +1914,7 @@ When individuals of the same species
 \begin_inset Formula $i$
 \end_inset
 
- tend
-\change_deleted -2100369821 1652887606
-s
-\change_unchanged
- to cluster, 
+ tend to cluster, 
 \begin_inset Formula $D_{i}(r)$
 \end_inset
 
@@ -2790,12 +1922,13 @@ s
 \begin_inset Formula $i$
 \end_inset
 
- in the whole community when the distribution is uniform
-\change_inserted -2100369821 1652887715
- (see examples in the Supplementary Information)
-\change_unchanged
-.
+ in the whole community when the distribution is uniform (see examples in
+ the Supplementary Information).
+
+\change_deleted -666822487 1653312657
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2820,28 +1953,14 @@ noprefix "false"
 
 \end_inset
 
-, we 
-\change_deleted -666822487 1652249021
-can 
-\change_deleted -2100369821 1652775714
-find
-\change_inserted -2100369821 1652775715
-obtain
-\change_unchanged
- a theoretical formula for the dominance index
-\change_inserted -666822487 1652248971
-
+, we obtain a theoretical formula for the dominance index
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1652249013
 Indicate where we derive this equation in the Appendices! Litteraly what
- is written is that we could show this but we don't!
-\change_inserted -2100369821 1652433963
- CP: Nothing new here, we just replace K by its formulation, already given
- above.
+ is written is that we could show this but we don't! CP: Nothing new here,
+ we just replace K by its formulation, already given above.
  The only thing we can add is that K_ij=4/3 
 \backslash
 pi r^3.
@@ -2854,14 +1973,10 @@ find
 \end_inset
 
 , we just apply a formula.
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 :
 \end_layout
 
@@ -2966,19 +2081,16 @@ Advection
 \begin_layout Standard
 We first consider the advection process, due to the turbulence of the environmen
 t.
- We only consider the Batchelor-Kolmogorov regime, i.e the 
-\change_deleted -2100369821 1652888267
-space
-\change_inserted -2100369821 1652888269
-size of the space
-\change_deleted -2100369821 1652888271
- size
-\change_unchanged
+ We only consider the Batchelor-Kolmogorov regime, i.e the size of the volume
+ 
+\begin_inset Formula $W$
+\end_inset
+
  is below the size of the smallest eddy, but above the smallest scale of
  fluctuations in nutrient concentrations.
  The defining scale of the environment therefore corresponds to a Reynolds
  number 
-\begin_inset Formula $Re\approx1$
+\begin_inset Formula $\text{Re}\approx1$
 \end_inset
 
 .
@@ -3004,20 +2116,10 @@ where
 \begin_inset Formula $^{2}$
 \end_inset
 
-
-\change_deleted -2100369821 1652888295
-/
-\change_inserted -2100369821 1652888296
-.
-\change_unchanged
-s
-\change_inserted -2100369821 1652888298
-
+.s
 \begin_inset Formula $^{-1}$
 \end_inset
 
-
-\change_unchanged
  is the kinematic viscosity for water.
  The smallest wavenumber 
 \begin_inset Formula $k$
@@ -3132,14 +2234,6 @@ The advection parameter in continuous time,
 \begin_inset Formula $s(t)\varpropto e^{3\gamma t}$
 \end_inset
 
-
-\change_deleted -2100369821 1652888386
- with 
-\begin_inset Formula $s(t)$
-\end_inset
-
-
-\change_unchanged
  the separation between pairs of particles before stabilization.
  
 \begin_inset Formula $\gamma$
@@ -3263,30 +2357,17 @@ Using
 \end_inset
 
 
-\change_inserted -666822487 1652249101
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652370371
-FB: 
-\change_inserted -666822487 1652249116
-just to check, this is always the same formula in 3D right?
-\change_inserted -2100369821 1652371706
- CP: See https://github.com/CoraliePicoche/TurbulenceMicroPhytoplankton/blob/main
-/conversion_in_BBM.lyx ; we can talk about it again
-\change_inserted -666822487 1652249116
- 
-\change_unchanged
-
+FB: just to check, this is always the same formula in 3D right? CP: See
+ https://github.com/CoraliePicoche/TurbulenceMicroPhytoplankton/blob/main/convers
+ion_in_BBM.lyx ; we can talk about it again
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 ,
 \end_layout
 
@@ -3374,11 +2455,7 @@ We study the community at equilibrium, with the birth rate equal to the
 \begin_inset Formula $1$
 \end_inset
 
-
-\change_inserted -2100369821 1652888515
- 
-\change_unchanged
-d
+ d
 \begin_inset Formula $^{-1}$
 \end_inset
 
@@ -3392,33 +2469,19 @@ literal "false"
 
  and consider the fastest-growing nanophytoplankton particles, corresponding
  to a diameter of 3 
-\change_deleted -2100369821 1652888508
-
-\begin_inset Formula $\mu$
-\end_inset
-
-
-\change_inserted -2100369821 1652888511
-
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1652888510
-
 
 \backslash
 textmu
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
- 
-\change_unchanged
-m 
+ m 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bec_growth_2008"
@@ -3738,17 +2801,9 @@ As we examine particle aggregation or segregation and their potential effects
 \begin_inset Formula $C_{\infty}$
 \end_inset
 
- the background concentration of the nutrient
-\change_deleted -2100369821 1652888670
- (hereafter, the concentration boundary layer)
-\change_unchanged
-.
- The radius
-\change_inserted -2100369821 1652888766
- of this nutrient depletion volume
-\change_unchanged
- is maximized when the particle is in stagnant water (diffusion is the only
- hydrodynamics process).
+ the background concentration of the nutrient.
+ The radius of this nutrient depletion volume is maximized when the particle
+ is in stagnant water (diffusion is the only hydrodynamics process).
  In this case, it corresponds to 10 times the radius of the particle 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -3758,12 +2813,6 @@ literal "false"
 \end_inset
 
 .
-
-\change_deleted -2100369821 1652888741
- An overlap between depletion zones can therefore happen at distances as
- far as 10 times the diameter of a particle.
- 
-\change_inserted -2100369821 1652777242
  We define the maximum distance which allows for potential interactions
  (due to competition for resources) between two particles of radius 
 \begin_inset Formula $a_{i}$
@@ -3797,8 +2846,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1652776383
 \begin_inset Formula 
 \begin{equation}
 D_{\text{threshold}}=10a_{i}+10a_{j}\label{eq:distance_interaction}
@@ -3811,21 +2858,8 @@ D_{\text{threshold}}=10a_{i}+10a_{j}\label{eq:distance_interaction}
 
 \begin_layout Standard
 We consider this maximum value as our baseline, keeping in mind that turbulence
- reduces the size of the 
-\change_deleted -2100369821 1652888785
-concentration boundary layer
-\change_inserted -2100369821 1652888788
-nutrient depletion volume
-\change_unchanged
- and 
-\change_deleted -2100369821 1652888832
-cause
-\change_inserted -2100369821 1652888836
-increases the
-\change_deleted -2100369821 1652888838
- an increasing
-\change_unchanged
- nutrient flux to the cell 
+ reduces the size of the nutrient depletion volume and increases the nutrient
+ flux to the cell 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "arnott_artificially_2021"
@@ -4173,10 +3207,6 @@ spatial_distribution.r 0:3
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4184,32 +3214,11 @@ spatial_distribution.r 0:3
 
 \begin_layout Standard
 Ripley's 
-\change_inserted -2100369821 1652775428
-
 \begin_inset Formula $K$
 \end_inset
 
--
-\change_unchanged
-functions
-\change_inserted -666822487 1652249283
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652249299
-Again, do we want to call them Ripley or K functions? 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- extracted from numerical simulations match theoretical formula (Fig.
+-functions extracted from numerical simulations match theoretical formula
+ (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4222,7 +3231,6 @@ noprefix "false"
 
 ) for both types of particles, which also indicates that dominance indices
  extracted from the simulation match theoretical expectation.
- 
 \end_layout
 
 \begin_layout Standard
@@ -4248,42 +3256,15 @@ status open
 
 \begin_layout Plain Layout
 Ripley's 
-\change_deleted -2100369821 1652775425
-K
-\change_inserted -2100369821 1652775425
-
 \begin_inset Formula $K$
 \end_inset
 
-
-\change_deleted -2100369821 1652775425
- 
-\change_inserted -2100369821 1652775419
--
-\change_unchanged
-function
-\change_inserted -2100369821 1652864781
- as a function of distance (in cm)
-\change_unchanged
- for microphytoplankton (a-b) and nanophytoplankton (b-c) in a 3-species
- community with even distributions after 1000 timesteps, with (a, c) and
- without (b, d) advection.
+-function as a function of distance (in cm) for microphytoplankton (a-b)
+ and nanophytoplankton (b-c) in a 3-species community with even distributions
+ after 1000 timesteps, with (a, c) and without (b, d) advection.
  Each color represents a different species.
- The black dash
-\change_inserted -2100369821 1652889071
--dott
-\change_unchanged
-ed line corresponds to the 
-\change_deleted -2100369821 1652889078
-10-diameter 
-\change_unchanged
-threshold considered as the maximum 
-\change_deleted -2100369821 1652889323
-range
-\change_inserted -2100369821 1652889324
-distance
-\change_unchanged
- for nutrient-based competition.
+ The black dash-dotted line corresponds to the threshold considered as the
+ maximum distance for nutrient-based competition.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Ripley's-K-function"
@@ -4314,11 +3295,7 @@ plot_K_BBM_micronano.r avec c(0,1,2,3)
 \end_layout
 
 \begin_layout Standard
-Dominance
-\change_deleted -2100369821 1652889093
-s
-\change_unchanged
- indices all follow a similar pattern (Fig.
+Dominance indices all follow a similar pattern (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4340,18 +3317,8 @@ noprefix "false"
 \end_inset
 
 ).
- The dominance index is close 
-\change_inserted -2100369821 1652889164
-to 
-\change_unchanged
-1 for small 
-\change_deleted -2100369821 1652889121
-radii
-\change_inserted -2100369821 1652889122
-distances
-\change_unchanged
-: there is always a scale at which a particle is surrounded almost only
- by conspecifics.
+ The dominance index is close to 1 for small distances: there is always
+ a scale at which a particle is surrounded almost only by conspecifics.
  The index then decreases sharply
 \begin_inset Note Note
 status collapsed
@@ -4362,75 +3329,29 @@ Guess I could compute it with second or third derivative, should I?
 
 \end_inset
 
- to converge at large 
-\change_deleted -2100369821 1652889126
-radii
-\change_inserted -2100369821 1652889127
-distances
-\change_unchanged
- (close to 1
-\change_inserted -2100369821 1652889130
- 
-\change_unchanged
-cm) to the proportion of the focus species in the whole community, as it
- would for a uniform distribution.
+ to converge at large distances (close to 1 cm) to the proportion of the
+ focus species in the whole community, as it would for a uniform distribution.
  Patterns differ at intermediate ranges of distances between particles.
- 
 \end_layout
 
 \begin_layout Standard
 In the presence of advection, the dominance index starts decreasing for
- a 
-\change_deleted -2100369821 1652889137
-radius
-\change_inserted -2100369821 1652889138
-distance
-\change_unchanged
- between 5 and 10 times lower than when advection is absent, 
-\change_deleted -2100369821 1652889144
-i.e.
-\change_inserted -2100369821 1652889151
-which indicates that
-\change_unchanged
- organisms are closer to heterospecifics when their environment is turbulent.
- A quasi-uniform distribution is also reached for smaller 
-\change_deleted -2100369821 1652889191
-radii
-\change_inserted -2100369821 1652889192
-distances
-\change_unchanged
- with advection than without.
+ a distance between 5 and 10 times lower than when advection is absent,
+ which indicates that organisms are closer to heterospecifics when their
+ environment is turbulent.
+ A quasi-uniform distribution is also reached for smaller distances with
+ advection than without.
  Microphytoplankton species start mixing for distances larger than for nanophyto
 plankton species irrespective of the hydrodynamic regime surrounding them.
 \end_layout
 
 \begin_layout Standard
 In a 3-species community with the same initial abundances, microphytoplankton
- dominance indices are between 0.37 and 0.47 at 
-\change_deleted -2100369821 1652889233
-a distance equal to 10 diameters of a particle
-\change_inserted -2100369821 1652889240
-the distance threshold for potential interactions
-\change_unchanged
-, while it is between 0.80 and 0.94 for nanophytoplankton species when advection
- is present.
- In 
-\change_deleted -2100369821 1652889244
-its
-\change_inserted -2100369821 1652889244
-the
-\change_unchanged
- absence
-\change_inserted -2100369821 1652889248
- of turbulence
-\change_unchanged
-, dominance indices are all above 0.98 when the 
-\change_deleted -2100369821 1652889253
-10-diameter
-\change_inserted -2100369821 1652889255
-distance
-\change_unchanged
- threshold is reached (Fig.
+ dominance indices are between 0.37 and 0.47 at the distance threshold for
+ potential interactions, while it is between 0.80 and 0.94 for nanophytoplankton
+ species when advection is present.
+ In the absence of turbulence, dominance indices are all above 0.98 when
+ the distance threshold is reached (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4469,25 +3390,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices
-\change_inserted -2100369821 1652864773
- as a function of distance (in cm)
-\change_unchanged
- for microphytoplankton (a) and nanophytoplankton (b) in a 3-species community
- with even distributions after 1000 timesteps, with (circles) and without
- (lines) advection.
+Dominance indices as a function of distance (in cm) for microphytoplankton
+ (a) and nanophytoplankton (b) in a 3-species community with even distributions
+ after 1000 timesteps, with (circles) and without (lines) advection.
  Each color represents a different species.
- The black dashed line corresponds to the 
-\change_deleted -2100369821 1652889302
-10-diameter 
-\change_unchanged
-threshold considered as the maximum 
-\change_deleted -2100369821 1652889319
-range
-\change_inserted -2100369821 1652889320
-distance
-\change_unchanged
- for nutrient-based competition.
+ The black dashed line corresponds to the threshold considered as the maximum
+ distance for nutrient-based competition.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Dominance-3sp"
@@ -4534,15 +3442,9 @@ noprefix "false"
 
 ).
  In the presence of advection, microphytoplankton dominance indices at the
- 
-\change_deleted -2100369821 1652889339
-10-diameter
-\change_inserted -2100369821 1652889340
-distance
-\change_unchanged
- threshold are between 0.34 (for the most abundant species) and 0.033 (for
- one of the least abundant species), while they are between 0.90 and 0.85
- when advection is not taken into account.
+ distance threshold are between 0.34 (for the most abundant species) and
+ 0.033 (for one of the least abundant species), while they are between 0.90
+ and 0.85 when advection is not taken into account.
  Nanophytoplankton species, too, are more mixed: dominance indices vary
  between 0.54 and 0.2 when the depletion-zone limit is reached (with an exception
  of 0 for one particular species which had no conspecific for radii below
@@ -4552,7 +3454,6 @@ distance
 
  cm) when particles are displaced by turbulence, while the same quantity
  is between 1 and 0.97 when they are only subject to diffusion.
- 
 \end_layout
 
 \begin_layout Standard
@@ -4576,26 +3477,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices
-\change_inserted -2100369821 1652864763
- as a function of distance (in cm)
-\change_unchanged
- for microphytoplankton (a) and nanophytoplankton (b) in a 10-species community
- with a skewed abundance distribution (final proportion in the community
- is indicated in the legend) after 1000 timesteps, with (circles) and without
- (lines) advection.
+Dominance indices as a function of distance (in cm) for microphytoplankton
+ (a) and nanophytoplankton (b) in a 10-species community with a skewed abundance
+ distribution (final proportion in the community is indicated in the legend)
+ after 1000 timesteps, with (circles) and without (lines) advection.
  Each color represents a different species.
- The black dashed line corresponds to the 
-\change_deleted -2100369821 1652889374
-10-diameter 
-\change_unchanged
-threshold considered as the maximum 
-\change_deleted -2100369821 1652889376
-range
-\change_inserted -2100369821 1652889377
-distance
-\change_unchanged
- for nutrient-based competition.
+ The black dashed line corresponds to the threshold considered as the maximum
+ distance for nutrient-based competition.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Dominance-10sp"
@@ -4626,26 +3514,11 @@ compare_advection 10:13
 \end_layout
 
 \begin_layout Standard
-Differences in spatial distributions are not only due to particle sizes
+Differences in spatial distributions are not only due to particle sizes,
  which determine properties of demography and turbulence, but also to their
  abundances (here set through initial values).
- 
-\change_deleted -2100369821 1652889429
-When turbulence is taken into account
-\change_inserted -2100369821 1652889433
-In the presence of turbulence
-\change_unchanged
-, the dominance index decreases at lower 
-\change_deleted -2100369821 1652889419
-radii
-\change_inserted -2100369821 1652889420
-distances
-\change_deleted -2100369821 1652889511
- around a particle when abundance is higher
-\change_inserted -2100369821 1652889514
- for more abundant species
-\change_unchanged
- (Fig.
+ In the presence of turbulence, the threshold distance at which dominance
+ falls below 95% is smaller for more abundant species (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4656,64 +3529,16 @@ noprefix "false"
 
 \end_inset
 
- a-b): 
-\change_deleted -2100369821 1652889522
-species which are more abundant tend to be 
-\change_inserted -2100369821 1652889531
-as these species tend to be 
-\change_deleted -2100369821 1652889522
-omnipresent
-\change_inserted -2100369821 1652889450
-present nearly everywhere
-\change_unchanged
- when they are mixed in the environment, 
-\change_deleted -2100369821 1652889540
-which also makes them
-\change_inserted -2100369821 1652889545
-they are also
-\change_unchanged
- more likely to be close to a heterospecific, but 
-\change_deleted -2100369821 1652889563
-they 
-\change_unchanged
-still 
-\change_deleted -2100369821 1652889560
-also 
-\change_unchanged
-have more conspecifics close to them than the less abundant species.
- When turbulence is absent, the effect of abundance on the dominance index
- 
-\change_deleted -2100369821 1652889621
-decrease 
-\change_unchanged
-is reversed: a 5%
-\change_inserted -2100369821 1652889627
- dominance
-\change_unchanged
- decrease is reached for a higher 
-\change_deleted -2100369821 1652889639
-radius
-\change_inserted -2100369821 1652889640
-distance
-\change_unchanged
- when species are more abundant for microphytoplankton, which may indicate
- that particle growth offsets diffusion in this case.
- The relationship is more complex for nanophytoplankton: the minimum 
-\change_deleted -2100369821 1652889656
-radius
-\change_inserted -2100369821 1652889657
-distance
-\change_unchanged
- for a 5% decrease in dominance 
-\change_deleted -2100369821 1652889661
-index 
-\change_unchanged
-is reached for intermediate abundances; there is possibly a trade-off between
- occupation of the space due to mixing by diffusion and growth of particles
- around their conspecifics.
- The effect of average abundances on the composition of a particle neighbourhood
- within its depletion zone is less marked for nanophytoplankton than for
- microphytoplankton (Fig.
+ a-b).
+ Abundant species tend to be present nearly everywhere when they are mixed
+ in the environment.
+ Therefore, they are also more likely to be close to a heterospecific, but
+ still have more conspecifics close to them than the less abundant species
+ (
+\begin_inset Formula $D_{\text{threshold}}$
+\end_inset
+
+ increases with abundance, Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4724,65 +3549,23 @@ noprefix "false"
 
 \end_inset
 
- c-d)
-\change_inserted -2100369821 1652776013
-:
-\change_deleted -2100369821 1652776011
-,
-\change_unchanged
+ c-d).
+ However, this increase is less marked for nanophytoplankton than for microphyto
+plankton (Fig.
  
-\change_deleted -2100369821 1652776016
-as 
-\change_unchanged
-a more abundant species of microphytoplankton will be more present in its
- depletion zone than a less abundant species, 
-\change_deleted -2100369821 1652776023
-while
-\change_inserted -2100369821 1652889729
-but the trend is less obvious for nanophytoplankton species.
- The lowest value of dominance is obtained for intermediate values of abundances
-, and is higher for less abundant species.
- However, the maximum value of dominance is still obtained by the most abundant
- species of
-\change_unchanged
- nanophytoplankton
-\change_deleted -2100369821 1652776246
- species of different average abundances tend to keep similar dominance
- indices
-\change_inserted -2100369821 1652776246
-.
-\change_inserted -666822487 1652249626
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652249674
-I'm not sure exactly why the sentence after 
-\begin_inset Quotes eld
-\end_inset
-
-while
-\begin_inset Quotes erd
-\end_inset
-
- is true and what is the point being made.
- 
-\change_inserted -2100369821 1652776255
-CP: Rephrased
-\change_unchanged
-
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Carac_10sp"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-
-\change_deleted -2100369821 1652889742
-.
- 
-\change_unchanged
-
+ c-d).
+ When turbulence is absent, the relationships with abundance are unclear,
+ possibly affected by sampling effects, and we refrain from interpreting
+ them.
 \end_layout
 
 \begin_layout Standard
@@ -4806,21 +3589,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Minimum distances
-\change_inserted -2100369821 1652864682
- (in cm)
-\change_unchanged
- between points for dominance to drop below 95% (a and b) and dominance
- at a distance corresponding to the 
-\change_deleted -2100369821 1652889782
-10-diameter 
-\change_unchanged
-threshold
-\change_inserted -2100369821 1652889789
- for competition
-\change_unchanged
- (c and d) as a function of abundances (note the logarithmic scale on the
- x-axis) for microphytoplankton and nanophytoplankton.
+Minimum distances (in cm) between points for dominance to drop below 95%
+ (a and b) and dominance at a distance corresponding to the threshold for
+ competition (c and d) as a function of abundances (note the logarithmic
+ scale on the x-axis) for microphytoplankton and nanophytoplankton.
  We consider cases with and without advection in a 10-species community
  with a skewed abundance distribution.
  
@@ -5195,15 +3967,9 @@ We designed a stochastic, three-dimension, individual-based model of the
  We conducted both mathematical analyses and numerical simulations to quantify
  spatial correlations in particle distributions.
  We focused on the pair correlation function and Ripley's 
-\change_deleted -2100369821 1652775480
-K
-\change_inserted -2100369821 1652775480
-
 \begin_inset Formula $K$
 \end_inset
 
-
-\change_unchanged
 -function, for which numerical and theoretical analyses showed a good agreement,
  and extracted a more ecologically-oriented metric from them, 
 \shape italic
@@ -5215,9 +3981,9 @@ i.e.
 \shape italic
 local
 \shape default
- average ratio of the number of organisms of a given species in the neighbourhoo
-d of a particle of the same species, compared to the total number of organisms,
- as a function of the distance from the particle.
+ average ratio of conspecifics, i.e., the number of organisms of the focal
+ species in the neighbourhood of an individual of the same species, divided
+ by the total number of organisms in that neighborhood.
  Intraspecific clustering corresponds to a dominance index close to 1, which
  decreases when interspecific mixing increases.
  The choice of this index was motivated by two reasons: it is at its core
@@ -5248,12 +4014,7 @@ textmu
 \end_inset
 
  m), larger cells with lower diffusivity, growth rate and abundance, were
- on average further away from other cells, due to their lower 
-\change_deleted -2100369821 1652889892
-density
-\change_inserted -2100369821 1652889894
-concentrations
-\change_unchanged
+ on average further away from other cells, due to their lower concentrations
  (Section SX), than nanophytoplankters (2 to 20 
 \begin_inset ERT
 status open
@@ -5267,37 +4028,25 @@ textmu
 
 \end_inset
 
- m), but they were surrounded by more heterospecifics than conspecifics
- within a volume of potential interactions, 
-\change_inserted -2100369821 1652889997
-whose radius is 
-\change_unchanged
-defined as the maximum distance for which nutrient depletion volumes
-\change_inserted -2100369821 1652890020
- of two different particles
-\change_unchanged
- may overlap.
- Microphytoplankters were therefore more likely to interact with individuals
- from other species than with individuals of their own species.
- However, if we consider different distances within the volume of potential
- interactions, this affirmation needs to be nuanced: there was always a
- (potentially small) 
-\change_deleted -2100369821 1652890052
-radius
-\change_inserted -2100369821 1652890053
-volume
-\change_unchanged
- around a particle for which the community remained mostly monospecific.
- Variability in species composition of the neighbourhood only intervened
- for larger distances
-\change_inserted -2100369821 1652890063
- from the particle
-\change_unchanged
-.
+ m).
+ However, they were surrounded by more heterospecifics than conspecifics
+ within a volume of potential interactions, whose radius is defined as the
+ maximum distance for which nutrient depletion volumes of two different
+ individuals may overlap.
+ If we consider that interactions between species (not modelled here), could
+ occur with equal probability at all distances within the volume of potential
+ interactions, we would conclude that microphytoplankters are more likely
+ to interact with individuals from other species than with individuals of
+ their own species.
+ However,this affirmation is conditional upon interactions at 10 cell diameters
+ from an individual being equally likely than at 1 diameter from an individual.
+ If we keep in mind that interactions are more likely or stronger at very
+ short distances, microphytoplankters may still experience more frequent
+ effects of conspecifics than heterospecifics.
 \end_layout
 
 \begin_layout Standard
-We first focus on the smallest distances between particles.
+To see this, let us first focus on the smallest distances between particles.
  The nearest neighbour of a particle was always a particle of the same species,
  and the minimum distance between conspecifics was always lower than expected
  for a uniform distribution (Section SX).
@@ -5317,12 +4066,9 @@ some
  intraspecific aggregation, i.e.
  conspecifics were always closer than heterospecifics at the lowest distances.
  This is due to the prevalence of demographic processes at individual scales,
- because a particle acts as a source point for other organisms of the same
- species, and hydrodynamic
-\change_deleted -2100369821 1652890104
-s
-\change_unchanged
- processes do not separate conspecifics fast enough to prevent aggregation.
+ because an individual acts as a source point for other organisms of the
+ same species, and hydrodynamic processes do not separate conspecifics fast
+ enough to prevent aggregation.
  If we consider that interaction strengths are a smoothly decaying function
  of distance, a common assumption in spatial coexistence models 
 \begin_inset CommandInset citation
@@ -5341,8 +4087,14 @@ literal "false"
  in the environment, effects on the cell, uptakes, etc.
  Rather than weighting much more heavily the potential interactions with
  the closest neighbour(s) through an interaction kernel, we therefore chose
- to define a maximum distance for two particles to possibly affect the concentra
-tions of elements in the environment of each other.
+ conservatively to define a maximum distance for two 
+\change_deleted -666822487 1653314893
+particles
+\change_inserted -666822487 1653314894
+organisms
+\change_unchanged
+ to possibly affect the concentrations of elements in the environment of
+ each other.
  
 \begin_inset Note Note
 status collapsed
@@ -5454,88 +4206,26 @@ Dominances began to decrease at distances above
  cm, still below the maximum distance for interactions.
  At this distance and above, the balance between heterospecifics and conspecific
 s was much more sensitive to different phytoplankton's demographics and
- hydrodynamic
-\change_deleted -2100369821 1652890168
-s
-\change_unchanged
- traits.
+ hydrodynamic traits.
  The species composition of a particle's neighbourhood depended on its size:
- nanophytoplankton organisms mainly shared their volume of 
-\change_inserted -2100369821 1652857090
-potential 
-\change_unchanged
-interactions with conspecifics (the dominance index remained close to 1,
- even near the 
-\change_deleted -2100369821 1652890210
-overlap
-\change_inserted -2100369821 1652890211
-distance
-\change_unchanged
- threshold
-\change_inserted -2100369821 1652890205
-, i.e.
- the maximum distance for nutrient depletion volume overlap
-\change_unchanged
-) while microphytoplankton organisms could affect both conspecifics and
- heterospecifics (the dominance index was often below 50% at the 
-\change_deleted -2100369821 1652890230
-overlap
-\change_inserted -2100369821 1652890231
-distance
-\change_unchanged
- threshold, i.e.
+ nanophytoplankton organisms mainly shared their volume of potential interaction
+s with conspecifics (the dominance index remained close to 1, even near
+ the distance threshold, i.e.
+ the maximum distance for nutrient depletion volume overlap) while microphytopla
+nkton organisms could affect both conspecifics and heterospecifics (the
+ dominance index was often below 50% at the distance threshold, i.e.
  a particle's depletion zone probably overlapped with more heterospecifics'
  than conspecifics').
- Microphytoplankters were therefore more likely to 
-\change_deleted -2100369821 1652857210
-interact
-\change_inserted -2100369821 1652857215
-share their depletion volume
-\change_unchanged
- with heterospecifics than nanophytoplankters
-\change_deleted -2100369821 1652857238
-, due to their lower reproduction rate
-\change_unchanged
-.
- The rate of production of new
-\change_inserted -2100369821 1652857268
- microphytoplankton
-\change_unchanged
- conspecifics was not sufficient to compensate for the separation velocity
- due to turbulence and diffusivity, even though the diffusion range of microphyt
-oplankters was smaller than that of nanophytoplankters.
+ Microphytoplankters were therefore more likely to share their depletion
+ volume with heterospecifics than nanophytoplankters.
+ The rate of production of new microphytoplankton conspecifics was not sufficien
+t to compensate for the separation velocity due to turbulence and diffusivity,
+ even though the diffusion range of microphytoplankters was smaller than
+ that of nanophytoplankters.
  There may therefore be different mechanisms at play at the community level
  for microphytoplankton and nanophytoplankton.
- For nanophytoplankton, the
-\change_inserted -2100369821 1652890297
- spatial structure likely leads to
-\change_deleted -2100369821 1652857372
- interactions network of the community is likely characterized by
-\change_inserted -2100369821 1652857443
- more interactions between conspecifics
-\change_deleted -2100369821 1652857448
- intraspecific interactions stronger
-\change_unchanged
- than 
-\change_deleted -2100369821 1652890314
-interspecific interactions
-\change_inserted -2100369821 1652890343
-between heterospecifics.
-\change_deleted -2100369821 1652890314
-, which is key in coexistence theory 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "barabas_self-regulation_2017"
-literal "false"
-
-\end_inset
-
-.
- For microphytoplankton, while we have shown that interactions at the individual
- level may be stronger with a conspecific, interactions are more frequent
- with heterospecifics.
-
-\change_inserted -2100369821 1652890391
+ For nanophytoplankton, the spatial structure likely leads to more interactions
+ between conspecifics than between heterospecifics.
  The distribution of microphytoplankton species, on the contrary, encourages
  more interactions between heterospecifics.
  If we consider that local interaction strengths are equal within the volume
@@ -5549,63 +4239,21 @@ literal "false"
 
 \end_inset
 
-).
- This is not so clear for microphytoplankton.
- If we consider that local interaction strengths are negatively correlated
- with distances between organisms, the balance between local interaction
- strength and frequency is unknown, and the structure of interactions at
- the population level that could emerge from the spatial structure
-\change_deleted -2100369821 1652858178
- There is therefore a balance between strength and frequency of interactions
- which precludes direct conclusions regarding the relative strengths of
- interactions at the community level
-\change_inserted -2100369821 1652858216
- remains obscure.
-\change_inserted -666822487 1652250157
+) but not necessarily so for microphytoplankton.
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652250276
-I'm really unsure about those two last sentences - we don't actually infer
- interactions.
- I'd suggest to rephrase sating that we have evidenced a spatial structure
- favouring stronger intra- over interspecific interactions at the population
- level, even if local interaction strengths were actually equal.
- 
-\change_inserted -2100369821 1652860460
-CP: Rephrased
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_deleted -2100369821 1652857618
-.
-
-\change_unchanged
+\change_deleted -666822487 1653315085
  
 \change_inserted -2100369821 1652858220
 
 \end_layout
 
 \begin_layout Standard
-The dominance of heterospecifics in a microphytoplankter's neighbourhood
- may however be debated.
- Indeed, when computing the volumes 
-\change_deleted -2100369821 1652858331
-of zones relevant for interactions
-\change_inserted -2100369821 1652890411
-of potential interactions
-\change_unchanged
- based on nutrient concentrations around a cell, we used maximum volumes,
- corresponding to a diffusive-only flow.
- When turbulence increases, uptake increases and the size of the depletion
- zone decreases 
+All of the above discussion is based on a microphytoplankter's neighbourhood
+ as defined by nutrient depletion volumes.
+ To simplify the computation, we used maximum volumes of potential interaction,
+ corresponding to a diffusive-only flow of nutrient particles.
+ But when fluid turbulence increases, nutrient uptake increases due to that
+ turbulence, and the size of the depletion zone decreases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karp-boss_nutrient_1996"
@@ -5615,21 +4263,15 @@ literal "false"
 
 .
  The proportion of change in the depletion volume increases with the size
- of organism
-\change_inserted -2100369821 1652890452
-: a 10 
+ of organism: a 10 
 \begin_inset ERT
 status open
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1652858972
-
 
 \backslash
 textmu
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -5641,8 +4283,6 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1652859022
-
 
 \backslash
 textmu
@@ -5650,12 +4290,7 @@ textmu
 
 \end_inset
 
- m-diameter organism would increase by at least 50%
-\change_deleted -2100369821 1652859341
-, meaning that larger cells such as microphytoplankters are much more sensitive
- to turbulence increases than smaller cells
-\change_unchanged
- 
+ m-diameter organism would increase by at least 50% 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karp-boss_nutrient_1996"
@@ -5664,194 +4299,47 @@ literal "false"
 \end_inset
 
 .
- 
-\change_inserted -2100369821 1652890543
-Therefore the volume of potential interactions shrinks in the presence of
- turbulence for microphytoplankton, but not necessarily for nanophytoplankton.
- We know that there is always a volume around a particle in which conspecifics
- dominate: if this volume coincides with the (turbulence-reduced) volume
- of potential interactions, 
-\change_deleted -2100369821 1652859364
-If we adjusted depletion-volume sizes with turbulence in mind, conspecifics
- might be as predominant around a microphytoplankton particle as they are
- for nanophytoplankton 
-\shape italic
-within
-\shape default
- relevant zones
-\change_inserted -2100369821 1652859448
-a microphytoplankter organism may interact predominantly with conspecifics,
- as a nanophytoplankter would
-\change_unchanged
-.
- 
-\change_inserted -2100369821 1652890611
-Computing the exact shape and size of the volume of potential interactions
- in the presence of turbulence could therefore indicate similar neighbourhood
- composition in terms of relative presences of conspecifics and heterospecifics
- for microphytoplankton and nanophytoplankton, and therefore a spatial distribut
-ion favouring intraspecific interactions over interspecific interactions,
- even for microphytoplankton.
- 
-\change_deleted -2100369821 1652859458
-While microphytoplankton individuals may interact more with heterospecifics
- than nanophytoplankton individuals, we should therefore be cautious in
- saying that microphytoplankton individuals interact with more heterospecifics
- than conspecifics.
- 
-\change_unchanged
+ Therefore the volume of potential interactions shrinks in the presence
+ of turbulence for microphytoplankton, but not necessarily for nanophytoplankton.
+ This is one additional reason why microphytoplankers might still be surrounded
+ by conspecifics at ecologically meaningful distances and interacting more
+ frequently with them.
+\end_layout
 
+\begin_layout Standard
+Up to now, we have only focused on the dominance index, a localized proportion
+ of conspecifics.
+ However, interactions also depend on the absolute densities of individuals.
+ Mechanically, when density decreases, the distances between neighbours
+ increase, which explains that the distances between the low-abundance microphyt
+oplankters tended to be greater than distances between the more abundant
+ nanophytoplankters (Fig.
+ SX).
+ Explicit mathematical models using pair densities to express interaction
+ rates 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g."
+key "law_population_2003,plank_spatial_2015"
+literal "false"
+
+\end_inset
+
+ may be able to incorporate those effects; however, as we highlight below,
+ the timescales and spatial correlations that develop in such models may
+ not necessarily represent faithfully phytoplankton community dynamics.
+ 
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-Introduce the idea of Péclet and or Sherwoord number somewhere here, would
- quantify
-\end_layout
-
-\end_inset
-
-
-\change_inserted -666822487 1652250402
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652250422
-The end of the paragraph is a bit hand-wavy and could be rewritten a little.
- 
-\change_inserted -2100369821 1652860451
-CP: Rephrased
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-Up to now, we have only focused on the dominance index, a localized ratio
- of average densities multiplied by the local average number of neighbours
- of a particle, therefore focusing on relative densities of the different
- species
-\change_inserted -2100369821 1652862725
-.
- However
-\change_unchanged
-,
-\change_deleted -2100369821 1652862737
- but
-\change_unchanged
- interactions also depend on the absolute numbers of individuals.
- Mechanically, when density decreases, the distances between neighbours
- increase
-\change_deleted -2100369821 1652862752
-s
-\change_unchanged
-, which explains that the distances between the low-abundance microphytoplankter
-s tended to be greater than distances between 
-\change_deleted -2100369821 1652890661
-high-abundance
-\change_inserted -2100369821 1652890665
-the more abundant
-\change_unchanged
- nanophytoplankters
-\change_inserted -2100369821 1652890639
- (Fig.
- SX)
-\change_unchanged
-.
- 
-\change_deleted -2100369821 1652862961
-The separation can even reach the maximum threshold for interactions to
- happen: there might therefore be a point for which a particle is only surrounde
-d by its own children, which are then advected further.
-\change_inserted -2100369821 1652863271
-At low abundances, a particle may be only surrounded by its children, which
- are then advected too far to be able to share the same local resources.
-
-\change_unchanged
- Interactions
-\change_inserted -2100369821 1652863523
- via resource depletion
-\change_unchanged
- may therefore be scarce in both space and time.
- At the other end of the spectrum, high densities could have a paradoxical
- effect: 
-\change_inserted -2100369821 1652863957
-a species with a high density is present nearly everywhere in space, which
- means that it has more heterospecifics in its neighbourhood than a low-density
- species, in absolute numbers, while still remaining dominant (less heterospecif
-ics in relative numbers)
-\change_deleted -2100369821 1652863582
-a species with a high
-\change_deleted -666822487 1652250501
-er
-\change_deleted -2100369821 1652863582
- density 
-\change_deleted -666822487 1652250506
-was omnipresent
-\change_deleted -2100369821 1652863582
-could be present nearly everywhere in space, and heterospecifics were closer
- to it
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652250540
-in what sense?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
- when compared to a lower-density species, even though this species 
-\change_deleted -666822487 1652250556
-was more dominant
-\change_deleted -2100369821 1652863582
-had a higher dominance index in its potential interaction range
-\change_unchanged
-.
- 
-\change_deleted -2100369821 1652863880
-These observations are however dependent on the 
-\change_deleted -666822487 1652250578
-densities
-\change_deleted -2100369821 1652863880
-concentrations that w
-\change_inserted -2100369821 1652863880
-W
-\change_unchanged
-e considered
-\change_inserted -2100369821 1652863885
- here
-\change_deleted -2100369821 1652863888
- in our model, which correspond to
-\change_unchanged
- annual average
-\change_inserted -666822487 1652250595
-s of phytoplankton observed concentrations
-\change_unchanged
-.
- If we were to model populations in a bloom, during which microphytoplankton
+If we were to model populations in a bloom, during which microphytoplankton
  particles can reach 
 \begin_inset Formula $10^{6}$
 \end_inset
 
- C/L
-\change_inserted -2100369821 1652890722
- (2 orders of magnitude higher than here)
-\change_unchanged
- and a single species can represent up to 90% of the abundance of the community
- 
+ C/L (2 orders of magnitude higher than here) and a single species can represent
+ up to 90% of the abundance of the community 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "hernandez-farinas_temporal_2014"
@@ -5859,76 +4347,23 @@ literal "false"
 
 \end_inset
 
-, we would likely see the dominance of the single blooming species
-\change_deleted -2100369821 1652864170
- at all scales
-\change_inserted -2100369821 1652864211
-: an organism of such species would be closer to its conspecifics than a
- low-abundance species, and have more conspecifics surrounding it than heterospe
-cifics
-\change_unchanged
-.
+, we would likely see the dominance of the single blooming species: an organism
+ of such species would be closer to its conspecifics than a low-abundance
+ species, and have more conspecifics surrounding it than heterospecifics.
  The environment is also modified by a bloom: the competition can increase
  due to depletion of nutrients in the whole environment.
- If we want
-\change_inserted -666822487 1652250636
-ed
-\change_unchanged
- to make more general conclusions on interaction
-\change_deleted -2100369821 1652890760
-s
-\change_unchanged
- structure in different conditions (
+ If we wanted to make more general conclusions on interaction structure
+ in different conditions (
 \shape italic
 e.g.
 \shape default
-, blooms or not), we 
-\change_inserted -666822487 1652250639
-would 
-\change_unchanged
-therefore need a more mechanistic representation of 
-\change_deleted -2100369821 1652864256
-interactions
-\change_inserted -2100369821 1652864291
-the dynamics of resources affecting interactions between organisms
-\change_unchanged
-.
-\change_inserted -666822487 1652250797
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652250936
-F: I feel that the whole paragraph could be made more precise – we can discuss
- this.
- I have the feeling that you want to use another criterion than dominance
- to outline how interactions potentially play out, but because the criterion
- used to determine whether interactions (min distance to heterospecifics,
- mean distance, ...) could occur is not made explicit, a number of sentences
- are inevitably a little vague.
- 
-\change_inserted -2100369821 1652864327
-CP: Rephrased, but still not good.
- Would need your advise.
- The goal is to show that blooming population may have a different behaviour
- which would require nutrient modeling.
- I actually do not see which (other) criterion I would use here.
- Transition to the last paragraph about other ways to model interactions
- is now more obvious, though.
-\change_unchanged
-
+, blooms or not), we would therefore need a more mechanistic representation
+ of the dynamics of resources affecting interactions between organisms.
 \end_layout
 
 \end_inset
 
 
-\change_deleted -2100369821 1652863829
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Note Note
 status collapsed
 
@@ -6040,40 +4475,7 @@ iation as escape from competitive exclusion is easier when species have
 \end_layout
 
 \begin_layout Standard
-The model presented here is one of the first microscale phytoplankton dynamic
- model focusing on spatial distributions of multiple species within a single
- trophic level, 
-\change_deleted -2100369821 1652859666
-using
-\change_inserted -2100369821 1652859687
-describing
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1652859700
-I just want to avoid the repetition of 
-\begin_inset Quotes eld
-\end_inset
-
-using
-\begin_inset Quotes erd
-\end_inset
-
- with the next sentence
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- only basic hydrodynamics and demographics processes.
- Using this model, we were able to guesstimate the differences in potential
- intra vs interspecific interactions between species.
- Contrary to other models 
+Contrary to other similar models 
 \begin_inset CommandInset citation
 LatexCommand citep
 before "e.g.,"
@@ -6082,68 +4484,26 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -666822487 1652251196
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652251214
-I'm not sure we want to highlight only this paper which may not be of the
- highest quality
-\change_inserted -2100369821 1652862873
-.
- Bouderbala is one of the very few modeling density-dependence for phyto
- at this scale -even citing Birch is a bit of a stretch.
- I do not think we can spare the citation - we are not citing the latest
- El Saadi.
-\change_unchanged
-
-\end_layout
-
+, we did not consider explicit effects of local density on survival and
+ fertility rates.
+ Outside of simply maintaining analytical tractability, we had another,
+ more biological reason to do so: we cannot be sure that these local density-dep
+endencies make sense in our phytoplankton context.
+ To understand why, consider that even if a species abundance is locally
+ tripled, competition might not directly ensue at the time scales covered
+ by our model, if nutrient depletion has not had time to set in yet.
+ We would need lagged local density-dependencies, which are to our knowledge
+ not leading to tractable spatial branching or dynamic point processes.
+ We could, of course, directly model nutrients, perhaps as resource 
+\begin_inset Quotes eld
 \end_inset
 
+points
+\begin_inset Quotes erd
+\end_inset
 
-\change_unchanged
-, we did not consider explicit effects of density dependence between individuals
-, as we cannot be sure that this kind of dependencies, more often observed
- at the population level and macroscale, applies similarly between individuals
- at the microscale
-\change_deleted -2100369821 1652890817
-s
-\change_unchanged
-, especially for the very short time scales that we consider.
- For instance, even i
-\change_inserted -2100369821 1652860113
-f
-\change_deleted -2100369821 1652860113
-s
-\change_unchanged
- 
-\change_inserted -2100369821 1652860154
-a 
-\change_unchanged
-species
-\change_deleted -2100369821 1652860155
- 3
-\change_unchanged
- abundance is locally tripled
-\change_inserted -2100369821 1652860159
-,
-\change_unchanged
- it does not necessarily mean that competition immediately ensues, if nutrient
- depletion has not had time to set in yet.
-
-\change_inserted -666822487 1652251158
- 
-\change_unchanged
-Another, possibly more relevant, way of modeling interactions would be to
- introduce resource points in the cube, which could in turn change the reproduct
-ion or death rate of individuals.
- Such mechanism is mostly adequate for interactions due to competition for
- nutrients, but its adequacy is less clear-cut than may be thought.
+ with a dynamics of their own (North and Ovaskainen, Murrell 2005), which
+ in turn change the reproduction or death rate of individuals.
  If the resource points risk being depleted, this entails a negative spatial
  correlation between organisms and their resources 
 \begin_inset CommandInset citation
@@ -6154,9 +4514,9 @@ literal "false"
 \end_inset
 
 .
- However, there are additional complexities in phytoplankton.
- For example, the phycosphere, a micro-environment at the periphery of a
- phytoplankton particle where communities of bacteria interact 
+ And that is where such models might be inadequate.
+ The phycosphere, a micro-environment at the periphery of a phytoplankton
+ organism where communities of bacteria interact 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "seymour_zooming_2017"
@@ -6164,151 +4524,22 @@ literal "false"
 
 \end_inset
 
-, can also impact phytoplankton fitness, both positively
-\change_inserted -2100369821 1652860680
- (cross-feeding)
-\change_unchanged
- and negatively
-\change_inserted -2100369821 1652890862
- (algicidal activities of bacteria)
-\change_unchanged
-.
+, can also impact phytoplankton fitness, both positively (cross-feeding)
+ and negatively (algicidal activities of bacteria).
+ This can sometimes lead to an accumulation of key resources close to the
+ phytoplankter.
+ This will lead to positive spatial correlations between consumers and their
+ resources, and we currently do not have theoretical models to represent
+ this (short of modelling precisely these bacteria).
  
-\change_deleted -2100369821 1652860570
-In this case, the phycosphere position directly depends on the position
- of the organism
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1652251425
-not sure what this means
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-, and the volume of interactions also varies with size: nanophytoplankton
- phycosphere's sizes are neglible while microphytoplankters can have very
- large phycosphere (1200 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-textmu
-\end_layout
-
-\end_inset
-
- m for a 50 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-textmu
-\end_layout
-
-\end_inset
-
- m-diameter particle)
-\change_inserted -2100369821 1652890923
- As bacteria feed on compounds leaking from the phytoplankter, the gradient
- of resources is opposite to the gradient of nutrient: resources shared
- between phytoplankters and bacteria are maximum at the surface of the phytoplan
-kter and decrease with the distance from the organism.
- Volumes of potential interactions, and the types of interactions themselves,
- may therefore vary depending on the mechanism considered
-\change_deleted -2100369821 1652861393
- 
-\change_inserted -666822487 1652251444
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652251456
-again not sure, perhaps we can discuss it or you can edit it
-\change_inserted -2100369821 1652861408
- CP: Rephrased.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
- Predation is another
-\change_inserted -2100369821 1652861531
- mechanism that can depend on the spatial distribution of organisms
-\change_deleted -666822487 1652251464
-, indirect way interactions can happen
-\change_deleted -2100369821 1652861505
- source of change in interactions between species at the same trophic level:
- if a predator shifts to more abundant prey items in times of scarcity,
- alleviating the pressure on less abundant species, this creates an apparent
- facilitative interaction at the population level 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "abrams_apparent_1998"
-literal "false"
-
-\end_inset
-
-
-\change_unchanged
-.
-\change_inserted -666822487 1652251660
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1652251704
-But precisely we don't plan to be at the population level here.
- Again we can perhaps discuss this point
-\change_inserted -2100369821 1652862617
-.
- CP: Removed, too complicated here.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- Experiments show that predation 
-\change_deleted -2100369821 1652861558
-increases
-\change_inserted -2100369821 1652861560
-depends
-\change_unchanged
- 
-\change_deleted -2100369821 1652861596
-with
-\change_inserted -2100369821 1652861598
-on
-\change_unchanged
- aggregation
-\change_deleted -2100369821 1652861564
- 
-\change_inserted -2100369821 1652890962
-, even though patterns are not clear (e.g., increase in predation due to clusterin
-g, in 
-\change_unchanged
-
+Predation is another mechanism that can depend on the spatial distribution
+ of organisms.
+ Experiments show that predation depends on aggregation, even though patterns
+ are not clear (e.g., increase in predation due to clustering, in 
 \begin_inset CommandInset citation
 LatexCommand citealp
 key "bjaerke_is_2015"
@@ -6316,8 +4547,6 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -2100369821 1652862559
 , decrease in 
 \begin_inset CommandInset citation
 LatexCommand citealp
@@ -6326,26 +4555,38 @@ literal "false"
 
 \end_inset
 
-)
-\change_unchanged
-,
-\change_deleted -2100369821 1652862579
- creating
-\change_inserted -2100369821 1652862583
- wich creates
-\change_unchanged
- a new balance between indirect interactions and spatial distributions.
+), wich creates a new balance between indirect interactions and spatial
+ distributions.
  These trade-offs cannot be taken into account if explicit particles are
  not modeled, either representing elements necessary for plankton metabolism,
  or natural enemies.
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-Other interactions between microphytoplankton do not directly affect their
- survival, but their position: most phytoplankters are able to move willingly,
- whether in three-dimensions, or only along the vertical dimension when
- they can regulate their buoyancy.
- Models of attraction between motile mechanisms 
+Our model should be viewed as a first model of spatial distributions of
+ multiple phytoplankon species in a realistic, three-dimensional environment
+ at the microscale, describing only basic hydrodynamic and demographic processes.
+ Using this model, we were able to guesstimate the differences in potential
+ intra vs interspecific interactions between species, emerging at the population
+ level through spatial distributions 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "detto_stabilization_2016"
+literal "false"
+
+\end_inset
+
+.
+ It is worthwhile to keep in mind that there are numerous remaining features
+ of phytoplankton physiology and life histories which we do not cover here,
+ but may affect their spatial distributions.
+ Many phytoplankters are able to move actively in three-dimensions, which
+ can favour cluster formation 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "breier_emergence_2018"
@@ -6353,25 +4594,19 @@ literal "false"
 
 \end_inset
 
- show that these mechanisms encourage
-\change_deleted -2100369821 1652890993
-s
-\change_unchanged
- cluster formation when length scales associated 
-\change_deleted -2100369821 1652890999
-to
-\change_inserted -2100369821 1652890999
-with
-\change_unchanged
- interactions and turbulence are close.
- Such clustering would be even stronger 
-\change_deleted -2100369821 1652891022
-by
-\change_inserted -2100369821 1652891022
-if
-\change_unchanged
- acknowledging another very common trait in microphytoplantkon, coloniality
- 
+.
+ Even those who are believed to move passively actually often move along
+ the vertical dimension by regulating their buoyancy 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "reynolds2006ecology"
+literal "false"
+
+\end_inset
+
+, and can at times aggregate to form pairs (Font-Munoz).
+ Finally, a part of spatial structure is explained by the partially colonial
+ nature of microphytoplankton 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "kiorboe_coagulation_1990"
@@ -6380,70 +4615,8 @@ literal "false"
 \end_inset
 
 .
- With independent and equivalent individuals, our model should therefore
- be taken as a first null model to which more complex, maybe more mechanistic
- models should be compared, likely leading to even more clustering.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-The size-dependence is the same if we consider the phycosphere previously
- mentioned: for a particle of microphytoplankton with a diameter of 50 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-textmu
-\end_layout
-
-\end_inset
-
- m, the phycosphere radius reaches 1200 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-textmu
-\end_layout
-
-\end_inset
-
- m, while it is nearly non-existent for particles below 3 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-textmu
-\end_layout
-
-\end_inset
-
- m 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "jackson_simulating_1987,seymour_zooming_2017"
-literal "false"
-
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
+ This clearly calls for viewing our model as a null model to which more
+ complex mechanistic models and their spatial outputs can be compared.
 \end_layout
 
 \begin_layout Subsubsection*
