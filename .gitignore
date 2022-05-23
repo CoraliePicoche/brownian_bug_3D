@@ -8,3 +8,6 @@ Exported\ Items.bib
 *.txt
 *.o
 *.out
+*.bbl
+*.blg
+*.gz

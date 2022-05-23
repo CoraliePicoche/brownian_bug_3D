@@ -97,26 +97,16 @@
 Supporting Information
 \series default
  for 
-\change_deleted -2100369821 1652891629
-
 \shape italic
-Size-dependent clustering in phytoplankton communities in a 3D environment
-\change_inserted -2100369821 1652891629
 Local intraspecific aggregation in phytoplankton model communities: spatial
  scales of occurrence and implications for coexistence
-\change_unchanged
-
 \shape default
 \emph on
  
 \emph default
 by C.
- Picoche
-\change_inserted -2100369821 1652891663
-, W.R.
- Young
-\change_unchanged
- & F.
+ Picoche, W.R.
+ Young & F.
  Barraquand.
 \end_layout
 
@@ -158,13 +148,9 @@ arabic{figure}}
 
 \backslash
 setcounter{figure}{0}
-\change_inserted -2100369821 1652891960
-
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1652891969
 
 
 \backslash
@@ -177,13 +163,9 @@ arabic{equation}}
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1652891973
-
 
 \backslash
 setcounter{equation}{0}
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -456,14 +438,10 @@ where
 \begin_inset Formula $C_{p}=N_{p}/V$
 \end_inset
 
- is the concentration/intensity of the parent process
-\change_inserted -2100369821 1652892107
- in the volume 
+ is the concentration/intensity of the parent process in the volume 
 \begin_inset Formula $V$
 \end_inset
 
-
-\change_unchanged
 .
 \change_inserted -2100369821 1652892080
 
@@ -566,11 +544,8 @@ In the Poisson point process,
 \begin_inset Formula $K_{ii}(r)=K_{ij}(r)$
 \end_inset
 
-, which means
-\change_inserted -2100369821 1652892077
- that
-\change_unchanged
- the dominance index can be reduced to ratios of concentrations:
+, which means that the dominance index can be reduced to ratios of concentration
+s:
 \end_layout
 
 \begin_layout Standard
@@ -639,21 +614,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical 
-\change_deleted -2100369821 1652892186
-pcf
-\change_inserted -2100369821 1652892189
-pair correlation function
-\change_unchanged
+Example of spatial distribution (a) and theoretical pair correlation function
  (b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
--function (c) and dominance index (d) for a Poisson point process in 
-\change_inserted -2100369821 1652892150
-a 
-\change_unchanged
-3-species community with different intensities (10000 cm
+-function (c) and dominance index (d) for a Poisson point process in a 3-species
+ community with different intensities (10000 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -721,12 +688,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical 
-\change_deleted -2100369821 1652892192
-pcf
-\change_inserted -2100369821 1652892195
-pair correlation function
-\change_unchanged
+Example of spatial distribution (a) and theoretical pair correlation function
  (b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
@@ -744,17 +706,7 @@ pair correlation function
 \begin_inset Formula $^{-3}$
 \end_inset
 
-), 
-\change_inserted -2100369821 1652892224
-and different 
-\change_unchanged
-children per parent 
-\change_deleted -2100369821 1652892229
-averages
-\change_inserted -2100369821 1652892232
-intensities
-\change_unchanged
- (50, 10, 50), with 
+), and different children per parent intensities (50, 10, 50), with 
 \begin_inset Formula $\sigma=0.01$
 \end_inset
 
@@ -823,25 +775,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Theoretical dominance indices as a function of the distance
-\change_inserted -2100369821 1652864822
- (in cm)
-\change_unchanged
- from a particle of a given species, for a microphytoplankton (a) and nanophytop
-lankton (b) 3-species community with an even abundance distribution, with
- (red line) and without (grey to black lines, with darker lines for longer
- duration) advection.
- The vertical dashed line corresponds to the
-\change_deleted -2100369821 1652892269
- 10-diameter
-\change_inserted -2100369821 1652892271
- distance
-\change_unchanged
- threshold
-\change_inserted -2100369821 1652892275
- for interaction
-\change_unchanged
-.
+Theoretical dominance indices as a function of the distance (in cm) from
+ a particle of a given species, for a microphytoplankton (a) and nanophytoplankt
+on (b) 3-species community with an even abundance distribution, with (red
+ line) and without (grey to black lines, with darker lines for longer duration)
+ advection.
+ The vertical dashed line corresponds to the distance threshold for interaction.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -881,11 +820,8 @@ Computation of the pair correlation function and Ripley's function
 \end_layout
 
 \begin_layout Standard
-The algorithm for 
-\change_inserted -2100369821 1652892298
-the 
-\change_unchanged
-pcf computation was mostly taken from the function 
+The algorithm for the pcf computation was mostly taken from the function
+ 
 \begin_inset ERT
 status open
 
@@ -907,7 +843,6 @@ literal "false"
 \end_inset
 
  and adapted to the interspecific pcf (i.e., pcf for marked point processes).
- 
 \end_layout
 
 \begin_layout Standard
@@ -1083,19 +1018,8 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and 
-\change_deleted -2100369821 1652892362
-PCF
-\change_inserted -2100369821 1652892366
-pair correlation function
-\change_unchanged
- values
-\change_deleted -2100369821 1652864794
- 
-\change_inserted -2100369821 1652864794
- as a function of distance (in cm) 
-\change_unchanged
-for 3 species following a Poisson process with intensity 10 cm
+-function and pair correlation function values as a function of distance
+ (in cm) for 3 species following a Poisson process with intensity 10 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1159,19 +1083,9 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and 
-\change_deleted -2100369821 1652892369
-PCF
-\change_inserted -2100369821 1652892372
-pair correlation function
-\change_unchanged
- values
-\change_deleted -2100369821 1652864797
+-function and pair correlation function values as a function of distance
+ (in cm) for 3 species following a Thomas process with parent intensity
  
-\change_inserted -2100369821 1652864799
- as a function of distance (in cm) 
-\change_unchanged
-for 3 species following a Thomas process with parent intensity 
 \begin_inset Formula $C_{p}=200$
 \end_inset
 
@@ -1230,13 +1144,8 @@ Brownian Bug Model
 
 \begin_layout Standard
 While the pcf was one of the first indices that we intended to use, we quickly
- realized that the combination of the large range of 
-\change_deleted -2100369821 1652892452
-radii
-\change_inserted -2100369821 1652892453
-distances
-\change_unchanged
- we wanted to explore (from 
+ realized that the combination of the large range of distances we wanted
+ to explore (from 
 \begin_inset Formula $10^{-4}$
 \end_inset
 
@@ -1255,7 +1164,11 @@ noprefix "false"
 \end_inset
 
 ).
+
+\change_deleted -2100369821 1653319983
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1465,18 +1378,9 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Intraspecific 
-\change_deleted -2100369821 1652892473
-pcf
-\change_inserted -2100369821 1652892476
-pair correlation function
-\change_deleted -2100369821 1652892473
- 
-\change_inserted -2100369821 1652864805
- as a function of distance (in cm) 
-\change_unchanged
-computed for the Brownian bug model with microphytoplankton particles, after
- 1000 time steps, with different values of the bandwidth 
+Intraspecific pair correlation function as a function of distance (in cm)
+ computed for the Brownian bug model with microphytoplankton particles,
+ after 1000 time steps, with different values of the bandwidth 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -1606,11 +1510,7 @@ Theory
 \end_layout
 
 \begin_layout Standard
-One of the reason
-\change_inserted -2100369821 1652892514
-s
-\change_unchanged
- why estimating 
+One of the reasons why estimating 
 \begin_inset Formula $K$
 \end_inset
 
@@ -1618,27 +1518,19 @@ s
 \begin_inset Formula $g(r)$
 \end_inset
 
- is difficult is that for small 
-\change_deleted -2100369821 1652892521
-radii
-\change_inserted -2100369821 1652892522
-distances
-\change_unchanged
- (below 10
+ is difficult is that for small distances (below 10
 \begin_inset Formula $^{-2}$
 \end_inset
 
-), we can find very few 
-\change_deleted -2100369821 1652892533
-observed distances between
-\change_inserted -2100369821 1652892535
-observations of
-\change_unchanged
- pairs of points.
+), we can find very few observations of pairs of points.
  As a first proxy, we want to estimate the minimum expected distance between
  points (distance to the nearest neighbour, DNN) when they are uniformly
  distributed.
+
+\change_deleted -2100369821 1653319971
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1713,18 +1605,11 @@ literal "false"
 \begin_inset Formula $f(r)=\frac{dC\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{C\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=dCb_{d}r^{d-1}\exp(-Cb_{d}r^{d})$
 \end_inset
 
- has an expect
-\change_deleted -2100369821 1652892608
-i
-\change_inserted -2100369821 1652892608
-e
-\change_unchanged
-d value of 
+ has an expected value of 
 \begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{C^{1/d}\pi^{1/2}}$
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -1818,13 +1703,8 @@ Simulations
 \end_layout
 
 \begin_layout Standard
-We can compute the simulated distance to the nearest neighbour 
-\change_deleted -2100369821 1652892633
-compared
-\change_inserted -2100369821 1652892635
-and compare it
-\change_unchanged
- to what we should obtain with a uniform distribution (Fig.
+We can compute the simulated distance to the nearest neighbour and compare
+ it to what we should obtain with a uniform distribution (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1848,7 +1728,11 @@ noprefix "false"
 ): the simulated average DNN are close to the expected value for a uniform
  distribution, but the minimum distance to a conspecific is much lower than
  expected.
+
+\change_deleted -2100369821 1653319951
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1872,12 +1756,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance
-\change_inserted -2100369821 1652864836
- (in cm)
-\change_unchanged
- to the nearest neighbour for 10 microphytoplankton species with density
- 
+Mean and minimum distance (in cm) to the nearest neighbour for 10 microphytoplan
+kton species with density 
 \begin_inset Formula $C=10$
 \end_inset
 
@@ -1936,12 +1816,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance
-\change_inserted -2100369821 1652864841
- (in cm)
-\change_unchanged
- to the nearest neighbour for 10 nanophytoplankton species with density
- 
+Mean and minimum distance (in cm) to the nearest neighbour for 10 nanophytoplank
+ton species with density 
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
@@ -2024,17 +1900,21 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean distance
-\change_deleted -2100369821 1652864862
- 
-\change_inserted -2100369821 1652864863
- (in cm) 
+Mean distance (in cm) to the nearest conspecific (filled circle) or heterospecif
+ic (empty square) as a function of density in the environment for both microphyt
+oplankton (black) and nanophytoplankton (grey) communities with a skewed
+ abundance distribution, in the presence of advection.
+\change_inserted -2100369821 1653319915
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distance_abundance"
+
+\end_inset
+
+
 \change_unchanged
-to the nearest conspecific (filled circle) or heterospecific (empty square)
- as a function of density in the environment for both microphytoplankton
- (black) and nanophytoplankton (grey) communities with a skewed abundance
- distribution, in the presence of advection.
- 
+
 \end_layout
 
 \end_inset
@@ -2129,14 +2009,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices
-\change_inserted -2100369821 1652864873
- as a function of distance (in cm)
-\change_unchanged
- for microphytoplankton (a) and nanophytoplankton (b) in a 3-species community
- with even distributions after 1000 timesteps starting from a superposition
- of species-specific Thomas point processes, with (circles) and without
- (lines) advection.
+Dominance indices as a function of distance (in cm) for microphytoplankton
+ (a) and nanophytoplankton (b) in a 3-species community with even distributions
+ after 1000 timesteps starting from a superposition of species-specific
+ Thomas point processes, with (circles) and without (lines) advection.
  The triangles correspond to the dominance index at the start of the simulation,
  i.e.
  when points are only distributed according to a Thomas point process with
@@ -2184,10 +2060,7 @@ name "fig:Dominance-after_Thomas"
 \end_layout
 
 \begin_layout Standard
-Again, we show that simulated and theoretical values match for a 1000-time
- steps duration.
- However, the match was not as obvious when simulation duration increased
- (Fig.
+Simulated and theoretical values match for a 1000-time steps duration (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2198,16 +2071,17 @@ noprefix "false"
 
 \end_inset
 
-) 
+).
+ 
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
+
+\change_deleted -2100369821 1653319873
 FB: Is that logical?
-\change_inserted -2100369821 1652864479
- CP: No.
- I actually do not really know what happens here.
- Will check again.
+\change_inserted -2100369821 1653319879
+What happens for longer durations?
 \change_unchanged
 
 \end_layout
@@ -2215,7 +2089,11 @@ FB: Is that logical?
 \end_inset
 
 .
+
+\change_deleted -2100369821 1653319883
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2239,14 +2117,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices
-\change_inserted -2100369821 1652864879
- as a function of distance (in cm)
-\change_unchanged
- for one species in a microphytoplankton (a) and nanophytoplankton (b) 3-species
- community with even distributions after 1000 timesteps starting from a
- superposition of species-specific Thomas point processes in the absence
- of advection.
+Dominance indices as a function of distance (in cm) for one species in a
+ microphytoplankton (a) and nanophytoplankton (b) 3-species community with
+ even distributions after 1000 timesteps starting from a superposition of
+ species-specific Thomas point processes in the absence of advection.
  The dotted line corresponds to the dominance index at the start of the
  simulation, i.e.
  when points are only distributed according to a Thomas point process with

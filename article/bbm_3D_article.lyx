@@ -309,7 +309,7 @@ literal "false"
 
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 10 mL for REPHY, 200 mL for L4; focus on diatom and dino
@@ -409,20 +409,6 @@ literal "false"
 
  while phytoplankton populations are being displaced by a turbulent flow
  at slighly larger scales 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Il me semble que la ref de Martin est à une échelle largement supérieure.
- On peut continuer à la citer mais est-ce qu'on aurait pas une ref sur les
- effets de la turbulence à des échelle plus petites? On parle d'échelles
- légèrement supérieures, pas directement du micro ; mais Prairie a une vision
- assez large
-\end_layout
-
-\end_inset
-
-
 \begin_inset CommandInset citation
 LatexCommand citep
 key "martin_phytoplankton_2003,prairie_biophysical_2012"
@@ -432,18 +418,9 @@ literal "false"
 
 .
  Phytoplankton organisms therefore live in an environment where fluid viscosity
- dominates at the scale of an individual 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-That is not exactly the subject of Kiorboe 2008
-\end_layout
-
-\end_inset
-
- but effects of turbulence can be seen as soon as one considers the volume
- required for a small population of those individuals 
+ dominates at the scale of an individual but effects of turbulence can be
+ seen as soon as one considers the volume required for a small population
+ of those individuals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "estrada_effects_1987,prairie_biophysical_2012"
@@ -453,7 +430,7 @@ literal "false"
 
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Estrada -> experiments in 30L; could not find smaller than that
@@ -843,7 +820,7 @@ c clustering of organisms, via correlations between positions of organisms
  (see Methods).
  This means that in addition to simulations, we can keep track analytically
  of spatial structure.
- Furthermore, because we do not consider direct interactions between particles,
+ Furthermore, because we do not consider direct interactions between organisms,
  the multispecies spatial point process that represents the stable state
  of the Brownian Bug model is mathematically a random superposition of spatial
  point processes for each species 
@@ -1187,8 +1164,8 @@ literal "false"
 \end_inset
 
 .
- The shift from continuous to discrete time is described in the Supplementary
- Information.
+ The shift from continuous to discrete time is described in Section S1 in
+ the Supplementary Information.
 \end_layout
 
 \begin_layout Standard
@@ -1473,8 +1450,6 @@ noprefix "false"
 
 \end_inset
 
-
-\change_inserted -2100369821 1652782208
 
 \end_layout
 
@@ -1923,12 +1898,7 @@ When individuals of the same species
 \end_inset
 
  in the whole community when the distribution is uniform (see examples in
- the Supplementary Information).
-
-\change_deleted -666822487 1653312657
- 
-\change_unchanged
-
+ Section S2 of the SI).
 \end_layout
 
 \begin_layout Standard
@@ -1953,7 +1923,8 @@ noprefix "false"
 
 \end_inset
 
-, we obtain a theoretical formula for the dominance index
+, we obtain a theoretical formula for the dominance index (see corresponding
+ figure in Section S3 of the SI)
 \begin_inset Note Note
 status collapsed
 
@@ -3109,6 +3080,15 @@ literal "false"
 \end_inset
 
 .
+ The computation of 
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ of simulated distributions is explained in Section S4 of the SI.
 \end_layout
 
 \begin_layout Section*
@@ -3133,11 +3113,9 @@ on volume, in the presence of advection, but removing turbulence helps visualisi
 ng small aggregates of conspecifics.
  Microphytoplankton distributions are not so easy to analyse as no clusters
  can be detected from basic observations, whether advection is included
- or not (Fig.
- SX).
+ or not (Section S5 of the SI).
  Statistics are therefore needed to go further in detecting patterns of
  aggregation.
- 
 \end_layout
 
 \begin_layout Standard
@@ -3229,7 +3207,7 @@ noprefix "false"
 
 \end_inset
 
-) for both types of particles, which also indicates that dominance indices
+) for both types of organisms, which also indicates that dominance indices
  extracted from the simulation match theoretical expectation.
 \end_layout
 
@@ -3318,7 +3296,7 @@ noprefix "false"
 
 ).
  The dominance index is close to 1 for small distances: there is always
- a scale at which a particle is surrounded almost only by conspecifics.
+ a scale at which an organism is surrounded almost only by conspecifics.
  The index then decreases sharply
 \begin_inset Note Note
 status collapsed
@@ -3331,7 +3309,7 @@ Guess I could compute it with second or third derivative, should I?
 
  to converge at large distances (close to 1 cm) to the proportion of the
  focus species in the whole community, as it would for a uniform distribution.
- Patterns differ at intermediate ranges of distances between particles.
+ Patterns differ at intermediate ranges of distances between organisms.
 \end_layout
 
 \begin_layout Standard
@@ -3452,7 +3430,7 @@ noprefix "false"
 \begin_inset Formula $10^{-2}$
 \end_inset
 
- cm) when particles are displaced by turbulence, while the same quantity
+ cm) when organisms are displaced by turbulence, while the same quantity
  is between 1 and 0.97 when they are only subject to diffusion.
 \end_layout
 
@@ -3514,7 +3492,7 @@ compare_advection 10:13
 \end_layout
 
 \begin_layout Standard
-Differences in spatial distributions are not only due to particle sizes,
+Differences in spatial distributions are not only due to organism sizes,
  which determine properties of demography and turbulence, but also to their
  abundances (here set through initial values).
  In the presence of turbulence, the threshold distance at which dominance
@@ -3965,7 +3943,7 @@ could help to understand the observed patchiness of phytoplankton, and the
 We designed a stochastic, three-dimension, individual-based model of the
  spatial distribution of multiple species in a viscous and turbulent flow.
  We conducted both mathematical analyses and numerical simulations to quantify
- spatial correlations in particle distributions.
+ spatial correlations in organism distributions.
  We focused on the pair correlation function and Ripley's 
 \begin_inset Formula $K$
 \end_inset
@@ -3991,14 +3969,14 @@ local
  a scale-dependent, localized metric bounded between 0 and 1 as opposed
  to other statistics whose values are less directly interpreted, and is
  easy to relate to coexistence theory as it describes the environment of
- a particle in terms of heterospecifics and conspecifics, which can, under
+ an organism in terms of heterospecifics and conspecifics, which can, under
  certain hypotheses that we discuss below, be related to interspecific and
  intraspecific interactions.
  Comparing the distributions of organisms of different sizes and demography,
- we showed that the presence and intensity (Section SX) of turbulence always
- increased mixing, and that the species composition around a particle depended
- on its size, which mechanically determines its hydrodynamics properties
- (diffusivity), and is linked with its ecological characteristics (growth
+ we showed that the presence and intensity (Section S8 of the SI) of turbulence
+ always increased mixing, and that the species composition around an organism
+ depended on its size, which mechanically determines its hydrodynamics propertie
+s (diffusivity), and is linked with its ecological characteristics (growth
  rate and density).
  Microphytoplankters (20 to 200 
 \begin_inset ERT
@@ -4015,7 +3993,7 @@ textmu
 
  m), larger cells with lower diffusivity, growth rate and abundance, were
  on average further away from other cells, due to their lower concentrations
- (Section SX), than nanophytoplankters (2 to 20 
+ (Section S6 of the SI), than nanophytoplankters (2 to 20 
 \begin_inset ERT
 status open
 
@@ -4046,10 +4024,10 @@ textmu
 \end_layout
 
 \begin_layout Standard
-To see this, let us first focus on the smallest distances between particles.
- The nearest neighbour of a particle was always a particle of the same species,
- and the minimum distance between conspecifics was always lower than expected
- for a uniform distribution (Section SX).
+To see this, let us first focus on the smallest distances between organisms.
+ The nearest neighbour of an organism was always an organism of the same
+ species, and the minimum distance between conspecifics was always lower
+ than expected for a uniform distribution (Section S6).
  The dominance index remained close to 1 for distances below 
 \begin_inset Formula $10^{-2}$
 \end_inset
@@ -4087,14 +4065,8 @@ literal "false"
  in the environment, effects on the cell, uptakes, etc.
  Rather than weighting much more heavily the potential interactions with
  the closest neighbour(s) through an interaction kernel, we therefore chose
- conservatively to define a maximum distance for two 
-\change_deleted -666822487 1653314893
-particles
-\change_inserted -666822487 1653314894
-organisms
-\change_unchanged
- to possibly affect the concentrations of elements in the environment of
- each other.
+ conservatively to define a maximum distance for two organisms to possibly
+ affect the concentrations of elements in the environment of each other.
  
 \begin_inset Note Note
 status collapsed
@@ -4124,7 +4096,7 @@ literal "false"
 \end_inset
 
 We consider that, at all distances below this threshold, interaction could
- happen between particles.
+ happen between organisms.
  We continue the discussion with that simplification in mind, and explicitely
  mention when it is relaxed.
 \end_layout
@@ -4207,10 +4179,10 @@ Dominances began to decrease at distances above
  At this distance and above, the balance between heterospecifics and conspecific
 s was much more sensitive to different phytoplankton's demographics and
  hydrodynamic traits.
- The species composition of a particle's neighbourhood depended on its size:
- nanophytoplankton organisms mainly shared their volume of potential interaction
-s with conspecifics (the dominance index remained close to 1, even near
- the distance threshold, i.e.
+ The species composition of an organism's neighbourhood depended on its
+ size: nanophytoplankton organisms mainly shared their volume of potential
+ interactions with conspecifics (the dominance index remained close to 1,
+ even near the distance threshold, i.e.
  the maximum distance for nutrient depletion volume overlap) while microphytopla
 nkton organisms could affect both conspecifics and heterospecifics (the
  dominance index was often below 50% at the distance threshold, i.e.
@@ -4240,11 +4212,6 @@ literal "false"
 \end_inset
 
 ) but not necessarily so for microphytoplankton.
-
-\change_deleted -666822487 1653315085
- 
-\change_inserted -2100369821 1652858220
-
 \end_layout
 
 \begin_layout Standard
@@ -4313,8 +4280,7 @@ Up to now, we have only focused on the dominance index, a localized proportion
  Mechanically, when density decreases, the distances between neighbours
  increase, which explains that the distances between the low-abundance microphyt
 oplankters tended to be greater than distances between the more abundant
- nanophytoplankters (Fig.
- SX).
+ nanophytoplankters (Section S6 of the SI).
  Explicit mathematical models using pair densities to express interaction
  rates 
 \begin_inset CommandInset citation
@@ -4502,8 +4468,15 @@ points
 \begin_inset Quotes erd
 \end_inset
 
- with a dynamics of their own (North and Ovaskainen, Murrell 2005), which
- in turn change the reproduction or death rate of individuals.
+ with a dynamics of their own 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "murrell_local_2005,north_interactions_2007"
+literal "false"
+
+\end_inset
+
+, which in turn change the reproduction or death rate of individuals.
  If the resource points risk being depleted, this entails a negative spatial
  correlation between organisms and their resources 
 \begin_inset CommandInset citation
@@ -4569,7 +4542,7 @@ literal "false"
 
 \begin_layout Standard
 Our model should be viewed as a first model of spatial distributions of
- multiple phytoplankon species in a realistic, three-dimensional environment
+ multiple phytoplankton species in a realistic, three-dimensional environment
  at the microscale, describing only basic hydrodynamic and demographic processes.
  Using this model, we were able to guesstimate the differences in potential
  intra vs interspecific interactions between species, emerging at the population
@@ -4604,7 +4577,15 @@ literal "false"
 
 \end_inset
 
-, and can at times aggregate to form pairs (Font-Munoz).
+, and can at times aggregate to form pairs 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "font-munoz_collective_2019"
+literal "false"
+
+\end_inset
+
+.
  Finally, a part of spatial structure is explained by the partially colonial
  nature of microphytoplankton 
 \begin_inset CommandInset citation
@@ -4744,13 +4725,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-In 
-\change_deleted -2100369821 1652891064
-3
-\change_inserted -2100369821 1652891065
-three
-\change_unchanged
- dimensions, when the birth rate 
+In three dimensions, when the birth rate 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -4763,14 +4738,10 @@ three
 \end_inset
 
  
-\change_deleted -2100369821 1652891073
-(where 
-\begin_inset Formula $G(r)=C^{2}g(r)$
-\end_inset
-
-)
+\change_deleted -2100369821 1653321535
+ 
 \change_unchanged
- is a solution of eq.
+is a solution of eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4821,7 +4792,11 @@ In the presence of advection (
 \end_inset
 
 ), a steady-state solution can be found.
+
+\change_deleted -2100369821 1653321540
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -4840,16 +4815,14 @@ In the presence of advection (
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -666822487 1652251893
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1652251922
 the 0 seems to be rather close to the equivalent sign in that equation,
  perhaps you can space them out a bit.
+
+\change_deleted -2100369821 1653321540
  
 \change_unchanged
 
@@ -4857,8 +4830,6 @@ the 0 seems to be rather close to the equivalent sign in that equation,
 
 \end_inset
 
-
-\change_unchanged
 We can then integrate Eq.
  (
 \begin_inset CommandInset ref
