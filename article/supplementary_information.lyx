@@ -81,7 +81,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -181,7 +181,7 @@ Derivation of the turbulent map
 We show here how to derive a discrete-time map for turbulence from the continuou
 s-time formula.
  We consider that the velocity field 
-\begin_inset Formula $\textbf{u}^{T}=(u_{x}\,u_{y}\,u_{z})$
+\begin_inset Formula $\textbf{u}^{T}=(u_{x},\,u_{y},\,u_{z})$
 \end_inset
 
  at position 
@@ -286,7 +286,7 @@ z(t+\tau/3)= & z(t)
 \begin{cases}
 \begin{array}{cc}
 x(t+2\tau/3)= & x(t+\tau/3)\\
-y(t+2\tau/3)= & y(t)+\frac{U\tau}{3}cos(kz(t)+\phi)\\
+y(t+2\tau/3)= & y(t)+\frac{U\tau}{3}cos(kz(t)+\theta)\\
 z(t+2\tau/3)= & z(t)
 \end{array}\end{cases}\label{eq:step2_pierrehumbert}
 \end{equation}
@@ -303,7 +303,7 @@ z(t+2\tau/3)= & z(t)
 \begin{array}{cc}
 x(t+\tau)= & x(t+\tau/3)\\
 y(t+\tau)= & y(t+\tau/3)\\
-z(t+\tau)= & y(t)+\frac{U\tau}{3}cos(kx(t+\tau)+\phi)
+z(t+\tau)= & y(t)+\frac{U\tau}{3}cos(kx(t+\tau)+\psi)
 \end{array}\end{cases}\label{eq:step3_pierrehumbert}
 \end{equation}
 
@@ -334,8 +334,8 @@ Characteristics of standard spatial point processes
 \end_layout
 
 \begin_layout Standard
-In order to familiarize the reader with spatial process metrics, we present
- here the analytical formulas and corresponding figures (Fig.
+In order to familiarize the reader with spatial point process metrics, we
+ present here the analytical formulas and corresponding figures (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -632,7 +632,7 @@ Example of spatial distribution (a) and theoretical pair correlation function
 \begin_inset Formula $^{-3}$
 \end_inset
 
-).
+; proportions in the community are given in the figure).
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -706,7 +706,8 @@ Example of spatial distribution (a) and theoretical pair correlation function
 \begin_inset Formula $^{-3}$
 \end_inset
 
-), and different children per parent intensities (50, 10, 50), with 
+), and different children per parent intensities (50, 10, 50; final proportions
+ in the communities are given in the figure), with 
 \begin_inset Formula $\sigma=0.01$
 \end_inset
 
@@ -749,8 +750,7 @@ With the theoretical formula for the dominance index in the Brownian Bug
  Model, we can show the progressive clustering of particles with time when
  advection is absent.
  Even after a short period of time, the dominance index without advection
- is larger than with advection, the difference being much more pronounced
- for larger cells.
+ is larger than with advection.
  
 \end_layout
 
@@ -778,8 +778,8 @@ status open
 Theoretical dominance indices as a function of the distance (in cm) from
  a particle of a given species, for a microphytoplankton (a) and nanophytoplankt
 on (b) 3-species community with an even abundance distribution, with (red
- line) and without (grey to black lines, with darker lines for longer duration)
- advection.
+ line) and without (grey to black lines, with darker lines for longer simulation
+s) advection.
  The vertical dashed line corresponds to the distance threshold for interaction.
  
 \begin_inset CommandInset label
@@ -1034,7 +1034,7 @@ Intra- and inter-specific Ripley's
  Note that theoretical values are the same for intra and interspecific moments
  for the Poisson distribution.
  Colors correspond to the different species (red for species 0, blue for
- species 1, black for species 2).
+ species 1, grey for species 2).
  
 \begin_inset Note Note
 status open
@@ -1114,7 +1114,7 @@ Intra- and inter-specific Ripley's
  and interspecific values, respectively) are compared with theoretical formula
  (dashed and dotted lines for intra- and interspecific values, respectively).
  Colors correspond to the different species (red for species 0, blue for
- species 1, black for species 2).
+ species 1, grey for species 2).
  
 \begin_inset Note Note
 status open
@@ -2017,14 +2017,23 @@ Dominance indices as a function of distance (in cm) for microphytoplankton
  i.e.
  when points are only distributed according to a Thomas point process with
  parent intensity 
-\begin_inset Formula $C_{p}=200$
+\begin_inset Formula $C_{p}=0.2$
 \end_inset
 
  cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
-, number of children per parent 
+ and 
+\begin_inset Formula $C_{p}=20$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ for microphytoplankton and nanophytoplankton respectively, number of children
+ per parent 
 \begin_inset Formula $N_{c}=50$
 \end_inset
 
@@ -2039,6 +2048,16 @@ Dominance indices as a function of distance (in cm) for microphytoplankton
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Dominance-after_Thomas"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+shift_dominance 20-23
+\end_layout
 
 \end_inset
 
@@ -2088,7 +2107,6 @@ What happens for longer durations?
 
 \end_inset
 
-.
 
 \change_deleted -2100369821 1653319883
  
@@ -2117,22 +2135,31 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices as a function of distance (in cm) for one species in a
- microphytoplankton (a) and nanophytoplankton (b) 3-species community with
- even distributions after 1000 timesteps starting from a superposition of
- species-specific Thomas point processes in the absence of advection.
+Dominance indices for large distances (in cm) for one species in a microphytopla
+nkton (a) and nanophytoplankton (b) 3-species community with even distributions
+ after different simulation durations starting from a superposition of species-s
+pecific Thomas point processes in the absence of advection.
  The dotted line corresponds to the dominance index at the start of the
  simulation, i.e.
  when points are only distributed according to a Thomas point process with
  parent intensity 
-\begin_inset Formula $C_{p}=200$
+\begin_inset Formula $C_{p}=0.2$
 \end_inset
 
  cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
-, number of children per parent 
+ and 
+\begin_inset Formula $C_{p}=20$
+\end_inset
+
+ cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ for microphytoplankton and nanophytoplankton respectively, number of children
+ per parent 
 \begin_inset Formula $N_{c}=50$
 \end_inset
 
@@ -2146,6 +2173,16 @@ Dominance indices as a function of distance (in cm) for one species in a
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Dominance-noadv_Thomas"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+shift_dominance_noadv_zoom.r 21, 23, 25-27
+\end_layout
 
 \end_inset
 
@@ -2167,11 +2204,38 @@ Sensitivity to the computation of the advection parameter
 \end_layout
 
 \begin_layout Standard
-If we we define a length 
+To compute the value of the maximum velocity of an organism in our model
+ at the Kolmogorov scale, we used the formula 
+\begin_inset Formula $Re=U/k\nu\approx1$
+\end_inset
+
+ where 
+\begin_inset Formula $k$
+\end_inset
+
+ is the smallest wavenumber associated with turbulence.
+ However, we could compute the Reynolds number with another, slightly different
+ formula, using the equivalent sphere diameter (
 \begin_inset Formula $L_{v}$
 \end_inset
 
- corresponding to the equivalent sphere diameter, i.e.:
+) of our system (eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:re_lv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ In this case, 
+\begin_inset Formula $Re=UL_{v}/\nu$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2275,14 +2339,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices
-\change_inserted -2100369821 1652864882
- as a function of distance (in cm)
-\change_unchanged
- for one species in a microphytoplankton (a) and nanophytoplankton (b) 3-species
- community with even distributions after 1000 timesteps with (circles) and
- without (lines) advection for different duration of the timesteps, with
- reference parameters (black) and lower flow velocity (grey).
+Dominance indices as a function of distance (in cm) for one species in a
+ microphytoplankton (a) and nanophytoplankton (b) 3-species community with
+ even distributions after 1000 timesteps with (circles) and without (lines)
+ advection for different duration of the timesteps, with reference parameters
+ (black) and lower flow velocity (grey).
  
 \begin_inset CommandInset label
 LatexCommand label

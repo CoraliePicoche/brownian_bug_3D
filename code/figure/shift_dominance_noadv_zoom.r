@@ -129,10 +129,10 @@ points(th_r,th_dominance,col="black",pch=c(0,2)[m])
 }
 
 if(n==1){
- 	legend("bottomleft",c("t=0","t=10^3","t=10^5","t=10^6"),col=palette,bty="n",lwd=2,lty=1,pch=NA)
+ 	legend("bottomleft",c("t=0",expression('t='~10^3),expression('t='~10^5),expression('t='~10^6)),col=palette,bty="n",lwd=2,lty=1,pch=NA)
         mtext("a",side=3,line=1.5,font=2,at=1*10^(-2),cex=1.25)
 }else{
-        legend("bottomleft",c("Init Thomas","Theory t=10^3","Theory t=10^5","Theory t=10^6"),col="black",pch=c(NA,1,0,2),lty=c(3,NA,NA,NA),bty="n",lwd=2)
+        legend("bottomleft",c("Init Thomas",expression("Theory t="~10^3),expression("Theory t="~10^5),expression("Theory t="~10^6)),col="black",pch=c(NA,1,0,2),lty=c(3,NA,NA,NA),bty="n",lwd=2)
         mtext("b",side=3,line=1.5,font=2,at=1*10^(-2),cex=1.25)
 }
 

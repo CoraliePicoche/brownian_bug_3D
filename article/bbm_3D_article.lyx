@@ -95,7 +95,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -513,7 +513,7 @@ literal "false"
  deaths.
  Aggregation of particles can emerge from local reproduction coupled with
  limited dispersal, which can happen in a fluid where turbulence and diffusion
- are not too high too disperse kin aggregates 
+ are not too high to disperse kin aggregates 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -924,7 +924,7 @@ literal "false"
 \end_layout
 
 \begin_layout Section*
-Models and spatial statistics
+Model and spatial statistics
 \end_layout
 
 \begin_layout Subsection*
@@ -2070,7 +2070,7 @@ t.
 \begin_layout Standard
 \begin_inset Formula 
 \[
-Re=\frac{V}{k\nu}\approx1
+Re=\frac{U}{k\nu}\approx1
 \]
 
 \end_inset
@@ -2123,7 +2123,7 @@ literal "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-1 & \approx & \frac{VL_{s}}{2\pi\nu}\\
+1 & \approx & \frac{UL_{s}}{2\pi\nu}\\
 U & \approx & \frac{2\pi\nu}{L_{s}}
 \end{eqnarray*}
 
@@ -3238,7 +3238,7 @@ Ripley's
 \end_inset
 
 -function as a function of distance (in cm) for microphytoplankton (a-b)
- and nanophytoplankton (b-c) in a 3-species community with even distributions
+ and nanophytoplankton (c-d) in a 3-species community with even distributions
  after 1000 timesteps, with (a, c) and without (b, d) advection.
  Each color represents a different species.
  The black dash-dotted line corresponds to the threshold considered as the
@@ -3370,7 +3370,8 @@ status open
 \begin_layout Plain Layout
 Dominance indices as a function of distance (in cm) for microphytoplankton
  (a) and nanophytoplankton (b) in a 3-species community with even distributions
- after 1000 timesteps, with (circles) and without (lines) advection.
+ (final proportions in the community are indicated in the figure) after
+ 1000 timesteps, with (circles) and without (lines) advection.
  Each color represents a different species.
  The black dashed line corresponds to the threshold considered as the maximum
  distance for nutrient-based competition.
@@ -3457,7 +3458,7 @@ status open
 \begin_layout Plain Layout
 Dominance indices as a function of distance (in cm) for microphytoplankton
  (a) and nanophytoplankton (b) in a 10-species community with a skewed abundance
- distribution (final proportion in the community is indicated in the legend)
+ distribution (final proportions in the community are indicated in the figure)
  after 1000 timesteps, with (circles) and without (lines) advection.
  Each color represents a different species.
  The black dashed line corresponds to the threshold considered as the maximum
@@ -3961,7 +3962,7 @@ local
 \shape default
  average ratio of conspecifics, i.e., the number of organisms of the focal
  species in the neighbourhood of an individual of the same species, divided
- by the total number of organisms in that neighborhood.
+ by the total number of organisms in that neighbourhood.
  Intraspecific clustering corresponds to a dominance index close to 1, which
  decreases when interspecific mixing increases.
  The choice of this index was motivated by two reasons: it is at its core
@@ -3993,7 +3994,7 @@ textmu
 
  m), larger cells with lower diffusivity, growth rate and abundance, were
  on average further away from other cells, due to their lower concentrations
- (Section S6 of the SI), than nanophytoplankters (2 to 20 
+ (Figure S10 of the SI), than nanophytoplankters (2 to 20 
 \begin_inset ERT
 status open
 
@@ -4027,7 +4028,7 @@ textmu
 To see this, let us first focus on the smallest distances between organisms.
  The nearest neighbour of an organism was always an organism of the same
  species, and the minimum distance between conspecifics was always lower
- than expected for a uniform distribution (Section S6).
+ than expected for a uniform distribution (Section S6 of the SI).
  The dominance index remained close to 1 for distances below 
 \begin_inset Formula $10^{-2}$
 \end_inset
@@ -4924,7 +4925,7 @@ We can integrate between
 \noindent
 \begin_inset Formula 
 \begin{align}
- & C^{2}-G(\rho) & = & -\frac{2\lambda C}{4\pi}{\displaystyle \int_{\rho}^{\infty}}\frac{1}{2Dr^{2}+\gamma r^{4}}dr\label{eq:deriv_G_r_int1}
+ & C^{2}-G(\rho) & = & -\frac{\lambda C}{2\pi}{\displaystyle \int_{\rho}^{\infty}}\frac{1}{2Dr^{2}+\gamma r^{4}}dr\label{eq:deriv_G_r_int1}
 \end{align}
 
 \end_inset
@@ -5015,7 +5016,7 @@ This leads to:
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-G(\rho) & = & C^{2}+\frac{2\lambda C}{4\pi}B\\
+G(\rho) & = & C^{2}+\frac{\lambda C}{2\pi}B\\
  & = & C^{2}+\frac{\lambda C}{2\pi}\left[\frac{1}{2D\rho}+\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}\right].
 \end{array}
 \end{equation}
@@ -5205,7 +5206,7 @@ A solution for the Green's function using
 \end_inset
 
  in 3 dimensions is 
-\begin_inset Formula $H(r,t)=\left(\frac{1}{4\pi2Dt}\right)^{3/2}\exp(\frac{-r^{2}}{4\times2Dt})$
+\begin_inset Formula $H(r,t)=\left(\frac{1}{8\pi Dt}\right)^{3/2}\exp(\frac{-r^{2}}{8Dt})$
 \end_inset
 
 .
@@ -5312,21 +5313,14 @@ noprefix "false"
 
 \begin_layout Standard
 We can integrate the pcf formula to compute Ripley's 
-\change_deleted -2100369821 1652775492
-K
-\change_inserted -2100369821 1652775492
-
 \begin_inset Formula $K$
 \end_inset
 
-
-\change_unchanged
 -function, as 
 \begin_inset Formula $g(r)=\frac{K'(r)}{4\pi r^{2}}$
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Paragraph

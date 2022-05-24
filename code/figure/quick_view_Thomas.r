@@ -97,7 +97,7 @@ for (s1 in 1:3){
 		}
 	}
 		#legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific","Spatstat"),col=c(colors,"grey","grey","orchid"),bty="n",pch=c(16,NA,NA,NA,NA,16),lty=c(NA,1,1,2,3,NA),lwd=c(rep(2,4),3,2),cex=1.25)
-		legend("topleft",c(paste("S=",s1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=c(rep(2,4),3),cex=1.25)
+		legend("topleft",c(paste("S=",s1-1," x S=",ss,sep=""),"Theory: intraspecific", "Theory: interspecific"),col=c(colors,"black","black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2,3),lwd=c(rep(2,4),3),cex=1.25)
 	#	legend("topleft",c(paste("S=",unique_sp[s1]," x S=",ss,sep=""),"Theory"),col=c(colors,"black"),bty="n",pch=c(16,NA,NA,NA,NA),lty=c(NA,1,1,2),lwd=c(rep(2,4),3),cex=1.75)
 	lines(unique(f_tot$r),th_poisson,lty=3,lwd=2,col="black")
 	lines(unique(f_tot$r),th_thomas,lty=2,lwd=2,col="black")
