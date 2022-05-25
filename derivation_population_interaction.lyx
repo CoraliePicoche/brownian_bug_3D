@@ -1,0 +1,389 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{ae,lmodern}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{authblk}
+\date{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+We assume spatial Lotka-Volterra dynamics.
+ The average growth rate of a focus individual of species 
+\begin_inset Formula $i$
+\end_inset
+
+ then follows eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lv_individual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mu_{i}(r,t) & = & r_{i}+\beta_{ii}K_{ii}(r,t)C_{i}(t)+\beta_{io}\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)\\
+ & = & r_{i}+\beta_{ii}M_{ii}(r,t)+\beta_{io}M_{io}(r,t)
+\end{array}\label{eq:lv_individual}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+FB write 
+\begin_inset Formula $\frac{dC_{i}(r,t)}{dt}=C_{i}(t)\left(r_{i}+\beta_{ii}K_{ii}(r,t)C_{i}(t)+\beta_{io}\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)\right)$
+\end_inset
+
+ but 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ would be concentration, and I don't see how to directly relate the individual
+ growth to the concentration growth (phrased in a very simplistic way: what
+ do we write on the left-hand side of the equation?) 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $r_{i}$
+\end_inset
+
+ is the intrinsic individual growth rate 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+(and intrinsic per capita growth rate in a population model), I guess these
+ are equal, I need to think about why??)
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $\beta_{ii}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{io}$
+\end_inset
+
+ are individual-level interaction coefficients with a conspecific and a
+ heterospecific, respectively.
+ 
+\begin_inset Formula $C_{j}(t)K_{ij}$
+\end_inset
+
+ is the expected number of organisms of heterospecifics around a typical
+ organism of species 
+\begin_inset Formula $i$
+\end_inset
+
+ within a sphere of radius 
+\begin_inset Formula $r$
+\end_inset
+
+ centered on the focal organism.
+ 
+\begin_inset Formula $M_{ii}(r,t)=K_{ii}(r,t)C_{i}(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{io}(r,t)=\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We assume that we are close to an equilibrium at the local scale, and that
+ intra- and interspecific interaction strengths are equal 
+\shape italic
+at the individual level
+\shape default
+ (
+\begin_inset Formula $\beta_{ii}=\beta_{io}).$
+\end_inset
+
+ We can rewrite eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lv_individual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+r_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0\label{eq:lv_individual_equilibrium}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can now focus on the population level.
+ Lotka-Volterra dynamics translates into eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lv_population"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, assuming that all interspecific interactions are equal to 
+\begin_inset Formula $\alpha_{io}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\frac{1}{C_{i}}\frac{dC_{i}(r,t)}{dt} & = & r_{i}+\alpha_{ii}C_{i}(t)+\alpha_{io}C_{o}(t)\end{array}\approx0\label{eq:lv_population}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can therefore write 
+\begin_inset Formula $\alpha_{ii}=\beta\frac{M_{ii}(r,t)}{C_{i}(r,t)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{io}=\beta\frac{M_{io}(r,t)}{C_{o}(t)}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this case:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\frac{\alpha_{io}}{\alpha_{ii}} & = & \frac{M_{io}(r,t)}{M_{ii}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We know that
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+D_{i}(r,t) & = & \frac{M_{ii}(r,t)}{M_{ii}(r,t)+M_{io}(r,t)}\\
+\Leftrightarrow M_{io}(r,t) & = & \left(1-D_{i}(r,t)\right)M_{ii}(r,t)
+\end{array}\label{eq:dominance}
+\end{equation}
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Thus,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\alpha_{io}}{\alpha_{ii}}=\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let us first focus on microphytoplankton (reasoning is the same for nanophytopla
+nkton) in a 3-species community with even distribution of abundances.
+ We know that 
+\begin_inset Formula $D(r_{\text{threshold}})\approx0.4$
+\end_inset
+
+ at equilibrium.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+This is where I really have an issue.
+ According to your computation, you have 
+\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.2\Leftrightarrow\frac{C_{i}(t)}{C_{o}(t)}\approx0.33$
+\end_inset
+
+.
+ I have 
+\begin_inset Formula $\frac{C_{i}(t)}{C_{o}(t)}=\frac{C.(t)}{C.(t)+C.(t)}=0.5$
+\end_inset
+
+ because all species have the same abundance, which means 
+\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.3$
+\end_inset
+
+.
+ The difference is not incredibly high, sure.
+ [same for nano]
+\end_layout
+
+\begin_layout Plain Layout
+In any case, 
+\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}$
+\end_inset
+
+ equal to 0.03, 0.2 or 0.3 leads to coexistence of the three species (shown
+ by simulation, was too lazy to compute it again)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "article/bib_interactions"
+options "article/ecol_let"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
