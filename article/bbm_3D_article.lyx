@@ -95,7 +95,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -152,12 +152,28 @@ The coexistence of multiple phytoplankton species despite their reliance
  Local spatial aggregation can hinder competitive exclusion since individuals
  then interact mostly with other individuals of their own species, rather
  than competitors from different species.
- To evaluate how microscale spatial aggregation could explain phytoplankton
- diversity maintenance, an individual-based, multispecific representation
- of cells in a realistic hydrodynamic environment is required.
- We therefore used as a starting point a mathematically tractable individual-bas
-ed model of phytoplankton population dynamics in a viscous and turbulent
- environment, and generalize it here to multiple species and three dimensions.
+ To evaluate how microscale spatial aggregation 
+\change_deleted -666822487 1654157614
+could
+\change_inserted -666822487 1654157615
+might
+\change_unchanged
+ explain phytoplankton diversity maintenance, an individual-based, multispecific
+ representation of cells in a 
+\change_deleted -666822487 1654157646
+realistic 
+\change_unchanged
+hydrodynamic environment is required.
+ We 
+\change_deleted -666822487 1654157786
+therefore used as a starting point a mathematically tractable individual-based
+ model of phytoplankton population dynamics in a viscous and turbulent environme
+nt, and generalize it here to multiple species and three dimensions
+\change_inserted -666822487 1654157794
+formulate a three-dimensional multi-specific individual-based model of phytoplan
+kton population dynamics at the Kolmogorov scale
+\change_unchanged
+.
  The model is studied through both simulations and the derivation of spatial
  moment equations, in connection with point process theory.
  The spatial moment equations show a good match between theory and simulations.
@@ -170,9 +186,17 @@ ed model of phytoplankton population dynamics in a viscous and turbulent
  species, while in small phytoplankton, individuals remain in mostly monospecifi
 c clusters.
  Spatial structure therefore favours intra- over inter-specific interactions
- for small phytoplankton, which likely contributes to coexistence mechanisms,
- while other factors behind diversity maintenance must be examined for large
- phytoplankton.
+ for small phytoplankton, which likely contributes to coexistence mechanisms
+\change_deleted -666822487 1654157877
+, while 
+\change_inserted -666822487 1654157880
+.
+ O
+\change_deleted -666822487 1654157883
+o
+\change_unchanged
+ther factors behind diversity maintenance must be examined for large phytoplankt
+on.
  
 \begin_inset Note Note
 status open
@@ -318,7 +342,17 @@ status collapsed
 \end_inset
 
 .
- This observation has led to the formulation of the so-called 
+ This observation 
+\change_deleted -666822487 1654157948
+has led to the formulation of the so-
+\change_inserted -666822487 1654157950
+is usually 
+\change_unchanged
+called 
+\change_inserted -666822487 1654157955
+the 
+\change_unchanged
+
 \begin_inset Quotes eld
 \end_inset
 
@@ -336,7 +370,25 @@ literal "false"
 
 , which refers to the conflict between the observed diversity of species
  competing for similar resources in a seemingly homogeneous environment,
- and theoretical expectations of a few species outcompeting the others.
+ and 
+\change_deleted -666822487 1654158156
+theoretical expectations of a few
+\change_inserted -666822487 1654158153
+models predicting
+\change_unchanged
+ 
+\change_inserted -666822487 1654158174
+that only a few 
+\change_unchanged
+species 
+\change_inserted -666822487 1654158195
+will persist by 
+\change_unchanged
+outcompeting the others
+\change_inserted -666822487 1654158213
+ (REFs?)
+\change_unchanged
+.
  Phytoplankton models for coexistence are now almost as diverse as their
  model organisms 
 \begin_inset CommandInset citation
@@ -356,8 +408,31 @@ literal "false"
 \end_inset
 
 .
- However, most of these models consider mean-field dynamics at the microscale.
- Such assumption needs to be challenged, as field observations themselves
+ 
+\change_deleted -666822487 1654158279
+However, m
+\change_inserted -666822487 1654158279
+M
+\change_unchanged
+ost of these models
+\change_inserted -666822487 1654158283
+, however,
+\change_unchanged
+ consider mean-field dynamics at the microscale.
+ 
+\change_deleted -666822487 1654158300
+Such assumption needs to be challenged,
+\change_inserted -666822487 1654158300
+But this assumption must be challenged:
+\change_unchanged
+ 
+\change_deleted -666822487 1654158311
+as 
+\change_unchanged
+field observations
+\change_deleted -666822487 1654158314
+ themselves
+\change_unchanged
  have revealed phytoplankton patchiness for more than a century 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -398,8 +473,27 @@ their
 \end_inset
 
  being mostly below the size of the smallest eddy (i.e., the Kolmogorov scale)
- in a typical environment such as the ocean, phytoplankton individuals are
- embedded in viscous micro-structures 
+\change_inserted -666822487 1654158434
+.
+
+\change_unchanged
+ 
+\change_inserted -666822487 1654158437
+I
+\change_deleted -666822487 1654158436
+i
+\change_unchanged
+n a typical 
+\change_inserted -666822487 1654158440
+aquatic 
+\change_unchanged
+environment such as the ocean
+\change_inserted -666822487 1654158453
+,
+\change_deleted -666822487 1654158422
+,
+\change_unchanged
+ phytoplankton individuals are embedded in viscous micro-structures 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "peters_effects_2000"
@@ -407,8 +501,11 @@ literal "false"
 
 \end_inset
 
- while phytoplankton populations are being displaced by a turbulent flow
- at slighly larger scales 
+ while phytoplankton populations are 
+\change_deleted -666822487 1654158481
+being 
+\change_unchanged
+displaced by a turbulent flow at slighly larger scales 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "martin_phytoplankton_2003,prairie_biophysical_2012"
@@ -418,9 +515,23 @@ literal "false"
 
 .
  Phytoplankton organisms therefore live in an environment where fluid viscosity
- dominates at the scale of an individual but effects of turbulence can be
- seen as soon as one considers the volume required for a small population
- of those individuals 
+ dominates at the scale of an individual but 
+\change_deleted -666822487 1654158541
+effects of 
+\change_unchanged
+turbulen
+\change_deleted -666822487 1654158543
+ce
+\change_inserted -666822487 1654158547
+t dispersion
+\change_deleted -666822487 1654158553
+ can be seen as soon as one considers the volume required
+\change_inserted -666822487 1654158558
+dominates on length scales characteristic of 
+\change_deleted -666822487 1654158569
+ for 
+\change_unchanged
+a small population of those individuals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "estrada_effects_1987,prairie_biophysical_2012"
@@ -513,7 +624,13 @@ literal "false"
  deaths.
  Aggregation of particles can emerge from local reproduction coupled with
  limited dispersal, which can happen in a fluid where turbulence and diffusion
- are not too high to disperse kin aggregates 
+ are not 
+\change_deleted -666822487 1654158627
+too high
+\change_inserted -666822487 1654158630
+strong enough
+\change_unchanged
+ to disperse kin aggregates 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -522,13 +639,23 @@ literal "false"
 \end_inset
 
 .
- Such aggregation can affect the dynamics of the populations at the community
+ 
+\change_deleted -666822487 1654158640
+Such
+\change_inserted -666822487 1654158642
+The resulting
+\change_unchanged
+ aggregation can affect the dynamics of the populations at the community
  level: even when interactions are identical between individuals of the
  same species (conspecifics) or between individuals of different species
  (heterospecifics), the combination of local reproduction and same-scale
  high dispersal limitation and strong interactions leads to stronger intraspecif
 ic interactions than interspecific interactions at the population level,
- a major stabilizing mechanism 
+ 
+\change_inserted -666822487 1654158656
+which is 
+\change_unchanged
+a major stabilizing mechanism 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -537,10 +664,15 @@ literal "false"
 \end_inset
 
 .
- Basically, a high intra-to-interspecific interaction strength ratio makes
- a species control its abundance more than it controls the abundance of
- other species, which is associated with coexistence in theoretical models
  
+\change_deleted -666822487 1654158669
+Basically, a
+\change_inserted -666822487 1654158697
+Indeed, a
+\change_unchanged
+ high intra-to-interspecific interaction strength ratio makes a species
+ control its abundance more than it controls the abundance of other species,
+ which is associated with coexistence in theoretical models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "levine_importance_2009,barabas_self-regulation_2017"
@@ -558,14 +690,27 @@ literal "false"
 
 .
  Therefore, the microscale spatial distribution of individuals likely affect
+\change_inserted -666822487 1654158712
+s
+\change_unchanged
  the interaction structure within a community, and may sustain diversity.
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -666822487 1654158768
 Some models of phytoplankton populations already exist at the microscale,
  i.e.
- near the Kolmogorov scale, between 1 mm and 1 cm in an oceanic environment
+\change_inserted -666822487 1654158771
+Existing models of phytoplankton populations near the Kolmogorov scale
+\change_unchanged
  
+\change_inserted -666822487 1654158784
+—
+\change_deleted -666822487 1654158776
+near the Kolmogorov scale,
+\change_unchanged
+ between 1 mm and 1 cm in an oceanic environment 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "barton_impact_2014"
@@ -573,9 +718,14 @@ literal "false"
 
 \end_inset
 
+
+\change_inserted -666822487 1654158799
+ —
+\change_deleted -666822487 1654158804
 .
- Most of these models focus on a single species and the clustering of its
- individuals 
+ Most of these models
+\change_unchanged
+ focus on a single species and the clustering of its individuals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001,birch_bounding_2007,bouderbala_3d_2018,breier_emergence_2018"
@@ -584,7 +734,17 @@ literal "false"
 \end_inset
 
 .
- They share a similarity to dynamic point process models 
+ They share 
+\change_deleted -666822487 1654158849
+a 
+\change_unchanged
+similarit
+\change_inserted -666822487 1654158857
+ies
+\change_deleted -666822487 1654158852
+y
+\change_unchanged
+ to dynamic point process models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "law_population_2003,bolker_spatial_1999,plank_spatial_2015"
@@ -597,7 +757,7 @@ literal "false"
 , they focus for now on how organisms with opposite characteristics 
 \begin_inset CommandInset citation
 LatexCommand citep
-before "e.g., increase vs decrease in density with turbulence in"
+before "e.g., increase versus decrease in density with turbulence in"
 key "borgnino_turbulence_2019,arrieta_fate_2020"
 literal "false"
 
@@ -614,18 +774,55 @@ literal "false"
 \end_inset
 
 .
- This is quite useful to understand how species with marked differences
- coexist.
- However, the difficulty of the coexistence problem is precisely that we
- have to explain how closely related species or genera (e.g., within diatoms),
- many of whom have similar size, buoyancy, chemical composition, etc., manage
- to coexist within a single trophic level.
- This requires to model 
+ This is 
+\change_deleted -666822487 1654158929
+quite 
+\change_unchanged
+useful 
+\change_deleted -666822487 1654158934
+to understand
+\change_inserted -666822487 1654158937
+as an explanation of
+\change_unchanged
+ how species with marked differences 
+\change_inserted -666822487 1654158945
+might 
+\change_unchanged
+coexist.
+ 
+\change_deleted -666822487 1654159055
+However, t
+\change_inserted -666822487 1654159055
+T
+\change_unchanged
+he difficulty of the coexistence problem
+\change_inserted -666822487 1654159060
+, however,
+\change_unchanged
+ is 
+\change_deleted -666822487 1654159064
+precisely 
+\change_unchanged
+that we have to explain how closely related species or genera (e.g., within
+ diatoms), many of whom have similar size, buoyancy, chemical composition,
+ etc., manage to coexist within a single trophic level.
+ This requires 
+\change_deleted -666822487 1654159104
+to model
+\change_inserted -666822487 1654159105
+modelling
+\change_unchanged
+ 
 \emph on
 similar
 \emph default
- species in spatially realistic environment and measure whether they aggregate
- or segregate in space.
+ species in spatially realistic environment and 
+\change_deleted -666822487 1654159125
+measure
+\change_inserted -666822487 1654159132
+objectively quantifying
+\change_unchanged
+ whether they aggregate or segregate in space.
  
 \begin_inset Note Note
 status collapsed
@@ -736,8 +933,26 @@ literal "false"
 
  coupled limited dispersal and local reproduction with ocean-like microscale
  hydrodynamics, and showed spatial clusters of individuals of the same species.
- It was limited to a single species and a two-dimensional environment.
- Furthermore, the model was not strongly quantitative 
+ 
+\change_deleted -666822487 1654159241
+It
+\change_inserted -666822487 1654159244
+The original BBM
+\change_unchanged
+ was limited to a single species and 
+\change_deleted -666822487 1654159285
+a two-dimensional environment
+\change_inserted -666822487 1654159285
+was illustrated with two-dimensional simulations
+\change_unchanged
+.
+ 
+\change_deleted -666822487 1654159311
+Furthermore, t
+\change_inserted -666822487 1654159311
+T
+\change_unchanged
+he model was not strongly quantitative 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "picoche_rescience_2022"
@@ -749,7 +964,11 @@ literal "false"
  phytoplankton biology (numbers of cells per liter, diffusion characteristics,
  etc.).
  As phytoplankton organisms live in a three-dimensional environment, informing
- the model with realistic parameters required us to shift to three dimensions.
+ the model with
+\change_inserted -666822487 1654159358
+ more
+\change_unchanged
+ realistic parameters required us to shift to three dimensions.
  We also extend the model to multiple species, and consider two size classes
  for our phytoplankton communities, which are either made of nanophytoplankton
  (3 
@@ -769,7 +988,26 @@ textmu
 \begin_inset Formula $\approx10^{6}$
 \end_inset
 
- C/L) or microphytoplankton (50 
+ C/L
+\change_inserted -666822487 1654159432
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1654159438
+Bill: Is C/L a standard abbreviations for cells per liter? cells/L looks
+ better to me.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+) or microphytoplankton (50 
 \begin_inset ERT
 status open
 
@@ -804,8 +1042,15 @@ literal "false"
 \end_inset
 
 .
- It is further complexified by the presence of a turbulent fluid flow in
- 
+ It is further complexified by 
+\change_deleted -666822487 1654159507
+the presence of
+\change_unchanged
+ a turbulent 
+\change_deleted -666822487 1654159513
+fluid 
+\change_unchanged
+flow in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001,picoche_rescience_2022"
@@ -818,12 +1063,29 @@ literal "false"
  of pair density functions, which quantify the degree of intra- and interspecifi
 c clustering of organisms, via correlations between positions of organisms
  (see Methods).
- This means that in addition to simulations, we can keep track analytically
+ 
+\change_deleted -666822487 1654159561
+This means that in addition to simulations, we can keep track analytically
  of spatial structure.
- Furthermore, because we do not consider direct interactions between organisms,
+ 
+\change_inserted -666822487 1654159575
+Thus we can understand emergent spatial structure in analytic detail and
+ compare these predictions with the results from three-dimensional simulations.
+ 
+\change_unchanged
+Furthermore, because we do not consider direct interactions between organisms,
  the multispecies spatial point process that represents the stable state
- of the Brownian Bug model is mathematically a random superposition of spatial
- point processes for each species 
+ of the 
+\change_deleted -666822487 1654159639
+Brownian Bug model
+\change_inserted -666822487 1654159639
+BBM
+\change_unchanged
+ is 
+\change_deleted -666822487 1654159668
+mathematically 
+\change_unchanged
+a random superposition of spatial point processes for each species 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "illian2008statistical"
