@@ -79,7 +79,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -90,7 +90,11 @@
 
 \begin_layout Standard
 We assume spatial Lotka-Volterra dynamics.
- The average growth rate of a focus individual of species 
+ The average growth rate 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ of a focus individual of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -123,29 +127,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-FB write 
-\begin_inset Formula $\frac{dC_{i}(r,t)}{dt}=C_{i}(t)\left(r_{i}+\beta_{ii}K_{ii}(r,t)C_{i}(t)+\beta_{io}\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)\right)$
-\end_inset
-
- but 
-\begin_inset Formula $C_{i}$
-\end_inset
-
- would be concentration, and I don't see how to directly relate the individual
- growth to the concentration growth (phrased in a very simplistic way: what
- do we write on the left-hand side of the equation?) 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $r_{i}$
 \end_inset
@@ -155,8 +136,7 @@ where
 status open
 
 \begin_layout Plain Layout
-(and intrinsic per capita growth rate in a population model), I guess these
- are equal, I need to think about why??)
+(and intrinsic per capita growth rate in a population model ?)
 \end_layout
 
 \end_inset
@@ -172,7 +152,7 @@ status open
  are individual-level interaction coefficients with a conspecific and a
  heterospecific, respectively.
  
-\begin_inset Formula $C_{j}(t)K_{ij}$
+\begin_inset Formula $C_{j}(t)K_{ij}(r,t)$
 \end_inset
 
  is the expected number of organisms of heterospecifics around a typical
@@ -184,7 +164,11 @@ status open
 \begin_inset Formula $r$
 \end_inset
 
- centered on the focal organism.
+ centered on the focal organism at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
  
 \begin_inset Formula $M_{ii}(r,t)=K_{ii}(r,t)C_{i}(t)$
 \end_inset
@@ -265,11 +249,27 @@ noprefix "false"
 
 \begin_layout Standard
 We can therefore write 
-\begin_inset Formula $\alpha_{ii}=\beta\frac{M_{ii}(r,t)}{C_{i}(r,t)}$
+\begin_inset Formula $\alpha_{ii}=\beta\frac{M_{ii}(r,t)}{C_{i}(t)C_{i}(t)}$
 \end_inset
 
  and 
-\begin_inset Formula $\alpha_{io}=\beta\frac{M_{io}(r,t)}{C_{o}(t)}.$
+\begin_inset Formula $\alpha_{io}=\beta\frac{M_{io}(r,t)}{C_{i}(t)C_{o}(t)}$
+\end_inset
+
+.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Do we write that because both are equal to 0?FB Nope - but the idea is,
+ if we're close to equilibrium, the odds that a difference in model nonlineariti
+es will make a big difference in model behaviour is low.
+ I also made the same mistake as above when writing the alphas (I was missing
+ a division by C_i since I initially multiplied by one C_i too many), but
+ quite fortunately it cancelled out since there's C_i(t) in both denominators
+ of the alphas.
+\end_layout
+
 \end_inset
 
 
@@ -333,44 +333,182 @@ nkton) in a 3-species community with even distribution of abundances.
 \end_inset
 
  at equilibrium.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-This is where I really have an issue.
- According to your computation, you have 
-\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.2\Leftrightarrow\frac{C_{i}(t)}{C_{o}(t)}\approx0.33$
-\end_inset
-
-.
- I have 
-\begin_inset Formula $\frac{C_{i}(t)}{C_{o}(t)}=\frac{C.(t)}{C.(t)+C.(t)}=0.5$
-\end_inset
-
- because all species have the same abundance, which means 
+ In this case, 
 \begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.3$
 \end_inset
 
 .
- The difference is not incredibly high, sure.
- [same for nano]
-\end_layout
-
-\begin_layout Plain Layout
-In any case, 
-\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}$
+ This is enough in a 3-species Lotka-Volterra model to maintain coexistence
+ (simulations were done).
+ The same applies for nanophytoplankton (
+\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\approx0.05$
 \end_inset
 
- equal to 0.03, 0.2 or 0.3 leads to coexistence of the three species (shown
- by simulation, was too lazy to compute it again)
+), assuming 
+\begin_inset Formula $D(r_{\text{threshold}})\approx0.9$
+\end_inset
+
+.
 \end_layout
+
+\begin_layout Section*
+Notes on LV
+\end_layout
+
+\begin_layout Standard
+While trying to simulate a 3-species Lotka-Volterra model to ensure that
+ the interaction strength ratios that we obtained allowed for coexistence,
+ I stumbled into an odd behaviour (stability even when 
+\begin_inset Formula $\alpha_{ij}>1$
+\end_inset
+
+, as long as all 
+\begin_inset Formula $\alpha_{ij}$
+\end_inset
+
+ are equal).
+ In order to understand what happened, I switched to the simpler and well-known
+ 2-species LV.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+\frac{dN_{1}}{dt}= & N_{1}\left(r_{1}-\alpha_{11}N_{1}-\alpha_{12}N_{2}\right)\\
+\frac{dN_{2}}{dt}= & N_{2}\left(r_{2}-\alpha_{22}N_{2}-\alpha_{21}N_{1}\right)
+\end{cases}
+\end{equation}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Let's now assume 
+\begin_inset Formula $r_{1}=r_{2}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{ii}=1$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{12}=\alpha_{21}=\alpha$
+\end_inset
+
+.
+ We look for a non-trivial equilibrium (
+\begin_inset Formula $N_{1}\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{2}\neq0$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{cases}
+N_{1}= & 1-\alpha N_{2}\\
+N_{2}= & 1-\alpha N_{1}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\Leftrightarrow\begin{cases}
+N_{1}= & 1-\alpha N_{2}\\
+N_{2}= & 1-\alpha(1-\alpha N_{2})
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Leftrightarrow\begin{cases}
+N_{1}= & 1-\alpha N_{2}\\
+N_{2}= & \frac{1-\alpha}{1-\alpha^{2}}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Leftrightarrow\begin{cases}
+N_{1}= & 1-\frac{\alpha}{1+\alpha}\\
+N_{2}= & \frac{1}{1+\alpha}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Leftrightarrow\begin{cases}
+N_{1}= & \frac{1}{1+\alpha}\\
+N_{2}= & \frac{1}{1+\alpha}
+\end{cases}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This means that we can reach an equilibrium with whatever values of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, even those where 
+\begin_inset Formula $\alpha_{11}\alpha_{22}<\alpha_{12}\alpha_{21}$
+\end_inset
+
+, which I could confirm by simulations, and which goes against what we know
+ from the LV-model.
+ This is a specific case of the LV model: when species are exactly identical
+ with regards to their parameters, stability can emerge, but this corresponds
+ to a structurally unstable system (Barabas et al.
+ 2016 – this might need to be checked in a math-orientated textbook).
+ Note that this does not apply anymore when 
+\begin_inset Formula $\alpha_{ij}\neq\alpha_{ji}$
+\end_inset
+
+ (or when 
+\begin_inset Formula $r_{1}\neq r_{2}$
+\end_inset
+
+): in this case, there is coexistence when 
+\begin_inset Formula $\alpha_{11}\alpha_{22}>\alpha_{12}\alpha_{21}$
+\end_inset
+
+, not when 
+\begin_inset Formula $\alpha_{11}\alpha_{22}<\alpha_{12}\alpha_{21}$
+\end_inset
+
+ (see codes attached in the e-mail).
 \end_layout
 
 \begin_layout Standard
