@@ -386,7 +386,12 @@ will persist by
 \change_unchanged
 outcompeting the others
 \change_inserted -666822487 1654158213
- (REFs?)
+ (REFs?
+\change_inserted -2100369821 1654161447
+Schippers et al.
+ 2001
+\change_inserted -666822487 1654158213
+)
 \change_unchanged
 .
  Phytoplankton models for coexistence are now almost as diverse as their
@@ -1194,10 +1199,33 @@ Brownian bug model
 \end_layout
 
 \begin_layout Standard
-The Brownian Bug Model (BBM) describes the dynamics of particles going through
- demographic processes in a turbulent and viscous environment, in continuous
- space and time.
- It has been developed in its two-dimension, monospecific version in 
+The Brownian Bug Model (BBM) describes the dynamics of 
+\change_deleted -2100369821 1654848608
+particles
+\change_inserted -2100369821 1654848609
+individuals
+\change_unchanged
+ going through demographic processes in a turbulent and viscous environment
+\change_inserted -2100369821 1654848652
+.
+ The model is
+\change_deleted -2100369821 1654848655
+, in
+\change_unchanged
+ continuous 
+\change_inserted -2100369821 1654848658
+in 
+\change_unchanged
+space and time.
+ 
+\change_deleted -2100369821 1654848677
+It has been developed in
+\change_inserted -2100369821 1654848687
+Here we extend the two-dimensional,
+\change_deleted -2100369821 1654848690
+ its two-dimension,
+\change_unchanged
+ monospecific version in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -1205,7 +1233,15 @@ literal "false"
 
 \end_inset
 
-, which we now extend to three dimensions and to 
+, 
+\change_deleted -2100369821 1654848702
+which we now extend 
+\change_unchanged
+to three dimensions and 
+\change_deleted -2100369821 1654848707
+to 
+\change_unchanged
+
 \begin_inset Formula $S$
 \end_inset
 
@@ -1213,7 +1249,18 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-In this model, we consider a community of particles, each individual being
+
+\change_deleted -2100369821 1654848720
+In this model, we consider a community of particles, e
+\change_inserted -2100369821 1654848720
+E
+\change_unchanged
+ach individual 
+\change_deleted -2100369821 1654848723
+being
+\change_inserted -2100369821 1654848723
+is
+\change_unchanged
  characterized by its species 
 \begin_inset Formula $i$
 \end_inset
@@ -1227,24 +1274,61 @@ In this model, we consider a community of particles, each individual being
  parameters.
  The population dynamics are modeled by a linear birth-death process with
  birth rate 
-\begin_inset Formula $\lambda$
+\begin_inset Formula $\lambda_{i}$
 \end_inset
 
  and death rate 
-\begin_inset Formula $\mu$
+\begin_inset Formula $\mu_{i}$
 \end_inset
 
 .
- Each particle independently follows a Brownian motion with diffusivity
- 
-\begin_inset Formula $D$
+ Each 
+\change_deleted -2100369821 1654848732
+particle
+\change_inserted -2100369821 1654848733
+individual
+\change_unchanged
+ independently follows a Brownian motion with diffusivity 
+\begin_inset Formula $D_{i}$
 \end_inset
 
 , and is advected by a common stochastic flow modeling the turbulence with
- stretching parameter 
+ 
+\change_deleted -2100369821 1654873446
+stretching parameter
+\change_inserted -2100369821 1654873450
+Lyapunov exponent
+\change_unchanged
+ 
 \begin_inset Formula $\gamma$
 \end_inset
 
+
+\change_inserted -2100369821 1654874667
+ (also called the stretching parameter).
+ This means that the separation between two individuals 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ is expected to follow
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1654874277
+\begin_inset Formula 
+\begin{equation}
+\left\langle \ln\left(|\mathbf{x}_{m}-\mathbf{x}_{n}|(t)\right)\right\rangle \sim3\gamma t.\label{eq:gamma_def}
+\end{equation}
+
+\end_inset
+
+
+\change_deleted -2100369821 1654874764
 , meaning that the separation 
 \begin_inset Formula $s(t)$
 \end_inset
@@ -1257,6 +1341,8 @@ In this model, we consider a community of particles, each individual being
  We focus here on ecologically relevant quantities which can be extracted
  from this model, both analytically and numerically.
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1282,20 +1368,66 @@ Such combination of a branching process with a Brownian motion is also called
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654873405
 For numerical simulations, this model needs to be discretized.
  During each time step of duration 
 \begin_inset Formula $\tau$
 \end_inset
 
-, events unroll as follow:
+
+\change_inserted -2100369821 1654848835
+The model advances through time in intervals of duration of 
+\begin_inset Formula $\tau$
+\end_inset
+
+
+\change_deleted -2100369821 1654848839
+,
+\change_inserted -2100369821 1654848847
+.
+ During each interval,
+\change_unchanged
+ events unroll as follow:
+\change_inserted -2100369821 1654873185
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1654873182
+CP: This formulation, corresponding to Bill's second proposition, without
+ epoch, seems reasonable and a good compromise
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
-demography: each particle can either reproduce with probability 
-\begin_inset Formula $p=\lambda\tau$
+demography: each 
+\change_deleted -2100369821 1654848879
+particle
+\change_inserted -2100369821 1654848881
+individual
+\change_unchanged
+ can either reproduce with probability 
+\begin_inset Formula $p_{i}=\lambda_{i}\tau$
 \end_inset
 
- (forming a new particle of the same species 
+ (forming a new 
+\change_deleted -2100369821 1654848883
+particle
+\change_inserted -2100369821 1654848884
+individual
+\change_unchanged
+ of the same species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1316,6 +1448,10 @@ demography: each particle can either reproduce with probability
 \begin_inset Formula $\mathbf{x}$
 \end_inset
 
+
+\change_inserted -2100369821 1654848899
+ as the parent
+\change_unchanged
 ), die with probability 
 \family default
 \series default
@@ -1330,7 +1466,7 @@ demography: each particle can either reproduce with probability
 \noun default
 \color inherit
 
-\begin_inset Formula $q=\mu\tau$
+\begin_inset Formula $q_{i}=\mu_{i}\tau$
 \end_inset
 
 
@@ -1347,27 +1483,95 @@ demography: each particle can either reproduce with probability
 \noun off
 \color none
 , or remain unchanged with probability 
-\begin_inset Formula $1-p-q$
+\begin_inset Formula $1-p_{i}-q_{i}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Enumerate
-diffusion: each particle moves to a new position 
+diffusion: each 
+\change_deleted -2100369821 1654848906
+particle
+\change_inserted -2100369821 1654848914
+individual is instantly displaced
+\change_unchanged
+ 
+\change_deleted -2100369821 1654848921
+moves 
+\change_unchanged
+to a new position 
 \begin_inset Formula $\mathbf{x}(t+t')=\mathbf{x}(t)+\delta\mathbf{x}(t)$
 \end_inset
 
- where each element of 
+ 
+\change_inserted -2100369821 1654875722
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1654875776
+CP: Note that Bill writes 
+\begin_inset Formula $\mathbf{x}(t)\mapsto\mathbf{x}(t)+\delta\mathbf{x}(t)$
+\end_inset
+
+, with an arrow.
+ Fred, what do you think?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+where each 
+\change_inserted -2100369821 1654848932
+random displacement
+\change_deleted -2100369821 1654848937
+element of
+\change_unchanged
+ 
 \begin_inset Formula $\delta\mathbf{x}(t)$
 \end_inset
 
- follows a Gaussian distribution 
-\begin_inset Formula $\mathcal{N}(0,\Delta)$
+ 
+\change_deleted -2100369821 1654848943
+follows
+\change_inserted -2100369821 1654874804
+ is drawn from
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1654870561
+CP: Bill proposed 
+\begin_inset Quotes eld
+\end_inset
+
+is selected from
+\begin_inset Quotes erd
+\end_inset
+
+, but, for me, it might look like we actively choose values, which is not
+ the case
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ a Gaussian distribution 
+\begin_inset Formula $\mathcal{N}(0,\Delta_{i})$
 \end_inset
 
  with 
-\begin_inset Formula $D=\frac{\Delta^{2}}{2\tau}$
+\begin_inset Formula $D_{i}=\frac{\Delta_{i}^{2}}{2\tau}$
 \end_inset
 
  the diffusivity.
@@ -1408,8 +1612,13 @@ chaotic advection
 
 \end_inset
 
-: each particle is displaced by a turbulent flow, following the Pierrehumbert
- map 
+: each 
+\change_deleted -2100369821 1654849477
+particle
+\change_inserted -2100369821 1654849480
+individual
+\change_unchanged
+ is displaced by a turbulent flow, following the Pierrehumbert map 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pierrehumbert_tracer_1994"
@@ -1425,23 +1634,46 @@ literal "false"
 
 \end_inset
 
+
+\change_inserted -2100369821 1654869076
+, which writes
+\change_deleted -2100369821 1654869070
 .
- The shift from continuous to discrete time is described in Section S1 in
+
+\change_unchanged
+ 
+\change_deleted -2100369821 1654869065
+The shift from continuous to discrete time is described in Section S1 in
  the Supplementary Information.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654864594
 \begin_inset Formula 
 \[
-\begin{cases}
-x(t+\tau) & =x(t+t')+U\tau/3\cos\left(ky(t+t')+\phi(t)\right)\\
-y(t+\tau) & =y(t+t')+U\tau/3\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
-\end{cases}
 \]
 
 \end_inset
 
+
+\change_inserted -2100369821 1654864594
+
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+x(t+\tau) & =x(t+t')+U\tau/3\cos\left(ky(t+t')+\phi(t)\right)\\
+y(t+\tau) & =y(t+t')+U\tau/3\cos\left(kz(t+t')+\theta(t)\right)\\
+z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
+\end{array}.
+\end{equation}
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -1450,7 +1682,13 @@ where
 \begin_inset Formula $U$
 \end_inset
 
- is the maximum velocity of the particle, 
+ is the maximum velocity of the 
+\change_deleted -2100369821 1654849473
+particle
+\change_inserted -2100369821 1654849474
+individual
+\change_unchanged
+, 
 \begin_inset Formula $k=2\pi/L_{s}$
 \end_inset
 
@@ -1470,7 +1708,19 @@ where
 \begin_inset Formula $\psi(t)$
 \end_inset
 
- are random phases uniformly distributed between 
+ are random phases
+\change_inserted -2100369821 1654849427
+ drawn from a
+\change_unchanged
+ uniform
+\change_deleted -2100369821 1654849434
+ly
+\change_inserted -2100369821 1654849438
+ distribution
+\change_deleted -2100369821 1654849440
+ distributed
+\change_unchanged
+ between 
 \begin_inset Formula $0$
 \end_inset
 
@@ -1478,12 +1728,150 @@ where
 \begin_inset Formula $2\pi$
 \end_inset
 
+
+\change_inserted -2100369821 1654869437
+ at the beginning of each time interval, which remain constant during the
+ interval
+\change_unchanged
 .
- Particles are distributed in a cube of side 
+
+\change_inserted -2100369821 1654875467
+ The shift from continuous to discrete-time turbulence modeling is described
+ in Section S1 in the Supplementary Information.
+ The advection parameter 
+\begin_inset Formula $U$
+\end_inset
+
+ in discrete time, is related to 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ As the separation between two points grows exponentially with parameter
+ 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ (Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gamma_def"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) due to turbulence, the exponent 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ can be estimated as the slope of 
+\begin_inset Formula $1/3\left\langle \ln(s(t))\right\rangle =f(t)$
+\end_inset
+
+ in the absence of diffusion and demography
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1654875637
+C:
+\begin_inset Quotes erd
+\end_inset
+
+ for initially separated individuals
+\begin_inset Quotes erd
+\end_inset
+
+, but this might be too complex? + Is this enough description **here** to
+ avoid repeating ourselves when presenting Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Young3D"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ Note that, contrary to 
+\begin_inset Formula $\text{\ensuremath{\lambda_{i}}, }\mu_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is not species-specific, 
+\shape italic
+i.e.
+
+\shape default
+ all individuals are displaced similarly by turbulent stirring.
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1654869090
+ Particles
+\change_inserted -2100369821 1654869084
+Individuals
+\change_unchanged
+ are distributed in a cube of side 
 \begin_inset Formula $L$
 \end_inset
 
 , with periodic boundary conditions.
+
+\change_inserted -2100369821 1654871017
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1654875820
+Bill: What is the relationship between 
+\begin_inset Formula $L$
+\end_inset
+
+ and 
+\begin_inset Formula $L_{s}$
+\end_inset
+
+ ? C: is the next sentence ok?
+\end_layout
+
+\end_inset
+
+ The cube dimensions are determined to balance computing costs and realistic
+ concentrations of individuals; they represent the accumulation of a few
+ volumes of scale 
+\begin_inset Formula $L_{s}$
+\end_inset
+
+.
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection*
@@ -1513,7 +1901,13 @@ Let
 \begin_inset Formula $n_{i}$
 \end_inset
 
- particles randomly distributed in 
+ 
+\change_deleted -2100369821 1654864878
+particles
+\change_inserted -2100369821 1654864879
+individuals
+\change_unchanged
+ randomly distributed in 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1560,7 +1954,7 @@ Let
 .
  We note that the point distributions remain the same for all translations
  
-\begin_inset Formula $\xi$
+\begin_inset Formula $\boldsymbol{\xi}$
 \end_inset
 
  (i.e., the point process described by the set 
@@ -1568,19 +1962,60 @@ Let
 \end_inset
 
  is the same as 
-\begin_inset Formula $\boldsymbol{X_{\xi}}=[\boldsymbol{x}_{1}+\xi,\boldsymbol{x}_{2}+\xi,...\boldsymbol{x}_{k}+\xi])$
+\begin_inset Formula $\boldsymbol{X_{\xi}}=[\boldsymbol{x}_{1}+\mathbf{\boldsymbol{\xi}},\boldsymbol{x}_{2}+\mathbf{\boldsymbol{\xi}},...\boldsymbol{x}_{k}+\mathbf{\boldsymbol{\xi}}])$
 \end_inset
 
 : the process is stationary.
 \end_layout
 
 \begin_layout Standard
-One of the most common methods to describe a spatial point process is through
- its spatial moments, that can be theoretically derived and allow us to
- check our simulations.
- However, the spatial moments of a process are merely statistical indicators
- which then need to be related to more easily ecologically interpretable
- quantities.
+One of the 
+\change_deleted -2100369821 1654864950
+most common
+\change_inserted -2100369821 1654864952
+useful
+\change_unchanged
+ methods 
+\change_deleted -2100369821 1654864959
+to describe
+\change_inserted -2100369821 1654864961
+of characterizing
+\change_unchanged
+ a spatial point process is through its spatial moments
+\change_inserted -2100369821 1654864967
+.
+\change_deleted -2100369821 1654864967
+,
+\change_unchanged
+ 
+\change_deleted -2100369821 1654864972
+that
+\change_inserted -2100369821 1654864972
+These
+\change_unchanged
+ can be theoretically derived and 
+\change_deleted -2100369821 1654864979
+allow us
+\change_inserted -2100369821 1654864980
+used
+\change_unchanged
+ to check 
+\change_deleted -2100369821 1654864984
+our 
+\change_unchanged
+simulations.
+ 
+\change_deleted -2100369821 1654864992
+However, t
+\change_inserted -2100369821 1654864992
+T
+\change_unchanged
+he spatial moments of a process are
+\change_inserted -2100369821 1654864997
+, however,
+\change_unchanged
+ merely statistical indicators which then need to be related to more easily
+ ecologically interpretable quantities.
  This is the role of the dominance index, which we present below.
 \end_layout
 
@@ -1590,15 +2025,31 @@ Spatial moments
 
 \begin_layout Standard
 The first-order moment is the intensity of the process, or mean concentration
- of particles 
+ of 
+\change_deleted -2100369821 1654865034
+particles
+\change_inserted -2100369821 1654865083
+individuals, whose empirical estimate is
+\change_unchanged
+ 
 \begin_inset Formula $C_{i}=\frac{N_{i}(W)}{V(W)}$
 \end_inset
 
+
+\change_inserted -2100369821 1654865090
+,
+\change_unchanged
  where 
 \begin_inset Formula $N_{i}(W)$
 \end_inset
 
- is the number of particles of species 
+ is the number of 
+\change_deleted -2100369821 1654865093
+particles
+\change_inserted -2100369821 1654865095
+individuals
+\change_unchanged
+ of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1611,7 +2062,13 @@ The first-order moment is the intensity of the process, or mean concentration
 \end_inset
 
  is the volume of the cube; it does not give any information regarding the
- spatial distribution of particles, and possibly their spatial correlations.
+ spatial distribution of 
+\change_deleted -2100369821 1654865100
+particles
+\change_inserted -2100369821 1654865101
+individuals
+\change_unchanged
+, and possibly their spatial correlations.
 \end_layout
 
 \begin_layout Standard
@@ -1690,7 +2147,9 @@ literal "false"
 \begin_inset Formula $G_{ii}(r,t)$
 \end_inset
 
-, in three dimensions, is a solution of eq.
+, in three dimensions, is a solution of
+\change_deleted -2100369821 1654865138
+ eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1701,13 +2160,15 @@ noprefix "false"
 
 \end_inset
 
+
+\change_unchanged
 :
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial G_{ii}}{\partial t}(r,t)=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G_{ii}}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G_{ii}}{\partial r}\right)+2(\lambda-\mu)G_{ii}+2\lambda C_{i}\delta(\boldsymbol{r}).\label{eq:Young3D}
+\frac{\partial G_{ii}}{\partial t}(r,t)=\frac{2D_{i}}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G_{ii}}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G_{ii}}{\partial r}\right)+2(\lambda_{i}-\mu_{i})G_{ii}+2\lambda C_{i}\delta(\boldsymbol{r}).\label{eq:Young3D}
 \end{equation}
 
 \end_inset
@@ -1720,7 +2181,9 @@ The pair correlation function
 \begin_inset Formula $g_{ij}(r,t)$
 \end_inset
 
-, or pcf, can be derived from the pair density (eq.
+, or pcf, can be derived from the pair density 
+\change_deleted -2100369821 1654866229
+(eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1731,8 +2194,16 @@ noprefix "false"
 
 \end_inset
 
-).
- It is equal to one when the spatial distribution of species 
+)
+\change_inserted -2100369821 1654866232
+and is defined as
+\change_deleted -2100369821 1654866233
+.
+
+\change_unchanged
+ 
+\change_deleted -2100369821 1654866235
+It is equal to one when the spatial distribution of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1741,12 +2212,14 @@ noprefix "false"
 \end_inset
 
  individuals.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-g_{ij}(r,t)=\frac{G_{ij}(r,t)}{C_{i}C_{j}}\label{eq:def_pcf}
+g_{ij}(r,t)=\frac{G_{ij}(r,t)}{C_{i}C_{j}}.\label{eq:def_pcf}
 \end{equation}
 
 \end_inset
@@ -1755,6 +2228,18 @@ g_{ij}(r,t)=\frac{G_{ij}(r,t)}{C_{i}C_{j}}\label{eq:def_pcf}
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -2100369821 1654866248
+The pcf is equal to one when the spatial distribution of species 
+\begin_inset Formula $i$
+\end_inset
+
+ individuals is random relative to species 
+\begin_inset Formula $j$
+\end_inset
+
+ individuals.
+\change_deleted -2100369821 1654867823
 By integration of eq.
  
 \begin_inset CommandInset ref
@@ -1812,12 +2297,33 @@ noprefix "false"
 \end_inset
 
 ), but depends on time in its absence.
+
+\change_inserted -2100369821 1654879466
+ To compute the intraspecific pcf 
+\begin_inset Formula $g_{ii}(r,t)$
+\end_inset
+
+, considering a population at equilibrium, we integrate Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Young3D"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ (see the Appendices) with 
+\begin_inset Formula $\lambda_{i}=\mu_{i}$
+\end_inset
+
+ and obtain
+\change_unchanged
+
 \begin_inset Formula 
 \begin{equation}
-g_{ii}(r,t)=\begin{cases}
-1+\frac{\lambda}{4D\pi rC_{i}}\left\{ 1-\erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\}  & \text{for }U=0\\
-1+\frac{\lambda}{2\pi C_{i}}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2^{3/2}D^{3/2}}+\frac{1}{2Dr}-\frac{\pi\sqrt{\gamma}}{2^{5/2}D^{3/2}}\right) & \forall U>0
-\end{cases}\label{eq:pcf_intraspecific}
+g_{ii}(r,t)=1+\frac{\lambda}{2\pi C_{i}}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2^{3/2}D^{3/2}}+\frac{1}{2Dr}-\frac{\pi\sqrt{\gamma}}{2^{5/2}D^{3/2}}\right).\label{eq:pcf_intraspecific}
 \end{equation}
 
 \end_inset
@@ -1828,11 +2334,28 @@ g_{ii}(r,t)=\begin{cases}
 \begin_layout Standard
 As populations of different species do not directly interact, each population
  is an independent realization of a point process, which means that the
- distribution of all particles within the community constitutes a random
- superposition of stationary point processes and 
-\begin_inset Formula $g_{ij}(r,t)=1\text{ }\forall i\neq j,\,\forall U$
+ distribution of all particles within the community 
+\change_deleted -2100369821 1654867973
+constitutes
+\change_inserted -2100369821 1654867974
+is
+\change_unchanged
+ a random superposition of stationary point processes and
+\change_inserted -2100369821 1654868010
+ thus
+\change_unchanged
+ 
+\begin_inset Formula $g_{ij}(r,t)=1$
 \end_inset
 
+
+\change_inserted -2100369821 1654868022
+ if 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+
+\change_unchanged
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -1867,7 +2390,13 @@ Related to the pair correlation function is Ripley's
 \begin_inset Formula $j$
 \end_inset
 
- surrounding a particle of species 
+ surrounding a
+\change_deleted -2100369821 1654867984
+ particle
+\change_inserted -2100369821 1654867986
+n individual
+\change_unchanged
+ of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1883,7 +2412,15 @@ literal "false"
 
 \end_inset
 
+
+\change_deleted -2100369821 1654875542
 .
+\change_inserted -2100369821 1654875547
+, 
+\shape italic
+i.e.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1902,7 +2439,13 @@ where
 \begin_inset Formula $\mathbb{E}_{i}$
 \end_inset
 
- is the expectation with respect to points of species 
+ is the expectation with respect to 
+\change_deleted -2100369821 1654868051
+points
+\change_inserted -2100369821 1654868053
+individuals
+\change_unchanged
+ of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1910,7 +2453,13 @@ where
 \begin_inset Formula $N_{j}\left(b(o,r)\backslash\{o\}\right)$
 \end_inset
 
- is the number of points of species 
+ is the number of 
+\change_deleted -2100369821 1654868055
+points
+\change_inserted -2100369821 1654868056
+individuals
+\change_unchanged
+ of species 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1927,15 +2476,27 @@ where
 \end_inset
 
  itself.
- The relationship between 
+ 
+\change_deleted -2100369821 1654868094
+The relationship between 
+\change_unchanged
+
 \begin_inset Formula $K_{ij}(r)$
 \end_inset
 
- and 
+ 
+\change_deleted -2100369821 1654868097
+and
+\change_inserted -2100369821 1654868100
+is related to
+\change_unchanged
+ 
 \begin_inset Formula $g_{ij}(r)$
 \end_inset
 
- is given in eq.
+ 
+\change_deleted -2100369821 1654868105
+is given in eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1947,12 +2508,16 @@ noprefix "false"
 \end_inset
 
 .
+\change_inserted -2100369821 1654868105
+as
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}\label{eq:pcf_to_K}
+g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}.\label{eq:pcf_to_K}
 \end{equation}
 
 \end_inset
@@ -1983,7 +2548,9 @@ noprefix "false"
 
 \end_inset
 
- (derivation in eqs.
+ (derivation in 
+\change_deleted -2100369821 1654879334
+eqs.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2004,7 +2571,9 @@ noprefix "false"
 
 \end_inset
 
- in the Appendices), we can show that:
+ in 
+\change_unchanged
+the Appendices), we can show that:
 \end_layout
 
 \begin_layout Standard
@@ -2012,8 +2581,8 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 K_{ii}(r,t)=\begin{cases}
-\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right) & \text{for }U=0\\
-\frac{4}{3}\pi r^{3}+\frac{2\lambda}{C_{i}}\left(\frac{r^{2}}{6D}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{6\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}\right) & \forall U>0
+\frac{4}{3}\pi r^{3}+\frac{\lambda r^{2}}{2C_{i}D} & \text{for }U=0\\
+\frac{4}{3}\pi r^{3}+\frac{\lambda}{3C_{i}}\left(\frac{r^{2}}{D}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2}D\sqrt{D}}\right) & \forall U>0
 \end{cases}\label{eq:K_intraspecific}
 \end{equation}
 
@@ -2027,7 +2596,13 @@ For random superposition of stationary point processes,
 \begin_inset Formula $K_{ij}(r,t)=\frac{4}{3}\pi r^{3}$
 \end_inset
 
- whenever 
+ 
+\change_deleted -2100369821 1654875576
+whenever
+\change_inserted -2100369821 1654875583
+if
+\change_unchanged
+ 
 \begin_inset Formula $i\neq j$
 \end_inset
 
@@ -2459,6 +3034,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654874511
 The advection parameter in continuous time, 
 \begin_inset Formula $\gamma$
 \end_inset
@@ -2481,7 +3058,9 @@ The advection parameter in continuous time,
 \end_inset
 
  being the average separation between 800 pairs of particles.
- For 
+ 
+\change_unchanged
+For 
 \family roman
 \series medium
 \shape up
@@ -4966,7 +5545,33 @@ K
 \change_inserted -2100369821 1652775435
 -
 \change_unchanged
-function of the Brownian Bug Model.
+function of the Brownian Bug Model
+\change_inserted -2100369821 1654877880
+ (see 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "young_reproductive_2001"
+literal "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "picoche_rescience_2022"
+literal "false"
+
+\end_inset
+
+ for a detailed derivation of the master equation)
+\change_unchanged
+.
+
+\change_inserted -2100369821 1654877874
+ As these formula only apply to intraspecies pairs, we ignore species' index
+ in the following for the sake of clarity.
+
+\change_unchanged
  Formula for standard processes are given in the Supplementary Information,
  for readers who want to familiarize with simpler models.
  
@@ -5004,7 +5609,9 @@ In three dimensions, when the birth rate
 \change_deleted -2100369821 1653321535
  
 \change_unchanged
-is a solution of eq.
+is a solution of
+\change_deleted -2100369821 1654877866
+ eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5032,44 +5639,41 @@ literal "false"
 \end_inset
 
  for a detailed derivation).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\label{eq:Young3D-1}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Paragraph
-With advection
-\end_layout
-
-\begin_layout Standard
-In the presence of advection (
-\begin_inset Formula $\gamma\neq0$
-\end_inset
-
-), a steady-state solution can be found.
-
-\change_deleted -2100369821 1653321540
- 
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r}).\label{eq:Young3D-1}
+\end{equation}
+
+\end_inset
+
+
+\change_inserted -2100369821 1654877668
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1654877691
+We only consider steady-state solutions,
+\shape italic
+ i.e.
+\end_layout
+
+\begin_layout Standard
 \paragraph_spacing onehalf
 \noindent
+
+\change_inserted -2100369821 1654877818
 \begin_inset Formula 
 \begin{align}
  & \,0 & = & \frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\nonumber \\
 \Leftrightarrow & \,0 & = & 4\pi r^{2}\left(\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\right)\nonumber \\
-\Leftrightarrow & \,0 & = & 4\pi\left(2D\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)\right)+4\pi r^{2}2\lambda C\delta(\boldsymbol{r})\label{eq:steady_state}
+\Leftrightarrow & \,0 & = & 4\pi\left(2D\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)\right)+4\pi r^{2}2\lambda C\delta(\boldsymbol{r}).\label{eq:steady_state}
 \end{align}
 
 \end_inset
@@ -5078,21 +5682,8 @@ In the presence of advection (
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
 
-\begin_layout Plain Layout
-the 0 seems to be rather close to the equivalent sign in that equation,
- perhaps you can space them out a bit.
-
-\change_deleted -2100369821 1653321540
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
+\change_inserted -2100369821 1654877848
 We can then integrate Eq.
  (
 \begin_inset CommandInset ref
@@ -5104,7 +5695,7 @@ noprefix "false"
 
 \end_inset
 
-) over a small sphere centered on a particle, with radius 
+) over a small sphere centered on an individual, with radius 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -5115,11 +5706,13 @@ noprefix "false"
 \begin_layout Standard
 \paragraph_spacing onehalf
 \noindent
+
+\change_inserted -2100369821 1654877818
 \begin_inset Formula 
 \begin{eqnarray}
 \int_{\mathbb{R}^{3}}\delta(\boldsymbol{r})d^{3}\boldsymbol{r} & = & 1\nonumber \\
 \Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}\sin(\phi) & dr' & d\phi d\theta=1\nonumber \\
-\Leftrightarrow4\pi\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}dr' & = & 1\label{eq:delta_integration}
+\Leftrightarrow4\pi\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}dr' & = & 1.\label{eq:delta_integration}
 \end{eqnarray}
 
 \end_inset
@@ -5128,6 +5721,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -2100369821 1654877818
 Using Eq.
  
 \begin_inset CommandInset ref
@@ -5155,6 +5750,145 @@ noprefix "false"
 \begin_layout Standard
 \paragraph_spacing onehalf
 \noindent
+
+\change_inserted -2100369821 1654877818
+\begin_inset Formula 
+\begin{align}
+ & 0 & = & 4\pi\left(2Dr^{2}\frac{\partial G}{\partial r}+\gamma r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
+\Leftrightarrow & \frac{\partial G}{\partial r} & = & -\frac{1}{4\pi}\frac{2\lambda C}{2Dr^{2}+\gamma r^{4}}.\label{eq:deriv_G_r}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+
+\change_deleted -2100369821 1654878453
+With advection
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1654877827
+In the presence of advection (
+\begin_inset Formula $\gamma\neq0$
+\end_inset
+
+), a steady-state solution can be found.
+ 
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
+
+\change_deleted -2100369821 1654877712
+\begin_inset Formula 
+\begin{align}
+ & \,0 & = & \frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\nonumber \\
+\Leftrightarrow & \,0 & = & 4\pi r^{2}\left(\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\right)\nonumber \\
+\Leftrightarrow & \,0 & = & 4\pi\left(2D\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)\right)+4\pi r^{2}2\lambda C\delta(\boldsymbol{r})\label{eq:steady_state}
+\end{align}
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+the 0 seems to be rather close to the equivalent sign in that equation,
+ perhaps you can space them out a bit.
+
+\change_deleted -2100369821 1653321540
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_deleted -2100369821 1654877816
+We can then integrate Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Young3D-1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) over a small sphere centered on a particle, with radius 
+\begin_inset Formula $\rho$
+\end_inset
+
+.
+ Let us first note that
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
+
+\change_deleted -2100369821 1654877816
+\begin_inset Formula 
+\begin{eqnarray}
+\int_{\mathbb{R}^{3}}\delta(\boldsymbol{r})d^{3}\boldsymbol{r} & = & 1\nonumber \\
+\Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}\sin(\phi) & dr' & d\phi d\theta=1\nonumber \\
+\Leftrightarrow4\pi\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}dr' & = & 1\label{eq:delta_integration}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1654877816
+Using Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:steady_state"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:delta_integration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing onehalf
+\noindent
+
+\change_deleted -2100369821 1654877816
 \begin_inset Formula 
 \begin{align}
  & 0 & = & 4\pi\left(2Dr^{2}\frac{\partial G}{\partial r}+\gamma r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
@@ -5164,10 +5898,31 @@ noprefix "false"
 \end_inset
 
 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-We can integrate between 
+We can integrate
+\change_inserted -2100369821 1654877922
+ Eq.
+
+\change_unchanged
+ 
+\change_inserted -2100369821 1654877920
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:deriv_G_r"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ 
+\change_unchanged
+between 
 \begin_inset Formula $\rho$
 \end_inset
 
@@ -5175,8 +5930,20 @@ We can integrate between
 \begin_inset Formula $\infty$
 \end_inset
 
-, knowing that 
-\begin_inset Formula $G(\infty)=C^{2}.$
+
+\change_inserted -2100369821 1654878130
+.
+\change_deleted -2100369821 1654878128
+,
+\change_unchanged
+ 
+\change_deleted -2100369821 1654878133
+knowing that
+\change_inserted -2100369821 1654878134
+As
+\change_unchanged
+ 
+\begin_inset Formula $G(\infty)=C^{2},$
 \end_inset
 
 
@@ -5187,7 +5954,7 @@ We can integrate between
 \noindent
 \begin_inset Formula 
 \begin{align}
- & C^{2}-G(\rho) & = & -\frac{\lambda C}{2\pi}{\displaystyle \int_{\rho}^{\infty}}\frac{1}{2Dr^{2}+\gamma r^{4}}dr\label{eq:deriv_G_r_int1}
+ & C^{2}-G(\rho) & = & -\frac{\lambda C}{2\pi}{\displaystyle \int_{\rho}^{\infty}}\frac{1}{2Dr^{2}+\gamma r^{4}}dr.\label{eq:deriv_G_r_int1}
 \end{align}
 
 \end_inset
@@ -5210,7 +5977,6 @@ We first compute the primitive
 \begin{array}{ccc}
 A & = & \int\frac{1}{r^{2}\left(2D+\gamma r^{2}\right)}dr\\
  & = & \int\frac{1}{2Dr^{2}}-\frac{\gamma}{2D\left(2D+\gamma r^{2}\right)}dr\\
- & = & \frac{1}{2D}\int\frac{1}{r^{2}}dr-\frac{\gamma}{2D}\int\frac{1}{2D+\gamma r^{2}}dr\\
  & = & -\frac{1}{2Dr}-\frac{\gamma}{2D}\int\frac{1}{2D\left(1+\left(\sqrt{\frac{\gamma}{2D}}r\right)^{2}\right)}
 \end{array}
 \end{equation}
@@ -5229,7 +5995,11 @@ With a change of variable
 \begin_inset Formula $\int\frac{1}{1+u^{2}}=\arctan(u)$
 \end_inset
 
-, we have:
+, we have
+\change_deleted -2100369821 1654878115
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -5271,7 +6041,11 @@ B=-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}+\frac{1}{2D\rho}+\frac{\sqrt{\gam
 \end_layout
 
 \begin_layout Standard
-This leads to:
+This leads to
+\change_deleted -2100369821 1654878198
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -5308,10 +6082,14 @@ g(\rho)=\frac{\lambda}{4\pi CD}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt
 \end_layout
 
 \begin_layout Paragraph
+
+\change_deleted -2100369821 1654878464
 Without advection
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878464
 When 
 \begin_inset Formula $U=0$
 \end_inset
@@ -5334,9 +6112,6 @@ noprefix "false"
 
 .
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})
@@ -5348,10 +6123,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 Assuming an isotropic environment, this means
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial G}{\partial t}-2D\Delta G=2\lambda C\delta(\boldsymbol{r})
@@ -5363,6 +6142,8 @@ Assuming an isotropic environment, this means
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 where 
 \begin_inset Formula $\Delta=\nabla^{2}$
 \end_inset
@@ -5372,10 +6153,14 @@ where
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 We therefore have 
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 \begin_inset Formula 
 \begin{equation}
 \mathcal{L}G(\boldsymbol{r},t)=2\lambda C\delta(\boldsymbol{r})
@@ -5387,6 +6172,8 @@ We therefore have
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 where 
 \begin_inset Formula $\mathcal{L}$
 \end_inset
@@ -5414,6 +6201,8 @@ where
 
 \begin_layout Standard
 
+\change_deleted -2100369821 1654878266
+
 \family roman
 \series medium
 \shape up
@@ -5438,6 +6227,8 @@ Using the Green's function theory, we know that
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 \begin_inset Formula 
 \begin{align*}
  & G(\boldsymbol{r},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{r}-\boldsymbol{r'},t')\delta(\boldsymbol{r'})dr'dt'\\
@@ -5450,6 +6241,8 @@ Using the Green's function theory, we know that
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 
 \family roman
 \series medium
@@ -5475,6 +6268,8 @@ A solution for the Green's function using
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 \begin_inset Formula $G(r,t)$
 \end_inset
 
@@ -5482,6 +6277,8 @@ A solution for the Green's function using
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 .
 \begin_inset Formula 
 \begin{equation}
@@ -5494,6 +6291,8 @@ G(r,t)=2\lambda C\left(\frac{-\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi Dr}+K\
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 where 
 \begin_inset Formula $\erf$
 \end_inset
@@ -5522,6 +6321,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5536,6 +6337,8 @@ C^{2} & = & 2\lambda C\left(\frac{1}{8\pi Dr}+K\right)\\
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 We can finally compute 
 \begin_inset Formula $G(r,t)$
 \end_inset
@@ -5544,6 +6347,8 @@ We can finally compute
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654878266
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5555,6 +6360,8 @@ G(r,t) & = & 2\lambda C\left(-\frac{\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi 
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -5583,10 +6390,16 @@ We can integrate the pcf formula to compute Ripley's
 \end_inset
 
 .
+\change_deleted -2100369821 1654878664
+
 \end_layout
 
 \begin_layout Paragraph
+
+\change_deleted -2100369821 1654878660
 With advection
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -5641,9 +6454,9 @@ We define
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-A= & \frac{1}{3}\rho^{3}\\
-B= & \frac{\rho^{2}}{4D}\\
-E= & \frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}
+A= & \frac{1}{3}\rho^{3}.\\
+B= & \frac{\rho^{2}}{4D}.\\
+E= & \frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}.
 \end{array}
 \end{equation}
 
@@ -5666,16 +6479,20 @@ We can also compute
 \begin_inset Formula $dr=\sqrt{2D}du$
 \end_inset
 
+
+\change_inserted -2100369821 1654879091
+, and obtain
+\change_deleted -2100369821 1654879088
 .
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-C & = & \int_{0}^{\rho/\sqrt{2D}}(\sqrt{2D}u)^{2}\arctan(\sqrt{\gamma}u)\sqrt{2D}du\\
- & = & (2D)^{3/2}\int_{0}^{\rho/\sqrt{2D}}u^{2}\arctan(\sqrt{\gamma}u)du
-\end{array}
+C & = & (2D)^{3/2}\int_{0}^{\rho/\sqrt{2D}}u^{2}\arctan(\sqrt{\gamma}u)du.\end{array}
 \end{equation}
 
 \end_inset
@@ -5692,16 +6509,20 @@ We can integrate by parts, with
 \begin_inset Formula $g'=u^{2}$
 \end_inset
 
+
+\change_deleted -2100369821 1654879099
 .
+\change_inserted -2100369821 1654879101
+, which leads to
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-C & = & (2D)^{3/2}\left(\frac{\rho^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)-\int_{0}^{\rho/\sqrt{2D}}\frac{\sqrt{\gamma}u^{3}}{3(\gamma u^{2}+1)}du\right)\\
- & = & (2D)^{3/2}\left(\frac{\rho^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)-\frac{\sqrt{\gamma}}{3}\int_{0}^{\rho/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du\right)
-\end{array}
+C & = & (2D)^{3/2}\left(\frac{\rho^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)-\frac{\sqrt{\gamma}}{3}\int_{0}^{\rho/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du\right).\end{array}
 \end{equation}
 
 \end_inset
@@ -5718,7 +6539,14 @@ We can substitute
 \begin_inset Formula $du=\frac{1}{2\gamma u}dv$
 \end_inset
 
+
+\change_deleted -2100369821 1654879121
 .
+
+\change_inserted -2100369821 1654879129
+ and have
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -5727,7 +6555,7 @@ We can substitute
 \begin{array}{ccc}
 \int_{0}^{\rho/\sqrt{2D}}\frac{u^{3}}{(\gamma u^{2}+1)}du & = & \frac{1}{2\gamma^{2}}\int_{1}^{\gamma\rho^{2}/2D+1}\frac{v-1}{v}dv\\
  & = & \frac{1}{2\gamma^{2}}\int_{1}^{\gamma\rho^{2}/2D+1}1-\frac{1}{v}dv\\
- & = & \frac{1}{2\gamma^{2}}(\gamma\frac{\rho^{2}}{2D}-\log(\gamma\frac{\rho^{2}}{2D}+1))
+ & = & \frac{1}{2\gamma^{2}}(\gamma\frac{\rho^{2}}{2D}-\log(\gamma\frac{\rho^{2}}{2D}+1)).
 \end{array}
 \end{equation}
 
@@ -5737,7 +6565,11 @@ We can substitute
 \end_layout
 
 \begin_layout Standard
-Going back to C, we obtain:
+Going back to C, we obtain
+\change_deleted -2100369821 1654879837
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -5763,20 +6595,51 @@ Combining all equations:
 \begin{equation}
 \begin{array}{ccc}
 K(\rho) & = & \frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{4D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{6\sqrt{2}D^{3/2}}-\frac{\rho^{2}}{12D}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}\right)\\
- & = & \frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{6D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{6\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}\right).
+ & = & \frac{4}{3}\pi\rho^{3}+\frac{\lambda}{3C}\left(\frac{\rho^{2}}{D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{2\sqrt{2}D\sqrt{D}}\right).
 \end{array}
 \end{equation}
 
 \end_inset
 
 
+\change_inserted -2100369821 1654878737
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1654878743
+Note that in the absence of advection, 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1654878747
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+g(r) & = & \frac{\lambda}{4\pi CDr}+1\\
+\Rightarrow K'(r) & = & \frac{\lambda r}{CD}+4\text{\ensuremath{\pi r^{2}}}\\
+\Leftrightarrow K(r) & = & \frac{\lambda r^{2}}{2CD}+\frac{4}{3}\pi r^{3}.
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Paragraph
+
+\change_deleted -2100369821 1654879237
 Without advection
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 From eq.
  
 \begin_inset CommandInset ref
@@ -5792,6 +6655,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Paragraph
+
+\change_deleted -2100369821 1654879237
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5806,6 +6671,8 @@ K(\rho) & = & \frac{\lambda}{DC}\int_{0}^{\rho}r\left\{ 1-\erf\left(\frac{r}{\sq
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 We first compute the primitive for 
 \begin_inset Formula $\int_{0}^{\rho}r\times\erf\left(\frac{r}{\sqrt{8Dt}}\right)dr$
 \end_inset
@@ -5823,6 +6690,8 @@ We first compute the primitive for
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5835,6 +6704,8 @@ We first compute the primitive for
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 We can integrate by parts, with 
 \begin_inset Formula $f=\erf(u)$
 \end_inset
@@ -5847,6 +6718,8 @@ We can integrate by parts, with
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5859,6 +6732,8 @@ We can integrate by parts, with
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 We integrate by parts again, this time with 
 \begin_inset Formula $f=u$
 \end_inset
@@ -5871,6 +6746,8 @@ We integrate by parts again, this time with
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 \begin_inset Formula 
 \begin{equation}
 \int u^{2}e^{-u^{2}}du=-\frac{ue^{-u^{2}}}{2}+\frac{1}{2}\int e^{-u^{2}}du=-\frac{ue^{-u^{2}}}{2}+\frac{\sqrt{\pi}\erf(u)}{4}\label{eq:integrate_parts}
@@ -5882,6 +6759,8 @@ We integrate by parts again, this time with
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 If we use eq.
  
 \begin_inset CommandInset ref
@@ -5908,6 +6787,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5922,6 +6803,8 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 We can now compute 
 \begin_inset Formula $K(\rho)$
 \end_inset
@@ -5930,6 +6813,8 @@ We can now compute
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1654879237
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -5938,6 +6823,8 @@ K(\rho) & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
