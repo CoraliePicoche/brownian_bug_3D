@@ -81,7 +81,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -192,7 +192,11 @@ s-time formula.
 \begin_inset Formula $\tau$
 \end_inset
 
-, so that:
+, so that
+\change_deleted -2100369821 1655111045
+:
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -202,7 +206,7 @@ s-time formula.
 \begin{array}{cc}
 \left(Ucos(ky+\phi),0,0\right) & \text{for }n\tau\leq t<(n+\frac{1}{3})\tau\\
 \left(0,Ucos(kz+\theta),0\right) & \text{for }(n+\frac{1}{3})\tau\leq t<(n+\frac{2}{3})\tau\\
-\left(0,0,Ucos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau
+\left(0,0,Ucos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau.
 \end{array}\end{cases}\label{eq:pierrehumber_continuous_time}
 \end{equation}
 
@@ -267,44 +271,61 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\begin{cases}
 \begin{array}{cc}
 x(t+\tau/3)= & x(t)+\frac{U\tau}{3}cos(ky(t)+\phi)\\
 y(t+\tau/3)= & y(t)\\
-z(t+\tau/3)= & z(t)
-\end{array}\end{cases}\label{eq:step1_pierrehumbert}
+z(t+\tau/3)= & z(t).
+\end{array}\label{eq:step1_pierrehumbert}
 \end{equation}
 
 \end_inset
 
+
+\change_inserted -2100369821 1655111133
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655111134
+Then,
+\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\begin{cases}
 \begin{array}{cc}
 x(t+2\tau/3)= & x(t+\tau/3)\\
 y(t+2\tau/3)= & y(t)+\frac{U\tau}{3}cos(kz(t)+\theta)\\
-z(t+2\tau/3)= & z(t)
-\end{array}\end{cases}\label{eq:step2_pierrehumbert}
+z(t+2\tau/3)= & z(t).
+\end{array}\label{eq:step2_pierrehumbert}
 \end{equation}
 
 \end_inset
 
+
+\change_inserted -2100369821 1655111136
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655111138
+And finally,
+\change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\begin{cases}
 \begin{array}{cc}
 x(t+\tau)= & x(t+\tau/3)\\
-y(t+\tau)= & y(t+\tau/3)\\
-z(t+\tau)= & y(t)+\frac{U\tau}{3}cos(kx(t+\tau)+\psi)
-\end{array}\end{cases}\label{eq:step3_pierrehumbert}
+y(t+\tau)= & y(t+2\tau/3)\\
+z(t+\tau)= & z(t)+\frac{U\tau}{3}cos(kx(t+\tau)+\psi).
+\end{array}\label{eq:step3_pierrehumbert}
 \end{equation}
 
 \end_inset
@@ -381,8 +402,12 @@ daughter points
 \begin_inset Quotes erd
 \end_inset
 
- are scattered, their location following a Gaussian distribution centered
- on the parent location, with standard deviation 
+ are scattered, their location
+\change_inserted -2100369821 1655111238
+s
+\change_unchanged
+ following a Gaussian distribution centered on the parent location, with
+ standard deviation 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -410,7 +435,7 @@ In the case of a Poisson point process,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\forall r\geq0\text{, }g_{ii}(r)=1
+\forall r\geq0\text{, }g_{ii}(r)=1.
 \end{equation}
 
 \end_inset
@@ -425,7 +450,7 @@ For a Thomas point process, the expected value of the pcf is
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}
+g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}.
 \end{equation}
 
 \end_inset
@@ -454,8 +479,14 @@ where
 \end_layout
 
 \begin_layout Standard
-More generally, for a random superposition of stationary point processes
- with marks (species) 
+
+\change_deleted -2100369821 1655111286
+More generally, f
+\change_inserted -2100369821 1655111286
+F
+\change_unchanged
+or a random superposition of stationary point processes with marks (species)
+ 
 \begin_inset Formula $i$
 \end_inset
 
@@ -494,7 +525,7 @@ In the case of a Poisson point process,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\forall r\geq0\text{, }K_{ii}(r)=\frac{4}{3}\pi r^{3}\label{eq:k_poisson}
+\forall r\geq0\text{, }K_{ii}(r)=\frac{4}{3}\pi r^{3}.\label{eq:k_poisson}
 \end{equation}
 
 \end_inset
@@ -509,7 +540,7 @@ For a Thomas point process,
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:k_thomas}
+K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right).\label{eq:k_thomas}
 \end{equation}
 
 \end_inset
@@ -518,8 +549,13 @@ K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{
 \end_layout
 
 \begin_layout Standard
-More generally, for a random superposition of stationary point processes,
- 
+
+\change_deleted -2100369821 1655111291
+More generally, f
+\change_inserted -2100369821 1655111292
+F
+\change_unchanged
+or a random superposition of stationary point processes, 
 \begin_inset Formula $K_{ij}(r)=\frac{4}{3}\pi r^{3}$
 \end_inset
 
@@ -551,7 +587,7 @@ s:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-D_{i}(r)=\frac{C_{i}}{\sum_{j=1}^{S}C_{j}}
+D_{i}(r)=\frac{C_{i}}{\sum_{j=1}^{S}C_{j}}.
 \end{equation}
 
 \end_inset
@@ -577,7 +613,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}
+D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}.
 \end{equation}
 
 \end_inset
@@ -742,13 +778,140 @@ dominance_code_thomas
 \end_layout
 
 \begin_layout Section
-Theoretical behaviour of the dominance index in the BBM
+Theoretical behaviour of 
+\change_deleted -2100369821 1655107447
+the dominance index in the 
+\change_inserted -2100369821 1655107451
+spatial characteristics of the 
+\change_unchanged
+BBM
+\change_inserted -2100369821 1655107472
+
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -2100369821 1655111412
+The theoretical formulas of g, K and the dominance index can be used to
+ observe the behaviour of the BBM.
+ In the absence of advection, convergence cannot be reached in a reasonable
+ timeframe (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Theoretical-convergence"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), which led us to use the time-dependent formula shown in the Appendices..
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655107599
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\change_inserted -2100369821 1655107599
+\begin_inset Graphics
+	filename ../code/figure/convergence_wo_advection.pdf
+	height 90theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655107599
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655111607
+Intraspecific pair correlation function (a, b), Ripley's 
+\begin_inset Formula $K$
+\end_inset
+
+-function (c,d) and dominance index (e,f) as a function of distance (in
+ cm) for microphytoplankton and nanophytoplankton in the absence of advection,
+ for a single species in a 3-species community with an even abundance distributi
+on.
+ Shorter timeframes are shown with light grey lines while longer ones are
+ shown with darker shades.
+ The theoretical value at steady state is shown in red.
+ The duration currently used in the simulations (
+\begin_inset Formula $t=1000$
+\end_inset
+
+) is shown with dashed black lines.
+ A theoretical duration corresponding to a week is shown with solid blue
+ lines.
+ Dotted orange lines correspond to the distance threshold for interaction.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Theoretical-convergence"
+
+\end_inset
+
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655107599
+check_convergence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1655111370
 With the theoretical formula for the dominance index in the Brownian Bug
- Model, we can show the progressive clustering of particles with time when
- advection is absent.
+ Model, w
+\change_inserted -2100369821 1655111370
+W
+\change_unchanged
+e can 
+\change_inserted -2100369821 1655111376
+therefore 
+\change_unchanged
+show the progressive clustering of 
+\change_deleted -2100369821 1655112304
+particles
+\change_inserted -2100369821 1655112305
+individuals
+\change_unchanged
+ with time when advection is absent
+\change_inserted -2100369821 1655111391
+ and compare it to the case with advection
+\change_unchanged
+.
  Even after a short period of time, the dominance index without advection
  is larger than with advection.
  
@@ -813,10 +976,20 @@ theory_dominance
 \end_inset
 
 
+\change_inserted -2100369821 1655107436
+
 \end_layout
 
 \begin_layout Section
-Computation of the pair correlation function and Ripley's function
+Computation of the pair correlation function and Ripley's 
+\change_inserted -2100369821 1655107653
+
+\begin_inset Formula $K$
+\end_inset
+
+-
+\change_unchanged
+function
 \end_layout
 
 \begin_layout Standard
@@ -847,7 +1020,11 @@ literal "false"
 
 \begin_layout Standard
 Schematically, 
-\begin_inset Formula $g_{ij}(r)$
+\change_inserted -2100369821 1655111651
+the pcf estimate 
+\change_unchanged
+
+\begin_inset Formula $\hat{g}_{ij}(r)$
 \end_inset
 
  is estimated via the use of the Epanechnikov kernel 
@@ -858,7 +1035,13 @@ Schematically,
 \begin_inset Formula $\delta$
 \end_inset
 
+
+\change_inserted -2100369821 1655111661
+, i.e.
+\change_deleted -2100369821 1655111660
 .
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -894,7 +1077,7 @@ literal "false"
 \begin{equation}
 \kappa_{E}(x)=\begin{cases}
 \frac{3}{4\delta}\left(1-\frac{x^{2}}{\delta^{2}}\right) & \text{for }-\delta\leq x\leq\delta\\
-0 & \text{otherwise}
+0 & \text{otherwise}.
 \end{cases}
 \end{equation}
 
@@ -1149,8 +1332,14 @@ While the pcf was one of the first indices that we intended to use, we quickly
 \begin_inset Formula $10^{-4}$
 \end_inset
 
- to 1 cm) and the low density of particles, at least for microphytoplankton,
- made the estimation difficult as the choice of the bandwidth was critical.
+ to 1 cm) and the low density of 
+\change_deleted -2100369821 1655111695
+particles
+\change_inserted -2100369821 1655111696
+individuals
+\change_unchanged
+, at least for microphytoplankton, made the estimation difficult as the
+ choice of the bandwidth was critical.
  We give an example of the sensitivity of the pcf computation to the bandwidth
  below (Fig.
  
@@ -1379,8 +1568,13 @@ status open
 
 \begin_layout Plain Layout
 Intraspecific pair correlation function as a function of distance (in cm)
- computed for the Brownian bug model with microphytoplankton particles,
- after 1000 time steps, with different values of the bandwidth 
+ computed for the Brownian bug model with microphytoplankton 
+\change_deleted -2100369821 1655112314
+particles
+\change_inserted -2100369821 1655112317
+individuals
+\change_unchanged
+, after 1000 time steps, with different values of the bandwidth 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -1502,7 +1696,33 @@ spatial_distribution.r 0:3
 \end_layout
 
 \begin_layout Section
-Minimum distances between points
+Minimum distances between 
+\change_deleted -2100369821 1655112487
+points
+\change_inserted -2100369821 1655112488
+individuals
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655112365
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655112444
+Wondering if we spend too much time on this part.
+ Figures take too much place, whereas this is really not a crucial point.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1560,14 +1780,18 @@ In
 \begin_inset Formula $C$
 \end_inset
 
-, we can write:
+, we can write
+\change_deleted -2100369821 1655111726
+:
+\change_unchanged
+
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
 \mathbb{P}(\min(R_{1},...,R_{n})>r) & = & \mathbb{P}(R_{1}>r,...,R_{n}>r)\\
  & = & \Pi_{i}^{n}\mathbb{P}(R_{i}>r)\\
  & = & \Pi_{i}^{n}\exp(-b_{d}r^{_{d}}C)\\
- & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}^{n}C)
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}^{n}C).
 \end{array}
 \end{equation}
 
@@ -1642,7 +1866,7 @@ In 3D,
 \begin{array}{ccc}
 \mu_{d} & = & (nC)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
  & = & (nC)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
- & \approx & 0.554\frac{1}{(nC)^{1/3}}
+ & \approx & 0.554\frac{1}{(nC)^{1/3}}.
 \end{array}\label{eq:dnn_realization}
 \end{equation}
 
@@ -1932,8 +2156,34 @@ Effect of the initial distribution
 \end_layout
 
 \begin_layout Standard
-Particles are uniformly distributed in the cube at the start of all simulations
- shown in the manuscript.
+
+\change_inserted -2100369821 1655112218
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655112246
+I would suggest to remove this part: I do not find it useful, and it can
+ only be mentioned in main text in a very artifical way
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1655112332
+Particles
+\change_inserted -2100369821 1655112335
+Individuals
+\change_unchanged
+ are uniformly distributed in the cube at the start of all simulations shown
+ in the manuscript.
  However, we have no reason to believe that such spatial distribution is
  more appropriate than a more clustered one to begin with.
  In Fig.
@@ -1954,8 +2204,14 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1655112171
 We need to modify the pair density function for the case without advection,
- as the initial distribution changes from 
+ as t
+\change_inserted -2100369821 1655112171
+T
+\change_unchanged
+he initial distribution changes from 
 \begin_inset Formula $G(r,0)=C^{2}$
 \end_inset
 
@@ -1963,7 +2219,9 @@ We need to modify the pair density function for the case without advection,
 \begin_inset Formula $G(r,0)=C^{2}+\frac{C^{2}}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}$
 \end_inset
 
-, leading to eq.
+, 
+\change_deleted -2100369821 1655112175
+leading to eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1975,12 +2233,16 @@ noprefix "false"
 \end_inset
 
 .
+\change_inserted -2100369821 1655112267
+, which also changes the formulation of the pair density functiont to
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-K(r,t)=\frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)\label{eq:K_bbm_thomas}
+K(r,t)=\frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right).\label{eq:K_bbm_thomas}
 \end{equation}
 
 \end_inset
@@ -2015,8 +2277,14 @@ Dominance indices as a function of distance (in cm) for microphytoplankton
  Thomas point processes, with (circles) and without (lines) advection.
  The triangles correspond to the dominance index at the start of the simulation,
  i.e.
- when points are only distributed according to a Thomas point process with
- parent intensity 
+ when 
+\change_deleted -2100369821 1655112462
+points
+\change_inserted -2100369821 1655112464
+individuals
+\change_unchanged
+ are only distributed according to a Thomas point process with parent intensity
+ 
 \begin_inset Formula $C_{p}=0.2$
 \end_inset
 
@@ -2141,8 +2409,14 @@ nkton (a) and nanophytoplankton (b) 3-species community with even distributions
 pecific Thomas point processes in the absence of advection.
  The dotted line corresponds to the dominance index at the start of the
  simulation, i.e.
- when points are only distributed according to a Thomas point process with
- parent intensity 
+ when 
+\change_deleted -2100369821 1655112470
+points
+\change_inserted -2100369821 1655112471
+individuals
+\change_unchanged
+ are only distributed according to a Thomas point process with parent intensity
+ 
 \begin_inset Formula $C_{p}=0.2$
 \end_inset
 
@@ -2235,7 +2509,14 @@ noprefix "false"
 \begin_inset Formula $Re=UL_{v}/\nu$
 \end_inset
 
+
+\change_deleted -2100369821 1655112289
 .
+
+\change_inserted -2100369821 1655112289
+ and
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2244,7 +2525,7 @@ noprefix "false"
 \begin{array}{cccc}
  & \frac{4}{3}\pi\left(\frac{L_{v}}{2}\right)^{3} & = & L_{c}^{3}\\
 \Leftrightarrow & L_{v} & = & 2L_{c}\left(\frac{3}{4\pi}\right)^{1/3}\\
-\Leftrightarrow & L_{v} & = & 1.24\text{ cm}
+\Leftrightarrow & L_{v} & = & 1.24\text{ cm}.
 \end{array}\label{eq:re_lv}
 \end{equation}
 
