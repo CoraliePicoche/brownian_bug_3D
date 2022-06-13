@@ -7,7 +7,8 @@ source("theoretical_functions.r")
 
 colo=c("red","blue","grey")
 
-nb_simu_list=c(0,1,2,3)
+#nb_simu_list=c(0,1,2,3)
+nb_simu_list=10:13
 
 a_gamma_list=c(1231,0,1231,0)
 
@@ -15,7 +16,7 @@ a_main_list=rep(c("Advection","No advection"),2)
 
 a_text=c("a","b","c","d")
 
-pdf("K_micronano.pdf",width=8)
+pdf("K_micronano_10sp.pdf",width=8)
 par(mfrow=c(2,2))
 
 
@@ -101,7 +102,7 @@ for (sp in unique(f_count$species)){
 	}
 
 	lines(f_plot$r,f_plot$K,col=colo[sp+1],lwd=2)
-	lines(f_plot$r,th_bbm,lty=2,col="black",lwd=2)
+	lines(f_plot$r,th_bbm,lty=2,col=colo[sp+1],lwd=2)
 	lines(f_plot$r,th_poisson,lty=3,col="black",lwd=2)
 }
 }
