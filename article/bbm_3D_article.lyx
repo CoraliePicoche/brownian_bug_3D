@@ -152,28 +152,15 @@ The coexistence of multiple phytoplankton species despite their reliance
  Local spatial aggregation can hinder competitive exclusion since individuals
  then interact mostly with other individuals of their own species, rather
  than competitors from different species.
- To evaluate how microscale spatial aggregation 
-\change_deleted -666822487 1654157614
-could
-\change_inserted -666822487 1654157615
-might
+ To evaluate how microscale spatial aggregation might explain phytoplankton
+ diversity maintenance, an individual-based, multispecific representation
+ of cells in a hydrodynamic environment is required.
+ We formulate a three-dimensional 
+\change_inserted -666822487 1655213352
+and 
 \change_unchanged
- explain phytoplankton diversity maintenance, an individual-based, multispecific
- representation of cells in a 
-\change_deleted -666822487 1654157646
-realistic 
-\change_unchanged
-hydrodynamic environment is required.
- We 
-\change_deleted -666822487 1654157786
-therefore used as a starting point a mathematically tractable individual-based
- model of phytoplankton population dynamics in a viscous and turbulent environme
-nt, and generalize it here to multiple species and three dimensions
-\change_inserted -666822487 1654157794
-formulate a three-dimensional multi-specific individual-based model of phytoplan
-kton population dynamics at the Kolmogorov scale
-\change_unchanged
-.
+multi-specific individual-based model of phytoplankton population dynamics
+ at the Kolmogorov scale.
  The model is studied through both simulations and the derivation of spatial
  moment equations, in connection with point process theory.
  The spatial moment equations show a good match between theory and simulations.
@@ -186,17 +173,9 @@ kton population dynamics at the Kolmogorov scale
  species, while in small phytoplankton, individuals remain in mostly monospecifi
 c clusters.
  Spatial structure therefore favours intra- over inter-specific interactions
- for small phytoplankton, which likely contributes to coexistence mechanisms
-\change_deleted -666822487 1654157877
-, while 
-\change_inserted -666822487 1654157880
-.
- O
-\change_deleted -666822487 1654157883
-o
-\change_unchanged
-ther factors behind diversity maintenance must be examined for large phytoplankt
-on.
+ for small phytoplankton, which likely contributes to coexistence mechanisms.
+ Other factors behind diversity maintenance must be examined for large phytoplan
+kton.
  
 \begin_inset Note Note
 status open
@@ -204,6 +183,11 @@ status open
 \begin_layout Plain Layout
 150-250 -> 249/ FB: A recompter! CP: J'ai fait une micro modif pour arriver
  à 250 (on était à 252 avec ta version)
+\change_inserted -666822487 1655213379
+.
+ 234 now.
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -342,17 +326,7 @@ status collapsed
 \end_inset
 
 .
- This observation 
-\change_deleted -666822487 1654157948
-has led to the formulation of the so-
-\change_inserted -666822487 1654157950
-is usually 
-\change_unchanged
-called 
-\change_inserted -666822487 1654157955
-the 
-\change_unchanged
-
+ This observation is usually called the 
 \begin_inset Quotes eld
 \end_inset
 
@@ -370,28 +344,31 @@ literal "false"
 
 , which refers to the conflict between the observed diversity of species
  competing for similar resources in a seemingly homogeneous environment,
- and 
-\change_deleted -666822487 1654158156
-theoretical expectations of a few
-\change_inserted -666822487 1654158153
-models predicting
-\change_unchanged
- 
-\change_inserted -666822487 1654158174
-that only a few 
-\change_unchanged
-species 
-\change_inserted -666822487 1654158195
-will persist by 
-\change_unchanged
-outcompeting the others
+ and models predicting that only a few species will persist by outcompeting
+ the others
 \change_inserted -666822487 1654158213
  (REFs?
 \change_inserted -2100369821 1654161447
 Schippers et al.
  2001
-\change_inserted -666822487 1654158213
+\change_inserted -666822487 1655213432
 )
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1655213465
+You can perhaps add some by Huisman.
+ even Huisman Weissing if you cite Schippers et al.
+ right after.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 .
  Phytoplankton models for coexistence are now almost as diverse as their
@@ -414,31 +391,37 @@ literal "false"
 
 .
  
-\change_deleted -666822487 1654158279
-However, m
-\change_inserted -666822487 1654158279
-M
-\change_unchanged
-ost of these models
-\change_inserted -666822487 1654158283
-, however,
-\change_unchanged
- consider mean-field dynamics at the microscale.
+\change_inserted -666822487 1655213543
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1655213895
+Here I think that we are missing a statement that such models do not predict
+ the diversity observed in the field.
+ I mean, the sentence above could suggest that the models that benefit from
+ the support of coexistence theory are better than earlier models with a
+ handful of species coexisting.
+ One idea could be to build on your own work (Theor Ecol paper), and after
+ Li and Chesson (2016), add in a new sentence that even models that include
+ the environmental variation so praised by Hutchinson need intraspecific
+ interaction coefficients to dominate interspecific interaction coefficients
+ in phenomenological representations - they require us to add implicit niches
+ for each species that favour coexistence.
  
-\change_deleted -666822487 1654158300
-Such assumption needs to be challenged,
-\change_inserted -666822487 1654158300
-But this assumption must be challenged:
 \change_unchanged
- 
-\change_deleted -666822487 1654158311
-as 
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
-field observations
-\change_deleted -666822487 1654158314
- themselves
-\change_unchanged
- have revealed phytoplankton patchiness for more than a century 
+Most of these models, however, consider mean-field dynamics at the microscale.
+ But this assumption must be challenged: field observations have revealed
+ phytoplankton patchiness for more than a century 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "bainbridge_size_1957,stocker_marine_2012"
@@ -459,46 +442,15 @@ literal "false"
 
 \begin_layout Standard
 Phytoplankton patchiness can at least be partly explained by the hydrodynamics
- of their environment: the size of these organisms
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-it's the size of organisms right? I was a little unclear as to what 
-\begin_inset Quotes eld
-\end_inset
-
-their
-\begin_inset Quotes erd
-\end_inset
-
- refers to.
-\end_layout
-
-\end_inset
-
- being mostly below the size of the smallest eddy (i.e., the Kolmogorov scale)
-\change_inserted -666822487 1654158434
-.
-
+ of their environment: the size of these organisms 
+\change_deleted -666822487 1655213999
+being
+\change_inserted -666822487 1655213999
+is
 \change_unchanged
- 
-\change_inserted -666822487 1654158437
-I
-\change_deleted -666822487 1654158436
-i
-\change_unchanged
-n a typical 
-\change_inserted -666822487 1654158440
-aquatic 
-\change_unchanged
-environment such as the ocean
-\change_inserted -666822487 1654158453
-,
-\change_deleted -666822487 1654158422
-,
-\change_unchanged
- phytoplankton individuals are embedded in viscous micro-structures 
+ mostly below the size of the smallest eddy (i.e., the Kolmogorov scale).
+ In a typical aquatic environment such as the ocean, phytoplankton individuals
+ are embedded in viscous micro-structures 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "peters_effects_2000"
@@ -506,11 +458,8 @@ literal "false"
 
 \end_inset
 
- while phytoplankton populations are 
-\change_deleted -666822487 1654158481
-being 
-\change_unchanged
-displaced by a turbulent flow at slighly larger scales 
+ while phytoplankton populations are displaced by a turbulent flow at slighly
+ larger scales 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "martin_phytoplankton_2003,prairie_biophysical_2012"
@@ -520,23 +469,9 @@ literal "false"
 
 .
  Phytoplankton organisms therefore live in an environment where fluid viscosity
- dominates at the scale of an individual but 
-\change_deleted -666822487 1654158541
-effects of 
-\change_unchanged
-turbulen
-\change_deleted -666822487 1654158543
-ce
-\change_inserted -666822487 1654158547
-t dispersion
-\change_deleted -666822487 1654158553
- can be seen as soon as one considers the volume required
-\change_inserted -666822487 1654158558
-dominates on length scales characteristic of 
-\change_deleted -666822487 1654158569
- for 
-\change_unchanged
-a small population of those individuals 
+ dominates at the scale of an individual but turbulent dispersion dominates
+ on length scales characteristic of a small population of those individuals
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "estrada_effects_1987,prairie_biophysical_2012"
@@ -629,13 +564,7 @@ literal "false"
  deaths.
  Aggregation of particles can emerge from local reproduction coupled with
  limited dispersal, which can happen in a fluid where turbulence and diffusion
- are not 
-\change_deleted -666822487 1654158627
-too high
-\change_inserted -666822487 1654158630
-strong enough
-\change_unchanged
- to disperse kin aggregates 
+ are not strong enough to disperse kin aggregates 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -644,23 +573,13 @@ literal "false"
 \end_inset
 
 .
- 
-\change_deleted -666822487 1654158640
-Such
-\change_inserted -666822487 1654158642
-The resulting
-\change_unchanged
- aggregation can affect the dynamics of the populations at the community
- level: even when interactions are identical between individuals of the
- same species (conspecifics) or between individuals of different species
- (heterospecifics), the combination of local reproduction and same-scale
+ The resulting aggregation can affect the dynamics of the populations at
+ the community level: even when interactions are identical between individuals
+ of the same species (conspecifics) or between individuals of different
+ species (heterospecifics), the combination of local reproduction and same-scale
  high dispersal limitation and strong interactions leads to stronger intraspecif
 ic interactions than interspecific interactions at the population level,
- 
-\change_inserted -666822487 1654158656
-which is 
-\change_unchanged
-a major stabilizing mechanism 
+ which is a major stabilizing mechanism 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -669,15 +588,10 @@ literal "false"
 \end_inset
 
 .
+ Indeed, a high intra-to-interspecific interaction strength ratio makes
+ a species control its abundance more than it controls the abundance of
+ other species, which is associated with coexistence in theoretical models
  
-\change_deleted -666822487 1654158669
-Basically, a
-\change_inserted -666822487 1654158697
-Indeed, a
-\change_unchanged
- high intra-to-interspecific interaction strength ratio makes a species
- control its abundance more than it controls the abundance of other species,
- which is associated with coexistence in theoretical models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "levine_importance_2009,barabas_self-regulation_2017"
@@ -694,27 +608,12 @@ literal "false"
 \end_inset
 
 .
- Therefore, the microscale spatial distribution of individuals likely affect
-\change_inserted -666822487 1654158712
-s
-\change_unchanged
+ Therefore, the microscale spatial distribution of individuals likely affects
  the interaction structure within a community, and may sustain diversity.
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -666822487 1654158768
-Some models of phytoplankton populations already exist at the microscale,
- i.e.
-\change_inserted -666822487 1654158771
-Existing models of phytoplankton populations near the Kolmogorov scale
-\change_unchanged
- 
-\change_inserted -666822487 1654158784
-—
-\change_deleted -666822487 1654158776
-near the Kolmogorov scale,
-\change_unchanged
+Existing models of phytoplankton populations near the Kolmogorov scale —
  between 1 mm and 1 cm in an oceanic environment 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -723,14 +622,7 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -666822487 1654158799
- —
-\change_deleted -666822487 1654158804
-.
- Most of these models
-\change_unchanged
- focus on a single species and the clustering of its individuals 
+ — focus on a single species and the clustering of its individuals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001,birch_bounding_2007,bouderbala_3d_2018,breier_emergence_2018"
@@ -739,17 +631,7 @@ literal "false"
 \end_inset
 
 .
- They share 
-\change_deleted -666822487 1654158849
-a 
-\change_unchanged
-similarit
-\change_inserted -666822487 1654158857
-ies
-\change_deleted -666822487 1654158852
-y
-\change_unchanged
- to dynamic point process models 
+ They share similarities to dynamic point process models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "law_population_2003,bolker_spatial_1999,plank_spatial_2015"
@@ -779,54 +661,17 @@ literal "false"
 \end_inset
 
 .
- This is 
-\change_deleted -666822487 1654158929
-quite 
-\change_unchanged
-useful 
-\change_deleted -666822487 1654158934
-to understand
-\change_inserted -666822487 1654158937
-as an explanation of
-\change_unchanged
- how species with marked differences 
-\change_inserted -666822487 1654158945
-might 
-\change_unchanged
-coexist.
- 
-\change_deleted -666822487 1654159055
-However, t
-\change_inserted -666822487 1654159055
-T
-\change_unchanged
-he difficulty of the coexistence problem
-\change_inserted -666822487 1654159060
-, however,
-\change_unchanged
- is 
-\change_deleted -666822487 1654159064
-precisely 
-\change_unchanged
-that we have to explain how closely related species or genera (e.g., within
- diatoms), many of whom have similar size, buoyancy, chemical composition,
- etc., manage to coexist within a single trophic level.
- This requires 
-\change_deleted -666822487 1654159104
-to model
-\change_inserted -666822487 1654159105
-modelling
-\change_unchanged
- 
+ This is useful as an explanation of how species with marked differences
+ might coexist.
+ The difficulty of the coexistence problem, however, is that we have to
+ explain how closely related species or genera (e.g., within diatoms), many
+ of whom have similar size, buoyancy, chemical composition, etc., manage
+ to coexist within a single trophic level.
+ This requires modelling 
 \emph on
 similar
 \emph default
- species in spatially realistic environment and 
-\change_deleted -666822487 1654159125
-measure
-\change_inserted -666822487 1654159132
-objectively quantifying
-\change_unchanged
+ species in spatially realistic environment and objectively quantifying
  whether they aggregate or segregate in space.
  
 \begin_inset Note Note
@@ -938,26 +783,9 @@ literal "false"
 
  coupled limited dispersal and local reproduction with ocean-like microscale
  hydrodynamics, and showed spatial clusters of individuals of the same species.
- 
-\change_deleted -666822487 1654159241
-It
-\change_inserted -666822487 1654159244
-The original BBM
-\change_unchanged
- was limited to a single species and 
-\change_deleted -666822487 1654159285
-a two-dimensional environment
-\change_inserted -666822487 1654159285
-was illustrated with two-dimensional simulations
-\change_unchanged
-.
- 
-\change_deleted -666822487 1654159311
-Furthermore, t
-\change_inserted -666822487 1654159311
-T
-\change_unchanged
-he model was not strongly quantitative 
+ The original BBM was limited to a single species and was illustrated with
+ two-dimensional simulations.
+ The model was not strongly quantitative 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "picoche_rescience_2022"
@@ -969,11 +797,8 @@ literal "false"
  phytoplankton biology (numbers of cells per liter, diffusion characteristics,
  etc.).
  As phytoplankton organisms live in a three-dimensional environment, informing
- the model with
-\change_inserted -666822487 1654159358
- more
-\change_unchanged
- realistic parameters required us to shift to three dimensions.
+ the model with more realistic parameters required us to shift to three
+ dimensions.
  We also extend the model to multiple species, and consider two size classes
  for our phytoplankton communities, which are either made of nanophytoplankton
  (3 
@@ -994,18 +819,12 @@ textmu
 \end_inset
 
  C/L
-\change_inserted -666822487 1654159432
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1654159438
 Bill: Is C/L a standard abbreviations for cells per liter? cells/L looks
  better to me.
-
-\change_inserted -2100369821 1655111818
  C: We could indeed use cells/L to avoid confusion with Carbon, which is
  sometimes used to described biomass – however note that I did not find
  many cells/L either.
@@ -1019,14 +838,24 @@ cells
 
  is implicit).
  What do you prefer?
+\change_inserted -666822487 1655214180
+ F: I like writing 
+\begin_inset Quotes eld
+\end_inset
+
+cells
+\begin_inset Quotes erd
+\end_inset
+
+.
+ C is indeed prone to confusion.
+ 
 \change_unchanged
 
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 ) or microphytoplankton (50 
 \begin_inset ERT
 status open
@@ -1062,15 +891,7 @@ literal "false"
 \end_inset
 
 .
- It is further complexified by 
-\change_deleted -666822487 1654159507
-the presence of
-\change_unchanged
- a turbulent 
-\change_deleted -666822487 1654159513
-fluid 
-\change_unchanged
-flow in 
+ It is further complexified by a turbulent flow in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001,picoche_rescience_2022"
@@ -1083,29 +904,12 @@ literal "false"
  of pair density functions, which quantify the degree of intra- and interspecifi
 c clustering of organisms, via correlations between positions of organisms
  (see Methods).
- 
-\change_deleted -666822487 1654159561
-This means that in addition to simulations, we can keep track analytically
- of spatial structure.
- 
-\change_inserted -666822487 1654159575
-Thus we can understand emergent spatial structure in analytic detail and
+ Thus we can understand emergent spatial structure in analytic detail and
  compare these predictions with the results from three-dimensional simulations.
- 
-\change_unchanged
-Furthermore, because we do not consider direct interactions between organisms,
+ Furthermore, because we do not consider direct interactions between organisms,
  the multispecies spatial point process that represents the stable state
- of the 
-\change_deleted -666822487 1654159639
-Brownian Bug model
-\change_inserted -666822487 1654159639
-BBM
-\change_unchanged
- is 
-\change_deleted -666822487 1654159668
-mathematically 
-\change_unchanged
-a random superposition of spatial point processes for each species 
+ of the BBM is a random superposition of spatial point processes for each
+ species 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "illian2008statistical"
@@ -1123,15 +927,10 @@ n functions.
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1650532756
-Old note // 
-\change_unchanged
-We mentioned the idea that we derive here equations for a point process
- mingling spatial jump process and continuous-time process, as opposed to
- Dieckman and Law but I cannot find a way to introduce this idea smoothly.
+Old note // We mentioned the idea that we derive here equations for a point
+ process mingling spatial jump process and continuous-time process, as opposed
+ to Dieckman and Law but I cannot find a way to introduce this idea smoothly.
  –> this is a Discussion point actually.
- 
 \end_layout
 
 \begin_layout Plain Layout
@@ -1139,7 +938,6 @@ to make informed guesses about mechanisms supporting diversity within different
  communities of phytoplankton.
  -> the fact that we're limited to informed guesses rather than clear-cut
  conclusions is something that we probably want to keep for the discussion.
- 
 \end_layout
 
 \end_inset
@@ -1152,13 +950,9 @@ to make informed guesses about mechanisms supporting diversity within different
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1650532750
-Old note // 
-\change_unchanged
-For example, the degree of clustering in the environment can be quantified
- by measuring correlations between positions of pairs (or more) of particles
- 
+Old note // For example, the degree of clustering in the environment can
+ be quantified by measuring correlations between positions of pairs (or
+ more) of particles 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "illian2008statistical,baddeley_spatstat"
@@ -1197,7 +991,11 @@ literal "false"
 
 , in which possible spatial strategies for population survival are identified),
  an endeavour often lacking in phytoplankton spatial models.
+
+\change_deleted -666822487 1655214281
  
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1214,35 +1012,14 @@ Brownian bug model
 \end_layout
 
 \begin_layout Standard
-The Brownian Bug Model (BBM) describes the dynamics of 
-\change_deleted -2100369821 1654848608
-particles
-\change_inserted -2100369821 1654848609
-individuals
-\change_deleted -2100369821 1655110505
- going through demographic processes
+The Brownian Bug Model (BBM) describes the dynamics of individuals in a
+ turbulent and viscous environment, including demographic processes.
+ The model is continuous in space and time.
+ Here we extend the 
+\change_inserted -666822487 1655214311
+mostly 
 \change_unchanged
- in a turbulent and viscous environment
-\change_inserted -2100369821 1655110515
-, including demographic processes.
- The model is
-\change_deleted -2100369821 1654848655
-, in
-\change_unchanged
- continuous 
-\change_inserted -2100369821 1655110510
-in 
-\change_unchanged
-space and time.
- 
-\change_deleted -2100369821 1654848677
-It has been developed in
-\change_inserted -2100369821 1655110510
-Here we extend the two-dimensional,
-\change_deleted -2100369821 1654848690
- its two-dimension,
-\change_unchanged
- monospecific version in 
+two-dimensional, monospecific version in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -1250,15 +1027,7 @@ literal "false"
 
 \end_inset
 
-, 
-\change_deleted -2100369821 1654848702
-which we now extend 
-\change_unchanged
-to three dimensions and 
-\change_deleted -2100369821 1654848707
-to 
-\change_unchanged
-
+, to three dimensions and 
 \begin_inset Formula $S$
 \end_inset
 
@@ -1266,19 +1035,7 @@ to
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1654848720
-In this model, we consider a community of particles, e
-\change_inserted -2100369821 1654848720
-E
-\change_unchanged
-ach individual 
-\change_deleted -2100369821 1654848723
-being
-\change_inserted -2100369821 1654848723
-is
-\change_unchanged
- characterized by its species 
+Each individual is characterized by its species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -1298,30 +1055,43 @@ is
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
-.
- Each 
-\change_deleted -2100369821 1654848732
-particle
-\change_inserted -2100369821 1654848733
-individual
+
+\change_inserted -666822487 1655215235
+, here set to a common 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1655215246
+same for D_i // check how we present this.
 \change_unchanged
- independently follows a Brownian motion with diffusivity 
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ Each individual independently follows a Brownian motion with diffusivity
+ 
 \begin_inset Formula $D_{i}$
 \end_inset
 
 , and is advected by a common stochastic flow modeling the turbulence with
- 
-\change_deleted -2100369821 1654873446
-stretching parameter
-\change_inserted -2100369821 1654873450
-Lyapunov exponent
-\change_unchanged
- 
+ Lyapunov exponent 
 \begin_inset Formula $\gamma$
 \end_inset
 
-
-\change_inserted -2100369821 1654874667
  (also called the stretching parameter).
  This means that the separation between two individuals 
 \begin_inset Formula $m$
@@ -1335,8 +1105,6 @@ Lyapunov exponent
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1654874277
 \begin_inset Formula 
 \begin{equation}
 \left\langle \ln\left(|\mathbf{x}_{m}-\mathbf{x}_{n}|(t)\right)\right\rangle \sim3\gamma t.\label{eq:gamma_def}
@@ -1344,21 +1112,6 @@ Lyapunov exponent
 
 \end_inset
 
-
-\change_deleted -2100369821 1654874764
-, meaning that the separation 
-\begin_inset Formula $s(t)$
-\end_inset
-
- between two points previously on top of each other follows 
-\begin_inset Formula $s(t)\varpropto e^{3\gamma t}$
-\end_inset
-
-.
- We focus here on ecologically relevant quantities which can be extracted
- from this model, both analytically and numerically.
- 
-\change_unchanged
 
 \end_layout
 
@@ -1371,7 +1124,11 @@ Such combination of a branching process with a Brownian motion is also called
  a superprocess (Adler 199,7 Young 2001 -the Hawaii paper), and the addition
  of a global stochastic flow is formalized from a probabilist point of view
  in Skoulakis and Adler (2001).
+
+\change_deleted -666822487 1655218033
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1385,45 +1142,48 @@ Such combination of a branching process with a Brownian motion is also called
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1654873405
-For numerical simulations, this model needs to be discretized.
- During each time step of duration 
-\begin_inset Formula $\tau$
-\end_inset
-
-
-\change_inserted -2100369821 1654848835
-The model advances through time in intervals of duration of 
-\begin_inset Formula $\tau$
-\end_inset
-
-
-\change_deleted -2100369821 1654848839
-,
-\change_inserted -2100369821 1654848847
-.
- During each interval,
+For numerical simulations, 
+\change_deleted -666822487 1655215094
+this model 
+\change_inserted -666822487 1655215095
+time 
 \change_unchanged
- events unroll as follow:
+needs to be discretized
+\change_inserted -666822487 1655215124
+ (this is required for diffusion and advection modelling)
+\change_unchanged
+.The
+\change_inserted -2100369821 1654848835
+ 
+\change_inserted -666822487 1655218067
+approximated 
+\change_unchanged
+model advances through time in 
+\change_deleted -666822487 1655218095
+intervals
+\change_inserted -666822487 1655218100
+steps
+\change_unchanged
+ of duration of 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+ During each interval, events unroll as follow:
 \change_inserted -2100369821 1654873185
  
+\change_unchanged
+
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1654873182
 CP: This formulation, corresponding to Bill's second proposition, without
  epoch, seems reasonable and a good compromise
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -1507,35 +1267,36 @@ individual
 \end_layout
 
 \begin_layout Enumerate
-diffusion: each 
-\change_deleted -2100369821 1654848906
-particle
-\change_inserted -2100369821 1654848914
-individual is instantly displaced
+diffusion: each individual 
+\change_deleted -666822487 1655218261
+is instantly displaced
+\change_inserted -666822487 1655218261
+moves
 \change_unchanged
- 
-\change_deleted -2100369821 1654848921
-moves 
-\change_unchanged
-to a new position 
+ to a new position 
 \begin_inset Formula $\mathbf{x}(t+t')=\mathbf{x}(t)+\delta\mathbf{x}(t)$
 \end_inset
 
+
+\change_inserted -666822487 1655218311
+.
+
+\change_unchanged
  
 \change_inserted -2100369821 1654875722
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1654875776
 CP: Note that Bill writes 
 \begin_inset Formula $\mathbf{x}(t)\mapsto\mathbf{x}(t)+\delta\mathbf{x}(t)$
 \end_inset
 
 , with an arrow.
  Fred, what do you think?
+\change_inserted -666822487 1655218174
+ F: too algorithm-like.
 \change_unchanged
 
 \end_layout
@@ -1543,28 +1304,20 @@ CP: Note that Bill writes
 \end_inset
 
 
+\change_deleted -666822487 1655218287
+where each
+\change_inserted -666822487 1655218317
+The
 \change_unchanged
-where each 
-\change_inserted -2100369821 1654848932
-random displacement
-\change_deleted -2100369821 1654848937
-element of
-\change_unchanged
- 
+ random displacement 
 \begin_inset Formula $\delta\mathbf{x}(t)$
 \end_inset
 
- 
-\change_deleted -2100369821 1654848943
-follows
-\change_inserted -2100369821 1654874804
  is drawn from
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1654870561
 CP: Bill proposed 
 \begin_inset Quotes eld
 \end_inset
@@ -1574,15 +1327,12 @@ is selected from
 \end_inset
 
 , but, for me, it might look like we actively choose values, which is not
- the case
-\change_unchanged
-
+ the case.
+ F: yes.
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
  a Gaussian distribution 
 \begin_inset Formula $\mathcal{N}(0,\Delta_{i})$
 \end_inset
@@ -1592,7 +1342,6 @@ is selected from
 \end_inset
 
  the diffusivity.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -1629,13 +1378,8 @@ chaotic advection
 
 \end_inset
 
-: each 
-\change_deleted -2100369821 1654849477
-particle
-\change_inserted -2100369821 1654849480
-individual
-\change_unchanged
- is displaced by a turbulent flow, following the Pierrehumbert map 
+: each individual is displaced by a turbulent flow, following the Pierrehumbert
+ map 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pierrehumbert_tracer_1994"
@@ -1651,33 +1395,14 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -2100369821 1654869076
 , which writes
-\change_deleted -2100369821 1654869070
-.
-
-\change_unchanged
+\change_deleted -666822487 1655218336
  
-\change_deleted -2100369821 1654869065
-The shift from continuous to discrete time is described in Section S1 in
- the Supplementary Information.
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1654864594
-\begin_inset Formula 
-\[
-\]
-
-\end_inset
-
-
-\change_inserted -2100369821 1654864594
-
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
@@ -1690,8 +1415,6 @@ z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1699,13 +1422,7 @@ where
 \begin_inset Formula $U$
 \end_inset
 
- is the maximum velocity of the 
-\change_deleted -2100369821 1654849473
-particle
-\change_inserted -2100369821 1654849474
-individual
-\change_unchanged
-, 
+ is the maximum velocity of the individual, 
 \begin_inset Formula $k=2\pi/L_{s}$
 \end_inset
 
@@ -1725,19 +1442,7 @@ individual
 \begin_inset Formula $\psi(t)$
 \end_inset
 
- are random phases
-\change_inserted -2100369821 1654849427
- drawn from a
-\change_unchanged
- uniform
-\change_deleted -2100369821 1654849434
-ly
-\change_inserted -2100369821 1654849438
- distribution
-\change_deleted -2100369821 1654849440
- distributed
-\change_unchanged
- between 
+ are random phases drawn from a uniform distribution between 
 \begin_inset Formula $0$
 \end_inset
 
@@ -1745,21 +1450,19 @@ ly
 \begin_inset Formula $2\pi$
 \end_inset
 
-
-\change_inserted -2100369821 1654869437
  at the beginning of each time interval, which remain constant during the
- interval
-\change_unchanged
-.
-
-\change_inserted -2100369821 1654875467
+ interval.
  The shift from continuous to discrete-time turbulence modeling is described
  in Section S1 in the Supplementary Information.
  The advection parameter 
 \begin_inset Formula $U$
 \end_inset
 
- in discrete time, is related to 
+ 
+\change_deleted -666822487 1655218360
+in discrete time,
+\change_unchanged
+ is related to 
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -1790,11 +1493,9 @@ noprefix "false"
 
  in the absence of diffusion and demography
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1654875637
 C:
 \begin_inset Quotes erd
 \end_inset
@@ -1816,14 +1517,14 @@ noprefix "false"
 \end_inset
 
 ?
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
 .
- Note that, contrary to 
+ 
+\change_inserted -2100369821 1654875467
+Note that, contrary to 
 \begin_inset Formula $\text{\ensuremath{\lambda_{i}}, }\mu_{i}$
 \end_inset
 
@@ -1841,31 +1542,45 @@ i.e.
 
 \shape default
  all individuals are displaced similarly by turbulent stirring.
+\change_inserted -666822487 1655218404
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1655218735
+Not sure I would highlight this, since actually we don't use species-specific
+ values...
+ F: OK now I realize that they could have been species specific, but since
+ 
+\backslash
+lambda_i = 
+\backslash
+mu_i it does not change anything right ? If so your addition is OK.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1654869090
- Particles
-\change_inserted -2100369821 1654869084
-Individuals
-\change_unchanged
- are distributed in a cube of side 
+Individuals are distributed in a cube of side 
 \begin_inset Formula $L$
 \end_inset
 
 , with periodic boundary conditions.
-
-\change_inserted -2100369821 1654871017
  
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1654875820
 Bill: What is the relationship between 
 \begin_inset Formula $L$
 \end_inset
@@ -1875,6 +1590,15 @@ Bill: What is the relationship between
 \end_inset
 
  ? C: is the next sentence ok?
+\change_inserted -666822487 1655218485
+ F: you should add something to the reader can know whether 
+\begin_inset Formula $L>L_{S}$
+\end_inset
+
+.
+ 
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -1886,9 +1610,6 @@ Bill: What is the relationship between
 \end_inset
 
 .
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsection*
@@ -1918,13 +1639,7 @@ Let
 \begin_inset Formula $n_{i}$
 \end_inset
 
- 
-\change_deleted -2100369821 1654864878
-particles
-\change_inserted -2100369821 1654864879
-individuals
-\change_unchanged
- randomly distributed in 
+ individuals randomly distributed in 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1986,53 +1701,41 @@ individuals
 \end_layout
 
 \begin_layout Standard
-One of the 
-\change_deleted -2100369821 1654864950
-most common
-\change_inserted -2100369821 1654864952
-useful
-\change_unchanged
- methods 
+One of the useful methods 
 \change_deleted -2100369821 1654864959
 to describe
 \change_inserted -2100369821 1654864961
 of characterizing
+\change_inserted -666822487 1655218531
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1655218550
+F:
+\begin_inset Quotes eld
+\end_inset
+
+methods of
+\begin_inset Quotes erd
+\end_inset
+
+ sounds odd to me
 \change_unchanged
- a spatial point process is through its spatial moments
-\change_inserted -2100369821 1654864967
-.
-\change_deleted -2100369821 1654864967
-,
+
+\end_layout
+
+\end_inset
+
+
 \change_unchanged
- 
-\change_deleted -2100369821 1654864972
-that
-\change_inserted -2100369821 1654864972
-These
-\change_unchanged
- can be theoretically derived and 
-\change_deleted -2100369821 1654864979
-allow us
-\change_inserted -2100369821 1654864980
-used
-\change_unchanged
- to check 
-\change_deleted -2100369821 1654864984
-our 
-\change_unchanged
-simulations.
- 
-\change_deleted -2100369821 1654864992
-However, t
-\change_inserted -2100369821 1654864992
-T
-\change_unchanged
-he spatial moments of a process are
-\change_inserted -2100369821 1654864997
-, however,
-\change_unchanged
- merely statistical indicators which then need to be related to more easily
- ecologically interpretable quantities.
+ a spatial point process is through its spatial moments.
+ These can be theoretically derived and used to check simulations.
+ The spatial moments of a process are, however, merely statistical indicators
+ which then need to be related to more easily ecologically interpretable
+ quantities.
  This is the role of the dominance index, which we present below.
 \end_layout
 
@@ -2042,31 +1745,15 @@ Spatial moments
 
 \begin_layout Standard
 The first-order moment is the intensity of the process, or mean concentration
- of 
-\change_deleted -2100369821 1654865034
-particles
-\change_inserted -2100369821 1654865083
-individuals, whose empirical estimate is
-\change_unchanged
- 
+ of individuals, whose empirical estimate is 
 \begin_inset Formula $C_{i}=\frac{N_{i}(W)}{V(W)}$
 \end_inset
 
-
-\change_inserted -2100369821 1654865090
-,
-\change_unchanged
- where 
+, where 
 \begin_inset Formula $N_{i}(W)$
 \end_inset
 
- is the number of 
-\change_deleted -2100369821 1654865093
-particles
-\change_inserted -2100369821 1654865095
-individuals
-\change_unchanged
- of species 
+ is the number of individuals of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2079,13 +1766,7 @@ individuals
 \end_inset
 
  is the volume of the cube; it does not give any information regarding the
- spatial distribution of 
-\change_deleted -2100369821 1654865100
-particles
-\change_inserted -2100369821 1654865101
-individuals
-\change_unchanged
-, and possibly their spatial correlations.
+ spatial distribution of individuals, and possibly their spatial correlations.
 \end_layout
 
 \begin_layout Standard
@@ -2164,22 +1845,7 @@ literal "false"
 \begin_inset Formula $G_{ii}(r,t)$
 \end_inset
 
-, in three dimensions, is a solution of
-\change_deleted -2100369821 1654865138
- eq.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Young3D"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-
-\change_unchanged
-:
+, in three dimensions, is a solution of:
 \end_layout
 
 \begin_layout Standard
@@ -2198,37 +1864,9 @@ The pair correlation function
 \begin_inset Formula $g_{ij}(r,t)$
 \end_inset
 
-, or pcf, can be derived from the pair density 
-\change_deleted -2100369821 1654866229
-(eq.
+, or pcf, can be derived from the pair density and is defined as
+\change_deleted -666822487 1655218641
  
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:def_pcf"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-)
-\change_inserted -2100369821 1654866232
-and is defined as
-\change_deleted -2100369821 1654866233
-.
-
-\change_unchanged
- 
-\change_deleted -2100369821 1654866235
-It is equal to one when the spatial distribution of species 
-\begin_inset Formula $i$
-\end_inset
-
- individuals is random relative to species 
-\begin_inset Formula $j$
-\end_inset
-
- individuals.
 \change_unchanged
 
 \end_layout
@@ -2245,8 +1883,6 @@ g_{ij}(r,t)=\frac{G_{ij}(r,t)}{C_{i}C_{j}}.\label{eq:def_pcf}
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1654866248
 The pcf is equal to one when the spatial distribution of species 
 \begin_inset Formula $i$
 \end_inset
@@ -2256,66 +1892,6 @@ The pcf is equal to one when the spatial distribution of species
 \end_inset
 
  individuals.
-\change_deleted -2100369821 1654867823
-By integration of eq.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:Young3D"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, with 
-\begin_inset Formula $\lambda=\mu$
-\end_inset
-
- (population at equilibrium), the intraspecific pcf 
-\begin_inset Formula $g_{ii}(r,t)$
-\end_inset
-
- follows eq.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:pcf_intraspecific"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- (see eqs.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:steady_state"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- to 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:pcf_noadv_bbm"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- in the Appendices for a derivation).
- The system stabilizes in the presence of advection (
-\begin_inset Formula $U>0$
-\end_inset
-
-), but depends on time in its absence.
-
-\change_inserted -2100369821 1655101976
  To compute the intraspecific pcf 
 \begin_inset Formula $g_{ii}(r,t)$
 \end_inset
@@ -2336,8 +1912,6 @@ noprefix "false"
 \end_inset
 
  and obtain
-\change_unchanged
-
 \begin_inset Formula 
 \begin{equation}
 g_{ii}(r,t)=\begin{cases}
@@ -2795,6 +2369,10 @@ status open
 \change_inserted -2100369821 1654941352
 Just realized that D for dominance is not ok, as D also stands for diffusivity.
  Dom?
+\change_inserted -666822487 1655215441
+ F: Also reserved work, 
+\backslash
+mathcal{D}_i ? 
 \change_unchanged
 
 \end_layout
