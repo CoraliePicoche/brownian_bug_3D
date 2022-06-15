@@ -155,12 +155,8 @@ The coexistence of multiple phytoplankton species despite their reliance
  To evaluate how microscale spatial aggregation might explain phytoplankton
  diversity maintenance, an individual-based, multispecific representation
  of cells in a hydrodynamic environment is required.
- We formulate a three-dimensional 
-\change_inserted -666822487 1655213352
-and 
-\change_unchanged
-multi-specific individual-based model of phytoplankton population dynamics
- at the Kolmogorov scale.
+ We formulate a three-dimensional and multi-specific individual-based model
+ of phytoplankton population dynamics at the Kolmogorov scale.
  The model is studied through both simulations and the derivation of spatial
  moment equations, in connection with point process theory.
  The spatial moment equations show a good match between theory and simulations.
@@ -181,8 +177,10 @@ kton.
 status open
 
 \begin_layout Plain Layout
-150-250 -> 249/ FB: A recompter! CP: J'ai fait une micro modif pour arriver
- à 250 (on était à 252 avec ta version)
+150-250 -> 
+\change_deleted -2100369821 1655219568
+249/ FB: A recompter! CP: J'ai fait une micro modif pour arriver à 250 (on
+ était à 252 avec ta version)
 \change_inserted -666822487 1655213379
 .
  234 now.
@@ -347,12 +345,21 @@ literal "false"
  and models predicting that only a few species will persist by outcompeting
  the others
 \change_inserted -666822487 1654158213
- (REFs?
-\change_inserted -2100369821 1654161447
-Schippers et al.
- 2001
+ 
+\change_inserted -2100369821 1655277061
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "macarthur_competition_1964,huisman_biodiversity_1999,schippers_does_2001"
+literal "false"
+
+\end_inset
+
+
+\change_deleted -2100369821 1655277605
+(REFs?)
 \change_inserted -666822487 1655213432
-)
+
 \begin_inset Note Note
 status collapsed
 
@@ -380,7 +387,40 @@ literal "false"
 
 \end_inset
 
- and some benefit from the support of coexistence theory, which proposes
+
+\change_inserted -2100369821 1655281143
+, but they 
+\change_deleted -2100369821 1655280864
+ 
+\change_inserted -2100369821 1655283614
+often describe only a handful of species, which does not correspond to the
+ diversity observed in the field.
+ When modeling rich communities (> 10 species), known coexistence mechanisms
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+before "e.g.,"
+key "li_effects_2016,chesson_updates_2018"
+literal "false"
+
+\end_inset
+
+ are not always sufficient to maintain a realistic diversity if used separately,
+ and some kind of niche differentiation is often necessary.
+ For instance, a model with environmental fluctuations and storage effect
+ still requires intraspecific interactions to be stronger than interspecific
+ interactions in order to stabilize a diverse community 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "picoche_how_2019"
+literal "false"
+
+\end_inset
+
+.
+ 
+\change_deleted -2100369821 1655282819
+and some benefit from the support of coexistence theory, which proposes
  mechanisms to escape from competitive exclusion 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -411,6 +451,9 @@ Here I think that we are missing a statement that such models do not predict
  in phenomenological representations - they require us to add implicit niches
  for each species that favour coexistence.
  
+\change_inserted -2100369821 1655284814
+CP: Feels forced as is, we might want to remove the sentence about the Theor.
+ Ecol.
 \change_unchanged
 
 \end_layout
@@ -419,8 +462,20 @@ Here I think that we are missing a statement that such models do not predict
 
 
 \change_unchanged
-Most of these models, however, consider mean-field dynamics at the microscale.
- But this assumption must be challenged: field observations have revealed
+Most of 
+\change_deleted -2100369821 1655283342
+these
+\change_inserted -2100369821 1655283348
+phytoplankton coexistence
+\change_unchanged
+ models, however, consider mean-field dynamics at the microscale
+\change_deleted -2100369821 1655283284
+.
+ B
+\change_inserted -2100369821 1655283284
+, b
+\change_unchanged
+ut this assumption must be challenged: field observations have revealed
  phytoplankton patchiness for more than a century 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -818,9 +873,15 @@ textmu
 \begin_inset Formula $\approx10^{6}$
 \end_inset
 
- C/L
+ 
+\change_deleted -2100369821 1655283632
+C
+\change_inserted -2100369821 1655283633
+ cells
+\change_unchanged
+/L
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 Bill: Is C/L a standard abbreviations for cells per liter? cells/L looks
@@ -873,7 +934,13 @@ textmu
 \begin_inset Formula $\approx10^{4}$
 \end_inset
 
- C/L).
+ 
+\change_deleted -2100369821 1655283640
+C
+\change_inserted -2100369821 1655283641
+cells
+\change_unchanged
+/L).
  We populate each community with 3 to 10 different species.
 \end_layout
 
@@ -1044,8 +1111,12 @@ Each individual is characterized by its species
 \end_inset
 
 .
- Within a given community, all species are equivalent and share the same
+ 
+\change_deleted -2100369821 1655277939
+Within a given community, all species are equivalent and share the same
  parameters.
+
+\change_unchanged
  The population dynamics are modeled by a linear birth-death process with
  birth rate 
 \begin_inset Formula $\lambda_{i}$
@@ -1056,7 +1127,7 @@ Each individual is characterized by its species
 \end_inset
 
 
-\change_inserted -666822487 1655215235
+\change_deleted -2100369821 1655278158
 , here set to a common 
 \begin_inset Formula $\lambda$
 \end_inset
@@ -1066,13 +1137,19 @@ Each individual is characterized by its species
 \end_inset
 
 
+\change_inserted -666822487 1655215235
+
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 
 \change_inserted -666822487 1655215246
 same for D_i // check how we present this.
+
+\change_inserted -2100369821 1655278172
+ C: See sentence after eq.
+ 1
 \change_unchanged
 
 \end_layout
@@ -1094,20 +1171,32 @@ same for D_i // check how we present this.
 
  (also called the stretching parameter).
  This means that the separation between two individuals 
+\change_deleted -2100369821 1655284738
+
 \begin_inset Formula $m$
 \end_inset
 
+
+\change_inserted -2100369821 1655284738
+k
+\change_unchanged
  and 
+\change_deleted -2100369821 1655284742
+
 \begin_inset Formula $n$
 \end_inset
 
+
+\change_inserted -2100369821 1655284742
+l
+\change_unchanged
  is expected to follow
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\left\langle \ln\left(|\mathbf{x}_{m}-\mathbf{x}_{n}|(t)\right)\right\rangle \sim3\gamma t.\label{eq:gamma_def}
+\left\langle \ln\left(|\mathbf{x}_{k}-\mathbf{x}_{l}|(t)\right)\right\rangle \sim3\gamma t.\label{eq:gamma_def}
 \end{equation}
 
 \end_inset
@@ -1142,6 +1231,94 @@ Such combination of a branching process with a Brownian motion is also called
 \end_layout
 
 \begin_layout Standard
+
+\change_inserted -2100369821 1655301152
+Within a given community, all species are equivalent and share the same
+ parameters: 
+\begin_inset Formula $\lambda_{i},$
+\end_inset
+
+
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ values change between communities, but are set to common values within
+ a community.
+ On the contrary, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ describes the environment and is not community-specific, 
+\shape italic
+i.e.
+
+\shape default
+ all individuals are displaced similarly by turbulent stirring.
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655301038
+F : Not sure I would highlight this, since actually we don't use species-specifi
+c values...
+ F: OK now I realize that they could have been species specific, but since
+ 
+\backslash
+lambda_i = 
+\backslash
+mu_i it does not change anything right ? If so your addition is OK.
+ C: This came from one of Bill's comments 
+\begin_inset Quotes eld
+\end_inset
+
+The other point that should be emphasized in the model description is that
+ while $
+\backslash
+Delta$, p and q should all have subscripts s for species the map in the
+ unnumbered (see Fisher’s Rule in the rant) equation is the same for all
+ species.
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ For the sake of simplicity, we hereafter write 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $D$
+\end_inset
+
+ in the equations 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655301152
+Should we? I have not changed it YET in the rest of the manuscrit, you tell
+ me.
+\end_layout
+
+\end_inset
+
+ , as we focus on only one community at a time.
+ 
+\change_unchanged
 For numerical simulations, 
 \change_deleted -666822487 1655215094
 this model 
@@ -1153,7 +1330,7 @@ needs to be discretized
  (this is required for diffusion and advection modelling)
 \change_unchanged
 .The
-\change_inserted -2100369821 1654848835
+\change_inserted -2100369821 1655301152
  
 \change_inserted -666822487 1655218067
 approximated 
@@ -1170,12 +1347,12 @@ steps
 
 .
  During each interval, events unroll as follow:
-\change_inserted -2100369821 1654873185
+\change_inserted -2100369821 1655301152
  
 \change_unchanged
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 CP: This formulation, corresponding to Bill's second proposition, without
@@ -1350,6 +1527,10 @@ turbulence
 status collapsed
 
 \begin_layout Plain Layout
+
+\change_inserted -2100369821 1655219713
+Old note// 
+\change_unchanged
 Should I replace by 
 \begin_inset Quotes eld
 \end_inset
@@ -1522,50 +1703,9 @@ noprefix "false"
 \end_inset
 
 .
+
+\change_deleted -2100369821 1655278207
  
-\change_inserted -2100369821 1654875467
-Note that, contrary to 
-\begin_inset Formula $\text{\ensuremath{\lambda_{i}}, }\mu_{i}$
-\end_inset
-
- and 
-\begin_inset Formula $D_{i}$
-\end_inset
-
-, 
-\begin_inset Formula $\gamma$
-\end_inset
-
- is not species-specific, 
-\shape italic
-i.e.
-
-\shape default
- all individuals are displaced similarly by turbulent stirring.
-\change_inserted -666822487 1655218404
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1655218735
-Not sure I would highlight this, since actually we don't use species-specific
- values...
- F: OK now I realize that they could have been species specific, but since
- 
-\backslash
-lambda_i = 
-\backslash
-mu_i it does not change anything right ? If so your addition is OK.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
 \change_unchanged
 
 \end_layout
@@ -1596,6 +1736,18 @@ Bill: What is the relationship between
 \end_inset
 
 .
+
+\change_inserted -2100369821 1655278805
+ C: Isn't it obvious, as the cube of dimension L is called 
+\begin_inset Quotes eld
+\end_inset
+
+an accumulation
+\begin_inset Quotes erd
+\end_inset
+
+ of a few L_s ?
+\change_inserted -666822487 1655218485
  
 \change_unchanged
 
@@ -1723,6 +1875,8 @@ methods of
 \end_inset
 
  sounds odd to me
+\change_inserted -2100369821 1655284891
+ C: This is one of Bill's suggestions
 \change_unchanged
 
 \end_layout
@@ -1896,6 +2050,10 @@ The pcf is equal to one when the spatial distribution of species
 \begin_inset Formula $g_{ii}(r,t)$
 \end_inset
 
+
+\change_inserted -2100369821 1655301984
+ at steady state
+\change_unchanged
 , considering a population at equilibrium, we integrate Eq.
  
 \begin_inset CommandInset ref
@@ -1912,6 +2070,61 @@ noprefix "false"
 \end_inset
 
  and obtain
+\change_inserted -2100369821 1655301201
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301225
+\begin_inset Formula 
+\begin{equation}
+g_{ii}(r,t)=1+\frac{\lambda}{2\pi C_{i}}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2^{3/2}D^{3/2}}+\frac{1}{2Dr}-\frac{\pi\sqrt{\gamma}}{2^{5/2}D^{3/2}}\right).\label{eq:pcf_intra_adv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655302090
+The system converges rapidly to the solution in Eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pcf_intra_adv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) in the presence of advection.
+ However, when there is no turbulence, convergence can be much slower, to
+ the point that the assumption of a population at equilibrium gets unrealistic
+ (see Section S3 in the SI).
+ We therefore need a time-dependent formula for the pcf in the absence of
+ advection (see derivation in the Appendices),
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301411
+\begin_inset Formula 
+\begin{equation}
+g_{ii}(r,t)=1+\frac{\lambda}{4D\pi rC_{i}}\left\{ 1-\erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} .\label{eq:pcf_intra_noadv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1655301467
 \begin_inset Formula 
 \begin{equation}
 g_{ii}(r,t)=\begin{cases}
@@ -1923,19 +2136,8 @@ g_{ii}(r,t)=\begin{cases}
 \end_inset
 
 
-\end_layout
+\change_unchanged
 
-\begin_layout Standard
-
-\change_inserted -2100369821 1655107306
-Note that the pcf depends on time in the absence of advection, but not in
- its presence.
- A steady solution can actually be determined even in the absence of advection,
- but is not reached for reasonable simulation durations (see Section S3
- in SI).
- We need to use a time-dependent formula if we want to compare simulations
- to theory while keeping the timeframe which would realistically correspond
- to a stable system.
 \end_layout
 
 \begin_layout Standard
@@ -2136,16 +2338,88 @@ g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}.\label{eq:pcf_to_K}
 \end_inset
 
 
+\change_inserted -2100369821 1655301522
+
 \end_layout
 
 \begin_layout Standard
-Combining 
-\change_deleted -2100369821 1655110806
-e
-\change_inserted -2100369821 1655110806
-E
+
+\change_inserted -2100369821 1655302134
+Combining Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pcf_to_K"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and, when 
+\begin_inset Formula $U>0$
+\end_inset
+
+, Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pcf_intra_adv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we can show that
 \change_unchanged
-q.
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301624
+\begin_inset Formula 
+\begin{equation}
+K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{2\lambda}{C_{i}}\left(\frac{r^{2}}{6D}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{6\sqrt{2}D^{3/2}}+\frac{\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D\sqrt{D}}\right).\label{eq:K_intra_adv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655302161
+When 
+\begin_inset Formula $U=0$
+\end_inset
+
+, we need a time-dependent solution corresponding to our simulation duration,
+ i.e.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301658
+\begin_inset Formula 
+\begin{equation}
+K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right).\label{eq:K_intra_no_adv}
+\end{equation}
+
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\begin_layout Standard
+
+\change_deleted -2100369821 1655301698
+Combining eq.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2156,12 +2430,8 @@ noprefix "false"
 
 \end_inset
 
- and 
-\change_deleted -2100369821 1655110810
-eq.
+ and eq.
  
-\change_unchanged
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:pcf_to_K"
@@ -2171,9 +2441,7 @@ noprefix "false"
 
 \end_inset
 
- (derivation in 
-\change_deleted -2100369821 1654879334
-eqs.
+ (derivation in eqs.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2194,17 +2462,13 @@ noprefix "false"
 
 \end_inset
 
- in 
-\change_unchanged
-the Appendices), we can show that
-\change_deleted -2100369821 1655110816
-:
-\change_unchanged
-
+ in the Appendices), we can show that:
 \end_layout
 
 \begin_layout Standard
 \paragraph_spacing double
+
+\change_deleted -2100369821 1655301698
 \begin_inset Formula 
 \begin{equation}
 K_{ii}(r,t)=\begin{cases}
@@ -2215,6 +2479,8 @@ K_{ii}(r,t)=\begin{cases}
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -2316,7 +2582,7 @@ It is similar to a continuous-space version of the mingling index.
 
  corresponds to individuals of all other species.
  We can then define 
-\begin_inset Formula $D_{i}$
+\begin_inset Formula $\mathcal{D}_{i}$
 \end_inset
 
 
@@ -2346,7 +2612,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-D_{i}(r) & = & \frac{M_{ii}(r)}{M_{ii}(r)+M_{io}(r)}\\
+\mathcal{D}_{i}(r) & = & \frac{M_{ii}(r)}{M_{ii}(r)+M_{io}(r)}\\
  & = & \frac{C_{i}K_{ii}(r)}{\sum_{j=1}^{S}C_{j}K_{ij}(r)}.
 \end{array}\label{eq:dominance}
 \end{equation}
@@ -2362,7 +2628,7 @@ D_{i}(r) & = & \frac{M_{ii}(r)}{M_{ii}(r)+M_{io}(r)}\\
 
 \change_inserted -2100369821 1654941231
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2373,6 +2639,8 @@ Just realized that D for dominance is not ok, as D also stands for diffusivity.
  F: Also reserved work, 
 \backslash
 mathcal{D}_i ? 
+\change_inserted -2100369821 1655219893
+C: Check if I should also write Reynolds in mathcal?
 \change_unchanged
 
 \end_layout
@@ -2390,7 +2658,7 @@ When individuals of the same species
 \end_inset
 
  tend to cluster, 
-\begin_inset Formula $D_{i}(r)$
+\begin_inset Formula $\mathcal{D}_{i}(r)$
 \end_inset
 
  tends to 1 while it tends to the proportion of individuals of species 
@@ -2412,7 +2680,7 @@ q.
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:K_intraspecific"
+reference "eq:K_intra_no_adv"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2437,8 +2705,11 @@ write the
 \change_deleted -2100369821 1654941448
  a
 \change_unchanged
- theoretical formula for the dominance index (see corresponding figure in
- Section S3 of the SI)
+ theoretical formula for the dominance index 
+\change_inserted -2100369821 1655301742
+in the presence of
+\change_deleted -2100369821 1655301744
+(see corresponding figure in Section S3 of the SI)
 \begin_inset Note Note
 status collapsed
 
@@ -2462,20 +2733,52 @@ find
 
 \end_inset
 
-
-\change_inserted -2100369821 1654941451
- as
-\change_deleted -2100369821 1654941450
 :
+\change_inserted -2100369821 1655301748
+ advection as
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301834
+\begin_inset Formula 
+\begin{equation}
+\mathcal{D}_{i}(r,t)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda}{3C_{i}D}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2D}}+\frac{D\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{3D}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2D}}+\frac{D\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D}}\right)}.\label{eq:dom_adv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301909
+In the absence of advection, the time-dependent dominance index
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655301845
+\begin_inset Formula 
+\begin{equation}
+\mathcal{D}_{i}(r,t)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)}.\label{eq:dom_noadv}
+\end{equation}
+
+\end_inset
+
+
 \change_unchanged
 
 \end_layout
 
 \begin_layout Standard
 \paragraph_spacing double
+
+\change_deleted -2100369821 1655301894
 \begin_inset Formula 
 \begin{equation}
-D_{i}(r,t)=\begin{cases}
+\mathcal{D}_{i}(r,t)=\begin{cases}
 \frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda}{C_{i}D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{D}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8Dt}})(r^{2}-4Dt)-\frac{\sqrt{2Dt}r}{\sqrt{\pi}}e^{-r^{2}/8Dt}\right)} & \text{for }U=0\\
 \frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda}{3C_{i}D}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2D}}+\frac{D\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{3D}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D}}r)}{\sqrt{2D}}+\frac{D\log\left(\gamma\frac{r^{2}}{2D}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D}}\right)} & \forall U>0.
 \end{cases}
@@ -2483,6 +2786,8 @@ D_{i}(r,t)=\begin{cases}
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -2981,7 +3286,7 @@ particles
 individuals
 \change_unchanged
  and 
-\begin_inset Formula $a_{d}=25$
+\begin_inset Formula $a_{m}=25$
 \end_inset
 
  
@@ -3036,7 +3341,15 @@ We study the community at equilibrium, with the birth rate equal to the
 \end_inset
 
 .
- We use a diatom (microphytoplankton) doubling rate of 
+ We use a 
+\change_deleted -2100369821 1655284724
+diatom (
+\change_unchanged
+microphytoplankton
+\change_deleted -2100369821 1655284726
+)
+\change_unchanged
+ doubling rate of 
 \begin_inset Formula $1$
 \end_inset
 
@@ -3138,7 +3451,7 @@ Value
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $p_{d},q_{d}$
+\begin_inset Formula $p_{m},q_{m}$
 \end_inset
 
 
@@ -3150,7 +3463,13 @@ Value
 \begin_inset Text
 
 \begin_layout Plain Layout
-Probability of reproducing/dying for diatom particles
+Probability of reproducing/dying for 
+\change_deleted -2100369821 1655284635
+diatom
+\change_inserted -2100369821 1655284638
+microphytoplankton
+\change_unchanged
+ particles
 \end_layout
 
 \end_inset
@@ -3266,7 +3585,7 @@ Stretching parameter proxy
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $\Delta_{d}$
+\begin_inset Formula $\Delta_{m}$
 \end_inset
 
 
@@ -3278,7 +3597,13 @@ Stretching parameter proxy
 \begin_inset Text
 
 \begin_layout Plain Layout
-Diffusion parameter for diatoms
+Diffusion parameter for 
+\change_deleted -2100369821 1655284649
+diatoms
+\change_inserted -2100369821 1655284651
+microphytoplankton
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -3503,6 +3828,31 @@ D_{\text{threshold}}=10a_{i}+10a_{j}.\label{eq:distance_interaction}
 
 \end_inset
 
+
+\change_inserted -2100369821 1655284965
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655284968
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655285028
+Same note as before: D is for diffusivity.
+ Maybe use small letter d ? (this would mean redrawing Fig.
+ 5 in addition to changing in text)
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -3729,7 +4079,13 @@ on of about
 \begin_inset Formula $10^{4}$
 \end_inset
 
- C/L for 
+ 
+\change_deleted -2100369821 1655283662
+C
+\change_inserted -2100369821 1655283663
+cells
+\change_unchanged
+/L for 
 \change_deleted -2100369821 1654942010
 diatoms
 \change_inserted -2100369821 1654942013
@@ -3747,7 +4103,13 @@ literal "false"
 \begin_inset Formula $10^{6}$
 \end_inset
 
- C/L for nanophytoplankton 
+ 
+\change_deleted -2100369821 1655283666
+C
+\change_inserted -2100369821 1655283666
+cells
+\change_unchanged
+/L for nanophytoplankton 
 \change_deleted -2100369821 1654942021
 particles
 \change_inserted -2100369821 1654942022
@@ -3763,8 +4125,20 @@ literal "false"
 
 .
  We then model a more realistic community with 10 species having a skewed
- abundance distribution (between 55 000 and 400 particles C/L for microphytoplan
-kton, according to observations of field abundance distributions in 
+ abundance distribution (between 55
+\change_inserted -2100369821 1655284216
+,
+\change_deleted -2100369821 1655284216
+ 
+\change_unchanged
+000 and 400 particles 
+\change_deleted -2100369821 1655283670
+C
+\change_inserted -2100369821 1655283670
+cells
+\change_unchanged
+/L for microphytoplankton, according to observations of field abundance
+ distributions in 
 \begin_inset CommandInset citation
 LatexCommand citealp
 key "picoche_strong_2020"
@@ -3846,7 +4220,11 @@ Spatial distributions of a 3-species community of nanophytoplankton with
 \begin_inset Formula $\lambda=10^{3}$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655283685
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 

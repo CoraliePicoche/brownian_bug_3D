@@ -587,7 +587,7 @@ s:
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-D_{i}(r)=\frac{C_{i}}{\sum_{j=1}^{S}C_{j}}.
+\mathcal{D}_{i}(r)=\frac{C_{i}}{\sum_{j=1}^{S}C_{j}}.
 \end{equation}
 
 \end_inset
@@ -613,7 +613,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-D_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}.
+\mathcal{D}_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}.
 \end{equation}
 
 \end_inset
@@ -778,8 +778,12 @@ dominance_code_thomas
 \end_layout
 
 \begin_layout Section
+
+\change_deleted -2100369821 1655285179
 Theoretical behaviour of 
-\change_deleted -2100369821 1655107447
+\change_inserted -2100369821 1655285187
+Convergence in time of the 
+\change_deleted -2100369821 1655285179
 the dominance index in the 
 \change_inserted -2100369821 1655107451
 spatial characteristics of the 
@@ -791,9 +795,20 @@ BBM
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655111412
-The theoretical formulas of g, K and the dominance index can be used to
- observe the behaviour of the BBM.
+\change_inserted -2100369821 1655285166
+The theoretical formulas of 
+\begin_inset Formula $g$
+\end_inset
+
+, 
+\begin_inset Formula $K$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ can be used to study the behaviour of the BBM.
  In the absence of advection, convergence cannot be reached in a reasonable
  timeframe (Fig.
  
@@ -1649,7 +1664,11 @@ Spatial distributions of a 3-species community of microphytoplankton with
 \begin_inset Formula $C=10$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284194
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1885,7 +1904,11 @@ This needs to be taken into account when defining
 \begin_inset Formula $C=10$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284253
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1902,7 +1925,11 @@ This needs to be taken into account when defining
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284258
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1985,7 +2012,11 @@ kton species with density
 \begin_inset Formula $C=10$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284264
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2045,7 +2076,11 @@ ton species with density
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284269
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2288,7 +2323,11 @@ individuals
 \begin_inset Formula $C_{p}=0.2$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284325
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2296,7 +2335,11 @@ individuals
 \begin_inset Formula $C_{p}=20$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284329
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2420,7 +2463,11 @@ individuals
 \begin_inset Formula $C_{p}=0.2$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284316
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2428,7 +2475,11 @@ individuals
 \begin_inset Formula $C_{p}=20$
 \end_inset
 
- cm
+ 
+\change_inserted -2100369821 1655284319
+cells.
+\change_unchanged
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2647,6 +2698,349 @@ name "fig:Dominance_advection"
 \end_inset
 
 
+\change_inserted -2100369821 1655285309
+
+\end_layout
+
+\begin_layout Section
+
+\change_inserted -2100369821 1655296753
+Relationship between the dominance index and relative strengths of interactions
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655297656
+In this section, we evaluate the potential relationship between local dominance
+ and ratios of intra-to-interspecific interaction strengths observed at
+ the population level at the same spatial level.
+ Let us define 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ the average growth rate of a focus individual of species 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Assuming it is linearly dependent on the abundances of the individual's
+ conspecifics and heterospecifics within a neighbourhood of radius 
+\begin_inset Formula $r$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655285426
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mu_{i}(r,t) & = & b_{i}+\beta_{ii}K_{ii}(r,t)C_{i}(t)+\beta_{io}\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)\\
+ & = & b_{i}+\beta_{ii}M_{ii}(r,t)+\beta_{io}M_{io}(r,t),
+\end{array}\label{eq:lv_individual}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655296943
+where 
+\begin_inset Formula $b_{i}$
+\end_inset
+
+ is the intrinsic individual growth rate, and 
+\begin_inset Formula $\beta_{ii}$
+\end_inset
+
+/
+\begin_inset Formula $\beta_{io}$
+\end_inset
+
+ are individual-level interaction coefficients with a conspecific / heterospecif
+ic, respectively.
+ 
+\begin_inset Formula $C_{j}(t)K_{ij}(r,t)$
+\end_inset
+
+ is the expected number of heterospecifics around a typical individual of
+ species 
+\begin_inset Formula $i$
+\end_inset
+
+ within a sphere of radius 
+\begin_inset Formula $r$
+\end_inset
+
+ centered on the focal individual at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\begin_inset Formula $M_{ii}(r,t)=K_{ii}(r,t)C_{i}(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{io}(r,t)=\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655297253
+If we are close to an equilibrium at the local scale, and intra- and interspecif
+ic interaction strengths are equal 
+\shape italic
+at the individual level
+\shape default
+ (
+\begin_inset Formula $\beta_{ii}=\beta_{io}),$
+\end_inset
+
+ on average,
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655297259
+\begin_inset Formula 
+\begin{equation}
+b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equilibrium}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655297270
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655297960
+We can now focus on the dynamics at the community level.
+ Assuming that all interspecific interactions 
+\begin_inset Formula $\alpha_{ij}=\alpha_{io}$
+\end_inset
+
+ if 
+\begin_inset Formula $\text{j\ensuremath{\neq i}},$
+\end_inset
+
+the per capita growth rate 
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655298018
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\frac{1}{C_{i}}\frac{dC_{i}(t)}{dt} & = & b_{i}+\alpha_{ii}C_{i}(t)+\alpha_{io}C_{o}(t)\end{array}\approx0.\label{eq:lv_population}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655298527
+We can therefore write 
+\begin_inset Formula $\alpha_{ii}=\beta\frac{M_{ii}(r,t)}{C_{i}(t)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{io}=\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
+\end_inset
+
+, and their ratio
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655285426
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\frac{\alpha_{io}}{\alpha_{ii}} & = & \frac{M_{io}(r,t)}{M_{ii}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655298672
+Using the formulation of the dominance index
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing double
+
+\change_inserted -2100369821 1655285426
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\mathcal{D}_{i}(r,t) & = & \frac{M_{ii}(r,t)}{M_{ii}(r,t)+M_{io}(r,t)}\\
+\Leftrightarrow M_{io}(r,t) & = & \left(1-\mathcal{D}_{i}(r,t)\right)M_{ii}(r,t).
+\end{array}\label{eq:dominance}
+\end{equation}
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655285426
+Thus,
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655285426
+\begin_inset Formula 
+\begin{equation}
+\frac{\alpha_{io}}{\alpha_{ii}}=\left(1-\mathcal{D}_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655299887
+Let us first focus on microphytoplankton in a 3-species community with even
+ distribution of abundances.
+ We know that 
+\begin_inset Formula $D(r_{\text{threshold}})\approx0.4$
+\end_inset
+
+ at equilibrium.
+ In this case, 
+\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.3$
+\end_inset
+
+.
+ For nanophytoplankton, 
+\begin_inset Formula $D(r_{\text{threshold}})\approx0.9$
+\end_inset
+
+, thus 
+\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\approx0.05$
+\end_inset
+
+.
+ Both ratios of interaction strength enable diversity maintenance in a Lotka-Vol
+terra model.
+ Similar calculations for the 10-species communities also confirm that even
+ small dominance indices, when related to low average concentrations, could
+ enable a species to maintain, under the conditions that all interspecific
+ interaction strengths are equal and populations are close to equilibrium.
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1655300066
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655300907
+Additional note: I am not quite sure about the following, could you have
+ a look?
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655300493
+Generally speaking, we can say that a species may be outcompeted when 
+\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{i1}}>1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\left(1-\mathcal{D}_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}>1$
+\end_inset
+
+.
+ Let us define the total concentrations of organisms 
+\begin_inset Formula $C_{T}=\Sigma_{k}C_{k}$
+\end_inset
+
+, and 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ the fraction of organisms of species 
+\begin_inset Formula $i$
+\end_inset
+
+ in the environment, 
+\begin_inset Formula $C_{i}=f_{i}C_{T}$
+\end_inset
+
+.
+ We can therefore assume absence of coexistence when
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655300809
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{ccc}
+\left(1-\mathcal{D}_{i}(r,t)\right)\frac{f_{i}}{1-f_{i}} & > & 1\\
+\Leftrightarrow\mathcal{D}_{i}(r,t) & < & 2-\frac{1}{f_{i}}.
+\end{array}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1655300894
+WARNING: As 
+\begin_inset Formula $\mathcal{D}_{i}>0$
+\end_inset
+
+, this is possible only if 
+\begin_inset Formula $f_{i}>0.5$
+\end_inset
+
+, which we never have in the communities modeled here.
+ 
+\end_layout
+
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Standard
