@@ -9,8 +9,8 @@ state=c(N1=1,N2=1,N3=1)
 
 nb_species=c()
 
-alpha_ij=3
-noise=0.00
+alpha_ij=0.06
+noise=0.001
 #I either fix all parameters to be equal, or add some noise. I observe coexistence in the absence of noise, i.e. all interspecific interactions are the same
 
 parameters=c(r=1,alpha_ii=1,
@@ -21,7 +21,7 @@ parameters=c(r=1,alpha_ii=1,
 	     alpha_31=alpha_ij+rnorm(1,0,noise),
 	     alpha_32=alpha_ij+rnorm(1,0,noise))
 
-times=seq(1,500,by=0.01)
+times=seq(1,10000,by=0.01)
 
 func_LV=function(times,state,parameters)
 	with(as.list(c(state, parameters)), {

@@ -821,7 +821,7 @@ noprefix "false"
 
 \end_inset
 
-), which led us to use the time-dependent formula shown in the Appendices..
+), which led us to use the time-dependent formula shown in the Appendices.
  
 \end_layout
 
@@ -870,8 +870,7 @@ on.
 \end_inset
 
 ) is shown with dashed black lines.
- A theoretical duration corresponding to a week is shown with solid blue
- lines.
+ A duration corresponding to a week is shown with solid blue lines.
  Dotted orange lines correspond to the distance threshold for interaction.
 \begin_inset CommandInset label
 LatexCommand label
@@ -2710,15 +2709,15 @@ Relationship between the dominance index and relative strengths of interactions
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655297656
+\change_inserted -2100369821 1656228583
 In this section, we evaluate the potential relationship between local dominance
  and ratios of intra-to-interspecific interaction strengths observed at
- the population level at the same spatial level.
+ the population level.
  Let us define 
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
- the average growth rate of a focus individual of species 
+ the average growth rate of a typical individual of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2749,7 +2748,7 @@ In this section, we evaluate the potential relationship between local dominance
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655296943
+\change_inserted -2100369821 1656228619
 where 
 \begin_inset Formula $b_{i}$
 \end_inset
@@ -2768,8 +2767,11 @@ ic, respectively.
 \begin_inset Formula $C_{j}(t)K_{ij}(r,t)$
 \end_inset
 
- is the expected number of heterospecifics around a typical individual of
- species 
+ is the expected number of individuals of species 
+\begin_inset Formula $j$
+\end_inset
+
+ around a typical individual of species 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2832,17 +2834,17 @@ b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equili
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655297960
+\change_inserted -2100369821 1656228655
 We can now focus on the dynamics at the community level.
  Assuming that all interspecific interactions 
 \begin_inset Formula $\alpha_{ij}=\alpha_{io}$
 \end_inset
 
  if 
-\begin_inset Formula $\text{j\ensuremath{\neq i}},$
+\begin_inset Formula $j\neq i$
 \end_inset
 
-the per capita growth rate 
+, the per capita growth rate 
 \end_layout
 
 \begin_layout Standard
@@ -2901,7 +2903,7 @@ Using the formulation of the dominance index
 \begin{equation}
 \begin{array}{ccc}
 \mathcal{D}_{i}(r,t) & = & \frac{M_{ii}(r,t)}{M_{ii}(r,t)+M_{io}(r,t)}\\
-\Leftrightarrow M_{io}(r,t) & = & \left(1-\mathcal{D}_{i}(r,t)\right)M_{ii}(r,t).
+\Leftrightarrow\frac{M_{io}(r,t)}{M_{ii}(r,t)} & = & \frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}.
 \end{array}\label{eq:dominance}
 \end{equation}
 
@@ -2921,7 +2923,7 @@ Thus,
 \change_inserted -2100369821 1655285426
 \begin_inset Formula 
 \begin{equation}
-\frac{\alpha_{io}}{\alpha_{ii}}=\left(1-\mathcal{D}_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}.
+\frac{\alpha_{io}}{\alpha_{ii}}=\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.
 \end{equation}
 
 \end_inset
@@ -2931,7 +2933,7 @@ Thus,
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655299887
+\change_inserted -2100369821 1656229592
 Let us first focus on microphytoplankton in a 3-species community with even
  distribution of abundances.
  We know that 
@@ -2940,7 +2942,7 @@ Let us first focus on microphytoplankton in a 3-species community with even
 
  at equilibrium.
  In this case, 
-\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.3$
+\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.75$
 \end_inset
 
 .
@@ -2949,7 +2951,7 @@ Let us first focus on microphytoplankton in a 3-species community with even
 \end_inset
 
 , thus 
-\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\approx0.05$
+\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\approx0.06$
 \end_inset
 
 .
@@ -2957,8 +2959,12 @@ Let us first focus on microphytoplankton in a 3-species community with even
 terra model.
  Similar calculations for the 10-species communities also confirm that even
  small dominance indices, when related to low average concentrations, could
- enable a species to maintain, under the conditions that all interspecific
- interaction strengths are equal and populations are close to equilibrium.
+ enable a species to maintain (
+\begin_inset Formula $\alpha_{io}<\alpha_{ii}$
+\end_inset
+
+), under the conditions that all interspecific interaction strengths are
+ equal and populations are close to equilibrium.
 \end_layout
 
 \begin_layout Standard
@@ -2969,21 +2975,20 @@ status open
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1655300907
-Additional note: I am not quite sure about the following, could you have
- a look?
+\change_inserted -2100369821 1656229928
+Additional note: Could you have a look?
 \end_layout
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1655300493
-Generally speaking, we can say that a species may be outcompeted when 
+\change_inserted -2100369821 1656228746
+Generally speaking, we can say that a species will be outcompeted when 
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{i1}}>1$
 \end_inset
 
 , i.e.
  
-\begin_inset Formula $\left(1-\mathcal{D}_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}>1$
+\begin_inset Formula $\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}>1$
 \end_inset
 
 .
@@ -3009,33 +3014,18 @@ Generally speaking, we can say that a species may be outcompeted when
 
 \begin_layout Plain Layout
 
-\change_inserted -2100369821 1655300809
+\change_inserted -2100369821 1655300894
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\left(1-\mathcal{D}_{i}(r,t)\right)\frac{f_{i}}{1-f_{i}} & > & 1\\
-\Leftrightarrow\mathcal{D}_{i}(r,t) & < & 2-\frac{1}{f_{i}}.
+\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{f_{i}}{1-f_{i}} & > & 1\\
+\Leftrightarrow\mathcal{D}_{i}(r,t) & < & f_{i}.
 \end{array}
 \end{equation}
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1655300894
-WARNING: As 
-\begin_inset Formula $\mathcal{D}_{i}>0$
-\end_inset
-
-, this is possible only if 
-\begin_inset Formula $f_{i}>0.5$
-\end_inset
-
-, which we never have in the communities modeled here.
- 
 \end_layout
 
 \end_inset
