@@ -24,7 +24,7 @@ tot_max=list(lim_max_diatom,lim_max_nano)
 
 keep_results=matrix(NA,nrow=10,ncol=9)
 colnames(keep_results)=c("Abundances","Dlower_adv_micro","Dlower_noadv_micro","Rthreshold_adv_micro","Rthreshold_noadv_micro","Dlower_adv_nano","Dlower_noadv_nano","Rthreshold_adv_nano","Rthreshold_noadv_nano")
-corresponding_names=c(expression(r[95~"%"]),expression(D[threshold]))
+corresponding_names=c(expression(r[95~"%"]),expression(d[threshold]))
 
 for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 	for(adv in 1:length(tot_sim[orga][[1]])){ #Advection or no advection
