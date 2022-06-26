@@ -2937,7 +2937,7 @@ Thus,
 Let us first focus on microphytoplankton in a 3-species community with even
  distribution of abundances.
  We know that 
-\begin_inset Formula $D(r_{\text{threshold}})\approx0.4$
+\begin_inset Formula $D(d_{\text{threshold}})\approx0.4$
 \end_inset
 
  at equilibrium.
@@ -2947,7 +2947,7 @@ Let us first focus on microphytoplankton in a 3-species community with even
 
 .
  For nanophytoplankton, 
-\begin_inset Formula $D(r_{\text{threshold}})\approx0.9$
+\begin_inset Formula $D(d_{\text{threshold}})\approx0.9$
 \end_inset
 
 , thus 
