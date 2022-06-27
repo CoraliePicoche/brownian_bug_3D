@@ -1160,7 +1160,9 @@ Delta$, p and q should all have subscripts s for species the map in the
 
 \end_inset
 
- For the sake of simplicity, we hereafter write 
+ 
+\change_deleted -2100369821 1656310612
+For the sake of simplicity, we hereafter write 
 \begin_inset Formula $\lambda$
 \end_inset
 
@@ -1173,27 +1175,6 @@ Delta$, p and q should all have subscripts s for species the map in the
 \end_inset
 
  in the equations 
-\change_inserted -2100369821 1655301152
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1655301152
-Should we? I have not changed it YET in the rest of the manuscrit, you tell
- me.
-
-\change_inserted -666822487 1656083497
- 
-\change_inserted -2100369821 1655301152
-
-\end_layout
-
-\end_inset
-
- , as we focus on only one community at a time.
- 
 \change_unchanged
 For numerical simulations, time needs to be discretized (this is required
  for diffusion and advection modelling).The approximated model advances through
