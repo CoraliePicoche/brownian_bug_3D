@@ -87,6 +87,7 @@
 \html_css_as_file 0
 \html_be_strict false
 \author -2100369821 "cpicoche"
+\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -193,10 +194,6 @@ s-time formula.
 \end_inset
 
 , so that
-\change_deleted -2100369821 1655111045
-:
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -204,9 +201,9 @@ s-time formula.
 \begin{equation}
 \textbf{u}^{T}(\textbf{x},t)=\begin{cases}
 \begin{array}{cc}
-\left(Ucos(ky+\phi),0,0\right) & \text{for }n\tau\leq t<(n+\frac{1}{3})\tau\\
-\left(0,Ucos(kz+\theta),0\right) & \text{for }(n+\frac{1}{3})\tau\leq t<(n+\frac{2}{3})\tau\\
-\left(0,0,Ucos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau.
+\left(U\cos(ky+\phi),0,0\right) & \text{for }n\tau\leq t<(n+\frac{1}{3})\tau\\
+\left(0,U\cos(kz+\theta),0\right) & \text{for }(n+\frac{1}{3})\tau\leq t<(n+\frac{2}{3})\tau\\
+\left(0,0,U\cos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau.
 \end{array}\end{cases}\label{eq:pierrehumber_continuous_time}
 \end{equation}
 
@@ -272,7 +269,7 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-x(t+\tau/3)= & x(t)+\frac{U\tau}{3}cos(ky(t)+\phi)\\
+x(t+\tau/3)= & x(t)+\frac{U\tau}{3}\cos(ky(t)+\phi)\\
 y(t+\tau/3)= & y(t)\\
 z(t+\tau/3)= & z(t).
 \end{array}\label{eq:step1_pierrehumbert}
@@ -281,16 +278,10 @@ z(t+\tau/3)= & z(t).
 \end_inset
 
 
-\change_inserted -2100369821 1655111133
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655111134
 Then,
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -298,7 +289,7 @@ Then,
 \begin{equation}
 \begin{array}{cc}
 x(t+2\tau/3)= & x(t+\tau/3)\\
-y(t+2\tau/3)= & y(t)+\frac{U\tau}{3}cos(kz(t)+\theta)\\
+y(t+2\tau/3)= & y(t)+\frac{U\tau}{3}\cos(kz(t)+\theta)\\
 z(t+2\tau/3)= & z(t).
 \end{array}\label{eq:step2_pierrehumbert}
 \end{equation}
@@ -306,16 +297,10 @@ z(t+2\tau/3)= & z(t).
 \end_inset
 
 
-\change_inserted -2100369821 1655111136
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655111138
 And finally,
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -324,7 +309,7 @@ And finally,
 \begin{array}{cc}
 x(t+\tau)= & x(t+\tau/3)\\
 y(t+\tau)= & y(t+2\tau/3)\\
-z(t+\tau)= & z(t)+\frac{U\tau}{3}cos(kx(t+\tau)+\psi).
+z(t+\tau)= & z(t)+\frac{U\tau}{3}\cos(kx(t+\tau)+\psi).
 \end{array}\label{eq:step3_pierrehumbert}
 \end{equation}
 
@@ -468,24 +453,14 @@ where
 \end_inset
 
 .
-\change_inserted -2100369821 1652892080
-
 \begin_inset Newline newline
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1655111286
-More generally, f
-\change_inserted -2100369821 1655111286
-F
-\change_unchanged
-or a random superposition of stationary point processes with marks (species)
+For a random superposition of stationary point processes with marks (species)
  
 \begin_inset Formula $i$
 \end_inset
@@ -534,7 +509,11 @@ In the case of a Poisson point process,
 \end_layout
 
 \begin_layout Standard
-For a Thomas point process, 
+For a Thomas point process,
+\change_deleted -666822487 1656509408
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -549,13 +528,7 @@ K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1655111291
-More generally, f
-\change_inserted -2100369821 1655111292
-F
-\change_unchanged
-or a random superposition of stationary point processes, 
+For a random superposition of stationary point processes, 
 \begin_inset Formula $K_{ij}(r)=\frac{4}{3}\pi r^{3}$
 \end_inset
 
@@ -607,7 +580,7 @@ noprefix "false"
 
 \end_inset
 
-, 
+,
 \end_layout
 
 \begin_layout Standard
@@ -694,10 +667,6 @@ dominance_code_poisson
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -778,24 +747,10 @@ dominance_code_thomas
 \end_layout
 
 \begin_layout Section
-
-\change_deleted -2100369821 1655285179
-Theoretical behaviour of 
-\change_inserted -2100369821 1655285187
-Convergence in time of the 
-\change_deleted -2100369821 1655285179
-the dominance index in the 
-\change_inserted -2100369821 1655107451
-spatial characteristics of the 
-\change_unchanged
-BBM
-\change_inserted -2100369821 1655107472
-
+Convergence in time of the spatial characteristics of the BBM
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655285166
 The theoretical formulas of 
 \begin_inset Formula $g$
 \end_inset
@@ -821,8 +776,30 @@ noprefix "false"
 
 \end_inset
 
-), which led us to use the time-dependent formula shown in the Appendices.
+)
+\change_inserted -666822487 1656509435
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1656509441
+Indicate quantitative values for time
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+, which led us to use the time-dependent formula shown in the Appendices.
+
+\change_deleted -666822487 1656509431
  
+\change_inserted -2100369821 1655285166
+
 \end_layout
 
 \begin_layout Standard
@@ -835,8 +812,6 @@ status open
 
 \begin_layout Plain Layout
 \align center
-
-\change_inserted -2100369821 1655107599
 \begin_inset Graphics
 	filename ../code/figure/convergence_wo_advection.pdf
 	height 90theight%
@@ -847,13 +822,9 @@ status open
 \end_layout
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1655107599
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1655111607
 Intraspecific pair correlation function (a, b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
@@ -883,8 +854,6 @@ name "fig:Theoretical-convergence"
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1655107599
 check_convergence
 \end_layout
 
@@ -905,30 +874,57 @@ check_convergence
 
 \begin_layout Standard
 
-\change_deleted -2100369821 1655111370
-With the theoretical formula for the dominance index in the Brownian Bug
- Model, w
-\change_inserted -2100369821 1655111370
-W
+\change_deleted -666822487 1656509631
+We can therefore
+\change_inserted -666822487 1656509638
+In a similar fashion, we can
 \change_unchanged
-e can 
-\change_inserted -2100369821 1655111376
-therefore 
+ show 
+\change_inserted -666822487 1656509661
+with the dominance index (Fig S4 below [REF]) 
 \change_unchanged
-show the progressive clustering of 
-\change_deleted -2100369821 1655112304
-particles
-\change_inserted -2100369821 1655112305
-individuals
+the progressive clustering of individuals with time when advection is absent
+\change_inserted -666822487 1656509668
+,
 \change_unchanged
- with time when advection is absent
-\change_inserted -2100369821 1655111391
- and compare it to the case with advection
+ and compare it to the 
+\change_inserted -666822487 1656509677
+steady state 
+\change_deleted -666822487 1656509678
+case 
+\change_inserted -666822487 1656509687
+
+\emph on
+,
+\emph default
+ this time 
+\change_unchanged
+
+\emph on
+with
+\emph default
+ advection.
+ 
+\change_deleted -666822487 1656509721
+Even
+\change_inserted -666822487 1656509723
+We see that even
+\change_unchanged
+ after a short period of time
+\change_inserted -666822487 1656509716
+ (t=100)
+\change_unchanged
+, the dominance index without advection is larger than with advection
+\change_inserted -666822487 1656509786
+, and this spatial aggregation only grows with time in absence of turbulent
+ advection
 \change_unchanged
 .
- Even after a short period of time, the dominance index without advection
- is larger than with advection.
+
+\change_deleted -666822487 1656509455
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -983,10 +979,6 @@ theory_dominance
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -996,14 +988,10 @@ theory_dominance
 
 \begin_layout Section
 Computation of the pair correlation function and Ripley's 
-\change_inserted -2100369821 1655107653
-
 \begin_inset Formula $K$
 \end_inset
 
--
-\change_unchanged
-function
+-function
 \end_layout
 
 \begin_layout Standard
@@ -1033,11 +1021,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Schematically, 
-\change_inserted -2100369821 1655111651
-the pcf estimate 
-\change_unchanged
-
+Schematically, the pcf estimate 
 \begin_inset Formula $\hat{g}_{ij}(r)$
 \end_inset
 
@@ -1049,13 +1033,7 @@ the pcf estimate
 \begin_inset Formula $\delta$
 \end_inset
 
-
-\change_inserted -2100369821 1655111661
 , i.e.
-\change_deleted -2100369821 1655111660
-.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1151,7 +1129,11 @@ literal "false"
  The pcf computation function was first tested on standard distributions
  (with the default bandwidth), then on the Brownian Bug Model (with different
  bandwidths, see below).
+
+\change_deleted -666822487 1656509461
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -1169,21 +1151,25 @@ Estimates of the Ripley's
 -function were also performed with the Ohser translation correction estimator
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-FB asks why we needed this
-\change_inserted -2100369821 1652864441
-.
+FB asks why we needed this.
  CP: I do not understand the question.
  We need an edge-correction; and it is also present in spatstat
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
  but did not require any kernel smoothing.
+
+\change_inserted -666822487 1656509978
+ The same computation could be done using wrapped-around boundary conditions
+ (for pcf estimation; for simulation we always consider periodic boundary
+ conditions).
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Subsection
@@ -1346,14 +1332,8 @@ While the pcf was one of the first indices that we intended to use, we quickly
 \begin_inset Formula $10^{-4}$
 \end_inset
 
- to 1 cm) and the low density of 
-\change_deleted -2100369821 1655111695
-particles
-\change_inserted -2100369821 1655111696
-individuals
-\change_unchanged
-, at least for microphytoplankton, made the estimation difficult as the
- choice of the bandwidth was critical.
+ to 1 cm) and the low density of individuals, at least for microphytoplankton,
+ made the estimation difficult as the choice of the bandwidth was critical.
  We give an example of the sensitivity of the pcf computation to the bandwidth
  below (Fig.
  
@@ -1367,11 +1347,6 @@ noprefix "false"
 \end_inset
 
 ).
-
-\change_deleted -2100369821 1653319983
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1382,7 +1357,11 @@ status collapsed
 To find the a good estimate for the bandwidth, we can consider expected
  distances between points.
  For a Poisson process, these are easy to compute.
+
+\change_deleted -666822487 1656510049
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1459,7 +1438,11 @@ literal "false"
 \end_inset
 
 .
+
+\change_deleted -666822487 1656510049
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1482,7 +1465,11 @@ With intensity
 \end_layout
 
 \begin_layout Plain Layout
-In 3D, 
+In 3D,
+\change_deleted -666822487 1656510049
+ 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1582,13 +1569,8 @@ status open
 
 \begin_layout Plain Layout
 Intraspecific pair correlation function as a function of distance (in cm)
- computed for the Brownian bug model with microphytoplankton 
-\change_deleted -2100369821 1655112314
-particles
-\change_inserted -2100369821 1655112317
-individuals
-\change_unchanged
-, after 1000 time steps, with different values of the bandwidth 
+ computed for the Brownian bug model with microphytoplankton individuals,
+ after 1000 time steps, with different values of the bandwidth 
 \begin_inset Formula $\delta$
 \end_inset
 
@@ -1663,11 +1645,7 @@ Spatial distributions of a 3-species community of microphytoplankton with
 \begin_inset Formula $C=10$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284194
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1714,26 +1692,26 @@ spatial_distribution.r 0:3
 \end_layout
 
 \begin_layout Section
-Minimum distances between 
-\change_deleted -2100369821 1655112487
-points
-\change_inserted -2100369821 1655112488
-individuals
-\change_unchanged
-
+Minimum distances between individuals
 \end_layout
 
 \begin_layout Standard
 
 \change_inserted -2100369821 1655112365
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
 \change_inserted -2100369821 1655112444
 Wondering if we spend too much time on this part.
  Figures take too much place, whereas this is really not a crucial point.
+
+\change_inserted -666822487 1656510027
+ F: perhaps remove the figures but store them somewhere in the repo
+\emph on
+ together with their legends.
+ 
 \change_unchanged
 
 \end_layout
@@ -1903,11 +1881,7 @@ This needs to be taken into account when defining
 \begin_inset Formula $C=10$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284253
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1924,11 +1898,7 @@ cm
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284258
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2011,11 +1981,7 @@ kton species with density
 \begin_inset Formula $C=10$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284264
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2075,11 +2041,7 @@ ton species with density
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284269
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2200,6 +2162,12 @@ status open
 \change_inserted -2100369821 1655112246
 I would suggest to remove this part: I do not find it useful, and it can
  only be mentioned in main text in a very artifical way
+\change_inserted -666822487 1656510166
+.
+ F: OK, keep somewhere in the repo.
+ I think this is still interesting since we did not prove that the steady
+ state is unique and attracting all initial conditions.
+ 
 \change_unchanged
 
 \end_layout
@@ -2210,14 +2178,8 @@ I would suggest to remove this part: I do not find it useful, and it can
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1655112332
-Particles
-\change_inserted -2100369821 1655112335
-Individuals
-\change_unchanged
- are uniformly distributed in the cube at the start of all simulations shown
- in the manuscript.
+Individuals are uniformly distributed in the cube at the start of all simulation
+s shown in the manuscript.
  However, we have no reason to believe that such spatial distribution is
  more appropriate than a more clustered one to begin with.
  In Fig.
@@ -2234,18 +2196,15 @@ noprefix "false"
 , we show the final dominances obtained with and without advection, starting
  from a superposition of Thomas processes, i.e.
  each species was distributed with its own Thomas process.
+
+\change_deleted -666822487 1656510072
  
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -2100369821 1655112171
-We need to modify the pair density function for the case without advection,
- as t
-\change_inserted -2100369821 1655112171
-T
-\change_unchanged
-he initial distribution changes from 
+The initial distribution changes from 
 \begin_inset Formula $G(r,0)=C^{2}$
 \end_inset
 
@@ -2254,23 +2213,14 @@ he initial distribution changes from
 \end_inset
 
 , 
-\change_deleted -2100369821 1655112175
-leading to eq.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:K_bbm_thomas"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-.
-\change_inserted -2100369821 1655112267
-, which also changes the formulation of the pair density functiont to
+\change_deleted -666822487 1656510105
+, 
 \change_unchanged
-
+which also changes the formulation of the pair density function
+\change_deleted -666822487 1656510109
+t
+\change_unchanged
+ to
 \end_layout
 
 \begin_layout Standard
@@ -2311,22 +2261,12 @@ Dominance indices as a function of distance (in cm) for microphytoplankton
  Thomas point processes, with (circles) and without (lines) advection.
  The triangles correspond to the dominance index at the start of the simulation,
  i.e.
- when 
-\change_deleted -2100369821 1655112462
-points
-\change_inserted -2100369821 1655112464
-individuals
-\change_unchanged
- are only distributed according to a Thomas point process with parent intensity
- 
+ when individuals are only distributed according to a Thomas point process
+ with parent intensity 
 \begin_inset Formula $C_{p}=0.2$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284325
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2334,11 +2274,7 @@ cm
 \begin_inset Formula $C_{p}=20$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284329
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2379,10 +2315,6 @@ shift_dominance 20-23
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -2406,21 +2338,11 @@ noprefix "false"
 status open
 
 \begin_layout Plain Layout
-
-\change_deleted -2100369821 1653319873
-FB: Is that logical?
-\change_inserted -2100369821 1653319879
 What happens for longer durations?
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
-\change_deleted -2100369821 1653319883
- 
-\change_unchanged
 
 \end_layout
 
@@ -2451,22 +2373,12 @@ nkton (a) and nanophytoplankton (b) 3-species community with even distributions
 pecific Thomas point processes in the absence of advection.
  The dotted line corresponds to the dominance index at the start of the
  simulation, i.e.
- when 
-\change_deleted -2100369821 1655112470
-points
-\change_inserted -2100369821 1655112471
-individuals
-\change_unchanged
- are only distributed according to a Thomas point process with parent intensity
- 
+ when individuals are only distributed according to a Thomas point process
+ with parent intensity 
 \begin_inset Formula $C_{p}=0.2$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284316
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2474,11 +2386,7 @@ cm
 \begin_inset Formula $C_{p}=20$
 \end_inset
 
- 
-\change_inserted -2100369821 1655284319
-cells.
-\change_unchanged
-cm
+ cells.cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2559,14 +2467,7 @@ noprefix "false"
 \begin_inset Formula $Re=UL_{v}/\nu$
 \end_inset
 
-
-\change_deleted -2100369821 1655112289
-.
-
-\change_inserted -2100369821 1655112289
  and
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -2620,6 +2521,37 @@ If we use
 \begin_inset Formula $\gamma=164$
 \end_inset
 
+
+\change_inserted -666822487 1656510341
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1656510344
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Units?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 .
 
 \family default
@@ -2702,17 +2634,15 @@ name "fig:Dominance_advection"
 \end_layout
 
 \begin_layout Section
-
-\change_inserted -2100369821 1655296753
-Relationship between the dominance index and relative strengths of interactions
+Relationship between the dominance index, relative strengths of interactions
+ and coexistence in Lotka-Volterra models
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1656228583
-In this section, we evaluate the potential relationship between local dominance
- and ratios of intra-to-interspecific interaction strengths observed at
- the population level.
+In this section, we evaluate the potential relationship between local dominance,
+ ratios of intra-to-interspecific interaction strengths observed at the
+ population level, and their consequences in a spatial, dynamic point process
+ Lotka-Volterra framework.
  Let us define 
 \begin_inset Formula $\mu_{i}$
 \end_inset
@@ -2731,8 +2661,6 @@ In this section, we evaluate the potential relationship between local dominance
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655285426
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -2747,8 +2675,6 @@ In this section, we evaluate the potential relationship between local dominance
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1656228619
 where 
 \begin_inset Formula $b_{i}$
 \end_inset
@@ -2793,11 +2719,11 @@ ic, respectively.
 \end_inset
 
 .
+\change_inserted -2100369821 1656228619
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655297253
 If we are close to an equilibrium at the local scale, and intra- and interspecif
 ic interaction strengths are equal 
 \shape italic
@@ -2811,8 +2737,6 @@ at the individual level
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655297259
 \begin_inset Formula 
 \begin{equation}
 b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equilibrium}
@@ -2824,8 +2748,6 @@ b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equili
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655297270
 \begin_inset VSpace defskip
 \end_inset
 
@@ -2833,10 +2755,12 @@ b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equili
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1656228655
 We can now focus on the dynamics at the community level.
- Assuming that all interspecific interactions 
+ Assuming that all 
+\emph on
+interspecific
+\emph default
+ interactions are similar to one another so that 
 \begin_inset Formula $\alpha_{ij}=\alpha_{io}$
 \end_inset
 
@@ -2844,12 +2768,10 @@ We can now focus on the dynamics at the community level.
 \begin_inset Formula $j\neq i$
 \end_inset
 
-, the per capita growth rate 
+, the per capita growth rate
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655298018
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -2862,26 +2784,22 @@ We can now focus on the dynamics at the community level.
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655298527
-We can therefore write 
-\begin_inset Formula $\alpha_{ii}=\beta\frac{M_{ii}(r,t)}{C_{i}(t)}$
+We can therefore write the approximate equalities 
+\begin_inset Formula $\alpha_{ii}\approx\beta\frac{M_{ii}(r,t)}{C_{i}(t)}$
 \end_inset
 
  and 
-\begin_inset Formula $\alpha_{io}=\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
+\begin_inset Formula $\alpha_{io}\approx\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
 \end_inset
 
 , and their ratio
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655285426
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\frac{\alpha_{io}}{\alpha_{ii}} & = & \frac{M_{io}(r,t)}{M_{ii}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.\end{array}
+\frac{\alpha_{io}}{\alpha_{ii}} & \approx & \frac{M_{io}(r,t)}{M_{ii}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.\end{array}
 \end{equation}
 
 \end_inset
@@ -2890,15 +2808,11 @@ We can therefore write
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655298672
 Using the formulation of the dominance index
 \end_layout
 
 \begin_layout Standard
 \paragraph_spacing double
-
-\change_inserted -2100369821 1655285426
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -2913,41 +2827,37 @@ Using the formulation of the dominance index
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655285426
 Thus,
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1655285426
 \begin_inset Formula 
 \begin{equation}
-\frac{\alpha_{io}}{\alpha_{ii}}=\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.
+\frac{\alpha_{io}}{\alpha_{ii}}\approx\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.
 \end{equation}
 
 \end_inset
 
 
+\change_inserted -2100369821 1655285426
+
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1656229592
 Let us first focus on microphytoplankton in a 3-species community with even
  distribution of abundances.
  We know that 
-\begin_inset Formula $D(d_{\text{threshold}})\approx0.4$
+\begin_inset Formula $\mathcal{D}(d_{\text{threshold}})\approx0.4$
 \end_inset
 
  at equilibrium.
  In this case, 
-\begin_inset Formula $\left(1-D_{i}(r,t)\right)\frac{C_{i}(t)}{C_{o}(t)}=0.75$
+\begin_inset Formula $\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}=0.75$
 \end_inset
 
 .
  For nanophytoplankton, 
-\begin_inset Formula $D(d_{\text{threshold}})\approx0.9$
+\begin_inset Formula $\mathcal{D}(d_{\text{threshold}})\approx0.9$
 \end_inset
 
 , thus 
@@ -2955,9 +2865,30 @@ Let us first focus on microphytoplankton in a 3-species community with even
 \end_inset
 
 .
- Both ratios of interaction strength enable diversity maintenance in a Lotka-Vol
-terra model.
- Similar calculations for the 10-species communities also confirm that even
+ Both ratios of population-level interaction strength are necessary conditions
+ for diversity maintenance in a Lotka-Volterra model (Barabas et al.
+ 2016)
+\change_inserted -666822487 1656510720
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1656510722
+Add ref.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+.
+ 
+\change_inserted -2100369821 1656229592
+Similar calculations for the 10-species communities also confirm that even
  small dominance indices, when related to low average concentrations, could
  enable a species to maintain (
 \begin_inset Formula $\alpha_{io}<\alpha_{ii}$
@@ -2965,13 +2896,65 @@ terra model.
 
 ), under the conditions that all interspecific interaction strengths are
  equal and populations are close to equilibrium.
+\change_inserted -666822487 1656510768
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1656510836
+Either we compute the coexistence criteria for S species in a model with
+ parameters r_i, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+alpha_{io} and 
+\backslash
+alpha_{ii}
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ or we say that the low ratio seems compatible with coexistence with reference
+ to the Barabas et al.
+ 2016 paper.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -2100369821 1656229592
+
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655300066
+\change_deleted -666822487 1656510778
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3031,6 +3014,8 @@ Generally speaking, we can say that a species will be outcompeted when
 \end_inset
 
  
+\change_inserted -2100369821 1655300066
+
 \end_layout
 
 \begin_layout Standard
