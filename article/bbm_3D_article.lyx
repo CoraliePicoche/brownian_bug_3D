@@ -162,9 +162,13 @@ The coexistence of multiple phytoplankton species despite their reliance
  The spatial moment equations show a good match between theory and simulations.
  We parameterized the model based on phytoplankters’ ecological and physical
  characteristics, for both large and small phytoplankton.
- Defining a zone of potential interaction as the overlap between nutrient
- depletion volumes, we show that local species composition—within the range
- of possible interactions—depends on the size class of phytoplankton.
+ Defining a zone of potential interaction
+\change_inserted -2100369821 1656600261
+s
+\change_unchanged
+ as the overlap between nutrient depletion volumes, we show that local species
+ composition—within the range of possible interactions—depends on the size
+ class of phytoplankton.
  In large phytoplankton, individuals are surrounded by cells from other
  species, while in small phytoplankton, individuals remain in mostly monospecifi
 c clusters.
@@ -672,8 +676,12 @@ literal "false"
 \emph on
 similar
 \emph default
- species in spatially realistic environment and objectively quantifying
- whether they aggregate or segregate in space.
+ species in 
+\change_inserted -2100369821 1656600997
+a 
+\change_unchanged
+spatially realistic environment and objectively quantifying whether they
+ aggregate or segregate in space.
  
 \begin_inset Note Note
 status collapsed
@@ -900,8 +908,12 @@ literal "false"
  of pair density functions, which quantify the degree of intra- and interspecifi
 c clustering of organisms, via correlations between positions of organisms
  (see Methods).
- Thus we can understand emergent spatial structure in analytic detail and
- compare these predictions with the results from three-dimensional simulations.
+ Thus we can understand emergent spatial structure in analytic detail
+\change_inserted -2100369821 1656601065
+s
+\change_unchanged
+ and compare these predictions with the results from three-dimensional simulatio
+ns.
  Furthermore, because we do not consider direct interactions between organisms,
  the multispecies spatial point process that represents the stable state
  of the BBM is a random superposition of spatial point processes for each
@@ -999,7 +1011,19 @@ Model and spatial statistics
 \end_layout
 
 \begin_layout Subsection*
-Brownian bug model
+Brownian 
+\change_deleted -2100369821 1656601132
+b
+\change_inserted -2100369821 1656601132
+B
+\change_unchanged
+ug 
+\change_deleted -2100369821 1656601134
+m
+\change_inserted -2100369821 1656601134
+M
+\change_unchanged
+odel
 \end_layout
 
 \begin_layout Standard
@@ -1064,14 +1088,39 @@ same for D_i // check how we present this.
 \end_inset
 
  (also called the stretching parameter).
- This means that the separation between two individuals k and l is expected
- to follow
+ This means that the separation between two individuals 
+\change_deleted -2100369821 1656601095
+k
+\change_inserted -2100369821 1656601095
+
+\begin_inset Formula $k$
+\end_inset
+
+
+\change_unchanged
+ and 
+\change_deleted -2100369821 1656601099
+l
+\change_inserted -2100369821 1656601099
+
+\begin_inset Formula $l$
+\end_inset
+
+
+\change_unchanged
+ 
+\change_deleted -2100369821 1656601120
+is expected to follow
+\change_inserted -2100369821 1656601140
+increases with time as
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\left\langle \ln\left(|\mathbf{x}_{k}-\mathbf{x}_{l}|(t)\right)\right\rangle \sim3\gamma t.\label{eq:gamma_def}
+\ln\left(|\mathbf{x}_{k}-\mathbf{x}_{l}|(t)\right)\sim3\gamma t.\label{eq:gamma_def}
 \end{equation}
 
 \end_inset
@@ -1106,9 +1155,13 @@ Within a given community (the set of all individuals of the
 \end_inset
 
  species), all species share the same parameters: 
-\begin_inset Formula $\lambda_{i},$
+\begin_inset Formula $\lambda_{i}$
 \end_inset
 
+
+\change_inserted -2100369821 1656601179
+, 
+\change_unchanged
 
 \begin_inset Formula $\mu_{i}$
 \end_inset
@@ -1177,8 +1230,12 @@ For the sake of simplicity, we hereafter write
  in the equations 
 \change_unchanged
 For numerical simulations, time needs to be discretized (this is required
- for diffusion and advection modelling).The approximated model advances through
- time in steps of duration of 
+ for diffusion and advection modelling).
+
+\change_inserted -2100369821 1656601192
+ 
+\change_unchanged
+The approximated model advances through time in steps of duration of 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -1376,8 +1433,8 @@ literal "false"
 \begin{array}{cc}
 x(t+\tau) & =x(t+t')+U\tau/3\cos\left(ky(t+t')+\phi(t)\right)\\
 y(t+\tau) & =y(t+t')+U\tau/3\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
-\end{array}.
+z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right).
+\end{array}
 \end{equation}
 
 \end_inset
@@ -1632,7 +1689,11 @@ Let
 
 \begin_layout Standard
 One of the useful methods to characterize a spatial point process is through
- its spatial moments.
+ its spatial moments
+\change_inserted -2100369821 1656604508
+ (see examples in Section S2 of the SI)
+\change_unchanged
+.
  These can be theoretically derived and used to check simulations.
  The spatial moments of a process are, however, merely statistical indicators
  which then need to be related to more easily ecologically interpretable
@@ -1836,8 +1897,8 @@ noprefix "false"
 
 \end_inset
 
- 
-\change_inserted -666822487 1656084806
+
+\change_deleted -2100369821 1656601291
 
 \begin_inset Note Note
 status collapsed
@@ -1874,7 +1935,11 @@ g_{ii}(r)=1+\frac{\lambda}{2\pi C_{i}}\left(\frac{\sqrt{\gamma}\arctan\left(\fra
 
 \begin_layout Standard
 The system converges rapidly to the solution in Eq.
- (
+ 
+\change_deleted -2100369821 1656601356
+(
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:pcf_intra_adv"
@@ -1884,7 +1949,11 @@ noprefix "false"
 
 \end_inset
 
-) in the presence of advection.
+
+\change_deleted -2100369821 1656601359
+)
+\change_unchanged
+ in the presence of advection.
  However, when there is no turbulence, convergence is much slower, to the
  point that an equilibrium assumption would involve unrealistically long
  timeframes (see Section S3 in the SI).
@@ -1899,7 +1968,7 @@ noprefix "false"
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:G_r_t"
+reference "eq:G_no_adv"
 plural "false"
 caps "false"
 noprefix "false"
@@ -2014,7 +2083,7 @@ i.e.
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\right)\right)
+\forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\backslash\{o\}\right)\right)
 \end{equation}
 
 \end_inset
@@ -2365,8 +2434,11 @@ When individuals of the same species
 \begin_inset Formula $i$
 \end_inset
 
- in the whole community when the distribution is uniform (see examples in
- Section S2 of the SI).
+ in the whole community when the distribution is uniform (
+\change_deleted -2100369821 1656604521
+see examples in 
+\change_unchanged
+Section S2 of the SI).
 \end_layout
 
 \begin_layout Standard
@@ -2590,7 +2662,18 @@ literal "false"
 
 \end_inset
 
-, the definition of the Reynolds number leads to
+
+\change_deleted -2100369821 1656601404
+,
+\change_inserted -2100369821 1656601404
+.
+ 
+\change_deleted -2100369821 1656601404
+ t
+\change_inserted -2100369821 1656601404
+T
+\change_unchanged
+he definition of the Reynolds number leads to
 \end_layout
 
 \begin_layout Standard
@@ -2750,6 +2833,10 @@ where
 \begin_inset Formula $R=8.314$
 \end_inset
 
+
+\change_inserted -2100369821 1656601445
+ 
+\change_unchanged
 J.K
 \begin_inset Formula $^{-1}$
 \end_inset
@@ -2759,9 +2846,13 @@ J.K
 \end_inset
 
  is the molar gas constant, 
-\begin_inset Formula $T=293K$
+\begin_inset Formula $T=293$
 \end_inset
 
+
+\change_inserted -2100369821 1656601454
+ K
+\change_unchanged
  is the temperature, 
 \begin_inset Formula $N_{A}=6.0225\times10^{23}$
 \end_inset
@@ -2770,6 +2861,10 @@ J.K
 \begin_inset Formula $\eta=10^{-3}$
 \end_inset
 
+
+\change_inserted -2100369821 1656601469
+ 
+\change_unchanged
 m
 \begin_inset Formula $^{-1}.$
 \end_inset
@@ -2996,7 +3091,13 @@ Value
 \begin_inset Text
 
 \begin_layout Plain Layout
-Probability of reproducing/dying for microphytoplankton particles
+Probability of reproducing/dying for microphytoplankton 
+\change_deleted -2100369821 1656601499
+particles
+\change_inserted -2100369821 1656601500
+individuals
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -3044,7 +3145,13 @@ Probability of reproducing/dying for microphytoplankton particles
 \begin_inset Text
 
 \begin_layout Plain Layout
-Probability of reproducing/dying for nanophytoplankton particles
+Probability of reproducing/dying for nanophytoplankton 
+\change_deleted -2100369821 1656601502
+particles
+\change_inserted -2100369821 1656601503
+individuals
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -3125,6 +3232,10 @@ Stretching parameter proxy
 
 \begin_layout Plain Layout
 Diffusion parameter for microphytoplankton
+\change_inserted -2100369821 1656601512
+ individuals
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -3159,7 +3270,13 @@ Diffusion parameter for microphytoplankton
 \begin_inset Text
 
 \begin_layout Plain Layout
-Diffusion parameter for nanophytoplankton particles
+Diffusion parameter for nanophytoplankton 
+\change_deleted -2100369821 1656601506
+particles
+\change_inserted -2100369821 1656601507
+individuals
+\change_unchanged
+
 \end_layout
 
 \end_inset
@@ -3220,9 +3337,14 @@ Range of interaction
 
 \begin_layout Standard
 As we examine individual aggregation and its potential effects on interactions
- between species, we have to ascertain the volume around which an individual
- can be affected by the presence of other individuals, or affects other
- individuals.
+ between species, we have to ascertain the volume 
+\change_deleted -2100369821 1656601522
+around
+\change_inserted -2100369821 1656601522
+in
+\change_unchanged
+ which an individual can be affected by the presence of other individuals,
+ or affects other individuals.
  We only consider here interactions due to competition for nutrients, and
  therefore need to define a nutrient depletion volume.
  We approximate this volume as the sphere of radius 
@@ -3239,7 +3361,11 @@ As we examine individual aggregation and its potential effects on interactions
 
  the background concentration of the nutrient.
  The radius of this nutrient depletion volume is maximized when the individual
- is in stagnant water (diffusion is the only hydrodynamics process).
+ is in stagnant water (diffusion is the only hydrodynamic
+\change_deleted -2100369821 1656601535
+s
+\change_unchanged
+ process).
  In this case, it corresponds to 10 times the radius of the individual 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -3536,9 +3662,12 @@ literal "false"
 
 .
  We then model a more realistic community with 10 species having a skewed
- abundance distribution (between 55,000 and 400 particles cells/L for microphyto
-plankton, according to observations of field abundance distributions in
- 
+ abundance distribution (between 55,000 and 400 
+\change_deleted -2100369821 1656601709
+particles 
+\change_unchanged
+cells/L for microphytoplankton, according to observations of field abundance
+ distributions in 
 \begin_inset CommandInset citation
 LatexCommand citealp
 key "picoche_strong_2020"
@@ -3627,11 +3756,11 @@ Spatial distributions of a 3-species community of nanophytoplankton with
  after 1000 time steps.
  Each color corresponds to a different species.
  On the left-hand side, only a zoom on a 
-\begin_inset Formula $0.5\times0.5$
+\begin_inset Formula $0.5\times0.5\times0.5$
 \end_inset
 
  cm
-\begin_inset Formula $^{2}$
+\begin_inset Formula $^{3}$
 \end_inset
 
  cube is shown, and its projection on the x-y plane is shown on the right
@@ -3684,7 +3813,11 @@ noprefix "false"
 \end_inset
 
 ) for both types of organisms, which also indicates that dominance indices
- extracted from the simulation match theoretical expectation.
+ extracted from the simulation match theoretical expectation
+\change_inserted -2100369821 1656601806
+s
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -3714,8 +3847,11 @@ Ripley's
 \end_inset
 
 -function as a function of distance (in cm) for microphytoplankton (a-b)
- and nanophytoplankton (c-d) in a 3-species community with even distributions
- after 1000 timesteps, with (a, c) and without (b, d) advection.
+ and nanophytoplankton (c-d) in a 3-species community with even 
+\change_inserted -2100369821 1656601822
+abundance 
+\change_unchanged
+distributions after 1000 timesteps, with (a, c) and without (b, d) advection.
  Each color represents a different species.
  The black dash-dotted line corresponds to the threshold considered as the
  maximum distance for nutrient-based competition.
@@ -3800,10 +3936,22 @@ plankton species irrespective of the hydrodynamic regime surrounding them.
 \end_layout
 
 \begin_layout Standard
-In a 3-species community with the same initial abundances, microphytoplankton
- dominance indices are between 0.37 and 0.47 at the distance threshold for
- potential interactions, while it is between 0.80 and 0.94 for nanophytoplankton
- species when advection is present.
+In a 3-species community with the same initial abundances, 
+\change_inserted -2100369821 1656601846
+in the presence of advection, 
+\change_unchanged
+microphytoplankton dominance indices are between 0.37 and 0.47 at the distance
+ threshold for potential interactions, while 
+\change_deleted -2100369821 1656601850
+it is
+\change_inserted -2100369821 1656601851
+they are
+\change_unchanged
+ between 0.80 and 0.94 for nanophytoplankton species
+\change_deleted -2100369821 1656601856
+ when advection is present
+\change_unchanged
+.
  In the absence of turbulence, dominance indices are all above 0.98 when
  the distance threshold is reached (Fig.
  
@@ -3820,6 +3968,9 @@ noprefix "false"
  Microphytoplankton organisms are therefore as likely to share their depletion
  volume with conspecifics as they are with heterospecifics, but only when
  turbulent advection is accounted for, whereas nanophytoplankton organisms
+\change_inserted -2100369821 1656601863
+ always
+\change_unchanged
  have almost only conspecifics around them.
 \end_layout
 
@@ -3845,9 +3996,12 @@ status open
 
 \begin_layout Plain Layout
 Dominance indices as a function of distance (in cm) for microphytoplankton
- (a) and nanophytoplankton (b) in a 3-species community with even distributions
- (final proportions in the community are indicated in the figure) after
- 1000 timesteps, with (circles) and without (lines) advection.
+ (a) and nanophytoplankton (b) in a 3-species community with even
+\change_inserted -2100369821 1656601882
+ abundance
+\change_unchanged
+ distributions (final proportions in the community are indicated in the
+ figure) after 1000 timesteps, with (circles) and without (lines) advection.
  Each color represents a different species.
  The black dashed line corresponds to the threshold considered as the maximum
  distance for nutrient-based competition.
@@ -3901,9 +4055,14 @@ noprefix "false"
  0.033 (for one of the least abundant species), while they are between 0.90
  and 0.85 when advection is not taken into account.
  Nanophytoplankton species, too, are more mixed: dominance indices vary
- between 0.54 and 0.2 when the depletion-zone limit is reached (with an exception
- of 0 for one particular species which had no conspecific for radii below
- 
+ between 0.54 and 0.2 when the depletion
+\change_deleted -2100369821 1656601890
+-zone limit
+\change_inserted -2100369821 1656601892
+ threshold
+\change_unchanged
+ is reached (with an exception of 0 for one particular species which had
+ no conspecific for radii below 
 \begin_inset Formula $10^{-2}$
 \end_inset
 
@@ -3970,8 +4129,15 @@ compare_advection 10:13
 
 \begin_layout Standard
 Differences in spatial distributions are not only due to organism sizes,
- which determine properties of demography and turbulence, but also to their
- abundances (here set through initial values).
+ which determine
+\change_inserted -2100369821 1656601920
+ their demographic and hydrodynamic
+\change_unchanged
+ properties
+\change_deleted -2100369821 1656601917
+ of demography and turbulence
+\change_unchanged
+, but also to their abundances (here set through initial values).
  In the presence of turbulence, the threshold distance at which dominance
  falls below 95% is smaller for more abundant species (Fig.
  
@@ -3990,7 +4156,7 @@ noprefix "false"
  Therefore, they are also more likely to be close to a heterospecific, but
  still have more conspecifics close to them than the less abundant species
  (
-\begin_inset Formula $d_{\text{threshold}}$
+\begin_inset Formula $\mathcal{D}\left(d_{\text{threshold}}\right)$
 \end_inset
 
  increases with abundance, Fig.
@@ -4449,20 +4615,38 @@ local
  by the total number of organisms in that neighbourhood.
  Intraspecific clustering corresponds to a dominance index close to 1, which
  decreases when interspecific mixing increases.
- The choice of this index was motivated by two reasons: it is at its core
- a proportion of a focus species in a certain volume, i.e.
+ The choice of this index was motivated by two reasons: 
+\change_inserted -2100369821 1656602021
+(1), 
+\change_unchanged
+it is at its core a proportion of a focus species in a certain volume, i.e.
  a scale-dependent, localized metric bounded between 0 and 1 as opposed
- to other statistics whose values are less directly interpreted, and is
- easy to relate to coexistence theory as it describes the environment of
- an organism in terms of heterospecifics and conspecifics, which can, under
- certain hypotheses that we discuss below, be related to interspecific and
- intraspecific interactions.
- Comparing the distributions of organisms of different sizes and demography,
- we showed that the presence and intensity (Section S8 of the SI) of turbulence
- always increased mixing, and that the species composition around an organism
- depended on its size, which mechanically determines its hydrodynamics propertie
-s (diffusivity), and is linked with its ecological characteristics (growth
- rate and density).
+ to other statistics whose values are less directly interpreted, and 
+\change_inserted -2100369821 1656602017
+(2), it 
+\change_unchanged
+is easy to relate to coexistence theory as it describes the environment
+ of an organism in terms of heterospecifics and conspecifics, which can,
+ under certain hypotheses that we discuss below, be related to interspecific
+ and intraspecific interactions.
+ Comparing the distributions of organisms of different sizes
+\change_deleted -2100369821 1656602034
+ and demography
+\change_unchanged
+, we showed that the presence and intensity (Section S
+\change_deleted -2100369821 1656604661
+8
+\change_inserted -2100369821 1656604661
+7
+\change_unchanged
+ of the SI) of turbulence always increased mixing, and that the species
+ composition around an organism depended on its size, which mechanically
+ determines its hydrodynamic
+\change_deleted -2100369821 1656602056
+s
+\change_unchanged
+ properties (diffusivity), and is linked with its ecological characteristics
+ (growth rate and density).
  Microphytoplankters (20 to 200 
 \begin_inset ERT
 status open
@@ -4501,8 +4685,12 @@ textmu
  interactions, we would conclude that microphytoplankters are more likely
  to interact with individuals from other species than with individuals of
  their own species.
- However,this affirmation is conditional upon interactions at 10 cell diameters
- from an individual being equally likely than at 1 diameter from an individual.
+ However,
+\change_inserted -2100369821 1656602074
+ 
+\change_unchanged
+this affirmation is conditional upon interactions at 10 cell diameters from
+ an individual being equally likely than at 1 diameter from an individual.
  If we keep in mind that interactions are more likely or stronger at very
  short distances, microphytoplankters may still experience more frequent
  effects of conspecifics than heterospecifics.
@@ -4580,8 +4768,11 @@ literal "false"
 
 \end_inset
 
-We consider that, at all distances below this threshold, interaction could
- happen between organisms.
+We consider that, at all distances below this threshold, interaction
+\change_inserted -2100369821 1656602169
+s
+\change_unchanged
+ could happen between organisms.
  We continue the discussion with that simplification in mind, and explicitely
  mention when it is relaxed.
 \end_layout
@@ -4656,31 +4847,69 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Dominances began to decrease at distances above 
+Dominance
+\change_inserted -2100369821 1656602184
+ indice
+\change_unchanged
+s began to decrease at distances above 
 \begin_inset Formula $10^{-3}$
 \end_inset
 
  cm, still below the maximum distance for interactions.
  At this distance and above, the balance between heterospecifics and conspecific
-s was much more sensitive to different phytoplankton's demographics and
- hydrodynamic traits.
+s was much more sensitive to different phytoplankt
+\change_deleted -2100369821 1656602214
+on
+\change_inserted -2100369821 1656602215
+ers
+\change_unchanged
+'
+\change_deleted -2100369821 1656602216
+s
+\change_unchanged
+ demographic
+\change_deleted -2100369821 1656602239
+s
+\change_unchanged
+ and hydrodynamic traits.
  The species composition of an organism's neighbourhood depended on its
  size: nanophytoplankton organisms mainly shared their volume of potential
  interactions with conspecifics (the dominance index remained close to 1,
  even near the distance threshold, i.e.
- the maximum distance for nutrient depletion volume overlap) while microphytopla
-nkton organisms could affect both conspecifics and heterospecifics (the
- dominance index was often below 50% at the distance threshold, i.e.
+ the maximum distance for 
+\change_inserted -2100369821 1656602264
+the overlap of 
+\change_unchanged
+nutrient depletion volume
+\change_inserted -2100369821 1656602268
+s
+\change_deleted -2100369821 1656602271
+ overlap
+\change_unchanged
+) while microphytoplankton organisms could affect both conspecifics and
+ heterospecifics (the dominance index was often below 50% at the distance
+ threshold, i.e.
  a particle's depletion zone probably overlapped with more heterospecifics'
  than conspecifics').
  Microphytoplankters were therefore more likely to share their depletion
  volume with heterospecifics than nanophytoplankters.
  The rate of production of new microphytoplankton conspecifics was not sufficien
-t to compensate for the separation velocity due to turbulence and diffusivity,
- even though the diffusion range of microphytoplankters was smaller than
- that of nanophytoplankters.
+t to compensate for the 
+\change_deleted -2100369821 1656602291
+separation velocity
+\change_inserted -2100369821 1656602295
+mixing induced by
+\change_deleted -2100369821 1656602298
+ due to
+\change_unchanged
+ turbulence and diffusivity, even though the diffusion range of microphytoplankt
+ers was smaller than that of nanophytoplankters.
  There may therefore be different mechanisms at play at the community level
- for microphytoplankton and nanophytoplankton.
+ for microphytoplankton and nanophytoplankton
+\change_inserted -2100369821 1656602311
+ to maintain coexistence
+\change_unchanged
+.
  For nanophytoplankton, the spatial structure likely leads to more interactions
  between conspecifics than between heterospecifics.
  The distribution of microphytoplankton species, on the contrary, encourages
@@ -4696,16 +4925,32 @@ literal "false"
 
 \end_inset
 
-) but not necessarily so for microphytoplankton.
+) but not necessarily so for microphytoplankton
+\change_inserted -2100369821 1656604686
+ (however, see Section S8 in the SI, based on the Lotka-Volterra model)
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
 All of the above discussion is based on a microphytoplankter's neighbourhood
- as defined by nutrient depletion volumes.
- To simplify the computation, we used maximum volumes of potential interaction,
- corresponding to a diffusive-only flow of nutrient particles.
- But when fluid turbulence increases, nutrient uptake increases due to that
- turbulence, and the size of the depletion zone decreases 
+ 
+\change_deleted -2100369821 1656602430
+as defined by
+\change_inserted -2100369821 1656602435
+in its
+\change_unchanged
+ nutrient depletion volumes.
+ To simplify the computation, we used maximum volumes of potential interaction
+\change_inserted -2100369821 1656602439
+s
+\change_unchanged
+, corresponding to a diffusive-only flow of nutrient particles.
+ But when fluid turbulence increases, nutrient uptake increases 
+\change_deleted -2100369821 1656602451
+due to that turbulence
+\change_unchanged
+, and the size of the depletion zone decreases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karp-boss_nutrient_1996"
@@ -4777,8 +5022,14 @@ literal "false"
 \end_inset
 
  may be able to incorporate those effects; however, as we highlight below,
- the timescales and spatial correlations that develop in such models may
- not necessarily represent faithfully phytoplankton community dynamics.
+ the timescales and spatial correlations that 
+\change_deleted -2100369821 1656602479
+develop
+\change_inserted -2100369821 1656602480
+are seen
+\change_unchanged
+ in such models may not necessarily represent faithfully phytoplankton community
+ dynamics.
  
 \begin_inset Note Note
 status collapsed
@@ -5043,8 +5294,13 @@ literal "false"
  It is worthwhile to keep in mind that there are numerous remaining features
  of phytoplankton physiology and life histories which we do not cover here,
  but may affect their spatial distributions.
- Many phytoplankters are able to move actively in three-dimensions, which
- can favour cluster formation 
+ Many phytoplankters are able to move actively in three
+\change_deleted -2100369821 1656602500
+-
+\change_inserted -2100369821 1656602500
+ 
+\change_unchanged
+dimensions, which can favour cluster formation 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "breier_emergence_2018"
@@ -5207,7 +5463,13 @@ literal "false"
 \end_layout
 
 \begin_layout Subsubsection*
-Proof of eq.
+Proof of 
+\change_deleted -2100369821 1656602540
+e
+\change_inserted -2100369821 1656602540
+E
+\change_unchanged
+q.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5218,6 +5480,21 @@ noprefix "false"
 
 \end_inset
 
+
+\change_inserted -2100369821 1656602640
+ and Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:pcf_intra_noadv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -5416,7 +5693,7 @@ We first compute the primitive
 \begin{array}{ccc}
 A & = & \int\frac{1}{r^{2}\left(2D+\gamma r^{2}\right)}dr\\
  & = & \int\frac{1}{2Dr^{2}}-\frac{\gamma}{2D\left(2D+\gamma r^{2}\right)}dr\\
- & = & -\frac{1}{2Dr}-\frac{\gamma}{2D}\int\frac{1}{2D\left(1+\left(\sqrt{\frac{\gamma}{2D}}r\right)^{2}\right)}
+ & = & -\frac{1}{2Dr}-\frac{\gamma}{2D}\int\frac{1}{2D\left(1+\left(\sqrt{\frac{\gamma}{2D}}r\right)^{2}\right)}dr.
 \end{array}
 \end{equation}
 
@@ -5467,7 +5744,7 @@ We can know compute
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-B=-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}+\frac{1}{2D\rho}+\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}
+B=-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}+\frac{1}{2D\rho}+\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}.
 \end{equation}
 
 \end_inset
@@ -5518,11 +5795,18 @@ Time-dependent solution
 
 \begin_layout Standard
 In the absence of advection by turbulent diffusion (
-\begin_inset Formula $U=0$
+\begin_inset Formula $U=0,\,\gamma=0$
 \end_inset
 
-), convergence to the steady-state solution can be very slow (see Section
- S3 in SI).
+), convergence to the steady-state solution can be very slow (
+\change_inserted -2100369821 1656602578
+more than a week, 
+\change_unchanged
+see Section S3 in
+\change_inserted -2100369821 1656602582
+ the
+\change_unchanged
+ SI).
  In order to keep a realistic timeframe, we need to compute a time-dependent
  solution.
  We can get back to Eq.
@@ -5728,7 +6012,7 @@ noprefix "false"
 \begin{equation}
 \begin{array}{ccc}
 C^{2} & = & 2\lambda C\left(\frac{1}{8\pi Dr}+K\right)\\
-\Leftrightarrow\frac{C}{2\lambda}- & \frac{1}{8\pi Dr}= & K
+\Leftrightarrow\frac{C}{2\lambda}- & \frac{1}{8\pi Dr}= & K.
 \end{array}
 \end{equation}
 
@@ -5761,7 +6045,13 @@ G(r,t) & = & 2\lambda C\left(-\frac{\erf\left(\frac{r}{\sqrt{8tD}}\right)}{8\pi 
 \end_layout
 
 \begin_layout Subsubsection*
-Proof of eq.
+Proof of 
+\change_deleted -2100369821 1656602598
+e
+\change_inserted -2100369821 1656602598
+E
+\change_unchanged
+q.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5772,6 +6062,21 @@ noprefix "false"
 
 \end_inset
 
+
+\change_inserted -2100369821 1656602845
+ and Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:K_intra_no_adv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_unchanged
 
 \end_layout
 
@@ -5792,7 +6097,13 @@ Steady-state solution
 \end_layout
 
 \begin_layout Standard
-From eq.
+From 
+\change_deleted -2100369821 1656602608
+e
+\change_inserted -2100369821 1656602608
+E
+\change_unchanged
+q.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5864,10 +6175,18 @@ We can also compute
 \end_inset
 
 .
- We can first change variable, with 
-\begin_inset Formula $u=\frac{r}{\sqrt{2D}},$
+ We 
+\change_deleted -2100369821 1656602721
+can 
+\change_unchanged
+first change variable, with 
+\begin_inset Formula $u=\frac{r}{\sqrt{2D}}$
 \end_inset
 
+
+\change_inserted -2100369821 1656602730
+, 
+\change_unchanged
 
 \begin_inset Formula $dr=\sqrt{2D}du$
 \end_inset
@@ -5912,14 +6231,28 @@ C & = & (2D)^{3/2}\left(\frac{\rho^{3}}{3(2D)^{3/2}}\arctan(\sqrt{\frac{\gamma}{
 \end_layout
 
 \begin_layout Standard
-We can substitute 
-\begin_inset Formula $v=\gamma u^{2}+1,$
+We 
+\change_deleted -2100369821 1656602736
+can
+\change_inserted -2100369821 1656602736
+then
+\change_unchanged
+ substitute 
+\begin_inset Formula $v=\gamma u^{2}+1$
 \end_inset
 
+
+\change_inserted -2100369821 1656602742
+, 
+\change_unchanged
 
 \begin_inset Formula $du=\frac{1}{2\gamma u}dv$
 \end_inset
 
+
+\change_inserted -2100369821 1656602747
+,
+\change_unchanged
  and have
 \end_layout
 
@@ -5957,7 +6290,13 @@ C & = & \frac{\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{3}-\left(2D\right)^
 \end_layout
 
 \begin_layout Standard
-Combining all equations:
+Combining all equations
+\change_deleted -2100369821 1656602756
+:
+\change_inserted -2100369821 1656602756
+,
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -6002,9 +6341,19 @@ Time-dependent solution
 \end_layout
 
 \begin_layout Standard
-In the absence of advection (U = 0, 
+In the absence of advection (
+\change_deleted -2100369821 1656602771
+U = 0, 
 \backslash
-gamma = 0), we need to compute a time-dependent solution.
+gamma = 0
+\change_inserted -2100369821 1656602771
+
+\begin_inset Formula $U=0,\gamma=0$
+\end_inset
+
+
+\change_unchanged
+), we need to compute a time-dependent solution.
 
 \change_inserted -666822487 1656084522
  
@@ -6114,7 +6463,13 @@ We integrate by parts again, this time with
 \end_layout
 
 \begin_layout Standard
-If we use eq.
+If we use 
+\change_deleted -2100369821 1656602778
+e
+\change_inserted -2100369821 1656602778
+E
+\change_unchanged
+q.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6125,7 +6480,13 @@ noprefix "false"
 
 \end_inset
 
- in eq.
+ in 
+\change_deleted -2100369821 1656602780
+e
+\change_inserted -2100369821 1656602780
+E
+\change_unchanged
+q.
  
 \begin_inset CommandInset ref
 LatexCommand ref

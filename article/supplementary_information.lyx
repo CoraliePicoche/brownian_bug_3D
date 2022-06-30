@@ -435,7 +435,7 @@ For a Thomas point process, the expected value of the pcf is
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}.
+g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}
 \end{equation}
 
 \end_inset
@@ -586,7 +586,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\mathcal{D}_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}.
+\mathcal{D}_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}
 \end{equation}
 
 \end_inset
@@ -765,7 +765,8 @@ The theoretical formulas of
 
  can be used to study the behaviour of the BBM.
  In the absence of advection, convergence cannot be reached in a reasonable
- timeframe (Fig.
+ timeframe: even a week is not long enough for the steady-state solution
+ to be reached (see blue line in Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -777,27 +778,24 @@ noprefix "false"
 \end_inset
 
 )
-\change_inserted -666822487 1656509435
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted -666822487 1656509441
 Indicate quantitative values for time
-\change_unchanged
-
 \end_layout
 
 \end_inset
 
-
+.
+ However, the equilibrium hypothesis that we use cannot hold for such a
+ long amount of time, which led us to use the time-dependent formula shown
+ in Eqs.
+ 6, 10 and 13 in the main text
+\change_deleted -2100369821 1656603282
+)
 \change_unchanged
-, which led us to use the time-dependent formula shown in the Appendices.
-
-\change_deleted -666822487 1656509431
- 
+.
 \change_inserted -2100369821 1655285166
 
 \end_layout
@@ -873,58 +871,34 @@ check_convergence
 \end_layout
 
 \begin_layout Standard
+In a similar fashion, we can show with the dominance index (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Theoretical-dom"
+plural "false"
+caps "false"
+noprefix "false"
 
-\change_deleted -666822487 1656509631
-We can therefore
-\change_inserted -666822487 1656509638
-In a similar fashion, we can
-\change_unchanged
- show 
-\change_inserted -666822487 1656509661
-with the dominance index (Fig S4 below [REF]) 
-\change_unchanged
-the progressive clustering of individuals with time when advection is absent
-\change_inserted -666822487 1656509668
-,
-\change_unchanged
- and compare it to the 
-\change_inserted -666822487 1656509677
-steady state 
-\change_deleted -666822487 1656509678
-case 
-\change_inserted -666822487 1656509687
+\end_inset
+
+) the progressive clustering of individuals with time when advection is
+ absent, and compare it to the steady state 
+\change_deleted -2100369821 1656603351
 
 \emph on
 ,
-\emph default
- this time 
 \change_unchanged
 
+\emph default
+ this time 
 \emph on
 with
 \emph default
  advection.
- 
-\change_deleted -666822487 1656509721
-Even
-\change_inserted -666822487 1656509723
-We see that even
-\change_unchanged
- after a short period of time
-\change_inserted -666822487 1656509716
- (t=100)
-\change_unchanged
-, the dominance index without advection is larger than with advection
-\change_inserted -666822487 1656509786
-, and this spatial aggregation only grows with time in absence of turbulent
- advection
-\change_unchanged
-.
-
-\change_deleted -666822487 1656509455
- 
-\change_unchanged
-
+ We see that even after a short period of time (t=100), the dominance index
+ without advection is larger than with advection, and this spatial aggregation
+ only grows with time in absence of turbulent advection.
 \end_layout
 
 \begin_layout Standard
@@ -1162,11 +1136,11 @@ FB asks why we needed this.
 \end_inset
 
  but did not require any kernel smoothing.
-
-\change_inserted -666822487 1656509978
  The same computation could be done using wrapped-around boundary conditions
  (for pcf estimation; for simulation we always consider periodic boundary
  conditions).
+
+\change_deleted -2100369821 1656574229
  
 \change_unchanged
 
@@ -1712,6 +1686,11 @@ Wondering if we spend too much time on this part.
 \emph on
  together with their legends.
  
+\change_inserted -2100369821 1656603990
+
+\shape italic
+C: I chose to remove only one of the figures, the equivalent of Fig.
+ S9, but for nanophytoplankton.
 \change_unchanged
 
 \end_layout
@@ -1750,7 +1729,6 @@ One of the reasons why estimating
 \end_layout
 
 \begin_layout Standard
-\paragraph_spacing double
 In 
 \begin_inset Formula $d$
 \end_inset
@@ -1924,7 +1902,9 @@ Simulations
 
 \begin_layout Standard
 We can compute the simulated distance to the nearest neighbour and compare
- it to what we should obtain with a uniform distribution (Fig.
+ it to what we should obtain with a uniform distribution 
+\change_deleted -2100369821 1656604051
+(Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1945,9 +1925,37 @@ noprefix "false"
 
 \end_inset
 
-): the simulated average DNN are close to the expected value for a uniform
- distribution, but the minimum distance to a conspecific is much lower than
- expected.
+)
+\change_unchanged
+: the simulated 
+\change_deleted -2100369821 1656604065
+average DNN
+\change_inserted -2100369821 1656604079
+mean distance to the nearest organism, regardless of its species,
+\change_unchanged
+ 
+\change_deleted -2100369821 1656604082
+are
+\change_inserted -2100369821 1656604082
+is
+\change_unchanged
+ close to the expected value for a uniform distribution, but the minimum
+ distance to a conspecific is much lower than expected
+\change_inserted -2100369821 1656604053
+ (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distance_micro"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for microphytoplankton, results are similar for nanophytoplankton)
+\change_unchanged
+.
 
 \change_deleted -2100369821 1653319951
  
@@ -2016,6 +2024,8 @@ name "fig:Distance_micro"
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1656575031
 \begin_inset Float figure
 wide false
 sideways false
@@ -2072,6 +2082,8 @@ name "fig:Distance_nano"
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -2145,39 +2157,19 @@ name "fig:Distance_abundance"
 \end_inset
 
 
+\change_deleted -2100369821 1656604612
+
 \end_layout
 
-\begin_layout Section
+\begin_layout Standard
+
+\change_deleted -2100369821 1656574970
 Effect of the initial distribution
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655112218
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1655112246
-I would suggest to remove this part: I do not find it useful, and it can
- only be mentioned in main text in a very artifical way
-\change_inserted -666822487 1656510166
-.
- F: OK, keep somewhere in the repo.
- I think this is still interesting since we did not prove that the steady
- state is unique and attracting all initial conditions.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+\change_deleted -2100369821 1656574970
 Individuals are uniformly distributed in the cube at the start of all simulation
 s shown in the manuscript.
  However, we have no reason to believe that such spatial distribution is
@@ -2199,11 +2191,13 @@ noprefix "false"
 
 \change_deleted -666822487 1656510072
  
-\change_unchanged
+\change_deleted -2100369821 1656574970
 
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1656574970
 The initial distribution changes from 
 \begin_inset Formula $G(r,0)=C^{2}$
 \end_inset
@@ -2215,15 +2209,17 @@ The initial distribution changes from
 , 
 \change_deleted -666822487 1656510105
 , 
-\change_unchanged
+\change_deleted -2100369821 1656574970
 which also changes the formulation of the pair density function
 \change_deleted -666822487 1656510109
 t
-\change_unchanged
+\change_deleted -2100369821 1656574970
  to
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1656574970
 \begin_inset Formula 
 \begin{equation}
 K(r,t)=\frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right).\label{eq:K_bbm_thomas}
@@ -2235,6 +2231,8 @@ K(r,t)=\frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\s
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1656574970
 \begin_inset Float figure
 wide false
 sideways false
@@ -2321,6 +2319,8 @@ shift_dominance 20-23
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1656574921
 Simulated and theoretical values match for a 1000-time steps duration (Fig.
  
 \begin_inset CommandInset ref
@@ -2347,6 +2347,8 @@ What happens for longer durations?
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted -2100369821 1656574921
 \begin_inset Float figure
 wide false
 sideways false
@@ -2428,6 +2430,8 @@ shift_dominance_noadv_zoom.r 21, 23, 25-27
 
 \end_inset
 
+
+\change_unchanged
 
 \end_layout
 
@@ -2522,10 +2526,16 @@ If we use
 \end_inset
 
 
+\change_inserted -2100369821 1656604113
+ s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+
 \change_inserted -666822487 1656510341
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2866,12 +2876,12 @@ Let us first focus on microphytoplankton in a 3-species community with even
 
 .
  Both ratios of population-level interaction strength are necessary conditions
- for diversity maintenance in a Lotka-Volterra model (Barabas et al.
+ for diversity maintenance in a Lotka-Volterra model 
+\change_deleted -2100369821 1656575106
+(Barabas et al.
  2016)
-\change_inserted -666822487 1656510720
-
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -2887,15 +2897,22 @@ Add ref.
 \change_unchanged
 .
  
-\change_inserted -2100369821 1656229592
-Similar calculations for the 10-species communities also confirm that even
- small dominance indices, when related to low average concentrations, could
- enable a species to maintain (
-\begin_inset Formula $\alpha_{io}<\alpha_{ii}$
+\change_inserted -2100369821 1656604138
+Similar calculations for the 10-species communities, combining small dominance
+ indices to low average concentrations, lead to 
+\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\ll1$
 \end_inset
 
-), under the conditions that all interspecific interaction strengths are
- equal and populations are close to equilibrium.
+, compatible with coexistence 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "barabas_effect_2016"
+literal "false"
+
+\end_inset
+
+.
+ 
 \change_inserted -666822487 1656510768
 
 \begin_inset Note Note
@@ -2946,7 +2963,7 @@ alpha_{ii}
 \end_inset
 
 
-\change_inserted -2100369821 1656229592
+\change_inserted -2100369821 1656575193
 
 \end_layout
 
