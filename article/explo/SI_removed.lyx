@@ -1,0 +1,424 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+DNN
+\end_layout
+
+\begin_layout Standard
+We can compute the simulated distance to the nearest neighbour and compare
+ it to what we should obtain with a uniform distribution (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Distance_nano"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for nanophytoplankton): the simulated average DNN are close to the expected
+ value for a uniform distribution, but the minimum distance to a conspecific
+ is much lower than expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../code/figure/distrib_distance_nano_box_10sp.pdf
+	width 70text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Mean and minimum distance (in cm) to the nearest neighbour for 10 nanophytoplank
+ton species with density 
+\begin_inset Formula $C=10^{3}$
+\end_inset
+
+ cells.cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+, with and without advection, after 1000 time steps, compared to predictions
+ for a uniform distribution.
+ Horizontal lines show the average distance to the nearest neighbour (grey
+ line) and the expected minimum distance to the nearest neighbour with the
+ actual number of realizations (black line).
+ Circles and triangles represent mean and minimum distance to a conspecific,
+ respectively.
+ Boxplot corresponds to the distribution of mean (grey outlines) and minimum
+ (black outlines) distances to a heterospecific.
+ Colors correspond to different species.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Distance_nano"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Effect of the initial distribution
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+I would suggest to remove this part: I do not find it useful, and it can
+ only be mentioned in main text in a very artifical way.
+ F: OK, keep somewhere in the repo.
+ I think this is still interesting since we did not prove that the steady
+ state is unique and attracting all initial conditions.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Individuals are uniformly distributed in the cube at the start of all simulation
+s shown in the manuscript.
+ However, we have no reason to believe that such spatial distribution is
+ more appropriate than a more clustered one to begin with.
+ In Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dominance-after_Thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we show the final dominances obtained with and without advection, starting
+ from a superposition of Thomas processes, i.e.
+ each species was distributed with its own Thomas process.
+\end_layout
+
+\begin_layout Standard
+The initial distribution changes from 
+\begin_inset Formula $G(r,0)=C^{2}$
+\end_inset
+
+ to 
+\begin_inset Formula $G(r,0)=C^{2}+\frac{C^{2}}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}$
+\end_inset
+
+, which also changes the formulation of the pair density function to
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K(r,t)=\frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right).\label{eq:K_bbm_thomas}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../code/figure/shift_of_dominance.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance indices as a function of distance (in cm) for microphytoplankton
+ (a) and nanophytoplankton (b) in a 3-species community with even distributions
+ after 1000 timesteps starting from a superposition of species-specific
+ Thomas point processes, with (circles) and without (lines) advection.
+ The triangles correspond to the dominance index at the start of the simulation,
+ i.e.
+ when individuals are only distributed according to a Thomas point process
+ with parent intensity 
+\begin_inset Formula $C_{p}=0.2$
+\end_inset
+
+ cells.cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{p}=20$
+\end_inset
+
+ cells.cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ for microphytoplankton and nanophytoplankton respectively, number of children
+ per parent 
+\begin_inset Formula $N_{c}=50$
+\end_inset
+
+, and 
+\begin_inset Formula $\sigma=0.001$
+\end_inset
+
+.
+ Each color represents a different species.
+ The black points and line corresponds to the theoretical values of the
+ dominance index.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-after_Thomas"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+shift_dominance 20-23
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simulated and theoretical values match for a 1000-time steps duration (Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dominance-noadv_Thomas"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+What happens for longer durations?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ../../code/figure/shift_of_dominance_noadv_zoom.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dominance indices for large distances (in cm) for one species in a microphytopla
+nkton (a) and nanophytoplankton (b) 3-species community with even distributions
+ after different simulation durations starting from a superposition of species-s
+pecific Thomas point processes in the absence of advection.
+ The dotted line corresponds to the dominance index at the start of the
+ simulation, i.e.
+ when individuals are only distributed according to a Thomas point process
+ with parent intensity 
+\begin_inset Formula $C_{p}=0.2$
+\end_inset
+
+ cells.cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{p}=20$
+\end_inset
+
+ cells.cm
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ for microphytoplankton and nanophytoplankton respectively, number of children
+ per parent 
+\begin_inset Formula $N_{c}=50$
+\end_inset
+
+, and 
+\begin_inset Formula $\sigma=0.001$
+\end_inset
+
+.
+ Each colored line represents a different simulation duration, and black
+ symbols correspond to the theoretical values of the dominance index.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dominance-noadv_Thomas"
+
+\end_inset
+
+ 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+shift_dominance_noadv_zoom.r 21, 23, 25-27
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
