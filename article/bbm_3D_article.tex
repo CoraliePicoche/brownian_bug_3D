@@ -106,7 +106,7 @@ must be examined for large phytoplankton.
 \textbf{Keywords}: aggregation; coexistence; individual-based model;
 phytoplankton; spatial moment equations; spatial point process 
 
-$^{*}$corresponding author: \verb|coralie.picoche@u-bordeaux.fr|
+$^{*}$corresponding author: \verb|coralie.picoche@u-bordeaux.fr| \& \verb|frederic.barraquand@u-bordeaux.fr|
 
 %\linenumbers
 \doublespacing
@@ -262,10 +262,7 @@ death rate $\mu_{i}$. Each individual independently follows a Brownian
 motion with diffusivity $D_{i}$, and is advected by a common stochastic
 flow modeling the turbulence with Lyapunov exponent $\gamma$ (also
 called the stretching parameter). This means that the separation between
-two individuals $k$ and $l$ increases with time as
-\begin{equation}
-\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\sim3\gamma t.\label{eq:gamma_def}
-\end{equation}
+two individuals $k$ and $l$ increases with time as $\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto \gamma t$.
 
 Within a given community (the set of all individuals of the $S$ species),
 all species share the same parameters: $\lambda_{i}$, $\mu_{i}$
@@ -306,8 +303,7 @@ each time interval, which remain constant during the interval. The
 shift from continuous to discrete-time turbulence modeling is described
 in Section S1 in the Supplementary Information. The advection parameter
 $U$ is related to $\gamma$. As the separation between two points
-grows exponentially with parameter $\gamma$ (Eq. \ref{eq:gamma_def})
-due to turbulence, the exponent $\gamma$ can be estimated as the
+grows exponentially with parameter $\gamma$ due to turbulence, the exponent $\gamma$ can be estimated as the
 slope of $1/3\left\langle \ln(s(t))\right\rangle =f(t)$ in the absence
 of diffusion and demography.
 
@@ -420,7 +416,7 @@ K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{2\lambda_i}{C_{i}}\left(\frac{r^{2}}{6D_i}+
 When $U=0$, we need a time-dependent solution corresponding to our
 simulation duration, i.e. (see Appendices, Eq. -\ref{eq:start_K_intra_no_adv}-\ref{eq:end_K})
 \begin{equation}
-K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{C_{i}D_i}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8D_i t}})(r^{2}-4Dt)-\frac{\sqrt{2D_i t}r}{\sqrt{\pi}}e^{-r^{2}/8D_i t}\right).\label{eq:K_intra_no_adv}
+K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{C_{i}D_i}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8D_i t}})(r^{2}-4D_i t)-\frac{\sqrt{2D_i t}r}{\sqrt{\pi}}e^{-r^{2}/8D_i t}\right).\label{eq:K_intra_no_adv}
 \end{equation}
 
 For random superposition of stationary point processes, $K_{ij}(r,t)=\frac{4}{3}\pi r^{3}$
