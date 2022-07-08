@@ -1,27 +1,57 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
+#LyX file created by tex2lyx 2.3
 \lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
-\origin unavailable
+\origin /home/cpicoche/Documents/Thesis/Hydrodynamics/brownian_bug_3D/article/
 \textclass article
 \begin_preamble
-\usepackage{ae,lmodern}
-\usepackage{graphicx}
+
+\usepackage{setspace}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Strike out display math with tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand{\lyxmathsout}[1]{%
+  \tikz[baseline=(math.base)]{
+    \node[inner sep=0pt,outer sep=0pt](math){#1};
+    \draw($(math.south west)+(2em,.5em)$)--($(math.north east)-(2em,.5em)$);
+  }
+}
+
+%%%%%%% Billz commands %%%%%%
+\usepackage{xcolor}
+\newcommand{\WRY}[1]{{\color{magenta}#1}}
+\newcommand{\WRYc}[1]{{\color{red}#1}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\bxi}{\boldsymbol{\xi} }
+\usepackage[normalem]{ulem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{lineno}
 \usepackage{authblk}
-\date{}
+
 \DeclareMathOperator\erf{erf}
+
+
+
+\usepackage{babel}
+
 \end_preamble
-\use_default_options true
+\use_default_options false
 \maintain_unincluded_children false
 \language english
 \language_package default
-\inputencoding auto
-\fontencoding global
-\font_roman "default" "default"
+\inputencoding iso8859-15
+\fontencoding default
+\font_roman "lmodern" "default"
 \font_sans "default" "default"
-\font_typewriter "default" "default"
+\font_typewriter "lmodern" "default"
 \font_math "auto" "auto"
 \font_default_family default
 \use_non_tex_fonts false
@@ -36,31 +66,30 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\float_placement H
 \paperfontsize default
 \spacing single
 \use_hyperref false
 \papersize default
 \use_geometry true
-\use_package amsmath 1
-\use_package amssymb 1
-\use_package cancel 1
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
 \use_package esint 1
-\use_package mathdots 1
-\use_package mathtools 1
-\use_package mhchem 1
-\use_package stackrel 1
-\use_package stmaryrd 1
-\use_package undertilde 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
 \cite_engine natbib
 \cite_engine_type authoryear
 \biblio_style plainnat
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
-\use_refstyle 1
+\use_refstyle 0
 \use_minted 0
 \index Index
 \shortcut idx
@@ -81,13 +110,11 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes true
+\tracking_changes false
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -2100369821 "cpicoche"
-\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -99,71 +126,60 @@ Supporting Information
 \series default
  for 
 \shape italic
-Local intraspecific aggregation in phytoplankton model communities: spatial
- scales of occurrence and implications for coexistence
+Local intraspecific aggregation in phytoplankton model communities: spatial scales of occurrence and implications for coexistence
 \shape default
+
 \emph on
  
 \emph default
-by C.
- Picoche, W.R.
- Young & F.
- Barraquand.
+by C. Picoche, W.R. Young & F. Barraquand.
 \end_layout
 
 \begin_layout Standard
+
+\begin_inset FormulaMacro
+\renewcommand{\thesection}{S\arabic{section}}
+\end_inset
+
+ 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-
-\backslash
-renewcommand
-\backslash
-thesection{S
-\backslash
-arabic{section}}
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 setcounter{section}{0}
 \end_layout
 
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\renewcommand{\thefigure}{S\arabic{figure}}
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
 \begin_layout Plain Layout
-
-
-\backslash
-renewcommand
-\backslash
-thefigure{S
-\backslash
-arabic{figure}}
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 setcounter{figure}{0}
 \end_layout
 
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\renewcommand{\theequation}{S\arabic{equation}}
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
 \begin_layout Plain Layout
-
-
-\backslash
-renewcommand
-\backslash
-theequation{S
-\backslash
-arabic{equation}}
-\end_layout
-
-\begin_layout Plain Layout
-
 
 \backslash
 setcounter{equation}{0}
@@ -179,42 +195,34 @@ Derivation of the turbulent map
 \end_layout
 
 \begin_layout Standard
-We show here how to derive a discrete-time map for turbulence from the continuou
-s-time formula.
- We consider that the velocity field 
+We show here how to derive a discrete-time map for turbulence from the continuous-time formula. We consider that the velocity field 
 \begin_inset Formula $\textbf{u}^{T}=(u_{x},\,u_{y},\,u_{z})$
 \end_inset
 
  at position 
-\begin_inset Formula $\mathbf{x}^{T}=(x,\,y,\,z)$
+\begin_inset Formula $\bx^{T}=(x,\,y,\,z)$
 \end_inset
 
  alternates between the three dimensions during a period 
 \begin_inset Formula $\tau$
 \end_inset
 
-, so that
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\textbf{u}^{T}(\textbf{x},t)=\begin{cases}
+, so that 
+\begin_inset Formula \begin{equation}
+\textbf{u}^{T}(\bx,t)=\begin{cases}
 \begin{array}{cc}
 \left(U\cos(ky+\phi),0,0\right) & \text{for }n\tau\leq t<(n+\frac{1}{3})\tau\\
 \left(0,U\cos(kz+\theta),0\right) & \text{for }(n+\frac{1}{3})\tau\leq t<(n+\frac{2}{3})\tau\\
 \left(0,0,U\cos(kx+\psi)\right) & \text{for }(n+\frac{2}{3})\tau\leq t<(n+1)\tau.
 \end{array}\end{cases}\label{eq:pierrehumber_continuous_time}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-The discrete-time map can be obtained by computing the displacement over
- a period, between 
+The discrete-time map can be obtained by computing the displacement over a period, between 
 \begin_inset Formula $t=n\tau$
 \end_inset
 
@@ -223,16 +231,14 @@ The discrete-time map can be obtained by computing the displacement over
 \end_inset
 
 , with 
-\begin_inset Formula $\textbf{x}(t+1)=\textbf{x}(t)+\textbf{\ensuremath{\int_{n\tau}^{\left(n+1\right)\tau}}u}(\textbf{x},t)dt$
+\begin_inset Formula $\bx(t+1)=\bx(t)+\textbf{\ensuremath{\int_{n\tau}^{\left(n+1\right)\tau}}u}(\bx,t)dt$
 \end_inset
 
 , and knowing the initial position 
 \begin_inset Formula $\mathbf{x}(t)$
 \end_inset
 
-.
- This can be solved in three steps (eq.
- 
+. This can be solved in three steps (eq. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:step1_pierrehumbert"
@@ -262,63 +268,36 @@ noprefix "false"
 
 \end_inset
 
-).
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+). 
+\begin_inset Formula \begin{equation}
 \begin{array}{cc}
 x(t+\tau/3)= & x(t)+\frac{U\tau}{3}\cos(ky(t)+\phi)\\
 y(t+\tau/3)= & y(t)\\
 z(t+\tau/3)= & z(t).
 \end{array}\label{eq:step1_pierrehumbert}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Then,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+Then, 
+\begin_inset Formula \begin{equation}
 \begin{array}{cc}
 x(t+2\tau/3)= & x(t+\tau/3)\\
 y(t+2\tau/3)= & y(t)+\frac{U\tau}{3}\cos(kz(t)+\theta)\\
 z(t+2\tau/3)= & z(t).
 \end{array}\label{eq:step2_pierrehumbert}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-And finally,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+And finally, 
+\begin_inset Formula \begin{equation}
 \begin{array}{cc}
 x(t+\tau)= & x(t+\tau/3)\\
 y(t+\tau)= & y(t+2\tau/3)\\
 z(t+\tau)= & z(t)+\frac{U\tau}{3}\cos(kx(t+\tau)+\psi).
 \end{array}\label{eq:step3_pierrehumbert}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In the third step, we need 
 \begin_inset Formula $z$
 \end_inset
@@ -331,8 +310,7 @@ In the third step, we need
 \begin_inset Formula $x(t)$
 \end_inset
 
-, so that the volume is conserved (the determinant of the Jacobian matrix
- is equal to 1).
+, so that the volume is conserved (the determinant of the Jacobian matrix is equal to 1).
 \end_layout
 
 \begin_layout Section
@@ -340,9 +318,7 @@ Characteristics of standard spatial point processes
 \end_layout
 
 \begin_layout Standard
-In order to familiarize the reader with spatial point process metrics, we
- present here the analytical formulas and corresponding figures (Fig.
- 
+In order to familiarize the reader with spatial point process metrics, we present here the analytical formulas and corresponding figures (Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Example-Poisson"
@@ -366,12 +342,7 @@ noprefix "false"
 \begin_inset Formula $K$
 \end_inset
 
--function and dominance index for standard point processes.
- We focus on the uniform distribution, i.e.
- the Poisson point process, and a clustered distribution, the Thomas point
- process.
- The Thomas point process is the result of a two-stage mechanism: a Poisson
- point process generates 
+-function and dominance index for standard point processes. We focus on the uniform distribution, i.e. the Poisson point process, and a clustered distribution, the Thomas point process. The Thomas point process is the result of a two-stage mechanism: a Poisson point process generates 
 \begin_inset Quotes eld
 \end_inset
 
@@ -387,18 +358,11 @@ daughter points
 \begin_inset Quotes erd
 \end_inset
 
- are scattered, their location
-\change_inserted -2100369821 1655111238
-s
-\change_unchanged
- following a Gaussian distribution centered on the parent location, with
- standard deviation 
+ are scattered, their locations following a Gaussian distribution centered on the parent location, with standard deviation 
 \begin_inset Formula $\sigma$
 \end_inset
 
-.
- The numbers of parents and daughters per parent follow two Poisson distribution
-s with mean 
+. The numbers of parents and daughters per parent follow two Poisson distributions with mean 
 \begin_inset Formula $N_{p}$
 \end_inset
 
@@ -414,36 +378,22 @@ Pair correlation function
 \end_layout
 
 \begin_layout Standard
-In the case of a Poisson point process,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+In the case of a Poisson point process, 
+\begin_inset Formula \begin{equation}
 \forall r\geq0\text{, }g_{ii}(r)=1.
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-For a Thomas point process, the expected value of the pcf is
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+For a Thomas point process, the expected value of the pcf is 
+\begin_inset Formula \begin{equation}
 g_{ii}(r)=1+\frac{1}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $C_{p}=N_{p}/V$
 \end_inset
@@ -460,8 +410,7 @@ where
 \end_layout
 
 \begin_layout Standard
-For a random superposition of stationary point processes with marks (species)
- 
+For a random superposition of stationary point processes with marks (species) 
 \begin_inset Formula $i$
 \end_inset
 
@@ -477,6 +426,7 @@ For a random superposition of stationary point processes with marks (species)
 \begin_inset CommandInset citation
 LatexCommand citep
 after " p. 326, eq. 5.3.13"
+before ""
 key "illian2008statistical"
 literal "false"
 
@@ -494,34 +444,20 @@ Ripley's
 \end_layout
 
 \begin_layout Standard
-In the case of a Poisson point process,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+In the case of a Poisson point process, 
+\begin_inset Formula \begin{equation}
 \forall r\geq0\text{, }K_{ii}(r)=\frac{4}{3}\pi r^{3}.\label{eq:k_poisson}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-For a Thomas point process,
-\change_deleted -666822487 1656509408
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+For a Thomas point process, 
+\begin_inset Formula \begin{equation}
 K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right).\label{eq:k_thomas}
 \end{equation}
-
 \end_inset
 
 
@@ -536,6 +472,7 @@ For a random superposition of stationary point processes,
 \begin_inset CommandInset citation
 LatexCommand citep
 after "p. 324, eq. 5.3.5"
+before ""
 key "illian2008statistical"
 literal "false"
 
@@ -553,24 +490,17 @@ In the Poisson point process,
 \begin_inset Formula $K_{ii}(r)=K_{ij}(r)$
 \end_inset
 
-, which means that the dominance index can be reduced to ratios of concentration
-s:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+, which means that the dominance index can be reduced to ratios of concentrations: 
+\begin_inset Formula \begin{equation}
 \mathcal{D}_{i}(r)=\frac{C_{i}}{\sum_{j=1}^{S}C_{j}}.
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-In the Thomas process, using eq.
- 
+In the Thomas process, using eq. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:k_thomas"
@@ -580,21 +510,12 @@ noprefix "false"
 
 \end_inset
 
-,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+, 
+\begin_inset Formula \begin{equation}
 \mathcal{D}_{i}(r)=\frac{C_{i}\left(\frac{4}{3}\pi r^{3}+\frac{F(r)}{C_{p,i}}\right)}{C_{i}\frac{F(r)}{C_{p,i}}+\sum_{j}C_{j}\frac{4}{3}\pi r^{3}}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 with 
 \begin_inset Formula $F(r)=\frac{1}{\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right)$
 \end_inset
@@ -603,33 +524,36 @@ with
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/example_Poisson_distribution.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/example_Poisson_distribution.eps
 	width 100text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical pair correlation function
- (b), Ripley's 
+Example of spatial distribution (a) and theoretical pair correlation function (b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
--function (c) and dominance index (d) for a Poisson point process in a 3-species
- community with different intensities (10000 cm
+-function (c) and dominance index (d) for a Poisson point process in a 3-species community with different intensities (10000 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -641,21 +565,10 @@ Example of spatial distribution (a) and theoretical pair correlation function
 \begin_inset Formula $^{-3}$
 \end_inset
 
-; proportions in the community are given in the figure).
- 
+; proportions in the community are given in the figure). 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Example-Poisson"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-dominance_code_poisson
-\end_layout
 
 \end_inset
 
@@ -673,33 +586,36 @@ dominance_code_poisson
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/example_Thomas_distribution.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/example_Thomas_distribution.eps
 	width 75text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Example of spatial distribution (a) and theoretical pair correlation function
- (b), Ripley's 
+Example of spatial distribution (a) and theoretical pair correlation function (b), Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
--function (c) and dominance index (d) for a Thomas point process in 3-species
- community with different parent intensities (200 cm
+-function (c) and dominance index (d) for a Thomas point process in 3-species community with different parent intensities (200 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -711,8 +627,7 @@ Example of spatial distribution (a) and theoretical pair correlation function
 \begin_inset Formula $^{-3}$
 \end_inset
 
-), and different children per parent intensities (50, 10, 50; final proportions
- in the communities are given in the figure), with 
+), and different children per parent intensities (50, 10, 50; final proportions in the communities are given in the figure), with 
 \begin_inset Formula $\sigma=0.01$
 \end_inset
 
@@ -720,16 +635,6 @@ Example of spatial distribution (a) and theoretical pair correlation function
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Example-Thomas"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-dominance_code_thomas
-\end_layout
 
 \end_inset
 
@@ -763,11 +668,7 @@ The theoretical formulas of
 \begin_inset Formula $\mathcal{D}$
 \end_inset
 
- can be used to study the behaviour of the BBM.
- In the absence of advection, convergence cannot be reached in a reasonable
- timeframe: even a week is not long enough for the steady-state solution
- to be reached (see blue line in Fig.
- 
+ can be used to study the behaviour of the BBM. In the absence of advection, convergence cannot be reached in a reasonable timeframe: even a week is not long enough for the steady-state solution to be reached (see blue line in Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Theoretical-convergence"
@@ -777,49 +678,32 @@ noprefix "false"
 
 \end_inset
 
-)
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Indicate quantitative values for time
-\end_layout
-
-\end_inset
-
-.
- However, the equilibrium hypothesis that we use cannot hold for such a
- long amount of time, which led us to use the time-dependent formula shown
- in Eqs.
- 6, 10 and 13 in the main text
-\change_deleted -2100369821 1656603282
-)
-\change_unchanged
-.
-\change_inserted -2100369821 1655285166
-
+). However, the equilibrium hypothesis that we use cannot hold for such a long amount of time, which led us to use the time-dependent formula shown in Eqs. 6, 10 and 13 in the main text.
 \end_layout
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1655107599
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/convergence_wo_advection.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/convergence_wo_advection.eps
 	height 90theight%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -827,33 +711,14 @@ Intraspecific pair correlation function (a, b), Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function (c,d) and dominance index (e,f) as a function of distance (in
- cm) for microphytoplankton and nanophytoplankton in the absence of advection,
- for a single species in a 3-species community with an even abundance distributi
-on.
- Shorter timeframes are shown with light grey lines while longer ones are
- shown with darker shades.
- The theoretical value at steady state is shown in red.
- The duration currently used in the simulations (
+-function (c,d) and dominance index (e,f) as a function of distance (in cm) for microphytoplankton and nanophytoplankton in the absence of advection, for a single species in a 3-species community with an even abundance distribution. Shorter timeframes are shown with light grey lines while longer ones are shown with darker shades. The theoretical value at steady state is shown in red. The duration currently used in the simulations (
 \begin_inset Formula $t=1000$
 \end_inset
 
-) is shown with dashed black lines.
- A duration corresponding to a week is shown with solid blue lines.
- Dotted orange lines correspond to the distance threshold for interaction.
+) is shown with dashed black lines. A duration corresponding to a week is shown with solid blue lines. Dotted orange lines correspond to the distance threshold for interaction.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Theoretical-convergence"
-
-\end_inset
-
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-check_convergence
-\end_layout
 
 \end_inset
 
@@ -871,8 +736,7 @@ check_convergence
 \end_layout
 
 \begin_layout Standard
-In a similar fashion, we can show with the dominance index (Fig.
- 
+In a similar fashion, we can show with the dominance index (Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Theoretical-dom"
@@ -882,53 +746,40 @@ noprefix "false"
 
 \end_inset
 
-) the progressive clustering of individuals with time when advection is
- absent, and compare it to the steady state 
-\change_deleted -2100369821 1656603351
-
-\emph on
-,
-\change_unchanged
-
-\emph default
- this time 
+) the progressive clustering of individuals with time when advection is absent, and compare it to the steady state this time 
 \emph on
 with
 \emph default
- advection.
- We see that even after a short period of time (t=100), the dominance index
- without advection is larger than with advection, and this spatial aggregation
- only grows with time in absence of turbulent advection.
+ advection. We see that even after a short period of time (t=100), the dominance index without advection is larger than with advection, and this spatial aggregation only grows with time in absence of turbulent advection.
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/theory_dominance.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/theory_dominance.eps
 	width 80text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Theoretical dominance indices as a function of the distance (in cm) from
- a particle of a given species, for a microphytoplankton (a) and nanophytoplankt
-on (b) 3-species community with an even abundance distribution, with (red
- line) and without (grey to black lines, with darker lines for longer simulation
-s) advection.
- The vertical dashed line corresponds to the distance threshold for interaction.
- 
+Theoretical dominance indices as a function of the distance (in cm) from a particle of a given species, for a microphytoplankton (a) and nanophytoplankton (b) 3-species community with an even abundance distribution, with (red line) and without (grey to black lines, with darker lines for longer simulations) advection. The vertical dashed line corresponds to the distance threshold for interaction. 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Theoretical-dom"
@@ -936,11 +787,6 @@ name "fig:Theoretical-dom"
 \end_inset
 
 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-theory_dominance
 \end_layout
 
 \end_inset
@@ -950,13 +796,6 @@ theory_dominance
 
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -2100369821 1655107436
 
 \end_layout
 
@@ -969,13 +808,11 @@ Computation of the pair correlation function and Ripley's
 \end_layout
 
 \begin_layout Standard
-The algorithm for the pcf computation was mostly taken from the function
- 
+The algorithm for the pcf computation was mostly taken from the function 
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
 
 \backslash
 verb|pcf3est|
@@ -986,6 +823,8 @@ verb|pcf3est|
  in spatstat 2.2-0 
 \begin_inset CommandInset citation
 LatexCommand citep
+after ""
+before ""
 key "baddeley_spatstat"
 literal "false"
 
@@ -1007,22 +846,13 @@ Schematically, the pcf estimate
 \begin_inset Formula $\delta$
 \end_inset
 
-, i.e.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+, i.e. 
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \hat{g}_{ij}(r) & = & \frac{1}{\hat{C_{i}}}\frac{1}{\hat{C_{j}}}\frac{1}{4\pi r^{2}}\sum_{_{i}}\sum_{j}\kappa_{E}(r-||x_{i}-x_{j}||)w(x_{i},x_{j})\end{array}\label{eq:pcf_estimate}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $w(x_{i},x_{j})$
 \end_inset
@@ -1030,23 +860,20 @@ where
  is the Ohser translation correction estimator 
 \begin_inset CommandInset citation
 LatexCommand citep
+after ""
+before ""
 key "ohser_estimators_1983"
 literal "false"
 
 \end_inset
 
- and the kernel is defined as follow.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+ and the kernel is defined as follow. 
+\begin_inset Formula \begin{equation}
 \kappa_{E}(x)=\begin{cases}
 \frac{3}{4\delta}\left(1-\frac{x^{2}}{\delta^{2}}\right) & \text{for }-\delta\leq x\leq\delta\\
 0 & \text{otherwise}.
 \end{cases}
 \end{equation}
-
 \end_inset
 
 
@@ -1054,42 +881,14 @@ literal "false"
 
 \begin_layout Standard
 The estimate 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
 \begin_inset Formula $\hat{g}_{ij}(r)$
 \end_inset
 
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- is therefore very sensitive to the bandwidth: if it is too small, the estimate
- is noisy and may even be missing several pairs of points; if it is too
- large, the smoothing might be so important that values are strongly underestima
-ted.
- In spatstat 2.2-0 
+ is therefore very sensitive to the bandwidth: if it is too small, the estimate is noisy and may even be missing several pairs of points; if it is too large, the smoothing might be so important that values are strongly underestimated. In spatstat 2.2-0 
 \begin_inset CommandInset citation
 LatexCommand citep
+after ""
+before ""
 key "baddeley_spatstat"
 literal "false"
 
@@ -1099,22 +898,7 @@ literal "false"
 \begin_inset Formula $\delta=0.26C^{-1/3}$
 \end_inset
 
-.
- The pcf computation function was first tested on standard distributions
- (with the default bandwidth), then on the Brownian Bug Model (with different
- bandwidths, see below).
-
-\change_deleted -666822487 1656509461
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace defskip
-\end_inset
-
-
+. The pcf computation function was first tested on standard distributions (with the default bandwidth), then on the Brownian Bug Model (with different bandwidths, see below).
 \end_layout
 
 \begin_layout Standard
@@ -1122,28 +906,7 @@ Estimates of the Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function were also performed with the Ohser translation correction estimator
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-FB asks why we needed this.
- CP: I do not understand the question.
- We need an edge-correction; and it is also present in spatstat
-\end_layout
-
-\end_inset
-
- but did not require any kernel smoothing.
- The same computation could be done using wrapped-around boundary conditions
- (for pcf estimation; for simulation we always consider periodic boundary
- conditions).
-
-\change_deleted -2100369821 1656574229
- 
-\change_unchanged
-
+-function were also performed with the Ohser translation correction estimator but did not require any kernel smoothing. The same computation could be done using wrapped-around boundary conditions (for pcf estimation; for simulation we always consider periodic boundary conditions).
 \end_layout
 
 \begin_layout Subsection
@@ -1151,23 +914,28 @@ Standard point processes
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/K_PCF_Poisson.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/K_PCF_Poisson.eps
 	height 85theight%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1175,8 +943,7 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and pair correlation function values as a function of distance
- (in cm) for 3 species following a Poisson process with intensity 10 cm
+-function and pair correlation function values as a function of distance (in cm) for 3 species following a Poisson process with intensity 10 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -1184,25 +951,7 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $^{3}$
 \end_inset
 
-.
- Values computed from our simulations (circles and solid lines for intra-
- and interspecific values, respectively) are compared with theoretical formula
- (dotted lines).
- Note that theoretical values are the same for intra and interspecific moments
- for the Poisson distribution.
- Colors correspond to the different species (red for species 0, blue for
- species 1, grey for species 2).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-quick_view_Thomas with sim=100
-\end_layout
-
-\end_inset
-
-
+. Values computed from our simulations (circles and solid lines for intra- and interspecific values, respectively) are compared with theoretical formula (dotted lines). Note that theoretical values are the same for intra and interspecific moments for the Poisson distribution. Colors correspond to the different species (red for species 0, blue for species 1, grey for species 2). 
 \end_layout
 
 \end_inset
@@ -1216,23 +965,28 @@ quick_view_Thomas with sim=100
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/K_PCF_Thomas.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/K_PCF_Thomas.eps
 	width 80text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -1240,9 +994,7 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function and pair correlation function values as a function of distance
- (in cm) for 3 species following a Thomas process with parent intensity
- 
+-function and pair correlation function values as a function of distance (in cm) for 3 species following a Thomas process with parent intensity 
 \begin_inset Formula $C_{p}=200$
 \end_inset
 
@@ -1266,23 +1018,7 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $\delta\approx0.01$
 \end_inset
 
-2.
- Values computed from our simulations (circles and solid lines for intra-
- and interspecific values, respectively) are compared with theoretical formula
- (dashed and dotted lines for intra- and interspecific values, respectively).
- Colors correspond to the different species (red for species 0, blue for
- species 1, grey for species 2).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-quick_view_Thomas with sim=107
-\end_layout
-
-\end_inset
-
-
+2. Values computed from our simulations (circles and solid lines for intra- and interspecific values, respectively) are compared with theoretical formula (dashed and dotted lines for intra- and interspecific values, respectively). Colors correspond to the different species (red for species 0, blue for species 1, grey for species 2). 
 \end_layout
 
 \end_inset
@@ -1300,17 +1036,11 @@ Brownian Bug Model
 \end_layout
 
 \begin_layout Standard
-While the pcf was one of the first indices that we intended to use, we quickly
- realized that the combination of the large range of distances we wanted
- to explore (from 
+While the pcf was one of the first indices that we intended to use, we quickly realized that the combination of the large range of distances we wanted to explore (from 
 \begin_inset Formula $10^{-4}$
 \end_inset
 
- to 1 cm) and the low density of individuals, at least for microphytoplankton,
- made the estimation difficult as the choice of the bandwidth was critical.
- We give an example of the sensitivity of the pcf computation to the bandwidth
- below (Fig.
- 
+ to 1 cm) and the low density of individuals, at least for microphytoplankton, made the estimation difficult as the choice of the bandwidth was critical. We give an example of the sensitivity of the pcf computation to the bandwidth below (Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:bandwidth_BBM"
@@ -1324,232 +1054,36 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
 
-\begin_layout Plain Layout
-To find the a good estimate for the bandwidth, we can consider expected
- distances between points.
- For a Poisson process, these are easy to compute.
-
-\change_deleted -666822487 1656510049
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-\paragraph_spacing double
-In 
-\begin_inset Formula $d$
-\end_inset
-
- dimensions, the probability distribution of the distance 
-\begin_inset Formula $r$
-\end_inset
-
- to the nearest-neighbour follows 
-\begin_inset Formula $f(r)=db_{d}\lambda r^{d-1}\exp(-b_{d}r^{_{d}}\lambda)$
-\end_inset
-
-).
- If we want to find the distribution of the minimum distance between 
-\begin_inset Formula $n$
-\end_inset
-
- realized points of a Poisson process with intensity 
-\begin_inset Formula $\lambda$
-\end_inset
-
-, we can write:
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ccc}
-Pr(\min(R_{1},...,R_{n})>r) & = & Pr(R_{1}>r,...,R_{n}>r)\\
- & = & \Pi_{i}Pr(R_{i}>r)\\
- & = & \Pi_{i}\exp(-b_{d}r^{_{d}}\lambda)\\
- & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}\lambda)
-\end{array}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-We can then conclude that the distribution of the minimum distance follows
- the same distribution as the nearest-neighbour distribution, but with intensity
- 
-\begin_inset Formula $n\lambda$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset VSpace defskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset CommandInset citation
-LatexCommand citet
-key "clark_generalization_1979"
-literal "false"
-
-\end_inset
-
- show that a variable with probability distribution (with notations changed
- to fit our own) 
-\begin_inset Formula $f(r)=\frac{d\lambda\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{\lambda\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=d\lambda b_{d}r^{d-1}\exp(-\lambda b_{d}r^{d})$
-\end_inset
-
- has an expectid value of 
-\begin_inset Formula $\mu_{d}=\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{\lambda^{1/d}\pi^{1/2}}$
-\end_inset
-
-.
-
-\change_deleted -666822487 1656510049
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-With intensity 
-\begin_inset Formula $n\lambda$
-\end_inset
-
-, we can write 
-\begin_inset Formula $\frac{\left(\Gamma(\frac{d}{2}+1)\right)^{1/d}\Gamma(\frac{1}{d}+1)}{(n\lambda)^{1/d}\pi^{1/2}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset VSpace defskip
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-In 3D,
-\change_deleted -666822487 1656510049
- 
-\change_unchanged
-
-\end_layout
-
-\begin_layout Plain Layout
-\paragraph_spacing double
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ccc}
-\mu_{d} & = & (n\lambda)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
- & = & (n\lambda)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
- & \approx & 0.554\frac{1}{(n\lambda)^{1/3}}
-\end{array}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-This needs to be taken into account when defining 
-\begin_inset Formula $\delta$
-\end_inset
-
-.
- As a first proxy, using 
-\begin_inset Formula $\lambda=$
-\end_inset
-
-10 cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- and 
-\begin_inset Formula $n\approx10^{4}$
-\end_inset
-
- (microphytoplankton) or 
-\begin_inset Formula $\lambda=$
-\end_inset
-
-10
-\begin_inset Formula $^{3}$
-\end_inset
-
- cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- and 
-\begin_inset Formula $n\approx10^{4}$
-\end_inset
-
- (nanophytoplankton), we would expect the smallest distances to be 
-\begin_inset Formula $1.2\times10^{-2}$
-\end_inset
-
- cm and 
-\begin_inset Formula $2.6\times10^{-3}$
-\end_inset
-
- cm, respectively.
- Assuming a uniform distribution, we could therefore use 
-\begin_inset Formula $\delta=$
-\end_inset
-
- and 
-\begin_inset Formula $\delta$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/bandwidth_BBM.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/bandwidth_BBM.eps
 	width 60text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Intraspecific pair correlation function as a function of distance (in cm)
- computed for the Brownian bug model with microphytoplankton individuals,
- after 1000 time steps, with different values of the bandwidth 
+Intraspecific pair correlation function as a function of distance (in cm) computed for the Brownian bug model with microphytoplankton individuals, after 1000 time steps, with different values of the bandwidth 
 \begin_inset Formula $\delta$
 \end_inset
 
-.
- The dashed line indicates the theoretical pcf.
+. The dashed line indicates the theoretical pcf.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:bandwidth_BBM"
@@ -1557,16 +1091,6 @@ name "fig:bandwidth_BBM"
 \end_inset
 
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-(pcf_bandwidth_BBM.r avec simulations list(4,5,6,0))
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1584,9 +1108,7 @@ We decided, from these results, to focus on Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function, which enabled us to compute the dominance index without having
- to calibrate a bandwidth beforehand.
- 
+-function, which enabled us to compute the dominance index without having to calibrate a bandwidth beforehand.
 \end_layout
 
 \begin_layout Section
@@ -1594,28 +1116,32 @@ Spatial distributions
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/spatial_distribution_zoom_micro0.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/spatial_distribution_zoom_micro0.eps
 	width 99text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Spatial distributions of a 3-species community of microphytoplankton with
- and without advection with density 
+Spatial distributions of a 3-species community of microphytoplankton with and without advection with density 
 \begin_inset Formula $C=10$
 \end_inset
 
@@ -1623,9 +1149,7 @@ Spatial distributions of a 3-species community of microphytoplankton with
 \begin_inset Formula $^{-3}$
 \end_inset
 
- after 1000 time steps.
- Each color corresponds to a different species.
- On the left-hand side, only a zoom on a 
+ after 1000 time steps. Each color corresponds to a different species. On the left-hand side, only a zoom on a 
 \begin_inset Formula $2\times2\times2$
 \end_inset
 
@@ -1633,9 +1157,7 @@ Spatial distributions of a 3-species community of microphytoplankton with
 \begin_inset Formula $^{3}$
 \end_inset
 
- cube is shown, and its projection on the x-y plane is shown on the right
- hand-side.
- 
+ cube is shown, and its projection on the x-y plane is shown on the right hand-side. 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Spatial-distributions"
@@ -1643,16 +1165,6 @@ name "fig:Spatial-distributions"
 \end_inset
 
  
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-spatial_distribution.r 0:3
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_inset
@@ -1667,37 +1179,6 @@ spatial_distribution.r 0:3
 
 \begin_layout Section
 Minimum distances between individuals
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -2100369821 1655112365
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1655112444
-Wondering if we spend too much time on this part.
- Figures take too much place, whereas this is really not a crucial point.
-
-\change_inserted -666822487 1656510027
- F: perhaps remove the figures but store them somewhere in the repo
-\emph on
- together with their legends.
- 
-\change_inserted -2100369821 1656603990
-
-\shape italic
-C: I chose to remove only one of the figures, the equivalent of Fig.
- S9, but for nanophytoplankton.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -1717,15 +1198,7 @@ One of the reasons why estimating
 \begin_inset Formula $^{-2}$
 \end_inset
 
-), we can find very few observations of pairs of points.
- As a first proxy, we want to estimate the minimum expected distance between
- points (distance to the nearest neighbour, DNN) when they are uniformly
- distributed.
-
-\change_deleted -2100369821 1653319971
- 
-\change_unchanged
-
+), we can find very few observations of pairs of points. As a first proxy, we want to estimate the minimum expected distance between points (distance to the nearest neighbour, DNN) when they are uniformly distributed.
 \end_layout
 
 \begin_layout Standard
@@ -1745,8 +1218,7 @@ In
 \begin_inset Formula $C$
 \end_inset
 
- is the intensity of the process.
- If we want to find the distribution of the minimum DNN between 
+ is the intensity of the process. If we want to find the distribution of the minimum DNN between 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1754,13 +1226,8 @@ In
 \begin_inset Formula $C$
 \end_inset
 
-, we can write
-\change_deleted -2100369821 1655111726
-:
-\change_unchanged
-
-\begin_inset Formula 
-\begin{equation}
+, we can write 
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \mathbb{P}(\min(R_{1},...,R_{n})>r) & = & \mathbb{P}(R_{1}>r,...,R_{n}>r)\\
  & = & \Pi_{i}^{n}\mathbb{P}(R_{i}>r)\\
@@ -1768,15 +1235,13 @@ In
  & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}^{n}C).
 \end{array}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-We can then conclude that the distribution of the minimum distance follows
- the same distribution as the DNN, but with intensity 
+We can then conclude that the distribution of the minimum distance follows the same distribution as the DNN, but with intensity 
 \begin_inset Formula $nC$
 \end_inset
 
@@ -1784,22 +1249,25 @@ We can then conclude that the distribution of the minimum distance follows
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace defskip
+
+\begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset CommandInset citation
 LatexCommand citet
+after ""
+before ""
 key "clark_generalization_1979"
 literal "false"
 
 \end_inset
 
- show that a variable with probability distribution (with notations changed
- to fit our own) 
+ show that a variable with probability distribution (with notations changed to fit our own) 
 \begin_inset Formula $f(r)=\frac{dC\pi^{d/2}r^{d-1}}{\Gamma(\frac{d}{2}+1)}\exp(-\frac{C\pi^{d/2}r^{d}}{\Gamma(\frac{d}{2}+1)})=dCb_{d}r^{d-1}\exp(-Cb_{d}r^{d})$
 \end_inset
 
@@ -1823,7 +1291,8 @@ With intensity
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace defskip
+
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -1831,19 +1300,13 @@ With intensity
 
 \begin_layout Standard
 In 3D, 
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing double
-\begin_inset Formula 
-\begin{equation}
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \mu_{d} & = & (nC)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
  & = & (nC)^{-1/3}\left(\frac{3}{2}\Gamma(3/2)\right)^{1/3}\frac{1}{3}\Gamma(1/3)\frac{1}{\pi^{1/2}}\\
  & \approx & 0.554\frac{1}{(nC)^{1/3}}.
 \end{array}\label{eq:dnn_realization}
 \end{equation}
-
 \end_inset
 
 
@@ -1854,8 +1317,7 @@ This needs to be taken into account when defining
 \begin_inset Formula $C$
 \end_inset
 
-.
- For microphytoplankton, using 
+. For microphytoplankton, using 
 \begin_inset Formula $C=10$
 \end_inset
 
@@ -1871,8 +1333,7 @@ This needs to be taken into account when defining
 \begin_inset Formula $1.2\times10^{-2}$
 \end_inset
 
- cm.
- For nanophytoplankton, using 
+ cm. For nanophytoplankton, using 
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
@@ -1888,9 +1349,8 @@ This needs to be taken into account when defining
 \begin_inset Formula $2.6\times10^{-3}$
 \end_inset
 
- cm.
- 
-\begin_inset VSpace defskip
+ cm. 
+\begin_inset VSpace medskip
 \end_inset
 
 
@@ -1901,11 +1361,7 @@ Simulations
 \end_layout
 
 \begin_layout Standard
-We can compute the simulated distance to the nearest neighbour and compare
- it to what we should obtain with a uniform distribution 
-\change_deleted -2100369821 1656604051
-(Fig.
- 
+We can compute the simulated distance to the nearest neighbour and compare it to what we should obtain with a uniform distribution : the simulated mean distance to the nearest organism, regardless of its species, is close to the expected value for a uniform distribution, but the minimum distance to a conspecific is much lower than expected (Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Distance_micro"
@@ -1915,77 +1371,36 @@ noprefix "false"
 
 \end_inset
 
- and 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Distance_nano"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-)
-\change_unchanged
-: the simulated 
-\change_deleted -2100369821 1656604065
-average DNN
-\change_inserted -2100369821 1656604079
-mean distance to the nearest organism, regardless of its species,
-\change_unchanged
- 
-\change_deleted -2100369821 1656604082
-are
-\change_inserted -2100369821 1656604082
-is
-\change_unchanged
- close to the expected value for a uniform distribution, but the minimum
- distance to a conspecific is much lower than expected
-\change_inserted -2100369821 1656604053
- (Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Distance_micro"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
- for microphytoplankton, results are similar for nanophytoplankton)
-\change_unchanged
-.
-
-\change_deleted -2100369821 1653319951
- 
-\change_unchanged
-
+ for microphytoplankton, results are similar for nanophytoplankton).
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/distrib_distance_micro_box_10sp.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/distrib_distance_micro_box_10sp.eps
 	width 70text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean and minimum distance (in cm) to the nearest neighbour for 10 microphytoplan
-kton species with density 
+Mean and minimum distance (in cm) to the nearest neighbour for 10 microphytoplankton species with density 
 \begin_inset Formula $C=10$
 \end_inset
 
@@ -1993,17 +1408,7 @@ kton species with density
 \begin_inset Formula $^{-3}$
 \end_inset
 
-, with and without advection, after 1000 time steps, compared to predictions
- for a uniform distribution.
- Horizontal lines show the average distance to the nearest neighbour (grey
- line) and the expected minimum distance to the nearest neighbour with the
- actual number of realizations (black line).
- Circles and triangles represent mean and minimum distance to a conspecific,
- respectively.
- Boxplot corresponds to the distribution of mean (grey outlines) and minimum
- (black outlines) distances to a heterospecific.
- Colors correspond to different species.
- 
+, with and without advection, after 1000 time steps, compared to predictions for a uniform distribution. Horizontal lines show the average distance to the nearest neighbour (grey line) and the expected minimum distance to the nearest neighbour with the actual number of realizations (black line). Circles and triangles represent mean and minimum distance to a conspecific, respectively. Boxplot corresponds to the distribution of mean (grey outlines) and minimum (black outlines) distances to a heterospecific. Colors correspond to different species. 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Distance_micro"
@@ -2023,78 +1428,12 @@ name "fig:Distance_micro"
 
 \end_layout
 
-\begin_layout Standard
-
-\change_deleted -2100369821 1656575031
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../code/figure/distrib_distance_nano_box_10sp.pdf
-	width 70text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Mean and minimum distance (in cm) to the nearest neighbour for 10 nanophytoplank
-ton species with density 
-\begin_inset Formula $C=10^{3}$
-\end_inset
-
- cells.cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
-, with and without advection, after 1000 time steps, compared to predictions
- for a uniform distribution.
- Horizontal lines show the average distance to the nearest neighbour (grey
- line) and the expected minimum distance to the nearest neighbour with the
- actual number of realizations (black line).
- Circles and triangles represent mean and minimum distance to a conspecific,
- respectively.
- Boxplot corresponds to the distribution of mean (grey outlines) and minimum
- (black outlines) distances to a heterospecific.
- Colors correspond to different species.
- 
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Distance_nano"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
 \begin_layout Subsubsection*
 Relationship with densities
 \end_layout
 
 \begin_layout Standard
-In the case of a uniform distribution, an increase in density leads to a
- decrease in distance to the nearest neighbour (eq.
- 
+In the case of a uniform distribution, an increase in density leads to a decrease in distance to the nearest neighbour (eq. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:dnn_realization"
@@ -2104,40 +1443,36 @@ noprefix "false"
 
 \end_inset
 
-).
- Mechanically, we can indeed expect that if the number of particles increases
- within the same volume, they likely get closer to each other.
- We confirm that this is also the case in the Brownian Bug Model.
- 
+). Mechanically, we can indeed expect that if the number of particles increases within the same volume, they likely get closer to each other. We confirm that this is also the case in the Brownian Bug Model.
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/dist_abundances_10sp_v2.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/dist_abundances_10sp_v2.eps
 	width 75text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Mean distance (in cm) to the nearest conspecific (filled circle) or heterospecif
-ic (empty square) as a function of density in the environment for both microphyt
-oplankton (black) and nanophytoplankton (grey) communities with a skewed
- abundance distribution, in the presence of advection.
-\change_inserted -2100369821 1653319915
-
+Mean distance (in cm) to the nearest conspecific (filled circle) or heterospecific (empty square) as a function of density in the environment for both microphytoplankton (black) and nanophytoplankton (grey) communities with a skewed abundance distribution, in the presence of advection.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Distance_abundance"
@@ -2145,8 +1480,6 @@ name "fig:Distance_abundance"
 \end_inset
 
 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -2156,282 +1489,6 @@ name "fig:Distance_abundance"
 
 \end_inset
 
-
-\change_deleted -2100369821 1656604612
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574970
-Effect of the initial distribution
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574970
-Individuals are uniformly distributed in the cube at the start of all simulation
-s shown in the manuscript.
- However, we have no reason to believe that such spatial distribution is
- more appropriate than a more clustered one to begin with.
- In Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Dominance-after_Thomas"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-, we show the final dominances obtained with and without advection, starting
- from a superposition of Thomas processes, i.e.
- each species was distributed with its own Thomas process.
-
-\change_deleted -666822487 1656510072
- 
-\change_deleted -2100369821 1656574970
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574970
-The initial distribution changes from 
-\begin_inset Formula $G(r,0)=C^{2}$
-\end_inset
-
- to 
-\begin_inset Formula $G(r,0)=C^{2}+\frac{C^{2}}{C_{p}}\frac{1}{\left(4\pi\sigma^{2}\right)^{3/2}}e^{-\left(\frac{r^{2}}{4\sigma^{2}}\right)}$
-\end_inset
-
-, 
-\change_deleted -666822487 1656510105
-, 
-\change_deleted -2100369821 1656574970
-which also changes the formulation of the pair density function
-\change_deleted -666822487 1656510109
-t
-\change_deleted -2100369821 1656574970
- to
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574970
-\begin_inset Formula 
-\begin{equation}
-K(r,t)=\frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi r^{3}+\frac{1}{C_{p}\sigma\sqrt{\pi}}\left(\sigma\sqrt{\pi}\erf\left(\frac{r}{2\sigma}\right)-re^{-\left(\frac{r}{2\sigma}\right)^{2}}\right).\label{eq:K_bbm_thomas}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574970
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../code/figure/shift_of_dominance.pdf
-	width 95text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Dominance indices as a function of distance (in cm) for microphytoplankton
- (a) and nanophytoplankton (b) in a 3-species community with even distributions
- after 1000 timesteps starting from a superposition of species-specific
- Thomas point processes, with (circles) and without (lines) advection.
- The triangles correspond to the dominance index at the start of the simulation,
- i.e.
- when individuals are only distributed according to a Thomas point process
- with parent intensity 
-\begin_inset Formula $C_{p}=0.2$
-\end_inset
-
- cells.cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{p}=20$
-\end_inset
-
- cells.cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- for microphytoplankton and nanophytoplankton respectively, number of children
- per parent 
-\begin_inset Formula $N_{c}=50$
-\end_inset
-
-, and 
-\begin_inset Formula $\sigma=0.001$
-\end_inset
-
-.
- Each color represents a different species.
- The black points and line corresponds to the theoretical values of the
- dominance index.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Dominance-after_Thomas"
-
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-shift_dominance 20-23
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574921
-Simulated and theoretical values match for a 1000-time steps duration (Fig.
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:Dominance-noadv_Thomas"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-).
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-What happens for longer durations?
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted -2100369821 1656574921
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename ../code/figure/shift_of_dominance_noadv_zoom.pdf
-	width 95text%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Dominance indices for large distances (in cm) for one species in a microphytopla
-nkton (a) and nanophytoplankton (b) 3-species community with even distributions
- after different simulation durations starting from a superposition of species-s
-pecific Thomas point processes in the absence of advection.
- The dotted line corresponds to the dominance index at the start of the
- simulation, i.e.
- when individuals are only distributed according to a Thomas point process
- with parent intensity 
-\begin_inset Formula $C_{p}=0.2$
-\end_inset
-
- cells.cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- and 
-\begin_inset Formula $C_{p}=20$
-\end_inset
-
- cells.cm
-\begin_inset Formula $^{-3}$
-\end_inset
-
- for microphytoplankton and nanophytoplankton respectively, number of children
- per parent 
-\begin_inset Formula $N_{c}=50$
-\end_inset
-
-, and 
-\begin_inset Formula $\sigma=0.001$
-\end_inset
-
-.
- Each colored line represents a different simulation duration, and black
- symbols correspond to the theoretical values of the dominance index.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:Dominance-noadv_Thomas"
-
-\end_inset
-
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-shift_dominance_noadv_zoom.r 21, 23, 25-27
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 
 \end_layout
 
@@ -2440,8 +1497,7 @@ Sensitivity to the computation of the advection parameter
 \end_layout
 
 \begin_layout Standard
-To compute the value of the maximum velocity of an organism in our model
- at the Kolmogorov scale, we used the formula 
+To compute the value of the maximum velocity of an organism in our model at the Kolmogorov scale, we used the formula 
 \begin_inset Formula $Re=U/k\nu\approx1$
 \end_inset
 
@@ -2449,14 +1505,11 @@ To compute the value of the maximum velocity of an organism in our model
 \begin_inset Formula $k$
 \end_inset
 
- is the smallest wavenumber associated with turbulence.
- However, we could compute the Reynolds number with another, slightly different
- formula, using the equivalent sphere diameter (
+ is the smallest wavenumber associated with turbulence. However, we could compute the Reynolds number with another, slightly different formula, using the equivalent sphere diameter (
 \begin_inset Formula $L_{v}$
 \end_inset
 
-) of our system (eq.
- 
+) of our system (eq. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:re_lv"
@@ -2466,24 +1519,18 @@ noprefix "false"
 
 \end_inset
 
-).
- In this case, 
+). In this case, 
 \begin_inset Formula $Re=UL_{v}/\nu$
 \end_inset
 
- and
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+ and 
+\begin_inset Formula \begin{equation}
 \begin{array}{cccc}
  & \frac{4}{3}\pi\left(\frac{L_{v}}{2}\right)^{3} & = & L_{c}^{3}\\
 \Leftrightarrow & L_{v} & = & 2L_{c}\left(\frac{3}{4\pi}\right)^{1/3}\\
 \Leftrightarrow & L_{v} & = & 1.24\text{ cm}.
 \end{array}\label{eq:re_lv}
 \end{equation}
-
 \end_inset
 
 If we use 
@@ -2498,21 +1545,7 @@ If we use
 \begin_inset Formula $^{-1}$
 \end_inset
 
-.
- Using 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
+. Using 
 \begin_inset Formula $U\tau/3=0.5$
 \end_inset
 
@@ -2520,65 +1553,15 @@ If we use
 \begin_inset Formula $\tau=185\text{ s}=2.1\times10^{-3}$
 \end_inset
 
- d.
- This means that 
+ d. This means that 
 \begin_inset Formula $\gamma=164$
 \end_inset
 
-
-\change_inserted -2100369821 1656604113
- s
+ d
 \begin_inset Formula $^{-1}$
 \end_inset
 
-
-\change_inserted -666822487 1656510341
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1656510344
-
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-Units?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
-
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- As could be expected, when the flow velocity decreases, mixing decreases
- (Fig.
- 
+. As could be expected, when the flow velocity decreases, mixing decreases (Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Dominance_advection"
@@ -2592,32 +1575,32 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
+
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
 
-\begin_layout Plain Layout
+
+\begin_layout Standard
 \align center
-\begin_inset Graphics
-	filename ../code/figure/theoretical_dominance_with_adv.pdf
+
+\begin_inset Graphics 
+	filename ../code/figure/theoretical_dominance_with_adv.eps
 	width 99text%
 
 \end_inset
 
-
+ 
 \end_layout
 
-\begin_layout Plain Layout
+\begin_layout Standard
+
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Dominance indices as a function of distance (in cm) for one species in a
- microphytoplankton (a) and nanophytoplankton (b) 3-species community with
- even distributions after 1000 timesteps with (circles) and without (lines)
- advection for different duration of the timesteps, with reference parameters
- (black) and lower flow velocity (grey).
- 
+Dominance indices as a function of distance (in cm) for one species in a microphytoplankton (a) and nanophytoplankton (b) 3-species community with even distributions after 1000 timesteps with (circles) and without (lines) advection for different duration of the timesteps, with reference parameters (black) and lower flow velocity (grey). 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:Dominance_advection"
@@ -2632,28 +1615,17 @@ name "fig:Dominance_advection"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
-
-\change_inserted -2100369821 1655285309
 
 \end_layout
 
 \begin_layout Section
-Relationship between the dominance index, relative strengths of interactions
- and coexistence in Lotka-Volterra models
+Relationship between the dominance index, relative strengths of interactions and coexistence in Lotka-Volterra models
 \end_layout
 
 \begin_layout Standard
-In this section, we evaluate the potential relationship between local dominance,
- ratios of intra-to-interspecific interaction strengths observed at the
- population level, and their consequences in a spatial, dynamic point process
- Lotka-Volterra framework.
- Let us define 
+In this section, we evaluate the potential relationship between local dominance, ratios of intra-to-interspecific interaction strengths observed at the population level, and their consequences in a spatial, dynamic point process Lotka-Volterra framework. Let us define 
 \begin_inset Formula $\mu_{i}$
 \end_inset
 
@@ -2661,30 +1633,19 @@ In this section, we evaluate the potential relationship between local dominance,
 \begin_inset Formula $i$
 \end_inset
 
-.
- Assuming it is linearly dependent on the abundances of the individual's
- conspecifics and heterospecifics within a neighbourhood of radius 
+. Assuming it is linearly dependent on the abundances of the individual's conspecifics and heterospecifics within a neighbourhood of radius 
 \begin_inset Formula $r$
 \end_inset
 
-,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+, 
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \mu_{i}(r,t) & = & b_{i}+\beta_{ii}K_{ii}(r,t)C_{i}(t)+\beta_{io}\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)\\
- & = & b_{i}+\beta_{ii}M_{ii}(r,t)+\beta_{io}M_{io}(r,t),
+ & = & b_{i}+\beta_{ii}M_{ii}(r,t)+\beta_{io}M_{io}(r,t)
 \end{array}\label{eq:lv_individual}
 \end{equation}
-
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 where 
 \begin_inset Formula $b_{i}$
 \end_inset
@@ -2697,9 +1658,7 @@ where
 \begin_inset Formula $\beta_{io}$
 \end_inset
 
- are individual-level interaction coefficients with a conspecific / heterospecif
-ic, respectively.
- 
+ are individual-level interaction coefficients with a conspecific / heterospecific, respectively. 
 \begin_inset Formula $C_{j}(t)K_{ij}(r,t)$
 \end_inset
 
@@ -2719,8 +1678,7 @@ ic, respectively.
 \begin_inset Formula $t$
 \end_inset
 
-.
- 
+. 
 \begin_inset Formula $M_{ii}(r,t)=K_{ii}(r,t)C_{i}(t)$
 \end_inset
 
@@ -2729,13 +1687,10 @@ ic, respectively.
 \end_inset
 
 .
-\change_inserted -2100369821 1656228619
-
 \end_layout
 
 \begin_layout Standard
-If we are close to an equilibrium at the local scale, and intra- and interspecif
-ic interaction strengths are equal 
+If we are close to an equilibrium at the local scale, and intra- and interspecific interaction strengths are equal 
 \shape italic
 at the individual level
 \shape default
@@ -2743,30 +1698,25 @@ at the individual level
 \begin_inset Formula $\beta_{ii}=\beta_{io}),$
 \end_inset
 
- on average,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+ on average, 
+\begin_inset Formula \begin{equation}
 b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equilibrium}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace defskip
+
+\begin_inset VSpace medskip
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-We can now focus on the dynamics at the community level.
- Assuming that all 
+We can now focus on the dynamics at the community level. Assuming that all 
 \emph on
 interspecific
 \emph default
@@ -2778,16 +1728,11 @@ interspecific
 \begin_inset Formula $j\neq i$
 \end_inset
 
-, the per capita growth rate
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+, the per capita growth rate 
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \frac{1}{C_{i}}\frac{dC_{i}(t)}{dt} & = & b_{i}+\alpha_{ii}C_{i}(t)+\alpha_{io}C_{o}(t)\end{array}\approx0.\label{eq:lv_population}
 \end{equation}
-
 \end_inset
 
 
@@ -2802,71 +1747,45 @@ We can therefore write the approximate equalities
 \begin_inset Formula $\alpha_{io}\approx\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
 \end_inset
 
-, and their ratio
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+, and their ratio 
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \frac{\alpha_{io}}{\alpha_{ii}} & \approx & \frac{M_{io}(r,t)}{M_{ii}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.\end{array}
 \end{equation}
-
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Using the formulation of the dominance index
-\end_layout
-
-\begin_layout Standard
-\paragraph_spacing double
-\begin_inset Formula 
-\begin{equation}
+Using the formulation of the dominance index 
+\begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \mathcal{D}_{i}(r,t) & = & \frac{M_{ii}(r,t)}{M_{ii}(r,t)+M_{io}(r,t)}\\
 \Leftrightarrow\frac{M_{io}(r,t)}{M_{ii}(r,t)} & = & \frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}.
 \end{array}\label{eq:dominance}
 \end{equation}
-
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-Thus,
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
+Thus, 
+\begin_inset Formula \begin{equation}
 \frac{\alpha_{io}}{\alpha_{ii}}\approx\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.
 \end{equation}
-
 \end_inset
 
-
-\change_inserted -2100369821 1655285426
 
 \end_layout
 
 \begin_layout Standard
-Let us first focus on microphytoplankton in a 3-species community with even
- distribution of abundances.
- We know that 
+Let us first focus on microphytoplankton in a 3-species community with even distribution of abundances. We know that 
 \begin_inset Formula $\mathcal{D}(d_{\text{threshold}})\approx0.4$
 \end_inset
 
- at equilibrium.
- In this case, 
+ at equilibrium. In this case, 
 \begin_inset Formula $\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}=0.75$
 \end_inset
 
-.
- For nanophytoplankton, 
+. For nanophytoplankton, 
 \begin_inset Formula $\mathcal{D}(d_{\text{threshold}})\approx0.9$
 \end_inset
 
@@ -2874,171 +1793,27 @@ Let us first focus on microphytoplankton in a 3-species community with even
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\approx0.06$
 \end_inset
 
-.
- Both ratios of population-level interaction strength are necessary conditions
- for diversity maintenance in a Lotka-Volterra model 
-\change_deleted -2100369821 1656575106
-(Barabas et al.
- 2016)
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1656510722
-Add ref.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
- 
-\change_inserted -2100369821 1656604138
-Similar calculations for the 10-species communities, combining small dominance
- indices to low average concentrations, lead to 
+. Both ratios of population-level interaction strength are necessary conditions for diversity maintenance in a Lotka-Volterra model . Similar calculations for the 10-species communities, combining small dominance indices to low average concentrations, lead to 
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\ll1$
 \end_inset
 
 , compatible with coexistence 
 \begin_inset CommandInset citation
 LatexCommand citep
+after ""
+before ""
 key "barabas_effect_2016"
 literal "false"
 
 \end_inset
 
 .
- 
-\change_inserted -666822487 1656510768
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1656510836
-Either we compute the coexistence criteria for S species in a model with
- parameters r_i, 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\backslash
-alpha_{io} and 
-\backslash
-alpha_{ii}
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
- or we say that the low ratio seems compatible with coexistence with reference
- to the Barabas et al.
- 2016 paper.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -2100369821 1656575193
-
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted -666822487 1656510778
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1656229928
-Additional note: Could you have a look?
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1656228746
-Generally speaking, we can say that a species will be outcompeted when 
-\begin_inset Formula $\frac{\alpha_{io}}{\alpha_{i1}}>1$
-\end_inset
-
-, i.e.
  
-\begin_inset Formula $\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}>1$
-\end_inset
-
-.
- Let us define the total concentrations of organisms 
-\begin_inset Formula $C_{T}=\Sigma_{k}C_{k}$
-\end_inset
-
-, and 
-\begin_inset Formula $f_{i}$
-\end_inset
-
- the fraction of organisms of species 
-\begin_inset Formula $i$
-\end_inset
-
- in the environment, 
-\begin_inset Formula $C_{i}=f_{i}C_{T}$
-\end_inset
-
-.
- We can therefore assume absence of coexistence when
-\end_layout
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1655300894
-\begin_inset Formula 
-\begin{equation}
-\begin{array}{ccc}
-\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{f_{i}}{1-f_{i}} & > & 1\\
-\Leftrightarrow\mathcal{D}_{i}(r,t) & < & f_{i}.
-\end{array}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- 
-\change_inserted -2100369821 1655300066
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-btprint "btPrintCited"
 bibfiles "bibliography"
 options "ecol_let"
 
