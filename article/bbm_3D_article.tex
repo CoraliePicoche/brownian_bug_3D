@@ -106,7 +106,7 @@ must be examined for large phytoplankton.
 \textbf{Keywords}: aggregation; coexistence; individual-based model;
 phytoplankton; spatial moment equations; spatial point process 
 
-$^{*}$corresponding author: \verb|coralie.picoche@u-bordeaux.fr| \& \verb|frederic.barraquand@u-bordeaux.fr|
+$^{*}$corresponding authors: \verb|coralie.picoche@u-bordeaux.fr| \& \verb|frederic.barraquand@u-bordeaux.fr|
 
 %\linenumbers
 \doublespacing
@@ -261,7 +261,7 @@ by a linear birth-death process with birth rate $\lambda_{i}$ and
 death rate $\mu_{i}$. Each individual independently follows a Brownian
 motion with diffusivity $D_{i}$, and is advected by a common stochastic
 flow modeling the turbulence with Lyapunov exponent $\gamma$ (also
-called the stretching parameter). This means that the separation between
+called the stretching parameter). This means that the separation $s(t)$ between
 two individuals $k$ and $l$ increases with time as $\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto \gamma t$.
 
 Within a given community (the set of all individuals of the $S$ species),
@@ -269,7 +269,7 @@ all species share the same parameters: $\lambda_{i}$, $\mu_{i}$
 and $D_{i}$ values can change between communities, as we later consider
 small and large phytoplankton, but are set to common values within
 a community. On the contrary, $\gamma$ describes the environment
-and is not community-specific, \textit{i.e.} all individuals are displaced
+and is not community-specific, i.e., all individuals are displaced
 similarly by turbulent stirring.  For numerical simulations, time
 needs to be discretized (this is required for diffusion and advection
 modelling). The approximated model advances through time in steps
@@ -380,7 +380,7 @@ convergence is much slower, to the point that an equilibrium assumption
 would involve unrealistically long timeframes (see Section S3 in the
 SI). We therefore need a time-dependent formula for the pcf in the
 absence of advection, which can be obtained in the case where $\gamma=0$
-using a Green's function (see derivation in the Appendices, Eq. \ref{eq:G_no_adv}-\ref{eq:pcf_noadv_bbm}),
+using a Green's function (see derivation in the Appendices, Eqs. \ref{eq:G_no_adv}-\ref{eq:pcf_noadv_bbm}),
 \begin{equation}
 g_{ii}(r,t)=1+\frac{\lambda_i}{4D_i\pi rC_{i}}\left\{ 1-\erf\left(\frac{r}{\sqrt{8D_it}}\right)\right\}.\label{eq:pcf_intra_noadv}
 \end{equation}
@@ -395,7 +395,7 @@ and thus $g_{ij}(r,t)=1$ if $i\neq j$ \citep[ p. 326, eq. 5.3.13]{illian2008stat
 Related to the pair correlation function is Ripley's $K$-function
 $K(r)$. Its marked version, $K_{ij}(r)$, is the average number of
 points of species $j$ surrounding an individual of species $i$ within
-a sphere of radius $r$ \citep{illian2008statistical}, \textit{i.e.}
+a sphere of radius $r$ \citep{illian2008statistical}, i.e.,
 \begin{equation}
 \forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\backslash\{o\}\right)\right)
 \end{equation}
@@ -408,13 +408,13 @@ to $g_{ij}(r)$ as
 g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}.\label{eq:pcf_to_K}
 \end{equation}
 Combining Eq. \ref{eq:pcf_to_K} and, when $U>0$, Eq. \ref{eq:pcf_intra_adv},
-we can show that (see Appendices, Eq. \ref{eq:start-K}-\ref{eq:K_intra_adv_app})
+we can show that (see Appendices, Eqs. \ref{eq:start-K}-\ref{eq:K_intra_adv_app})
 \begin{equation}
 K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{2\lambda_i}{C_{i}}\left(\frac{r^{2}}{6D_i}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{6\sqrt{2}D_i^{3/2}}+\frac{\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D_i\sqrt{D_i}}\right).\label{eq:K_intra_adv}
 \end{equation}
 
 When $U=0$, we need a time-dependent solution corresponding to our
-simulation duration, i.e. (see Appendices, Eq. -\ref{eq:start_K_intra_no_adv}-\ref{eq:end_K})
+simulation duration, i.e. (see Appendices, Eq. \ref{eq:start_K_intra_no_adv}-\ref{eq:end_K})
 \begin{equation}
 K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{C_{i}D_i}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8D_i t}})(r^{2}-4D_i t)-\frac{\sqrt{2D_i t}r}{\sqrt{\pi}}e^{-r^{2}/8D_i t}\right).\label{eq:K_intra_no_adv}
 \end{equation}
@@ -449,7 +449,7 @@ Using Eq. \ref{eq:K_intra_no_adv} and \ref{eq:dominance}, we obtain
 the theoretical formula for the dominance index in the presence of
 advection as
 \begin{equation}
-\mathcal{D}_{i}(r)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{3C_{i}D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{3D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)}.\label{eq:dom_adv}
+\mathcal{D}_{i}(r)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{3C_{i}D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{3D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)}.\label{eq:dom_adv}
 \end{equation}
 
 In the absence of advection ($U=0,\gamma=0$), we use the time-dependent
@@ -581,7 +581,7 @@ We consider this maximum value as our baseline, keeping in mind that
 turbulence reduces the size of the nutrient depletion volume and increases
 the nutrient flux to the cell \citep{arnott_artificially_2021}, but
 determination of the exact shape of the nutrient depletion volume
-in the presence of turbulence is too complex to be adressed here \citep{karp-boss_nutrient_1996}.
+in the presence of turbulence is too complex to be addressed here \citep{karp-boss_nutrient_1996}.
 
 \medskip{}
 
@@ -748,7 +748,7 @@ flow. We conducted both mathematical analyses and numerical simulations
 to quantify spatial correlations in organism distributions. We focused
 on the pair correlation function and Ripley's $K$-function, for which
 numerical and theoretical analyses showed a good agreement, and extracted
-a more ecologically-oriented metric from them, \textit{i.e.} the dominance
+a more ecologically-oriented metric from them, i.e. the dominance
 index. This statistic is the \textit{local} average ratio of conspecifics,
 i.e., the number of organisms of the focal species in the neighbourhood
 of an individual of the same species, divided by the total number

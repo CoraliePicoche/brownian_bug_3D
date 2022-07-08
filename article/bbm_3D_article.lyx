@@ -207,7 +207,7 @@ Keywords
 \begin_inset Formula $^{*}$
 \end_inset
 
-corresponding author: 
+corresponding authors: 
 \begin_inset ERT
 status collapsed
 
@@ -215,6 +215,18 @@ status collapsed
 
 \backslash
 verb|coralie.picoche@u-bordeaux.fr|
+\end_layout
+
+\end_inset
+
+ & 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+verb|frederic.barraquand@u-bordeaux.fr|
 \end_layout
 
 \end_inset
@@ -663,7 +675,11 @@ Each individual is characterized by its species
 \begin_inset Formula $\gamma$
 \end_inset
 
- (also called the stretching parameter). This means that the separation between two individuals 
+ (also called the stretching parameter). This means that the separation 
+\begin_inset Formula $s(t)$
+\end_inset
+
+ between two individuals 
 \begin_inset Formula $k$
 \end_inset
 
@@ -672,12 +688,10 @@ Each individual is characterized by its species
 \end_inset
 
  increases with time as 
-\begin_inset Formula \begin{equation}
-\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\sim3\gamma t.\label{eq:gamma_def}
-\end{equation}
+\begin_inset Formula $\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto \gamma t$
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -701,11 +715,7 @@ Within a given community (the set of all individuals of the
 \begin_inset Formula $\gamma$
 \end_inset
 
- describes the environment and is not community-specific, 
-\shape italic
-i.e.
-\shape default
- all individuals are displaced similarly by turbulent stirring. For numerical simulations, time needs to be discretized (this is required for diffusion and advection modelling). The approximated model advances through time in steps of duration of 
+ describes the environment and is not community-specific, i.e., all individuals are displaced similarly by turbulent stirring. For numerical simulations, time needs to be discretized (this is required for diffusion and advection modelling). The approximated model advances through time in steps of duration of 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -835,17 +845,7 @@ where
 \begin_inset Formula $\gamma$
 \end_inset
 
- (Eq. 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:gamma_def"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) due to turbulence, the exponent 
+ due to turbulence, the exponent 
 \begin_inset Formula $\gamma$
 \end_inset
 
@@ -1121,7 +1121,7 @@ noprefix "false"
 \begin_inset Formula $\gamma=0$
 \end_inset
 
- using a Green's function (see derivation in the Appendices, Eq. 
+ using a Green's function (see derivation in the Appendices, Eqs. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:G_no_adv"
@@ -1223,11 +1223,7 @@ literal "false"
 
 \end_inset
 
-, 
-\shape italic
-i.e.
-\shape default
- 
+, i.e., 
 \begin_inset Formula \begin{equation}
 \forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\backslash\{o\}\right)\right)
 \end{equation}
@@ -1299,7 +1295,7 @@ noprefix "false"
 
 \end_inset
 
-, we can show that (see Appendices, Eq. 
+, we can show that (see Appendices, Eqs. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:start-K"
@@ -1333,7 +1329,7 @@ When
 \begin_inset Formula $U=0$
 \end_inset
 
-, we need a time-dependent solution corresponding to our simulation duration, i.e. (see Appendices, Eq. -
+, we need a time-dependent solution corresponding to our simulation duration, i.e. (see Appendices, Eq. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:start_K_intra_no_adv"
@@ -1355,7 +1351,7 @@ noprefix "false"
 
 ) 
 \begin_inset Formula \begin{equation}
-K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{C_{i}D_i}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8D_i t}})(r^{2}-4Dt)-\frac{\sqrt{2D_i t}r}{\sqrt{\pi}}e^{-r^{2}/8D_i t}\right).\label{eq:K_intra_no_adv}
+K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{C_{i}D_i}\left(\frac{r^{2}}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8D_i t}})(r^{2}-4D_i t)-\frac{\sqrt{2D_i t}r}{\sqrt{\pi}}e^{-r^{2}/8D_i t}\right).\label{eq:K_intra_no_adv}
 \end{equation}
 \end_inset
 
@@ -1482,7 +1478,7 @@ noprefix "false"
 
 , we obtain the theoretical formula for the dominance index in the presence of advection as 
 \begin_inset Formula \begin{equation}
-\mathcal{D}_{i}(r)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{3C_{i}D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda}{3D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)}.\label{eq:dom_adv}
+\mathcal{D}_{i}(r)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{3C_{i}D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda_i}{3D_i}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_i}}r)}{\sqrt{2D_i}}+\frac{D_i\log\left(\gamma\frac{r^{2}}{2D_i}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_i}}\right)}.\label{eq:dom_adv}
 \end{equation}
 \end_inset
 
@@ -2140,7 +2136,7 @@ literal "false"
 
 \end_inset
 
-, but determination of the exact shape of the nutrient depletion volume in the presence of turbulence is too complex to be adressed here 
+, but determination of the exact shape of the nutrient depletion volume in the presence of turbulence is too complex to be addressed here 
 \begin_inset CommandInset citation
 LatexCommand citep
 after ""
@@ -2620,11 +2616,7 @@ We designed a stochastic, three-dimension, individual-based model of the spatial
 \begin_inset Formula $K$
 \end_inset
 
--function, for which numerical and theoretical analyses showed a good agreement, and extracted a more ecologically-oriented metric from them, 
-\shape italic
-i.e.
-\shape default
- the dominance index. This statistic is the 
+-function, for which numerical and theoretical analyses showed a good agreement, and extracted a more ecologically-oriented metric from them, i.e. the dominance index. This statistic is the 
 \shape italic
 local
 \shape default

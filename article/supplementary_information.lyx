@@ -678,7 +678,7 @@ noprefix "false"
 
 \end_inset
 
-). However, the equilibrium hypothesis that we use cannot hold for such a long amount of time, which led us to use the time-dependent formula shown in Eqs. 6, 10 and 13 in the main text.
+). However, the equilibrium hypothesis that we use cannot hold for such a long amount of time, which led us to use the time-dependent formula shown in Eqs. 5, 9 and 12 in the main text.
 \end_layout
 
 \begin_layout Standard
@@ -849,12 +849,12 @@ Schematically, the pcf estimate
 , i.e. 
 \begin_inset Formula \begin{equation}
 \begin{array}{ccc}
-\hat{g}_{ij}(r) & = & \frac{1}{\hat{C_{i}}}\frac{1}{\hat{C_{j}}}\frac{1}{4\pi r^{2}}\sum_{_{i}}\sum_{j}\kappa_{E}(r-||x_{i}-x_{j}||)w(x_{i},x_{j})\end{array}\label{eq:pcf_estimate}
+\hat{g}_{ij}(r) & = & \frac{1}{\hat{C_{i}}}\frac{1}{\hat{C_{j}}}\frac{1}{4\pi r^{2}}\sum_{k\in i}\sum_{l \in j}\kappa_{E}(r-||\bx_{k}-\bx_{l}||)w(\bx_{k},\bx_{l})\end{array}\label{eq:pcf_estimate}
 \end{equation}
 \end_inset
 
 where 
-\begin_inset Formula $w(x_{i},x_{j})$
+\begin_inset Formula $w(\bx_{k},\bx_{l})$
 \end_inset
 
  is the Ohser translation correction estimator 
@@ -898,7 +898,17 @@ literal "false"
 \begin_inset Formula $\delta=0.26C^{-1/3}$
 \end_inset
 
-. The pcf computation function was first tested on standard distributions (with the default bandwidth), then on the Brownian Bug Model (with different bandwidths, see below).
+. The pcf computation function was first tested on standard distributions (with the default bandwidth), then on the Brownian Bug Model (with different bandwidths, see Fig. 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:bandwidth_BBM"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Standard
@@ -978,7 +988,7 @@ status open
 
 \begin_inset Graphics 
 	filename ../code/figure/K_PCF_Thomas.eps
-	width 80text%
+	width 86text%
 
 \end_inset
 
@@ -1299,7 +1309,7 @@ With intensity
 \end_layout
 
 \begin_layout Standard
-In 3D, 
+In three dimensions, 
 \begin_inset Formula \begin{equation}
 \begin{array}{ccc}
 \mu_{d} & = & (nC)^{-1/3}\frac{\left(\Gamma(\frac{3}{2}+1)\right)^{1/3}\Gamma(\frac{1}{3}+1)}{\pi^{1/2}}\\
@@ -1679,11 +1689,11 @@ where
 \end_inset
 
 . 
-\begin_inset Formula $M_{ii}(r,t)=K_{ii}(r,t)C_{i}(t)$
+\begin_inset Formula $M_{ii}(r,t)~=~K_{ii}(r,t)C_{i}(t)$
 \end_inset
 
  and 
-\begin_inset Formula $M_{io}(r,t)=\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)$
+\begin_inset Formula $M_{io}(r,t)~=~\Sigma_{j\neq i}K_{ij}(r,t)C_{j}(t)$
 \end_inset
 
 .
