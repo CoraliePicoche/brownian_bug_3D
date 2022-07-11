@@ -63,8 +63,8 @@
 \begin{document}
 \title{Local intraspecific aggregation in phytoplankton model communities:
 spatial scales of occurrence and implications for coexistence}
-\author{Coralie Picoche\textonesuperior , William R. Young\texttwosuperior ,
-Fr\'e{}d\'e{}ric Barraquand\textonesuperior{}}
+\author{Coralie Picoche\textonesuperior$^{,*}$ , William R. Young\texttwosuperior ,
+Fr\'e{}d\'e{}ric Barraquand\textonesuperior$^{,*}${}}
 \maketitle
 
 \lyxaddress{\noindent \begin{center}
@@ -86,7 +86,7 @@ own species, rather than competitors from different species. To evaluate
 how microscale spatial aggregation might explain phytoplankton diversity
 maintenance, an individual-based, multispecific representation of
 cells in a hydrodynamic environment is required. We formulate a three-dimensional
-and multi-specific individual-based model of phytoplankton population
+and multispecific individual-based model of phytoplankton population
 dynamics at the Kolmogorov scale. The model is studied through both
 simulations and the derivation of spatial moment equations, in connection
 with point process theory. The spatial moment equations show a good
@@ -157,11 +157,10 @@ at slighly larger scales \citep{martin_phytoplankton_2003,prairie_biophysical_20
 Phytoplankton organisms therefore live in an environment where fluid
 viscosity dominates at the scale of an individual but turbulent dispersion
 dominates on length scales characteristic of a small population of
-those individuals \citep{estrada_effects_1987,prairie_biophysical_2012}
-. 
+those individuals \citep{estrada_effects_1987,prairie_biophysical_2012}. 
 
 This leads us to consider demography in the context of this environmental
-variation created by hydrodynamics processes. Individual-based models
+variation created by hydrodynamic processes. Individual-based models
 provide a convenient depiction of population dynamics and movement
 at the microscale \citep{hellweger_bunch_2009}. In this framework,
 population growth is a result of individual births and deaths. Aggregation
@@ -205,7 +204,7 @@ segregate in space.
 
 To do so, we build a multispecific version of the Brownian Bug Model
 (BBM) of \citet{young_reproductive_2001}, an individual-based model
-which includes a chaotic advection process mimicking a turbulent fluid
+which includes an advection process mimicking a turbulent fluid
 flow, passive diffusion of organisms, as well as stochastic birth
 and death processes. The initial version of this model \citep{young_reproductive_2001}
 coupled limited dispersal and local reproduction with ocean-like microscale
@@ -219,8 +218,8 @@ organisms live in a three-dimensional environment, informing the model
 with more realistic parameters required us to shift to three dimensions.
 We also extend the model to multiple species, and consider two size
 classes for our phytoplankton communities, which are either made of
-nanophytoplankton (3 \textmu m diameter, $\approx10^{6}$ cells/L)
-or microphytoplankton (50 \textmu m, $\approx10^{4}$ cells/L). We
+nanophytoplankton (3~\textmu m diameter, $\approx10^{6}$~cells/L)
+or microphytoplankton (50~\textmu m, $\approx10^{4}$~cells/L). We
 populate each community with 3 to 10 different species.
 
 The Brownian Bug model (in its original single-species form as in
@@ -390,7 +389,7 @@ As populations of different species do not directly interact, each
 population is an independent realization of a point process, which
 means that the distribution of all individuals within the community
 at time $t$ is a random superposition of stationary point processes
-and thus $g_{ij}(r,t)=1$ if $i\neq j$ \citep[ p. 326, eq. 5.3.13]{illian2008statistical}.\medskip{}
+and thus $g_{ij}(r,t)~=~1$ if $i\neq j$ \citep[ p. 326, eq. 5.3.13]{illian2008statistical}.\medskip{}
 
 Related to the pair correlation function is Ripley's $K$-function
 $K(r)$. Its marked version, $K_{ij}(r)$, is the average number of
@@ -402,7 +401,7 @@ a sphere of radius $r$ \citep{illian2008statistical}, i.e.,
 where $\mathbb{E}_{i}$ is the expectation with respect to individuals
 of species $i$ and $N_{j}\left(b(o,r)\backslash\{o\}\right)$ is
 the number of individuals of species $j$ in the sphere of radius
-$r$ centred on $o$, not counting $o$ itself. $K_{ij}(r)$ is related
+$r$ centered on $o$, not counting $o$ itself. $K_{ij}(r)$ is related
 to $g_{ij}(r)$ as
 \begin{equation}
 g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}.\label{eq:pcf_to_K}
@@ -430,7 +429,7 @@ individuals of all species surrounding a given individual.
 
  Let $M_{i.}(r)$ be the average number of individuals within a circle
 of radius $r$ around an individual of species $i$, which can also
-be written with Ripley's $K$-function as $M_{i.}(r)=C_{.}K_{i}(r)$.
+be written with Ripley's $K$-function as $M_{i.}(r)=C_{.}K_{ii}(r)$.
 $M_{ii}(r)$ corresponds to the conspecific neighbourhood and $M_{io}(r)$
 corresponds to individuals of all other species. We can then define
 $\mathcal{D}_{i}$ as
@@ -561,7 +560,7 @@ Brownian Bug Model, assuming the duration of a time step $\tau$ is
 As we examine individual aggregation and its potential effects on
 interactions between species, we have to ascertain the volume in which
 an individual can be affected by the presence of other individuals,
-or affects other individuals. We only consider here interactions due
+or affect other individuals. We only consider here interactions due
 to competition for nutrients, and therefore need to define a nutrient
 depletion volume. We approximate this volume as the sphere of radius
 $r$ where $C(r)\leq90\%C_{\infty}$ with $C_{\infty}$ the background
@@ -755,10 +754,10 @@ of an individual of the same species, divided by the total number
 of organisms in that neighbourhood. Intraspecific clustering corresponds
 to a dominance index close to 1, which decreases when interspecific
 mixing increases. The choice of this index was motivated by two reasons:
-(1), it is at its core a proportion of a focus species in a certain
+(1) it is at its core a proportion of a focus species in a certain
 volume, i.e. a scale-dependent, localized metric bounded between 0
 and 1 as opposed to other statistics whose values are less directly
-interpreted, and (2), it is easy to relate to coexistence theory as
+interpreted, and (2) it is easy to relate to coexistence theory as
 it describes the environment of an organism in terms of heterospecifics
 and conspecifics, which can, under certain hypotheses that we discuss
 below, be related to interspecific and intraspecific interactions.
@@ -811,7 +810,7 @@ chose conservatively to define a maximum distance for two organisms
 to possibly affect the concentrations of elements in the environment
 of each other. We consider that, at all distances below this threshold,
 interactions could happen between organisms. We continue the discussion
-with that simplification in mind, and explicitely mention when it
+with that simplification in mind, and explicitly mention when it
 is relaxed.
 
 Dominance indices began to decrease at distances above $10^{-3}$
@@ -845,10 +844,10 @@ but not necessarily so for microphytoplankton (however, see Section
 S8 in the SI, based on the Lotka-Volterra model).
 
 All of the above discussion is based on a microphytoplankter's neighbourhood
-in its nutrient depletion volumes. To simplify the computation, we
+in its nutrient depletion volume. To simplify the computation, we
 used maximum volumes of potential interactions, corresponding to a
 diffusive-only flow of nutrient particles. But when fluid turbulence
-increases, nutrient uptake increases , and the size of the depletion
+increases, nutrient uptake increases, and the size of the depletion
 zone decreases \citep{karp-boss_nutrient_1996}. The proportion of
 change in the depletion volume increases with the size of organism:
 a 10 \textmu m-diameter organism might not experience any change,
@@ -1106,7 +1105,6 @@ and have
  & = & \frac{1}{2\gamma^{2}}(\gamma\frac{\rho^{2}}{2D}-\log(\gamma\frac{\rho^{2}}{2D}+1)).
 \end{array}
 \end{equation}
-
 Going back to C, we obtain
 \begin{equation}
 \begin{array}{ccc}

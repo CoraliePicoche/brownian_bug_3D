@@ -238,7 +238,7 @@ The discrete-time map can be obtained by computing the displacement over a perio
 \begin_inset Formula $\mathbf{x}(t)$
 \end_inset
 
-. This can be solved in three steps (eq. 
+. This can be solved in three steps (eqs. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:step1_pierrehumbert"
@@ -678,7 +678,7 @@ noprefix "false"
 
 \end_inset
 
-). However, the equilibrium hypothesis that we use cannot hold for such a long amount of time, which led us to use the time-dependent formula shown in Eqs. 5, 9 and 12 in the main text.
+). However, the equilibrium hypothesis that we use cannot hold for such a long amount of time, which led us to use the time-dependent formulas shown in Eqs. 5, 9 and 12 in the main text.
 \end_layout
 
 \begin_layout Standard
@@ -961,7 +961,7 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $^{3}$
 \end_inset
 
-. Values computed from our simulations (circles and solid lines for intra- and interspecific values, respectively) are compared with theoretical formula (dotted lines). Note that theoretical values are the same for intra and interspecific moments for the Poisson distribution. Colors correspond to the different species (red for species 0, blue for species 1, grey for species 2). 
+. Values computed from our simulations (circles and solid lines for intra- and interspecific values, respectively) are compared with theoretical formulas (dotted lines). Note that theoretical values are the same for intra and interspecific moments for the Poisson distribution. Colors correspond to the different species (red for species 0, blue for species 1, grey for species 2). 
 \end_layout
 
 \end_inset
@@ -1028,7 +1028,7 @@ Intra- and inter-specific Ripley's
 \begin_inset Formula $\delta\approx0.01$
 \end_inset
 
-2. Values computed from our simulations (circles and solid lines for intra- and interspecific values, respectively) are compared with theoretical formula (dashed and dotted lines for intra- and interspecific values, respectively). Colors correspond to the different species (red for species 0, blue for species 1, grey for species 2). 
+2. Values computed from our simulations (circles and solid lines for intra- and interspecific values, respectively) are compared with theoretical formulas (dashed and dotted lines for intra- and interspecific values, respectively). Colors correspond to the different species (red for species 0, blue for species 1, grey for species 2). 
 \end_layout
 
 \end_inset
@@ -1371,7 +1371,7 @@ Simulations
 \end_layout
 
 \begin_layout Standard
-We can compute the simulated distance to the nearest neighbour and compare it to what we should obtain with a uniform distribution : the simulated mean distance to the nearest organism, regardless of its species, is close to the expected value for a uniform distribution, but the minimum distance to a conspecific is much lower than expected (Fig. 
+We can compute the simulated distance to the nearest neighbour and compare it to what we should obtain with a uniform distribution: the simulated mean distance to the nearest organism, regardless of its species, is close to the expected value for a uniform distribution, but the minimum distance to a conspecific is much lower than expected (Fig. 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:Distance_micro"
@@ -1705,10 +1705,10 @@ If we are close to an equilibrium at the local scale, and intra- and interspecif
 at the individual level
 \shape default
  (
-\begin_inset Formula $\beta_{ii}=\beta_{io}),$
+\begin_inset Formula $\beta_{ii}=\beta_{io}=\beta$
 \end_inset
 
- on average, 
+), on average, 
 \begin_inset Formula \begin{equation}
 b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equilibrium}
 \end{equation}
@@ -1803,7 +1803,7 @@ Let us first focus on microphytoplankton in a 3-species community with even dist
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\approx0.06$
 \end_inset
 
-. Both ratios of population-level interaction strength are necessary conditions for diversity maintenance in a Lotka-Volterra model . Similar calculations for the 10-species communities, combining small dominance indices to low average concentrations, lead to 
+. Both ratios of population-level interaction strength are necessary conditions for diversity maintenance in a Lotka-Volterra model. Similar calculations for the 10-species communities, combining small dominance indices to low average concentrations, lead to 
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\ll1$
 \end_inset
 
