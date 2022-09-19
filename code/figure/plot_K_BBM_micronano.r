@@ -7,8 +7,8 @@ source("theoretical_functions.r")
 
 colo=c("red","blue","grey")
 
-#nb_simu_list=c(0,1,2,3)
-nb_simu_list=10:13
+nb_simu_list=c(0,1,2,3)
+#nb_simu_list=10:13
 
 a_gamma_list=c(1231,0,1231,0)
 
@@ -16,7 +16,7 @@ a_main_list=rep(c("Advection","No advection"),2)
 
 a_text=c("a","b","c","d")
 
-pdf("K_micronano_10sp.pdf",width=8)
+pdf("K_micronano.pdf",width=8)
 par(mfrow=c(2,2))
 
 
@@ -91,19 +91,16 @@ for (sp in unique(f_count$species)){
 	th_bbm=BBM_cdf(f_plot$r,a_gamma,a_Delta,Concentration[sp+1],a_lambda,a_tau,t=1000)
 	th_poisson=4/3*pi*(f_plot$r)^3
 
-	if(i==0){
-	}
-
 	for (spbis in unique(f_count$species)){
 		if(spbis!=sp){
 	        	f_plot_bis=subset(f,sp1==sp&sp2==spbis)
-			points(f_plot_bis$r,f_plot_bis$K,col=colo[spbis],lwd=2)
+			points(f_plot_bis$r,f_plot_bis$K,col=colo[spbis+1],lwd=2,cex=1+1*(spbis))
 		}
 	}
 
 	lines(f_plot$r,f_plot$K,col=colo[sp+1],lwd=2)
 	lines(f_plot$r,th_bbm,lty=2,col=colo[sp+1],lwd=2)
-	lines(f_plot$r,th_poisson,lty=3,col="black",lwd=2)
+	lines(f_plot$r,th_poisson,lty=3,col="black",lwd=3)
 }
 }
 dev.off()
