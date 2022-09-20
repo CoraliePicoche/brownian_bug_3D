@@ -529,12 +529,54 @@ Jon suggested to use an additional, independent ref, here.
 \change_unchanged
 .
  The resulting aggregation can affect the dynamics of the populations at
- the community level: even when interactions are identical between individuals
- of the same species (conspecifics) or between individuals of different
- species (heterospecifics), the combination of local reproduction and same-scale
- high dispersal limitation and strong interactions leads to stronger intraspecif
-ic interactions than interspecific interactions at the population level,
- which is a major stabilizing mechanism 
+ the community level
+\change_deleted -2100369821 1663661585
+:
+\change_inserted -2100369821 1663661622
+, even when all competitors are equivalent, meaning that individuals of
+ the same species (conspecifics) or between individuals of different species
+ (heterospecifics)
+\change_unchanged
+ 
+\change_deleted -2100369821 1663661637
+even when interactions are identical between 
+\change_inserted -2100369821 1663685155
+interaction strengths between all individuals are the same
+\change_deleted -2100369821 1663661662
+individuals of the same species (conspecifics) or between individuals of
+ different species (heterospecifics),
+\change_inserted -2100369821 1663661665
+.
+ Indeed,
+\change_unchanged
+ the combination of local reproduction
+\change_inserted -2100369821 1663661687
+,
+\change_unchanged
+ 
+\change_deleted -2100369821 1663661685
+and
+\change_unchanged
+ same-scale high dispersal limitation and strong interactions
+\change_inserted -2100369821 1663661694
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1663661857
+Can't remember why we add 'strong'? Shouldn't we say local interactions?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+ leads to stronger intraspecific interactions than interspecific interactions
+ at the population level, which is a major stabilizing mechanism 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -829,6 +871,25 @@ Each individual is characterized by its species
 \begin_inset Formula $s(t)\propto\gamma t$
 \end_inset
 
+
+\change_inserted -2100369821 1663655450
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1663655460
+Petite modif sur la dernière phrase pour indiquer plus clairement qui est
+ s(t)
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
 .
 \end_layout
 
@@ -1277,11 +1338,53 @@ noprefix "false"
  and obtain 
 \begin_inset Formula 
 \begin{equation}
-g_{ii}(r)=1+\frac{\lambda_{i}}{2\pi C_{i}}\left(\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D_{i}}}\right)}{2^{3/2}D_{i}^{3/2}}+\frac{1}{2D_{i}r}-\frac{\pi\sqrt{\gamma}}{2^{5/2}D_{i}^{3/2}}\right).\label{eq:pcf_intra_adv}
+g_{ii}(r)=1+\frac{\lambda_{i}}{4\pi D_{i}C_{i}}\left(\frac{\arctan\left(\frac{r}{l_{b,i}}\right)}{l_{b,i}}+\frac{1}{r}-\frac{\pi}{2l_{b,i}}\right)\label{eq:pcf_intra_adv}
 \end{equation}
 
 \end_inset
 
+
+\change_inserted -2100369821 1663679665
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1663684023
+where 
+\begin_inset Formula $l_{b,i}=\sqrt{2D_{i}/\gamma}$
+\end_inset
+
+ approximate the Batchelor scale for phytoplankton, i.e.
+ the lowest length of a patch before diffusion 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1663685549
+For microphyto, 
+\begin_inset Formula $l_{b,i}=1.1$
+\end_inset
+
+ µm ; for nano, 
+\begin_inset Formula $l_{b,i}=4.5$
+\end_inset
+
+ µm.
+ Note that for nano, the size of the smallest patch is larger than the size
+ of the individual; while it is smaller for micro, which also shows the
+ limitation of using such index.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+ 
+\change_unchanged
 
 \end_layout
 
@@ -1330,7 +1433,7 @@ noprefix "false"
 ), 
 \begin_inset Formula 
 \begin{equation}
-g_{ii}(r,t)=1+\frac{\lambda_{i}}{4D_{i}\pi rC_{i}}\left\{ 1-\erf\left(\frac{r}{\sqrt{8D_{i}t}}\right)\right\} .\label{eq:pcf_intra_noadv}
+g_{ii}(r,t)=1+\frac{\lambda_{i}}{4\pi rD_{i}C_{i}}\left\{ 1-\erf\left(\frac{r}{\sqrt{8D_{i}t}}\right)\right\} .\label{eq:pcf_intra_noadv}
 \end{equation}
 
 \end_inset
@@ -1514,7 +1617,7 @@ noprefix "false"
 ) 
 \begin_inset Formula 
 \begin{equation}
-K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{2\lambda_{i}}{C_{i}}\left(\frac{r^{2}}{6D_{i}}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_{i}}}r)}{6\sqrt{2}D_{i}^{3/2}}+\frac{\log\left(\gamma\frac{r^{2}}{2D_{i}}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{12\sqrt{2}D_{i}\sqrt{D_{i}}}\right).\label{eq:K_intra_adv}
+K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}}{3D_{i}C_{i}}\left(r^{2}+\frac{r^{3}\arctan(\frac{r}{l_{b,i}})}{l_{b,i}}+\frac{D_{i}\log\left(\frac{r^{2}}{l_{b,i}^{2}}+1\right)}{\gamma}-\frac{\pi r^{3}}{2l_{b,i}}\right).\label{eq:K_intra_adv}
 \end{equation}
 
 \end_inset
@@ -1688,7 +1791,7 @@ noprefix "false"
  of advection as 
 \begin_inset Formula 
 \begin{equation}
-\mathcal{D}_{i}(r)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}}{3C_{i}D_{i}}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_{i}}}r)}{\sqrt{2D_{i}}}+\frac{D_{i}\log\left(\gamma\frac{r^{2}}{2D_{i}}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_{i}}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}}{3D_{i}}\left(r^{2}+\frac{\sqrt{\gamma}r^{3}\arctan(\sqrt{\frac{\gamma}{2D_{i}}}r)}{\sqrt{2D_{i}}}+\frac{D_{i}\log\left(\gamma\frac{r^{2}}{2D_{i}}+1\right)}{\gamma}-\frac{\sqrt{\gamma}\pi r^{3}}{2\sqrt{2D_{i}}}\right)}.\label{eq:dom_adv}
+\mathcal{D}_{i}(r)=\frac{C_{i}\left[\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}}{3C_{i}D_{i}}\left(r^{2}+\frac{r^{3}\arctan(\frac{r}{l_{b,i}})}{l_{b,i}}+\frac{D_{i}\log\left(\gamma\frac{r^{2}}{2D_{i}}+1\right)}{\gamma}-\frac{\pi r^{3}}{2l_{b,i}}\right)\right]}{\sum_{j_{=1}}^{S}C_{j}\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}}{3D_{i}}\left(r^{2}+\frac{r^{3}\arctan(\frac{r}{l_{b,i}})}{l_{b,i}}+\frac{D_{i}\log\left(\gamma\frac{r^{2}}{2D_{i}}+1\right)}{\gamma}-\frac{\pi r^{3}}{2l_{b,i}}\right)}.\label{eq:dom_adv}
 \end{equation}
 
 \end_inset
@@ -2512,7 +2615,7 @@ status open
 \begin_layout Plain Layout
 Spatial distributions of a 3-species community of nanophytoplankton with
  and without advection with density 
-\begin_inset Formula $\lambda=10^{3}$
+\begin_inset Formula $C=10^{3}$
 \end_inset
 
  cells.cm
@@ -2594,6 +2697,10 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+
+\change_inserted -2100369821 1663658977
+Comparison of theoretical and simulated 
+\change_unchanged
 Ripley's 
 \begin_inset Formula $K$
 \end_inset
@@ -2602,6 +2709,22 @@ Ripley's
  and nanophytoplankton (c-d) in a 3-species community with even abundance
  distributions after 1000 timesteps, with (a, c) and without (b, d) advection.
  Each color represents a different species.
+
+\change_inserted -2100369821 1663659147
+ Intraspecific 
+\begin_inset Formula $K$
+\end_inset
+
+-functions are shown with dashed (theoretical values) and solid (simulated
+ values) lines.
+ Interspecific 
+\begin_inset Formula $K$
+\end_inset
+
+-functions are shown with dotted lines (theoretical values) and circles
+ (simulated values).
+
+\change_unchanged
  The black dash-dotted line corresponds to the threshold considered as the
  maximum distance for nutrient-based competition.
 \begin_inset CommandInset label

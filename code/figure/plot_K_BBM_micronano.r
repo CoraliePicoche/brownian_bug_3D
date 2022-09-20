@@ -83,6 +83,8 @@ if(i==1){
 	mtext("Nano", outer = TRUE, cex = 1.5,line=-1.5,side=2,at=0.26)
 }
 
+id_view=c(FALSE,FALSE,FALSE)
+id_color=1
 for (sp in unique(f_count$species)){
 	f_plot=subset(f,sp1==sp&sp2==sp)
 
@@ -92,15 +94,24 @@ for (sp in unique(f_count$species)){
 	th_poisson=4/3*pi*(f_plot$r)^3
 
 	for (spbis in unique(f_count$species)){
-		if(spbis!=sp){
+		if(spbis!=sp & !id_view[spbis+1]){
+			id_view[spbis+1]=TRUE
+			if(i==1){
+				print("Spbis")
+				print(spbis)
+				print("Id pch")
+				print(id_color)
+			}
 	        	f_plot_bis=subset(f,sp1==sp&sp2==spbis)
-			points(f_plot_bis$r,f_plot_bis$K,col=colo[spbis+1],lwd=2,cex=1+1*(spbis))
+			points(f_plot_bis$r,f_plot_bis$K,col=colo[spbis+1],cex=c(2,1,0.5)[id_color],pch=16,lwd=0.5)
+			id_color=id_color+1
 		}
 	}
-
 	lines(f_plot$r,f_plot$K,col=colo[sp+1],lwd=2)
 	lines(f_plot$r,th_bbm,lty=2,col=colo[sp+1],lwd=2)
 	lines(f_plot$r,th_poisson,lty=3,col="black",lwd=3)
+	
+
 }
 }
 dev.off()
