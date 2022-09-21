@@ -106,7 +106,7 @@
 \papersides 1
 \paperpagestyle default
 \tracking_changes true
-\output_changes false
+\output_changes true
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
@@ -497,9 +497,15 @@ literal "false"
 .
  In this framework, population growth is a result of individual births and
  deaths.
- Aggregation of particles can emerge from local reproduction coupled with
- limited dispersal, which can happen in a fluid where turbulence and diffusion
- are not strong enough to disperse kin aggregates 
+ Aggregation of 
+\change_deleted -2100369821 1663762134
+particles
+\change_inserted -2100369821 1663762136
+individuals
+\change_unchanged
+ can emerge from local reproduction coupled with limited dispersal, which
+ can happen in a fluid where turbulence and diffusion are not strong enough
+ to disperse kin aggregates 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -508,31 +514,17 @@ literal "false"
 \end_inset
 
 
-\change_inserted -2100369821 1663600375
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1663600471
-Jon suggested to use an additional, independent ref, here.
+\change_inserted -2100369821 1663776263
+[[Note CP: Jon suggested to use an additional, independent ref, here.
  Let's discuss this – to my knowledge, there is no other model that combines
- reproduction and passive movement only (no active motility) for phytoplankton.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
+ reproduction and passive movement only (no active motility) for phytoplankton.]]
 \change_unchanged
 .
  The resulting aggregation can affect the dynamics of the populations at
  the community level
 \change_deleted -2100369821 1663661585
 :
-\change_inserted -2100369821 1663661622
+\change_inserted -2100369821 1663776262
 , even when all competitors are equivalent, meaning that individuals of
  the same species (conspecifics) or between individuals of different species
  (heterospecifics)
@@ -540,17 +532,17 @@ Jon suggested to use an additional, independent ref, here.
  
 \change_deleted -2100369821 1663661637
 even when interactions are identical between 
-\change_inserted -2100369821 1663685155
+\change_inserted -2100369821 1663776262
 interaction strengths between all individuals are the same
 \change_deleted -2100369821 1663661662
 individuals of the same species (conspecifics) or between individuals of
  different species (heterospecifics),
-\change_inserted -2100369821 1663661665
+\change_inserted -2100369821 1663776262
 .
  Indeed,
 \change_unchanged
  the combination of local reproduction
-\change_inserted -2100369821 1663661687
+\change_inserted -2100369821 1663776262
 ,
 \change_unchanged
  
@@ -558,22 +550,9 @@ individuals of the same species (conspecifics) or between individuals of
 and
 \change_unchanged
  same-scale high dispersal limitation and strong interactions
-\change_inserted -2100369821 1663661694
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1663661857
-Can't remember why we add 'strong'? Shouldn't we say local interactions?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
+\change_inserted -2100369821 1663776272
+[[Note CP: Can't remember why we add 'strong'? Shouldn't we say local interactio
+ns?]]
 \change_unchanged
  leads to stronger intraspecific interactions than interspecific interactions
  at the population level, which is a major stabilizing mechanism 
@@ -872,23 +851,9 @@ Each individual is characterized by its species
 \end_inset
 
 
-\change_inserted -2100369821 1663655450
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1663655460
-Petite modif sur la dernière phrase pour indiquer plus clairement qui est
- s(t)
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
+\change_inserted -2100369821 1663776289
+[[Note CP: Petite modif sur la dernière phrase pour indiquer plus clairement
+ qui est s(t)]]
 \change_unchanged
 .
 \end_layout
@@ -924,6 +889,18 @@ Within a given community (the set of all individuals of the
 \begin_inset Formula $\tau$
 \end_inset
 
+
+\change_inserted -2100369821 1663776303
+[[Note CP: Should we add stg along the lines of 
+\begin_inset Quotes eld
+\end_inset
+
+small enough for the approximation to hold
+\begin_inset Quotes erd
+\end_inset
+
+?]]
+\change_unchanged
 .
  During each interval, events unroll as follow:
 \end_layout
@@ -967,6 +944,14 @@ diffusion: each individual moves to a new position
 \begin_inset Formula $\mathcal{N}(0,\Delta_{i})$
 \end_inset
 
+
+\change_inserted -2100369821 1663776318
+[[CP: 
+\begin_inset Formula $\mathcal{N}(0,\Delta_{i}^{2})$
+\end_inset
+
+??]]
+\change_unchanged
  with 
 \begin_inset Formula $D_{i}=\frac{\Delta_{i}^{2}}{2\tau}$
 \end_inset
@@ -1066,7 +1051,11 @@ where
 \begin_inset Formula $1/3\left\langle \ln(s(t))\right\rangle =f(t)$
 \end_inset
 
- in the absence of diffusion and demography.
+ in the absence of diffusion and demography
+\change_inserted -2100369821 1663776328
+[[Note CP: Describe more precisely how we did it or ref to Young or ReScience?]]
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -1224,7 +1213,11 @@ literal "false"
 \begin_inset Formula $d\mathbf{x}_{A}$
 \end_inset
 
- and an invidual of species 
+ and an in
+\change_inserted -2100369821 1663749316
+di
+\change_unchanged
+vidual of species 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1350,20 +1343,14 @@ g_{ii}(r)=1+\frac{\lambda_{i}}{4\pi D_{i}C_{i}}\left(\frac{\arctan\left(\frac{r}
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1663684023
+\change_inserted -2100369821 1663776347
 where 
 \begin_inset Formula $l_{b,i}=\sqrt{2D_{i}/\gamma}$
 \end_inset
 
- approximate the Batchelor scale for phytoplankton, i.e.
- the lowest length of a patch before diffusion 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1663685549
-For microphyto, 
+ approximates the Batchelor scale for phytoplankton, i.e., the lowest length
+ of a phytoplankton patch under which diffusion takes over [[Note CP: For
+ microphyto, 
 \begin_inset Formula $l_{b,i}=1.1$
 \end_inset
 
@@ -1374,15 +1361,7 @@ For microphyto,
  µm.
  Note that for nano, the size of the smallest patch is larger than the size
  of the individual; while it is smaller for micro, which also shows the
- limitation of using such index.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-.
+ limitation of using such index.]].
  
 \change_unchanged
 
@@ -1849,8 +1828,11 @@ Advection
 \begin_layout Standard
 We first consider the advection process, due to the turbulence of the environmen
 t.
- We only consider the Batchelor-Kolmogorov regime, i.e the size of the volume
- 
+ We only consider the Batchelor-Kolmogorov regime, i.e
+\change_inserted -2100369821 1663751909
+.,
+\change_unchanged
+ the size of the volume 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1887,6 +1869,9 @@ where
 \end_inset
 
  (Kolmogorov scale), i.e.
+\change_inserted -2100369821 1663751898
+,
+\change_unchanged
  
 \begin_inset Formula $k=2\pi/L_{s},$
 \end_inset
@@ -1961,8 +1946,12 @@ literal "false"
 \begin_inset Formula $U\tau/3=0$
 \end_inset
 
-, i.e.
- the environment is only diffusive, we keep the same value for 
+, 
+\change_deleted -2100369821 1663751904
+i.e.
+ 
+\change_unchanged
+the environment is only diffusive, we keep the same value for 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -2083,7 +2072,7 @@ We consider
 \end_inset
 
  and 
-\begin_inset Formula $\Delta_{d}$
+\begin_inset Formula $\Delta_{m}$
 \end_inset
 
  (see Table 
@@ -2106,6 +2095,9 @@ Ecological processes
 \begin_layout Standard
 We study the community at equilibrium, with the birth rate equal to the
  death rate, i.e.
+\change_inserted -2100369821 1663752109
+,
+\change_unchanged
  
 \begin_inset Formula $p_{i}=q_{i}\,\forall i$
 \end_inset
@@ -2705,9 +2697,13 @@ Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function as a function of distance (in cm) for microphytoplankton (a-b)
- and nanophytoplankton (c-d) in a 3-species community with even abundance
- distributions after 1000 timesteps, with (a, c) and without (b, d) advection.
+-function
+\change_inserted -2100369821 1663752392
+s
+\change_unchanged
+ as a function of distance (in cm) for microphytoplankton (a-b) and nanophytopla
+nkton (c-d) in a 3-species community with even abundance distributions after
+ 1000 timesteps, with (a, c) and without (b, d) advection.
  Each color represents a different species.
 
 \change_inserted -2100369821 1663659147
@@ -3057,6 +3053,9 @@ We designed a stochastic, three-dimension, individual-based model of the
 
 -function, for which numerical and theoretical analyses showed a good agreement,
  and extracted a more ecologically-oriented metric from them, i.e.
+\change_inserted -2100369821 1663752660
+,
+\change_unchanged
  the dominance index.
  This statistic is the 
 \shape italic
@@ -3167,8 +3166,14 @@ mic traits.
  the maximum distance for the overlap of nutrient depletion volumes) while
  microphytoplankton organisms could affect both conspecifics and heterospecifics
  (the dominance index was often below 50% at the distance threshold, i.e.
- a particle's depletion zone probably overlapped with more heterospecifics'
- than conspecifics').
+ 
+\change_inserted -2100369821 1663762122
+an individual's
+\change_deleted -2100369821 1663762117
+a particle's
+\change_unchanged
+ depletion zone probably overlapped with more heterospecifics' than conspecifics
+').
  Microphytoplankters were therefore more likely to share their depletion
  volume with heterospecifics than nanophytoplankters.
  The rate of production of new microphytoplankton conspecifics was not sufficien
@@ -3179,7 +3184,11 @@ t to compensate for the mixing induced by turbulence and diffusivity, even
  for microphytoplankton and nanophytoplankton to maintain coexistence.
  For nanophytoplankton, the spatial structure likely leads to more interactions
  between conspecifics than between heterospecifics.
- The distribution of microphytoplankton species, on the contrary, encourages
+ The
+\change_inserted -2100369821 1663762208
+ spatial
+\change_unchanged
+ distribution of microphytoplankton species, on the contrary, encourages
  more interactions between heterospecifics.
  If we consider that local interaction strengths are equal within the volume
  of potential interactions, scaling to the population level, we would likely
