@@ -110,7 +110,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -2100369821 "cpicoche"
+\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -198,10 +198,21 @@ The coexistence of multiple phytoplankton species despite their reliance
  then interact mostly with other individuals of their own species, rather
  than competitors from different species.
  To evaluate how microscale spatial aggregation might explain phytoplankton
- diversity maintenance, an individual-based, multispecific representation
- of cells in a hydrodynamic environment is required.
- We formulate a three-dimensional and multispecific individual-based model
- of phytoplankton population dynamics at the Kolmogorov scale.
+ diversity maintenance, an individual-based, multi
+\change_deleted -666822487 1664284830
+specific
+\change_inserted -666822487 1664284831
+species
+\change_unchanged
+ representation of cells in a hydrodynamic environment is required.
+ We formulate a three-dimensional and multi
+\change_deleted -666822487 1664284839
+specific
+\change_inserted -666822487 1664284840
+species
+\change_unchanged
+ individual-based model of phytoplankton population dynamics at the Kolmogorov
+ scale.
  The model is studied through both simulations and the derivation of spatial
  moment equations, in connection with point process theory.
  The spatial moment equations show a good match between theory and simulations.
@@ -497,15 +508,9 @@ literal "false"
 .
  In this framework, population growth is a result of individual births and
  deaths.
- Aggregation of 
-\change_deleted -2100369821 1663762134
-particles
-\change_inserted -2100369821 1663762136
-individuals
-\change_unchanged
- can emerge from local reproduction coupled with limited dispersal, which
- can happen in a fluid where turbulence and diffusion are not strong enough
- to disperse kin aggregates 
+ Aggregation of individuals can emerge from local reproduction coupled with
+ limited dispersal, which can happen in a fluid where turbulence and diffusion
+ are not strong enough to disperse kin aggregates 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "young_reproductive_2001"
@@ -513,49 +518,14 @@ literal "false"
 
 \end_inset
 
-
-\change_inserted -2100369821 1663776263
-[[Note CP: Jon suggested to use an additional, independent ref, here.
- Let's discuss this – to my knowledge, there is no other model that combines
- reproduction and passive movement only (no active motility) for phytoplankton.]]
-\change_unchanged
 .
- The resulting aggregation can affect the dynamics of the populations at
- the community level
-\change_deleted -2100369821 1663661585
-:
-\change_inserted -2100369821 1663776262
-, even when all competitors are equivalent, meaning that individuals of
- the same species (conspecifics) or between individuals of different species
- (heterospecifics)
-\change_unchanged
+ The resulting local aggregation can then affect the community dynamics
+ at larger spatial scales , even when all competitors are equivalent (i.e.,
+ with equal interaction strengths irrespective of species identity).
+ Indeed, the combination of local dispersal after reproduction and local
+ interactions leads to stronger intraspecific interactions than interspecific
+ interactions at the population level, which is a major stabilizing mechanism
  
-\change_deleted -2100369821 1663661637
-even when interactions are identical between 
-\change_inserted -2100369821 1663776262
-interaction strengths between all individuals are the same
-\change_deleted -2100369821 1663661662
-individuals of the same species (conspecifics) or between individuals of
- different species (heterospecifics),
-\change_inserted -2100369821 1663776262
-.
- Indeed,
-\change_unchanged
- the combination of local reproduction
-\change_inserted -2100369821 1663776262
-,
-\change_unchanged
- 
-\change_deleted -2100369821 1663661685
-and
-\change_unchanged
- same-scale high dispersal limitation and strong interactions
-\change_inserted -2100369821 1663776272
-[[Note CP: Can't remember why we add 'strong'? Shouldn't we say local interactio
-ns?]]
-\change_unchanged
- leads to stronger intraspecific interactions than interspecific interactions
- at the population level, which is a major stabilizing mechanism 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -626,16 +596,7 @@ literal "false"
 
 \end_inset
 
- segregate spatially, or on coexistence for species that have con
-\change_deleted -2100369821 1663599994
-s
-\change_unchanged
-trast
-\change_deleted -2100369821 1663599998
-ed
-\change_inserted -2100369821 1663599998
-ing
-\change_unchanged
+ segregate spatially, or on coexistence for species that have contrasting
  trait values 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -697,8 +658,13 @@ literal "false"
  phytoplankton biology (numbers of cells per liter, diffusion characteristics,
  etc.).
  As phytoplankton organisms live in a three-dimensional environment, informing
- the model with more realistic parameters required us to shift to three
- dimensions.
+ the model with more realistic parameters require
+\change_deleted -666822487 1664286648
+d
+\change_inserted -666822487 1664286648
+s
+\change_unchanged
+ us to shift to three dimensions.
  We also extend the model to multiple species, and consider two size classes
  for our phytoplankton communities, which are either made of nanophytoplankton
  (3
@@ -731,7 +697,13 @@ cells/L).
 
 \begin_layout Standard
 The Brownian Bug model (in its original single-species form as in the multispeci
-es version considered here) is linked to spatial branching processes.
+es version considered here) is 
+\change_deleted -666822487 1664286678
+linked
+\change_inserted -666822487 1664286679
+related
+\change_unchanged
+ to spatial branching processes.
  Without advection, it combines a continuous-time, discrete-state model
  for population growth and a continuous-time, continuous-space Brownian
  motion for particle diffusion 
@@ -756,8 +728,17 @@ literal "false"
  of pair density functions, which quantify the degree of intra- and interspecifi
 c clustering of organisms, via correlations between positions of organisms
  (see Methods).
- Thus we can understand emergent spatial structure in analytic details and
- compare these predictions with the results from three-dimensional simulations.
+ Thus we can understand emergent spatial structure in analytic detail
+\change_deleted -666822487 1664286780
+s
+\change_unchanged
+ and compare these predictions 
+\change_deleted -666822487 1664286911
+with
+\change_inserted -666822487 1664286911
+to
+\change_unchanged
+ the results from three-dimensional simulations.
  Furthermore, because we do not consider direct interactions between organisms,
  the multispecies spatial point process that represents the stable state
  of the BBM is a random superposition of spatial point processes for each
@@ -828,27 +809,12 @@ Each individual is characterized by its species
 \begin_inset Formula $D_{i}$
 \end_inset
 
-, and is advected by a common stochastic flow modeling
-\change_deleted -2100369821 1664206325
- the
+, and is advected by a common stochastic
+\change_inserted -666822487 1664286977
+ and chaotic
 \change_unchanged
- turbulence 
-\change_deleted -2100369821 1664206321
-with Lyapunov exponent 
-\begin_inset Formula $\gamma$
-\end_inset
-
- (also called the stretching parameter)
-\change_unchanged
-.
-
-\change_inserted -2100369821 1664206256
- The model applies in the Batchelor regime, which
-\change_deleted -2100369821 1664206258
- This
-\change_unchanged
- means that the separation
-\change_inserted -2100369821 1664206397
+ flow modeling turbulence.
+ The model applies in the Batchelor regime, which means that the separation
  
 \begin_inset Formula $s(t)$
 \end_inset
@@ -861,39 +827,16 @@ with Lyapunov exponent
 \begin_inset Formula $l$
 \end_inset
 
- grows exponentially with time with the stretching parameter 
+ grows exponentially with time with stretching parameter 
 \begin_inset Formula $\gamma$
 \end_inset
 
 , i.e.
  
-\change_deleted -2100369821 1664206347
- 
-\change_unchanged
-
-\begin_inset Formula $s(t)=\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto3\gamma t$
-\end_inset
-
-
-\change_inserted -2100369821 1664206380
-.
-
-\change_deleted -2100369821 1664206366
- between two individuals 
-\begin_inset Formula $k$
-\end_inset
-
- and 
-\begin_inset Formula $l$
-\end_inset
-
- increases with time as 
-\begin_inset Formula $s(t)\propto\gamma t$
+\begin_inset Formula $s(t)=\ln\left(|\bx_{k}(t)-\bx_{l}(t)|\right)\propto3\gamma t$
 \end_inset
 
 .
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -923,22 +866,14 @@ Within a given community (the set of all individuals of the
  are displaced similarly by turbulent stirring.
  For numerical simulations, time needs to be discretized (this is required
  for diffusion and advection modelling).
- The approximated model advances through time in steps of duration of 
+ The approximated model advances through time in
+\change_inserted -666822487 1664287132
+ small
+\change_unchanged
+ steps of duration of 
 \begin_inset Formula $\tau$
 \end_inset
 
-
-\change_inserted -2100369821 1663776303
-[[Note CP: Should we add stg along the lines of 
-\begin_inset Quotes eld
-\end_inset
-
-small enough for the approximation to hold
-\begin_inset Quotes erd
-\end_inset
-
-?]]
-\change_unchanged
 .
  During each interval, events unroll as follow:
 \end_layout
@@ -979,23 +914,14 @@ diffusion: each individual moves to a new position
 \end_inset
 
  is drawn from a Gaussian distribution 
-\begin_inset Formula $\mathcal{N}(0,\Delta_{i})$
-\end_inset
-
-
-\change_inserted -2100369821 1663776318
-[[CP: 
 \begin_inset Formula $\mathcal{N}(0,\Delta_{i}^{2})$
 \end_inset
 
-??]]
-\change_unchanged
  with 
 \begin_inset Formula $D_{i}=\frac{\Delta_{i}^{2}}{2\tau}$
 \end_inset
 
  the diffusivity.
- 
 \end_layout
 
 \begin_layout Enumerate
@@ -1089,10 +1015,14 @@ where
 \begin_inset Formula $1/3\left\langle \ln(s(t))\right\rangle =f(t)$
 \end_inset
 
- in the absence of diffusion and demography
-\change_inserted -2100369821 1663776328
-[[Note CP: Describe more precisely how we did it or ref to Young or ReScience?]]
-\change_unchanged
+ in the absence of diffusion and demography 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "young_reproductive_2001,picoche_rescience_2022"
+literal "false"
+
+\end_inset
+
 .
 \end_layout
 
@@ -1157,11 +1087,8 @@ Let
 \end_inset
 
 .
- We note that the point distributions remain the same for all
-\change_inserted -2100369821 1663600282
- spatial
-\change_unchanged
- translations 
+ We note that the point distributions remain the same for all spatial translatio
+ns 
 \begin_inset Formula $\bxi$
 \end_inset
 
@@ -1251,11 +1178,7 @@ literal "false"
 \begin_inset Formula $d\mathbf{x}_{A}$
 \end_inset
 
- and an in
-\change_inserted -2100369821 1663749316
-di
-\change_unchanged
-vidual of species 
+ and an individual of species 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1375,21 +1298,14 @@ g_{ii}(r)=1+\frac{\lambda_{i}}{4\pi D_{i}C_{i}\ellB}\left(\frac{\ellB}{r}+\arcta
 \end_inset
 
 
-\change_inserted -2100369821 1663679665
-
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted -2100369821 1663776347
 where 
 \begin_inset Formula $\ellB=\sqrt{2D_{i}/\gamma}$
 \end_inset
 
  approximates the Batchelor scale for phytoplankton.
- 
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1621,7 +1537,7 @@ noprefix "false"
 ) 
 \begin_inset Formula 
 \begin{equation}
-K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}r^{3}}{3D_{i}C_{i}\ellB}\left(\frac{\ellB}{r}+\frac{\ellB^{3}\log\left(\frac{r^{2}}{\ellB^{2}}+1\right)}{2r^{3}}+\arctan(\frac{r}{\ellB})+-\frac{\pi}{2}\right).\label{eq:K_intra_adv}
+K_{ii}(r)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}r^{3}}{3D_{i}C_{i}\ellB}\left(\frac{\ellB}{r}+\frac{\ellB^{3}\log\left(\frac{r^{2}}{\ellB^{2}}+1\right)}{2r^{3}}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right).\label{eq:K_intra_adv}
 \end{equation}
 
 \end_inset
@@ -1660,7 +1576,7 @@ noprefix "false"
 ) 
 \begin_inset Formula 
 \begin{equation}
-K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}r^{2}}{C_{i}D_{i}}\left(\frac{1}{2}-\frac{1}{2}\erf(\frac{r}{\sqrt{8D_{i}t}})(1-\frac{4D_{i}}{r^{2}}t)-\frac{\sqrt{2D_{i}t}}{\sqrt{\pi}r}e^{-r^{2}/8D_{i}t}\right).\label{eq:K_intra_no_adv}
+K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}r^{2}}{C_{i}D_{i}}\left(\frac{1}{2}-\frac{1}{2}\erf\left(\frac{r}{\sqrt{8D_{i}t}}\right)\left(1-\frac{4D_{i}}{r^{2}}t\right)-\frac{\sqrt{2D_{i}t}}{\sqrt{\pi}r}e^{-r^{2}/8D_{i}t}\right).\label{eq:K_intra_no_adv}
 \end{equation}
 
 \end_inset
@@ -1853,11 +1769,8 @@ Advection
 \begin_layout Standard
 We first consider the advection process, due to the turbulence of the environmen
 t.
- We only consider the Batchelor-Kolmogorov regime, i.e
-\change_inserted -2100369821 1663751909
-.,
-\change_unchanged
- the size of the volume 
+ We only consider the Batchelor-Kolmogorov regime, i.e., the size of the volume
+ 
 \begin_inset Formula $W$
 \end_inset
 
@@ -1893,11 +1806,7 @@ where
 \begin_inset Formula $L_{s}$
 \end_inset
 
- (Kolmogorov scale), i.e.
-\change_inserted -2100369821 1663751898
-,
-\change_unchanged
- 
+ (Kolmogorov scale), i.e., 
 \begin_inset Formula $k=2\pi/L_{s},$
 \end_inset
 
@@ -1971,12 +1880,7 @@ literal "false"
 \begin_inset Formula $U\tau/3=0$
 \end_inset
 
-, 
-\change_deleted -2100369821 1663751904
-i.e.
- 
-\change_unchanged
-the environment is only diffusive, we keep the same value for 
+, the environment is only diffusive, we keep the same value for 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -2119,11 +2023,7 @@ Ecological processes
 
 \begin_layout Standard
 We study the community at equilibrium, with the birth rate equal to the
- death rate, i.e.
-\change_inserted -2100369821 1663752109
-,
-\change_unchanged
- 
+ death rate, i.e., 
 \begin_inset Formula $p_{i}=q_{i}\,\forall i$
 \end_inset
 
@@ -2714,24 +2614,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\change_inserted -2100369821 1663658977
-Comparison of theoretical and simulated 
-\change_unchanged
-Ripley's 
+Comparison of theoretical and simulated Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
--function
-\change_inserted -2100369821 1663752392
-s
-\change_unchanged
- as a function of distance (in cm) for microphytoplankton (a-b) and nanophytopla
-nkton (c-d) in a 3-species community with even abundance distributions after
- 1000 timesteps, with (a, c) and without (b, d) advection.
+-functions as a function of distance (in cm) for microphytoplankton (a-b)
+ and nanophytoplankton (c-d) in a 3-species community with even abundance
+ distributions after 1000 timesteps, with (a, c) and without (b, d) advection.
  Each color represents a different species.
-
-\change_inserted -2100369821 1663659147
  Intraspecific 
 \begin_inset Formula $K$
 \end_inset
@@ -2744,8 +2634,6 @@ nkton (c-d) in a 3-species community with even abundance distributions after
 
 -functions are shown with dotted lines (theoretical values) and circles
  (simulated values).
-
-\change_unchanged
  The black dash-dotted line corresponds to the threshold considered as the
  maximum distance for nutrient-based competition.
 \begin_inset CommandInset label
@@ -2754,7 +2642,7 @@ name "fig:Ripley's-K-function"
 
 \end_inset
 
- 
+
 \end_layout
 
 \end_inset
@@ -3077,11 +2965,8 @@ We designed a stochastic, three-dimension, individual-based model of the
 \end_inset
 
 -function, for which numerical and theoretical analyses showed a good agreement,
- and extracted a more ecologically-oriented metric from them, i.e.
-\change_inserted -2100369821 1663752660
-,
-\change_unchanged
- the dominance index.
+ and extracted a more ecologically-oriented metric from them, i.e., the dominance
+ index.
  This statistic is the 
 \shape italic
 local
@@ -3191,14 +3076,8 @@ mic traits.
  the maximum distance for the overlap of nutrient depletion volumes) while
  microphytoplankton organisms could affect both conspecifics and heterospecifics
  (the dominance index was often below 50% at the distance threshold, i.e.
- 
-\change_inserted -2100369821 1663762122
-an individual's
-\change_deleted -2100369821 1663762117
-a particle's
-\change_unchanged
- depletion zone probably overlapped with more heterospecifics' than conspecifics
-').
+ an individual's depletion zone probably overlapped with more heterospecifics'
+ than conspecifics').
  Microphytoplankters were therefore more likely to share their depletion
  volume with heterospecifics than nanophytoplankters.
  The rate of production of new microphytoplankton conspecifics was not sufficien
@@ -3209,12 +3088,8 @@ t to compensate for the mixing induced by turbulence and diffusivity, even
  for microphytoplankton and nanophytoplankton to maintain coexistence.
  For nanophytoplankton, the spatial structure likely leads to more interactions
  between conspecifics than between heterospecifics.
- The
-\change_inserted -2100369821 1663762208
- spatial
-\change_unchanged
- distribution of microphytoplankton species, on the contrary, encourages
- more interactions between heterospecifics.
+ The spatial distribution of microphytoplankton species, on the contrary,
+ encourages more interactions between heterospecifics.
  If we consider that local interaction strengths are equal within the volume
  of potential interactions, scaling to the population level, we would likely
  observe stronger intra- over interspecific interactions for nanophytoplankton

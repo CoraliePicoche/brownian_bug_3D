@@ -403,9 +403,9 @@ s with mean
  respectively.
 
 \change_inserted -2100369821 1663776624
- All solutions are given for three-dimension spatial distributions.
+ 
 \change_unchanged
-
+All solutions are given for three-dimensional spatial distributions.
 \end_layout
 
 \begin_layout Subsection
@@ -729,12 +729,9 @@ noprefix "false"
 \end_inset
 
 ).
- However, the 
-\change_inserted -2100369821 1663776782
-population-at-
-\change_unchanged
-equilibrium hypothesis that we use cannot hold for such a long amount of
- time, which led us to use the time-dependent formulas shown in Eqs.
+ However, the population-at-equilibrium hypothesis that we use cannot hold
+ for such a long amount of time, which led us to use the time-dependent
+ formulas shown in Eqs.
  5, 9 and 12 in the main text.
 \end_layout
 
@@ -1045,16 +1042,10 @@ Intra- and inter-specific Ripley's
  Values computed from our simulations (circles and solid lines for intra-
  and interspecific values, respectively) are compared with theoretical formulas
  (dotted lines).
- Note that theoretical values are the same for intra and interspecific 
-\change_deleted -2100369821 1663776970
-moments
-\change_inserted -2100369821 1663776970
-indices
-\change_unchanged
+ Note that theoretical values are the same for intra and interspecific indices
  for the Poisson distribution.
  Colors correspond to the different species (red for species 0, blue for
  species 1, grey for species 2).
- 
 \end_layout
 
 \end_inset
@@ -1951,10 +1942,7 @@ Thus,
 \end_layout
 
 \begin_layout Standard
-Let us first focus on microphytoplankton in a 3-species community with
-\change_inserted -2100369821 1663777374
- an
-\change_unchanged
+Let us first focus on microphytoplankton in a 3-species community with an
  even distribution of abundances.
  We know that 
 \begin_inset Formula $\mathcal{D}(d_{\text{threshold}})\approx0.4$
@@ -1975,15 +1963,9 @@ Let us first focus on microphytoplankton in a 3-species community with
 \end_inset
 
 .
- Both ratios of population-level interaction strength are 
-\change_inserted -2100369821 1663777425
-below 1, therefore meets a 
-\change_unchanged
-necessary condition
-\change_deleted -2100369821 1663777428
-s
-\change_unchanged
- for diversity maintenance in a Lotka-Volterra model.
+ Both ratios of population-level interaction strength are below 1, and therefore
+ meet a necessary condition for diversity maintenance in a Lotka-Volterra
+ model.
  Similar calculations for the 10-species communities, combining small dominance
  indices to low average concentrations, lead to 
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\ll1$
