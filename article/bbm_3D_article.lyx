@@ -110,6 +110,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -2100369821 "cpicoche"
 \end_header
 
 \begin_body
@@ -507,8 +508,12 @@ literal "false"
 
 .
  The resulting local aggregation can then affect the community dynamics
- at larger spatial scales , even when all competitors are equivalent (i.e.,
- with equal interaction strengths irrespective of species identity).
+ at larger spatial scales
+\change_deleted -2100369821 1664373632
+ 
+\change_unchanged
+, even when all competitors are equivalent (i.e., with equal interaction strengths
+ irrespective of species identity).
  Indeed, the combination of local dispersal after reproduction and local
  interactions leads to stronger intraspecific interactions than interspecific
  interactions at the population level, which is a major stabilizing mechanism
@@ -719,9 +724,14 @@ literal "false"
 
 .
  This enables us to derive, in addition to pair correlation functions, analytica
-l formulas for the species composition of the neighbourhood of an individual,
- which are more readily ecologically interpreted than pair density or correlatio
-n functions.
+l formulas for the species composition 
+\change_deleted -2100369821 1664373649
+of
+\change_inserted -2100369821 1664373649
+in
+\change_unchanged
+ the neighbourhood of an individual, which are more readily ecologically
+ interpreted than pair density or correlation functions.
 \end_layout
 
 \begin_layout Section*
@@ -826,7 +836,15 @@ Within a given community (the set of all individuals of the
 \end_inset
 
  describes the environment and is not community-specific, i.e., all individuals
- are displaced similarly by turbulent stirring.
+ are displaced 
+\change_deleted -2100369821 1664373666
+similarly 
+\change_unchanged
+by
+\change_inserted -2100369821 1664373668
+ the same
+\change_unchanged
+ turbulent stirring.
  For numerical simulations, time needs to be discretized (this is required
  for diffusion and advection modelling).
  The approximated model advances through time in small steps of duration
@@ -835,11 +853,21 @@ Within a given community (the set of all individuals of the
 \end_inset
 
 .
- During each interval, events unroll as follow:
+ During each interval, events unroll as follow
+\change_inserted -2100369821 1664373673
+s
+\change_unchanged
+:
 \end_layout
 
 \begin_layout Enumerate
-demography: each individual can either reproduce with probability 
+
+\change_deleted -2100369821 1664373801
+d
+\change_inserted -2100369821 1664373801
+D
+\change_unchanged
+emography: each individual can either reproduce with probability 
 \begin_inset Formula $p_{i}=\lambda_{i}\tau$
 \end_inset
 
@@ -863,10 +891,50 @@ demography: each individual can either reproduce with probability
 \end_layout
 
 \begin_layout Enumerate
-diffusion: each individual moves to a new position 
-\begin_inset Formula $\mathbf{x}(t+t')=\mathbf{x}(t)+\delta\mathbf{x}(t)$
+
+\change_deleted -2100369821 1664373804
+d
+\change_inserted -2100369821 1664373804
+D
+\change_unchanged
+iffusion: each individual moves to a new position 
+\change_inserted -2100369821 1664373810
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1664373818
+Bill suggests 
+\begin_inset Quotes eld
 \end_inset
 
+jumps quickly to a new position
+\begin_inset Quotes erd
+\end_inset
+
+
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
+\begin_inset Formula $\mathbf{x}(t')=\mathbf{x}(t)+\delta\mathbf{x}(t)$
+\end_inset
+
+
+\change_inserted -2100369821 1664373739
+, with 
+\begin_inset Formula $t<t'<t+\tau$
+\end_inset
+
+
+\change_unchanged
 .
  The random displacement 
 \begin_inset Formula $\delta\mathbf{x}(t)$
@@ -877,14 +945,31 @@ diffusion: each individual moves to a new position
 \end_inset
 
  with 
-\begin_inset Formula $D_{i}=\frac{\Delta_{i}^{2}}{2\tau}$
+\begin_inset Formula $D_{i}=\Delta_{i}^{2}/2\tau$
 \end_inset
 
  the diffusivity.
+
+\change_inserted -2100369821 1664373940
+ This diffusive jump separates the initially coincident pairs produced by
+ reproduction in step 1 above.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Enumerate
-turbulence: each individual is displaced by a turbulent flow, following
+
+\change_deleted -2100369821 1664373806
+t
+\change_inserted -2100369821 1664373806
+T
+\change_unchanged
+urbulence: each individual is displaced by a turbulent flow, 
+\change_deleted -2100369821 1664373990
+following
+\change_inserted -2100369821 1664373991
+modeled with
+\change_unchanged
  the Pierrehumbert map 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -893,7 +978,23 @@ literal "false"
 
 \end_inset
 
-, adapted in its three-dimension version 
+, adapted 
+\change_deleted -2100369821 1664374008
+in its
+\change_inserted -2100369821 1664374008
+to
+\change_unchanged
+ three-dimension
+\change_inserted -2100369821 1664374013
+s
+\change_unchanged
+ 
+\change_deleted -2100369821 1664374015
+version
+\change_inserted -2100369821 1664374016
+following
+\change_unchanged
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ngan_scalar_2011"
@@ -901,26 +1002,57 @@ literal "false"
 
 \end_inset
 
+
+\change_inserted -2100369821 1664374047
+.
+ Thus given the position at time 
+\begin_inset Formula $t'$
+\end_inset
+
+ the updated position at time 
+\begin_inset Formula $t+\tau$
+\end_inset
+
+ is
+\change_deleted -2100369821 1664374034
 , which writes 
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-x(t+\tau) & =x(t+t')+U\tau/3\cos\left(ky(t+t')+\phi(t)\right)\\
-y(t+\tau) & =y(t+t')+U\tau/3\cos\left(kz(t+t')+\theta(t)\right)\\
-z(t+\tau) & =z(t+t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right)
+x(t+\tau) & =x(t')+U\tau/3\cos\left(ky(t')+\phi(t)\right)\\
+y(t+\tau) & =y(t')+U\tau/3\cos\left(kz(t')+\theta(t)\right)\\
+z(t+\tau) & =z(t')+U\tau/3\cos\left(kx(t+\tau)+\psi(t)\right).
 \end{array}
 \end{equation}
 
 \end_inset
 
-where 
+
+\change_deleted -2100369821 1664374102
+where
+\change_inserted -2100369821 1664374103
+Above
+\change_unchanged
+ 
 \begin_inset Formula $U$
 \end_inset
 
- is the maximum velocity of the individual, 
+ is the 
+\change_deleted -2100369821 1664374111
+maximum 
+\change_unchanged
+velocity of the 
+\change_deleted -2100369821 1664374115
+individual
+\change_inserted -2100369821 1664374116
+flow
+\change_unchanged
+, 
 \begin_inset Formula $k=2\pi/L_{s}$
 \end_inset
 
@@ -948,11 +1080,40 @@ where
 \begin_inset Formula $2\pi$
 \end_inset
 
- at the beginning of each time interval, which remain constant during the
- interval.
+ at 
+\change_deleted -2100369821 1664374133
+the beginning of each time interval
+\change_inserted -2100369821 1664374136
+time 
+\begin_inset Formula $t$
+\end_inset
+
+
+\change_deleted -2100369821 1664374153
+,
+\change_inserted -2100369821 1664374169
+; these phases remain constant during the interval between 
+\begin_inset Formula $t$
+\end_inset
+
+ and 
+\begin_inset Formula $t+\tau$
+\end_inset
+
+
+\change_deleted -2100369821 1664374173
+ which remain constant during the interval
+\change_unchanged
+.
  The shift from continuous to discrete-time turbulence modeling is described
  in Section S1 in the Supplementary Information.
- The advection parameter 
+ The 
+\change_deleted -2100369821 1664374207
+advection parameter
+\change_inserted -2100369821 1664374208
+velocity
+\change_unchanged
+ 
 \begin_inset Formula $U$
 \end_inset
 
@@ -1099,7 +1260,11 @@ The first-order moment is the intensity of the process, or mean concentration
 \end_inset
 
  is the volume of the cube; it does not give any information regarding the
- spatial distribution of individuals, and possibly their spatial correlations.
+ spatial distribution of individuals, and 
+\change_deleted -2100369821 1664374231
+possibly 
+\change_unchanged
+their spatial correlations.
 \end_layout
 
 \begin_layout Standard
@@ -1251,7 +1416,7 @@ noprefix "false"
  and obtain 
 \begin_inset Formula 
 \begin{equation}
-g_{ii}(r)=1+\frac{\lambda_{i}}{4\pi D_{i}C_{i}\ellB}\left(\frac{\ellB}{r}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right)\label{eq:pcf_intra_adv}
+g_{ii}(r)=1+\frac{\lambda_{i}}{4\pi D_{i}C_{i}\ellB}\left(\frac{\ellB}{r}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right),\label{eq:pcf_intra_adv}
 \end{equation}
 
 \end_inset
@@ -1281,8 +1446,13 @@ noprefix "false"
 
  in the presence of advection.
  However, when there is no turbulence, convergence is much slower, to the
- point that an equilibrium assumption would involve unrealistically long
- timeframes (see Section S3 in the SI).
+ point that an equilibrium assumption 
+\change_deleted -2100369821 1664374257
+would involve
+\change_inserted -2100369821 1664374257
+requires
+\change_unchanged
+ unrealistically long timeframes (see Section S3 in the SI).
  We therefore need a time-dependent formula for the pcf in the absence of
  advection, which can be obtained in the case where 
 \begin_inset Formula $\gamma=0$
@@ -1396,7 +1566,7 @@ literal "false"
 , i.e., 
 \begin_inset Formula 
 \begin{equation}
-\forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\backslash\{o\}\right)\right)
+\forall r\geq0\textmd{, }K_{ij}(r)=\frac{1}{C_{j}}\mathbb{E}_{i}\left(N_{j}\left(b(o,r)\backslash\{o\}\right)\right),
 \end{equation}
 
 \end_inset
@@ -1621,13 +1791,31 @@ Let
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-\mathcal{D}_{i}(r) & = & \frac{M_{ii}(r)}{M_{ii}(r)+M_{io}(r)}\\
+\mathcal{D}_{i}(r) & = & \frac{M_{ii}(r)}{M_{ii}(r)+M_{io}(r)},\\
  & = & \frac{C_{i}K_{ii}(r)}{\sum_{j=1}^{S}C_{j}K_{ij}(r)}.
 \end{array}\label{eq:dominance}
 \end{equation}
 
 \end_inset
 
+
+\change_inserted -2100369821 1664374410
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1664374409
+Bill adds a comma after the first line, is it common?
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+ 
+\change_unchanged
 When individuals of the same species 
 \begin_inset Formula $i$
 \end_inset
@@ -1666,8 +1854,11 @@ noprefix "false"
 
 \end_inset
 
-, we obtain the theoretical formula for the dominance index in the presence
- of advection as 
+, we obtain the 
+\change_deleted -2100369821 1664374426
+theoretical 
+\change_unchanged
+formula for the dominance index in the presence of advection as 
 \begin_inset Formula 
 \begin{equation}
 \mathcal{D}_{i}(r)=\frac{\frac{\lambda_{i}}{3D_{i}\ellB}\left(\frac{\ellB}{r}+\frac{\ellB^{3}\log\left(\frac{r^{2}}{\ellB^{2}}+1\right)}{2r^{3}}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right)+\frac{4}{3}\pi C_{i}}{\frac{\lambda_{i}}{3D_{i}\ellB}\left(\frac{\ellB}{r}+\frac{\ellB^{3}\log\left(\frac{r^{2}}{\ellB^{2}}+1\right)}{2r^{3}}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right)+\sum_{j=1}^{S}\frac{4}{3}\pi C_{j}}.\label{eq:dom_adv}
@@ -1696,6 +1887,50 @@ In the absence of advection (
 
 \begin_layout Subsection*
 Parameters
+\change_inserted -2100369821 1664374474
+
+\end_layout
+
+\begin_layout Standard
+
+\change_inserted -2100369821 1664374551
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1664374567
+CB: Bill prefers m
+\begin_inset Formula $^{2}$
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ instead of m
+\begin_inset Formula $^{2}$
+\end_inset
+
+.s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+ Check what is used in JMB.
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
@@ -2255,7 +2490,12 @@ Diffusion parameter for nanophytoplankton individuals
 
 \begin_layout Plain Layout
 Definitions and values of the main parameters used in the three-dimension
- Brownian Bug Model, assuming the duration of a time step 
+\change_inserted -2100369821 1664374592
+al BBM
+\change_deleted -2100369821 1664374594
+ Brownian Bug Model
+\change_unchanged
+, assuming the duration of a time step 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -2305,8 +2545,24 @@ ls.
 
  the background concentration of the nutrient.
  The radius of this nutrient depletion volume is maximized when the individual
- is in stagnant water (diffusion is the only hydrodynamic process).
- In this case, it corresponds to 10 times the radius of the individual 
+ is in stagnant water 
+\change_deleted -2100369821 1664374616
+(
+\change_inserted -2100369821 1664374617
+so that 
+\change_unchanged
+diffusion is the only hydrodynamic process
+\change_deleted -2100369821 1664374622
+)
+\change_unchanged
+.
+ In this case, 
+\change_inserted -2100369821 1664374632
+the depletion radius 
+\change_deleted -2100369821 1664374635
+it 
+\change_unchanged
+corresponds to 10 times the radius of the individual 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "jumars_physical_1993,karp-boss_nutrient_1996"
@@ -2351,8 +2607,19 @@ literal "false"
 
 \end_inset
 
-, but determination of the exact shape of the nutrient depletion volume
- in the presence of turbulence is too complex to be addressed here 
+
+\change_inserted -2100369821 1664374665
+.
+ We caution that
+\change_deleted -2100369821 1664374670
+, but
+\change_unchanged
+ determination of the
+\change_deleted -2100369821 1664374676
+ exact
+\change_unchanged
+ shape of the nutrient depletion volume in the presence of turbulence is
+ too complex to be addressed here 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karp-boss_nutrient_1996"
@@ -2457,9 +2724,12 @@ noprefix "false"
 
 \end_inset
 
-: clustering is not visible to the naked eye, even when zooming in the observati
-on volume, in the presence of advection, but removing turbulence helps visualisi
-ng small aggregates of conspecifics.
+: clustering is not visible to the naked eye, even when zooming in
+\change_inserted -2100369821 1664374698
+ on
+\change_unchanged
+ the observation volume, in the presence of advection, but removing turbulence
+ helps visualising small aggregates of conspecifics.
  Microphytoplankton distributions are not so easy to analyse as no clusters
  can be detected from basic observations, whether advection is included
  or not (Section S5 of the SI).
@@ -2915,10 +3185,20 @@ Discussion
 \end_layout
 
 \begin_layout Standard
-We designed a stochastic, three-dimension, individual-based model of the
- spatial distribution of multiple species in a viscous and turbulent flow.
+We designed a stochastic, three-dimension
+\change_inserted -2100369821 1664374723
+al
+\change_unchanged
+, individual-based model of the spatial distribution of multiple species
+ in a viscous and turbulent flow.
  We conducted both mathematical analyses and numerical simulations to quantify
- spatial correlations in organism distributions.
+ spatial correlations in 
+\change_deleted -2100369821 1664374734
+organism distributions
+\change_inserted -2100369821 1664374737
+the distribution of organisms
+\change_unchanged
+.
  We focused on the pair correlation function and Ripley's 
 \begin_inset Formula $K$
 \end_inset
@@ -2962,8 +3242,18 @@ rs (2 to 20 µm).
  interactions, we would conclude that microphytoplankters are more likely
  to interact with individuals from other species than with individuals of
  their own species.
- However, this affirmation is conditional upon interactions at 10 cell diameters
- from an individual being equally likely than at 1 diameter from an individual.
+ 
+\change_deleted -2100369821 1664374756
+However, t
+\change_inserted -2100369821 1664374756
+T
+\change_unchanged
+his affirmation is
+\change_inserted -2100369821 1664374764
+, however,
+\change_unchanged
+ conditional upon interactions at 10 cell diameters from an individual being
+ equally likely than at 1 diameter from an individual.
  If we keep in mind that interactions are more likely or stronger at very
  short distances, microphytoplankters may still experience more frequent
  effects of conspecifics than heterospecifics.
@@ -2988,7 +3278,13 @@ To see this, let us first focus on the smallest distances between organisms.
 some
 \emph default
  intraspecific aggregation, i.e.
- conspecifics were always closer than heterospecifics at the lowest distances.
+ conspecifics were always closer than heterospecifics at the 
+\change_deleted -2100369821 1664374791
+lowest
+\change_inserted -2100369821 1664374792
+smallest
+\change_unchanged
+ distances.
  This is due to the prevalence of demographic processes at individual scales,
  because an individual acts as a source point for other organisms of the
  same species, and hydrodynamic processes do not separate conspecifics fast
@@ -3184,7 +3480,11 @@ literal "false"
  phytoplankter.
  This will lead to positive spatial correlations between consumers and their
  resources, and we currently do not have theoretical models to represent
- this (short of modelling precisely these bacteria).
+ this
+\change_inserted -2100369821 1664374824
+ process
+\change_unchanged
+ (short of modelling precisely these bacteria).
 \end_layout
 
 \begin_layout Standard
@@ -3202,9 +3502,28 @@ literal "false"
 \end_inset
 
 .
- It is worthwhile to keep in mind that there are numerous remaining features
- of phytoplankton physiology and life histories which we do not cover here,
- but may affect their spatial distributions.
+ It is worthwhile to keep in mind that there are 
+\change_deleted -2100369821 1664374848
+numerous
+\change_inserted -2100369821 1664374848
+many
+\change_unchanged
+ remaining features of phytoplankton physiology and life histories which
+ we do not 
+\change_deleted -2100369821 1664374857
+cover
+\change_inserted -2100369821 1664374858
+address
+\change_unchanged
+ here, but
+\change_inserted -2100369821 1664374871
+ which
+\change_unchanged
+ may affect
+\change_deleted -2100369821 1664374874
+ their
+\change_unchanged
+ spatial distributions.
  Many phytoplankters are able to move actively in three dimensions, which
  can favour cluster formation 
 \begin_inset CommandInset citation
