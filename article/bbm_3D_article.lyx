@@ -17,7 +17,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{lineno}
 \usepackage{authblk}
-
+\usepackage{ae,aecompl}
 
 
 \renewenvironment{abstract}
@@ -110,8 +110,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -2100369821 "cpicoche"
-\author -666822487 "frederic"
 \end_header
 
 \begin_body
@@ -509,12 +507,8 @@ literal "false"
 
 .
  The resulting local aggregation can then affect the community dynamics
- at larger spatial scales
-\change_deleted -2100369821 1664373632
- 
-\change_unchanged
-, even when all competitors are equivalent (i.e., with equal interaction strengths
- irrespective of species identity).
+ at larger spatial scales, even when all competitors are equivalent (i.e.,
+ with equal interaction strengths irrespective of species identity).
  Indeed, the combination of local dispersal after reproduction and local
  interactions leads to stronger intraspecific interactions than interspecific
  interactions at the population level, which is a major stabilizing mechanism
@@ -667,7 +661,15 @@ literal "false"
 \begin_inset space ~
 \end_inset
 
-cells/L) or microphytoplankton (50
+cells
+\begin_inset space ~
+\end_inset
+
+L
+\begin_inset Formula $^{-1}$
+\end_inset
+
+) or microphytoplankton (50
 \begin_inset space ~
 \end_inset
 
@@ -679,7 +681,15 @@ cells/L) or microphytoplankton (50
 \begin_inset space ~
 \end_inset
 
-cells/L).
+cells
+\begin_inset space ~
+\end_inset
+
+L
+\begin_inset Formula $^{-1}$
+\end_inset
+
+).
  We populate each community with 3 to 10 different species.
 \end_layout
 
@@ -1743,50 +1753,6 @@ In the absence of advection (
 
 \begin_layout Subsection*
 Parameters
-\change_inserted -2100369821 1664374474
-
-\end_layout
-
-\begin_layout Standard
-
-\change_inserted -2100369821 1664374551
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1664374567
-CB: Bill prefers m
-\begin_inset Formula $^{2}$
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-s
-\begin_inset Formula $^{-1}$
-\end_inset
-
- instead of m
-\begin_inset Formula $^{2}$
-\end_inset
-
-.s
-\begin_inset Formula $^{-1}$
-\end_inset
-
-.
- Check what is used in JMB.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
@@ -1843,7 +1809,11 @@ where
 \begin_inset Formula $^{2}$
 \end_inset
 
-.s
+
+\begin_inset space ~
+\end_inset
+
+s
 \begin_inset Formula $^{-1}$
 \end_inset
 
@@ -1892,7 +1862,11 @@ This means that U=
 \begin_inset Formula $6.3\times10^{-4}$
 \end_inset
 
- m.s
+ m
+\begin_inset space ~
+\end_inset
+
+s
 \begin_inset Formula $^{-1}$
 \end_inset
 
@@ -1900,7 +1874,11 @@ This means that U=
 \begin_inset Formula $5.4\times10^{3}$
 \end_inset
 
- cm.d
+ cm
+\begin_inset space ~
+\end_inset
+
+d
 \begin_inset Formula $^{-1}$
 \end_inset
 
@@ -1983,11 +1961,19 @@ where
 \begin_inset Formula $R=8.314$
 \end_inset
 
- J.K
+ J
+\begin_inset space ~
+\end_inset
+
+K
 \begin_inset Formula $^{-1}$
 \end_inset
 
-.mol
+
+\begin_inset space ~
+\end_inset
+
+mol
 \begin_inset Formula $^{-1}$
 \end_inset
 
@@ -2004,10 +1990,14 @@ where
 \end_inset
 
  m
-\begin_inset Formula $^{-1}.$
+\begin_inset Formula $^{-1} $
 \end_inset
 
-kg.s
+kg
+\begin_inset space ~
+\end_inset
+
+s
 \begin_inset Formula $^{-1}$
 \end_inset
 
@@ -2481,7 +2471,15 @@ on of about
 \begin_inset Formula $10^{4}$
 \end_inset
 
- cells/L for microphytoplankton 
+ cells
+\begin_inset space ~
+\end_inset
+
+L
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ for microphytoplankton 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "picoche_strong_2020"
@@ -2493,7 +2491,15 @@ literal "false"
 \begin_inset Formula $10^{6}$
 \end_inset
 
- cells/L for nanophytoplankton individuals 
+ cells
+\begin_inset space ~
+\end_inset
+
+L
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ for nanophytoplankton individuals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "edwards_mixotrophy_2019"
@@ -2503,8 +2509,16 @@ literal "false"
 
 .
  We then model a more realistic community with 10 species having a skewed
- abundance distribution (between 55,000 and 400 cells/L for microphytoplankton,
- according to observations of field abundance distributions in 
+ abundance distribution (between 55,000 and 400 cells
+\begin_inset space ~
+\end_inset
+
+L
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ for microphytoplankton, according to observations of field abundance distributi
+ons in 
 \begin_inset CommandInset citation
 LatexCommand citealp
 key "picoche_strong_2020"
@@ -2587,7 +2601,11 @@ Spatial distributions of a 3-species community of nanophytoplankton with
 \begin_inset Formula $C=10^{3}$
 \end_inset
 
- cells.cm
+ cells
+\begin_inset space ~
+\end_inset
+
+cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -2610,7 +2628,7 @@ name "fig:Spatial-distributions"
 
 \end_inset
 
- 
+
 \end_layout
 
 \end_inset
@@ -3349,41 +3367,6 @@ Declaration of Competing Interest
 The authors declare that they have no known competing financial interests
  or personal relationships that could have appeared to influence the work
  reported in this paper.
-\change_inserted -666822487 1664454666
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1664454666
-FB: check if we need that for JMB.
- 
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
-
-\begin_layout Subsubsection*
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Author contribution statement
-\change_inserted -666822487 1664454637
- FB: check if we need that for JMB.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3393,25 +3376,6 @@ Acknowledgments
 \begin_layout Standard
 FB and CP were supported by the grant ANR-20-CE45-0004.
  CP was supported by a PhD grant from the French Ministry of Research.
-
-\change_inserted -666822487 1664454720
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1664454728
-Other stuff ?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Section*
