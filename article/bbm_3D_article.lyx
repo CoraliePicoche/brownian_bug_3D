@@ -110,6 +110,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -2100369821 "cpicoche"
 \author 617562988 "fbarraquand"
 \end_header
 
@@ -323,13 +324,7 @@ literal "false"
  Their contribution to ecosystem functions is only matched by their contribution
  to biodiversity.
  Indeed, phytoplankton communities are characterized by a surprisingly high
- 
-\change_deleted 617562988 1664952613
-biodiversity
-\change_inserted 617562988 1664952615
-number of species
-\change_unchanged
-.
+ number of species.
  For example, a single sample as small as a few mL can contain up to seventy
  species 
 \begin_inset CommandInset citation
@@ -413,11 +408,7 @@ literal "false"
 
 \end_inset
 
- are not 
-\change_deleted 617562988 1664952626
-always 
-\change_unchanged
-sufficient to maintain a realistic diversity.
+ are not sufficient to maintain a realistic diversity.
  For instance, we found that a phytoplankton community dynamics model with
  environmental fluctuations and storage effect still requires extra niche
  differentiation for coexistence, which manifests in stronger intraspecific
@@ -553,32 +544,14 @@ literal "false"
 
 .
  Therefore, the microscale spatial distribution of individuals likely affects
- the interaction structure within a community
-\change_inserted 617562988 1664956269
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664956309
-I wonder if we couldn't add here 
-\begin_inset Quotes eld
-\end_inset
-
-(see also Haegeman & Rapaport 2008)
-\begin_inset Quotes erd
-\end_inset
-
-
-\change_unchanged
-
-\end_layout
+ the interaction structure within a community 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "haegeman_how_2008"
+literal "false"
 
 \end_inset
 
-
-\change_unchanged
 , and may sustain diversity.
 \end_layout
 
@@ -646,13 +619,8 @@ similar
 \end_layout
 
 \begin_layout Standard
-To do so, we build a 
-\change_inserted 617562988 1664952646
-multispecies
-\change_deleted 617562988 1664952646
-multispecific
-\change_unchanged
- version of the Brownian Bug Model (BBM) of 
+To do so, we build a multispecies version of the Brownian Bug Model (BBM)
+ of 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "young_reproductive_2001"
@@ -761,13 +729,7 @@ literal "false"
  In spite of this complexity, it remains possible to derive the dynamics
  of pair density functions, which quantify the degree of intra- and interspecifi
 c clustering of organisms, via correlations between positions of organisms
- (see 
-\change_deleted 617562988 1664952670
-Methods
-\change_inserted 617562988 1664952674
-next section
-\change_unchanged
-).
+ (see next section).
  Thus we can understand emergent spatial structure in analytic detail and
  compare these predictions to the results from three-dimensional simulations.
  Furthermore, because we do not consider direct interactions between organisms,
@@ -816,11 +778,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Each individual is characterized by its species
-\change_inserted 617562988 1664952687
- identity
-\change_unchanged
- 
+Each individual is characterized by its species identity 
 \begin_inset Formula $i$
 \end_inset
 
@@ -867,27 +825,15 @@ Each individual is characterized by its species
 \begin_inset Formula $s(t)=\ln\left(|\bx_{k}(t)-\bx_{l}(t)|\right)\propto3\gamma t$
 \end_inset
 
-.
-\change_inserted 617562988 1664953505
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664953548
-I was thinking perhaps we should cite Young et al.
- 2001; Kraichnan 1974 here, to justify this.
  
-\change_unchanged
-
-\end_layout
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kraichnan_convection_1974,young_reproductive_2001"
+literal "false"
 
 \end_inset
 
-
-\change_unchanged
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -1038,42 +984,6 @@ z(t+\tau) & =z(t')+\frac{U\tau}{3}\cos\left(kx(t+\tau)+\psi(t)\right).
 
 \end_inset
 
-
-\change_inserted 617562988 1664953607
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664953674
-This equation (1) has weird spaces on the left-hand side.
- I corrected it using 
-\family roman
-\series medium
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
-
-\backslash
-frac{U
-\backslash
-tau}{3} -> computing conventions do not apply in mathematics.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 Above, 
 \begin_inset Formula $U$
 \end_inset
@@ -1128,29 +1038,9 @@ Above,
 .
  As the separation between two points grows exponentially with parameter
  
-\begin_inset Formula $\gamma$
+\begin_inset Formula $3\gamma$
 \end_inset
 
-
-\change_inserted 617562988 1664953700
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664953707
-Isn't it 3
-\backslash
-gamma, rather?
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
  due to turbulence, the exponent 
 \begin_inset Formula $\gamma$
 \end_inset
@@ -1171,11 +1061,7 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Individuals are distributed in a cube of side
-\change_inserted 617562988 1664953779
- length 
-\change_unchanged
-
+Individuals are distributed in a cube of side length 
 \begin_inset Formula $L$
 \end_inset
 
@@ -1252,32 +1138,8 @@ ns
 \end_layout
 
 \begin_layout Standard
-
-\change_deleted 617562988 1664953805
-One of the
-\change_inserted 617562988 1664953805
-A
-\change_unchanged
- useful method
-\change_deleted 617562988 1664953808
-s
-\change_unchanged
- to characterize a spatial point process is 
-\change_deleted 617562988 1664953819
-through its
-\change_inserted 617562988 1664953821
-the use of
-\change_unchanged
- spatial moments (
-\change_deleted 617562988 1664953826
-see examples
-\change_inserted 617562988 1664953828
-illustrated
-\change_unchanged
- in Section S2 of the SI
-\change_inserted 617562988 1664953839
- for simple spatial point processes
-\change_unchanged
+A useful method to characterize a spatial point process is the use of spatial
+ moments (illustrated in Section S2 of the SI for simple spatial point processes
 ).
  These can be theoretically derived and used to check simulations.
  The spatial moments of a process are, however, merely statistical indicators
@@ -1335,11 +1197,7 @@ literal "false"
 
 .
  A similar characteristic can be used for marked spatial point process.
- In our case, the marks are the species
-\change_inserted 617562988 1664953919
-' identities
-\change_unchanged
-, and we can define 
+ In our case, the marks are the species' identities, and we can define 
 \begin_inset Formula $G_{ij}(r,t)$
 \end_inset
 
@@ -1363,13 +1221,7 @@ literal "false"
 \begin_inset Formula $d\mathbf{x}_{B}$
 \end_inset
 
-, 
-\change_deleted 617562988 1664953938
-and
-\change_inserted 617562988 1664953941
-with
-\change_unchanged
- the distance between the centers of 
+, with the distance between the centers of 
 \begin_inset Formula $d\mathbf{x}_{A}$
 \end_inset
 
@@ -1377,11 +1229,7 @@ with
 \begin_inset Formula $d\mathbf{x}_{B}$
 \end_inset
 
- 
-\change_deleted 617562988 1664953943
-is 
-\change_unchanged
-equal to 
+ equal to 
 \begin_inset Formula $r$
 \end_inset
 
@@ -1394,7 +1242,28 @@ literal "false"
 \end_inset
 
 ).
- We show in 
+ 
+\change_inserted -2100369821 1665072264
+We define 
+\begin_inset Formula $\boldsymbol{\xi}$
+\end_inset
+
+ as the vector connecting the center of 
+\begin_inset Formula $d\mathbf{x}_{A}$
+\end_inset
+
+ to the center of 
+\begin_inset Formula $d\mathbf{x}_{B}$
+\end_inset
+
+ (
+\begin_inset Formula $r=\boldsymbol{\xi}$
+\end_inset
+
+).
+ 
+\change_unchanged
+We show in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "picoche_rescience_2022"
@@ -1409,7 +1278,7 @@ literal "false"
 , in three dimensions, is a solution of 
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial G_{ii}}{\partial t}(r,t)=\frac{2D_{i}}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G_{ii}}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G_{ii}}{\partial r}\right)+2(\lambda_{i}-\mu_{i})G_{ii}+2\lambda_{i}C_{i}\delta(\boldsymbol{r}).\label{eq:Young3D}
+\frac{\partial G_{ii}}{\partial t}(r,t)=\frac{2D_{i}}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G_{ii}}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G_{ii}}{\partial r}\right)+2(\lambda_{i}-\mu_{i})G_{ii}+2\lambda_{i}C_{i}\delta(\boldsymbol{\xi}).\label{eq:Young3D}
 \end{equation}
 
 \end_inset
@@ -1541,14 +1410,9 @@ noprefix "false"
 \end_inset
 
  in the presence of advection.
- However, when there is no turbulen
-\change_deleted 617562988 1664954101
-ce
-\change_inserted 617562988 1664954102
-t advection
-\change_unchanged
-, convergence is much slower, to the point that an equilibrium assumption
- requires unrealistically long timeframes (see Section S3 in the SI).
+ However, when there is no turbulent advection, convergence is much slower,
+ to the point that an equilibrium assumption requires unrealistically long
+ timeframes (see Section S3 in the SI).
  We therefore need a time-dependent formula for the pcf in the absence of
  advection, which can be obtained in the case where 
 \begin_inset Formula $\gamma=0$
@@ -1883,14 +1747,14 @@ literal "false"
 
 \begin_layout Standard
 Let 
-\begin_inset Formula $M_{i.}(r)$
+\begin_inset Formula $M_{ij}(r)$
 \end_inset
 
  
 \change_inserted 617562988 1664954182
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1910,11 +1774,23 @@ cdot.
 
 
 \change_unchanged
-be the average number of individuals within a circle of radius 
+be the average number of individuals
+\change_inserted -2100369821 1665065908
+ of species identity 
+\begin_inset Formula $j$
+\end_inset
+
+
+\change_unchanged
+ within a circle of radius 
 \begin_inset Formula $r$
 \end_inset
 
  around an individual of species 
+\change_inserted -2100369821 1665065913
+identity 
+\change_unchanged
+
 \begin_inset Formula $i$
 \end_inset
 
@@ -1923,26 +1799,7 @@ be the average number of individuals within a circle of radius
 \end_inset
 
 -function as 
-\change_inserted 617562988 1664954312
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664954349
-Is it really K_{ii}(r) here not K_{ij}(r)? Again I'd remove the dot and
- use indices
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
-\begin_inset Formula $M_{i.}(r)=C_{.}K_{ii}(r)$
+\begin_inset Formula $M_{ij}(r)=C_{j}K_{ij}(r)$
 \end_inset
 
 .
@@ -1951,7 +1808,8 @@ Is it really K_{ii}(r) here not K_{ij}(r)? Again I'd remove the dot and
 \end_inset
 
  corresponds to the conspecific neighbourhood and 
-\begin_inset Formula $M_{io}(r)$
+\begin_inset Formula $M_{io}(r)=\sum_{\begin{array}{c}
+j=1,j\neq i\end{array}}^{S}M_{ij}(r)$
 \end_inset
 
  corresponds to individuals of all other species.
@@ -2049,28 +1907,8 @@ We model two types of organisms: microphytoplankton (defined by a diameter
  high diffusivity, fast growth and higher concentration.
  Organisms are displaced by a turbulent fluid whose velocity defines the
  time scale of the discretized model: we give here the reasoning behind
- parameter values, keeping in mind that our model 
-\change_deleted 617562988 1664954436
-can only be semi-quantitative
-\change_inserted 617562988 1664954446
-parameters are only approximate
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664954483
-semi-quantitative could have suggested the model wasn't really quantitative,
- which would not have been true...
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-.
+ parameter values, keeping in mind that our model parameters are only approximat
+e.
  Main parameter definitions and values are given in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2096,11 +1934,8 @@ t.
 \begin_inset Formula $W$
 \end_inset
 
- is below the size of the smallest eddy, but above the smallest 
-\change_inserted 617562988 1664954503
-length 
-\change_unchanged
-scale of fluctuations in nutrient concentrations.
+ is below the size of the smallest eddy, but above the smallest length scale
+ of fluctuations in nutrient concentrations.
  The defining scale of the environment therefore corresponds to a Reynolds
  number 
 \begin_inset Formula 
@@ -2168,10 +2003,6 @@ literal "false"
 
 \begin_layout Standard
 This means that 
-\change_deleted 617562988 1664954520
-U=
-\change_unchanged
-
 \begin_inset Formula $U=6.3\times10^{-4}$
 \end_inset
 
@@ -2183,15 +2014,7 @@ s
 \begin_inset Formula $^{-1}$
 \end_inset
 
-
-\change_inserted 617562988 1664954539
- 
-\change_unchanged
-=
-\change_inserted 617562988 1664954539
- 
-\change_unchanged
-
+ = 
 \begin_inset Formula $5.4\times10^{3}$
 \end_inset
 
@@ -2220,11 +2043,7 @@ literal "false"
 \begin_inset Formula $\tau=2.8\times10^{-4}$
 \end_inset
 
- d
-\change_inserted 617562988 1664954559
- 
-\change_unchanged
-
+ d 
 \begin_inset Formula $=24$
 \end_inset
 
@@ -2251,25 +2070,6 @@ literal "false"
 \end_inset
 
 .
-\change_inserted 617562988 1664954572
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664954588
-one space before and after each =, since we use that convention here.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2721,12 +2521,16 @@ Here I would suggest that we explain, as in your presentation, how long
  let's do it here (we'll use that info in the discussion but we'll need
  to state it somewhere - I think).
  
+\change_inserted -2100369821 1665066090
+See below.
 \change_unchanged
 
 \end_layout
 
 \end_inset
 
+
+\change_deleted -2100369821 1665066050
 
 \end_layout
 
@@ -2904,6 +2708,10 @@ literal "false"
 \begin_inset Formula $\tau$
 \end_inset
 
+
+\change_inserted -2100369821 1665066126
+ (corresponding to approximately 6h40)
+\change_unchanged
 .
  The computation of 
 \begin_inset Formula $g$
@@ -2937,17 +2745,8 @@ noprefix "false"
  observation volume, in the presence of advection, but removing turbulence
  helps visualising small aggregates of conspecifics.
  Microphytoplankton distributions are not so easy to analyse as no clusters
- can be detected from 
-\change_deleted 617562988 1664954780
-basic
-\change_inserted 617562988 1664954781
-visual
-\change_unchanged
- observations
-\change_inserted 617562988 1664954798
- (although it may actually be present)
-\change_unchanged
-, whether advection is included or not (Section S5 of the SI).
+ can be detected from visual observations (although it may actually be present),
+ whether advection is included or not (Section S5 of the SI).
  Statistics are therefore needed to go further in detecting patterns of
  aggregation.
 \end_layout
@@ -3130,11 +2929,7 @@ noprefix "false"
  a scale at which an organism is surrounded almost only by conspecifics.
  The index then decreases sharply to converge at large distances (close
  to 1 cm) to the proportion of the focus species in the whole community,
- as it would for a uniform 
-\change_inserted 617562988 1664954840
-spatial 
-\change_unchanged
-distribution.
+ as it would for a uniform spatial distribution.
  Patterns differ at intermediate ranges of distances between organisms.
 \end_layout
 
@@ -3222,6 +3017,8 @@ I remark that this figure's title as much smaller font that the others.
  figures of similar width had approximately similar-sized fonts for titles
  and axes.
  
+\change_inserted -2100369821 1665072318
+Better now ?
 \change_unchanged
 
 \end_layout
@@ -3245,7 +3042,11 @@ I remark that this figure's title as much smaller font that the others.
 
 \begin_layout Standard
 These differences between microphytoplankton and nanophytoplankton, and
- the role of advection, are even more pronounced
+ the role of advection, are 
+\change_deleted -2100369821 1664962572
+even more pronounced
+\change_inserted -2100369821 1664962573
+similar
 \change_inserted 617562988 1664954945
 
 \begin_inset Note Note
@@ -3258,6 +3059,9 @@ There I am not sure that I agree actually - what makes more pronounced,
  you think? I would say that the differences are similar or weaker (in the
  10 species community as opposed to the 3-sp.
  community), but something that you see might be escaping me
+\change_inserted -2100369821 1664962564
+.
+ Agreed.
 \change_unchanged
 
 \end_layout
@@ -3284,6 +3088,8 @@ noprefix "false"
  0.033 (for one of the least abundant species), while they are between 0.90
  and 0.85 when advection is not taken into account.
  Nanophytoplankton species, too, are more mixed
+\change_inserted -2100369821 1664962640
+ than in the 3 species-community
 \change_inserted 617562988 1664955092
 
 \begin_inset Note Note
@@ -3504,9 +3310,9 @@ local
  under certain hypotheses that we discuss below, be related to interspecific
  and intraspecific interactions.
  Comparing the distributions of organisms of different sizes, we showed
- that the presence and intensity (Section S7 of the SI
-\change_inserted 617562988 1664955140
-
+ that the presence
+\change_deleted -2100369821 1665065728
+ and intensity (Section S7 of the SI
 \begin_inset Note Note
 status open
 
@@ -3515,18 +3321,35 @@ status open
 \change_inserted 617562988 1664955185
 Section S7 is the sensitivity to the way of computing turbulence so I found
  myself wondering whether that was the right section of the SI
+\change_inserted -2100369821 1664962734
+.
+ There is also a change in intensity related to the way we compute turbulence:
+ 
+\begin_inset Formula $U$
+\end_inset
+
+ is lower in S7.
+ We can maybe make it more explicit in SI? 
 \change_unchanged
 
 \end_layout
 
 \end_inset
 
-
+)
 \change_unchanged
-) of turbulence always increased mixing, and that the species composition
- around an organism depended on its size, which mechanically determines
- its hydrodynamic properties (diffusivity), and is linked with its ecological
- characteristics (growth rate and density).
+ of turbulence always increased mixing
+\change_inserted -2100369821 1665072204
+ (results are robust to slight modifications in the computation of advection
+ velocity 
+\begin_inset Formula $U$
+\end_inset
+
+, shown in Section S7 of the SI)
+\change_unchanged
+, and that the species composition around an organism depended on its size,
+ which mechanically determines its hydrodynamic properties (diffusivity),
+ and is linked with its ecological characteristics (growth rate and density).
  Microphytoplankters (20 to 200 µm), larger cells with lower diffusivity,
  growth rate and abundance, were on average further away from other cells,
  due to their lower concentrations (Figure S10 of the SI), than nanophytoplankte
@@ -3535,18 +3358,11 @@ rs (2 to 20 µm).
  within a volume of potential interactions, whose radius is defined as the
  maximum distance for which nutrient depletion volumes of two different
  individuals may overlap.
- If we consider that interactions between species (not modelled 
-\change_inserted 617562988 1664955216
-directly 
-\change_unchanged
-here
-\change_inserted 617562988 1664955227
- because of timescales issues, see below
-\change_unchanged
-), could occur with equal probability at all distances within the volume
- of potential interactions, we would conclude that microphytoplankters are
- more likely to interact with individuals from other species than with individua
-ls of their own species.
+ If we consider that interactions between species (not modelled directly
+ here because of timescales issues, see below), could occur with equal probabili
+ty at all distances within the volume of potential interactions, we would
+ conclude that microphytoplankters are more likely to interact with individuals
+ from other species than with individuals of their own species.
  This affirmation is, however, conditional upon interactions at 10 cell
  diameters from an individual being equally likely than at 1 diameter from
  an individual.
@@ -3627,11 +3443,15 @@ mic traits.
  volume with heterospecifics than nanophytoplankters.
  The rate of production of new microphytoplankton conspecifics was not sufficien
 t to compensate for the mixing induced by turbulence and diffusivity, even
- though the diffusion range
+ though the 
+\change_deleted -2100369821 1664962757
+diffusion range
+\change_inserted -2100369821 1664962758
+diffusivity
 \change_inserted 617562988 1664955252
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3675,10 +3495,17 @@ literal "false"
  Using a timescale separation argument, we show in Section S8 in the SI
  how stronger interactions at population level may arise in a Lotka-Volterra
  model whose spatial structure is summed up by the dominance indices evidenced
- here.
+ here
+\change_inserted -2100369821 1664962875
+, even when all local interaction strengths are equal, regardless of the
+ species
+\change_inserted 617562988 1664955549
+.
+
+\change_deleted -2100369821 1664962781
  
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3734,15 +3561,9 @@ literal "false"
 .
  Therefore the volume of potential interactions shrinks in the presence
  of turbulence for microphytoplankton, but not necessarily for nanophytoplankton.
- This 
-\change_deleted 617562988 1664955614
-is
-\change_inserted 617562988 1664955615
-could be
-\change_unchanged
- one additional reason why microphytoplankers might still be surrounded
- by conspecifics at ecologically meaningful distances and interacting more
- frequently with them.
+ This could be one additional reason why microphytoplankers might still
+ be surrounded by conspecifics at ecologically meaningful distances and
+ interacting more frequently with them.
 \end_layout
 
 \begin_layout Standard
@@ -3785,37 +3606,14 @@ literal "false"
 endencies make sense in our phytoplankton context.
  To understand why, consider that even if a species abundance is locally
  tripled, competition might not directly ensue at the time scales covered
- by our model
-\change_inserted 617562988 1664955664
- (
+ by our model (
 \begin_inset Formula $\approx6$
 \end_inset
 
- h)
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664955687
-add some nuances if need be, but we need to make it concrete
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-, if nutrient depletion has not had time to set in yet.
- 
-\change_deleted 617562988 1664955697
-We
-\change_inserted 617562988 1664955714
-Even if we considered longer time frames, we
-\change_unchanged
- would need lagged local density-dependencies, which are to our knowledge
- not leading to tractable spatial branching or dynamic point processes.
+ h), if nutrient depletion has not had time to set in yet.
+ Even if we considered longer time frames, we would need lagged local density-de
+pendencies, which are to our knowledge not leading to tractable spatial
+ branching or dynamic point processes.
  We could, of course, directly model nutrients, perhaps as resource 
 \begin_inset Quotes eld
 \end_inset
@@ -3837,33 +3635,11 @@ literal "false"
  correlation between organisms and their resources 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "murrell_local_2005"
+key "murrell_local_2005,barraquand2012evolutionarily"
 literal "false"
 
 \end_inset
 
-
-\change_inserted 617562988 1664955764
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664955875
-Although I feel a bit embarrassed to self-cite, perhaps it would be a good
- idea to add a citation to Barraquand and Murrell Theor Ecol 2012 here,
- because David uses only the word prey in Murrell (2005)—as I recall—which
- may confuse the reader.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 .
  And that is where such models might be inadequate.
  The phycosphere, a micro-environment at the periphery of a phytoplankton
@@ -3881,34 +3657,19 @@ literal "false"
  phytoplankter.
  This will lead to positive spatial correlations between consumers and their
  resources, and we currently do not have theoretical models to represent
- this process (short of modelling precisely 
-\change_inserted 617562988 1664955903
-the spatial distribution of 
-\change_unchanged
-these bacteria).
+ this process (short of modelling precisely the spatial distribution of
+ these bacteria).
 \end_layout
 
 \begin_layout Standard
 Our model should be viewed as a first model of spatial distributions of
  multiple phytoplankton species in a realistic, three-dimensional environment
  at the microscale, describing only basic hydrodynamic and demographic processes.
- Using this model, we were able to 
-\change_inserted 617562988 1664956020
-predict whether phytoplankters could be in contact with individuals of their
- own or other species, and
-\change_deleted 617562988 1664955922
-guesstimate the differences
-\change_inserted 617562988 1664955930
-emit reasonable conjectures
-\change_unchanged
+ Using this model, we were able to predict whether phytoplankters could
+ be in contact with individuals of their own or other species, andemit reasonabl
+e conjectures regarding potential intra vs interspecific interactions between
+ species, emerging at the population level through spatial distributions
  
-\change_deleted 617562988 1664955939
-in
-\change_inserted 617562988 1664955940
-regarding
-\change_unchanged
- potential intra vs interspecific interactions between species, emerging
- at the population level through spatial distributions 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -3960,22 +3721,6 @@ literal "false"
 .
  This clearly calls for viewing our model as a null model to which more
  complex mechanistic models and their spatial outputs can be compared.
-\end_layout
-
-\begin_layout Subsubsection*
-
-\change_deleted 617562988 1664956124
-Declaration of Competing Interest
-\end_layout
-
-\begin_layout Standard
-
-\change_deleted 617562988 1664956124
-The authors declare that they have no known competing financial interests
- or personal relationships that could have appeared to influence the work
- reported in this paper.
-\change_unchanged
-
 \end_layout
 
 \begin_layout Subsubsection*
@@ -4110,7 +3855,7 @@ In three dimensions, when the birth rate
  is a solution of 
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r}).\label{eq:Young3D-1}
+\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{\xi}).\label{eq:Young3D-1}
 \end{equation}
 
 \end_inset
@@ -4131,9 +3876,9 @@ We first compute the steady-state solution,
  
 \begin_inset Formula 
 \begin{align}
-\,0 & =\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\nonumber \\
-0 & =4\pi r^{2}\left(\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r})\right)\nonumber \\
-0 & =4\pi\left(2D\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)\right)+4\pi r^{2}2\lambda C\delta(\boldsymbol{r}).\label{eq:steady_state}
+\,0 & =\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{\xi})\nonumber \\
+0 & =4\pi r^{2}\left(\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\frac{\gamma}{r^{2}}\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{\boldsymbol{\xi}})\right)\nonumber \\
+0 & =4\pi\left(2D\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+\gamma\frac{\partial}{\partial r}\left(r^{4}\frac{\partial G}{\partial r}\right)\right)+4\pi r^{2}2\lambda C\delta(\boldsymbol{\boldsymbol{\xi}}).\label{eq:steady_state}
 \end{align}
 
 \end_inset
@@ -4155,6 +3900,38 @@ noprefix "false"
 
 .
  Let us first note that 
+\change_inserted -2100369821 1665065123
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1665065175
+I do not change the notation here because it is a general remark, not directly
+ applied to 
+\begin_inset Formula $\delta(\boldsymbol{\xi})$
+\end_inset
+
+.
+ Tell me if you prefer to stick to 
+\begin_inset Formula $\boldsymbol{\xi}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{\xi}$
+\end_inset
+
+'
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Formula 
 \begin{align}
 \int_{\mathbb{R}^{3}}\delta(\boldsymbol{r})d^{3}\boldsymbol{r} & =1\nonumber \\
@@ -4329,7 +4106,7 @@ noprefix "false"
 , which yields 
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{r}).\label{eq:G_no_adv}
+\frac{\partial G}{\partial t}=\frac{2D}{r^{2}}\frac{\partial}{\partial r}\left(r^{2}\frac{\partial G}{\partial r}\right)+2\lambda C\delta(\boldsymbol{\xi}).\label{eq:G_no_adv}
 \end{equation}
 
 \end_inset
@@ -4337,7 +4114,7 @@ noprefix "false"
 Assuming an isotropic environment, this means 
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial G}{\partial t}-2D\Delta G=2\lambda C\delta(\boldsymbol{r})
+\frac{\partial G}{\partial t}-2D\Delta G=2\lambda C\delta(\boldsymbol{\xi})
 \end{equation}
 
 \end_inset
@@ -4350,7 +4127,7 @@ where
  We therefore have 
 \begin_inset Formula 
 \begin{equation}
-\mathcal{L}G(\boldsymbol{r},t)=2\lambda C\delta(\boldsymbol{r})
+\mathcal{L}G(\boldsymbol{\xi},t)=2\lambda C\delta(\boldsymbol{\xi})
 \end{equation}
 
 \end_inset
@@ -4380,8 +4157,8 @@ Using the Green's function theory, we know that
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-G(\boldsymbol{r},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{r}-\boldsymbol{r'},t')\delta(\boldsymbol{r'})dr'dt'\\
-\Leftrightarrow G(\boldsymbol{r},t) & = & 2\lambda C\int_{0}^{t}H(\boldsymbol{r},t')dt'.
+G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{\xi}-\boldsymbol{r'},t')\delta(\boldsymbol{r'})dr'dt'\\
+\Leftrightarrow G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{0}^{t}H(\boldsymbol{\boldsymbol{\xi}},t')dt'.
 \end{array}
 \end{equation}
 
@@ -4778,8 +4555,8 @@ noprefix "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-8Dt\int_{0}^{\rho/\sqrt{8Dt}}u\times\erf\left(u\right)du & = & 8Dt\left(\frac{\rho^{2}}{2}\frac{1}{8Dt}\erf(\frac{\rho}{\sqrt{8Dt}})-\frac{\erf(\frac{\rho}{\sqrt{8Dt}})}{4}+\frac{1}{2\sqrt{\pi}}\frac{\rho}{\sqrt{8Dt}}e^{-\rho^{2}/8Dt}\right)\\
-\Leftrightarrow\int_{0}^{\rho}r\times\erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & \frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)+\frac{\sqrt{2Dt}}{\sqrt{\pi}}\rho e^{-\rho^{2}/8Dt}.
+8Dt\int_{0}^{\rho/\sqrt{8Dt}}u\times\erf\left(u\right)du & = & 8Dt\left(\frac{\rho^{2}}{2}\frac{1}{8Dt}\erf(\frac{\rho}{\sqrt{8Dt}})-\frac{\erf(\frac{\rho}{\sqrt{8Dt}})}{4}+\frac{1}{2\sqrt{\pi}}\frac{\rho}{\sqrt{8Dt}}e^{-\frac{\rho^{2}}{8Dt}}\right)\\
+\Leftrightarrow\int_{0}^{\rho}r\times\erf\left(\frac{r}{\sqrt{8Dt}}\right)dr & = & \frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)+\frac{\sqrt{2Dt}}{\sqrt{\pi}}\rho e^{-\frac{\rho^{2}}{8Dt}}.
 \end{array}
 \end{equation}
 
@@ -4793,7 +4570,7 @@ We can now compute
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-K(\rho) & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\rho^{2}/8Dt}\right)+\frac{4}{3}\pi\rho^{3}.\end{array}\label{eq:end_K}
+K(\rho) & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\frac{1}{2}\erf(\frac{\rho}{\sqrt{8Dt}})(\rho^{2}-4Dt)-\frac{\sqrt{2Dt}\rho}{\sqrt{\pi}}e^{-\frac{\rho^{2}}{8Dt}}\right)+\frac{4}{3}\pi\rho^{3}.\end{array}\label{eq:end_K}
 \end{equation}
 
 \end_inset

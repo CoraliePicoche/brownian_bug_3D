@@ -5,9 +5,9 @@ source("utilitary_functions.r")
 
 colo=c("red","blue","grey")
 
-#pdf("dominance_diatom_nano_compare_advection_10sp.pdf",width=13)
+pdf("dominance_diatom_nano_compare_advection_10sp.pdf",width=13)
 #pdf("dominance_diatom_nano_compare_advection.pdf",width=13)
-par(mfrow=c(1,2))
+par(mfrow=c(1,2),mar=c(4,4.5,4,4))
 
 #Diatom
 sim_diatom=list(10,11) #Advection, no advection
@@ -50,7 +50,7 @@ for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 
 
 		if(adv==1){
-			plot(1,1,t="n",xlim=range(f_tot$r[f_tot$r>0]),ylim=range(f_tot$dominance,na.rm=T),xlab="r",ylab=yl,log="x",cex.lab=1.5,cex.axis=1.5,axes=F,main=ml)
+			plot(1,1,t="n",xlim=range(f_tot$r[f_tot$r>0]),ylim=range(f_tot$dominance,na.rm=T),xlab="r",ylab=yl,log="x",cex.lab=2,cex.axis=2,axes=F,main=ml,cex.main=1.5)
 			axis(1, at=log10Tck('x','major'), tcl= 0.5,cex.axis=1.5) # bottom
 			axis(1, at=log10Tck('x','minor'), tcl= 0.1, labels=NA) # bottom
 			axis(2,tcl=0.5,cex.axis=1.5) # left
@@ -63,10 +63,10 @@ for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 				leg=c(leg,paste("Sp=",unique_sp[l],", ",format(100*f_count$abundance[f_count$species==unique_sp[l]]/sum(f_count$abundance),digits=2),"%",sep=""))
 			}	
 			legend("bottomleft",leg,col=colo[unique_sp+1],pch=1,bty="n",lwd=2,lty=NA)
-			mtext("a",side=3,line=1.5,font=2,at=8*10^(-5))
+			mtext("a",side=3,line=1.5,font=2,at=8*10^(-5),cex=1.5)
 		}else{
 			legend("topright",c(expression(U~tau~"/"~3~"="~0),expression(U~tau~"/"~3~"="~0.5)),col="black",pch=c(NA,1),lty=c(1,NA),bty="n",lwd=2)
-			mtext("b",side=3,line=1.5,font=2,at=8*10^(-5))
+			mtext("b",side=3,line=1.5,font=2,at=8*10^(-5),cex=1.5)
 		}
 
 		for (s1 in 1:length(unique_sp)){
@@ -106,8 +106,8 @@ for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 } #end loop on organism
 
 dev.off()
-write.table(keep_results,"dom_indices_10sp.txt",sep=";",dec=".",col.names=TRUE,row.names=F)
-
+#write.table(keep_results,"dom_indices_10sp.txt",sep=";",dec=".",col.names=TRUE,row.names=F)
+stop()
 ###Part where we use kee_results
 pdf("carac_10species.pdf")
 par(mfrow=c(2,2),mar=c(2,4,4,2))
