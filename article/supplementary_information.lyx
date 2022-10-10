@@ -109,11 +109,12 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author 617562988 "fbarraquand"
 \end_header
 
 \begin_body
@@ -281,6 +282,10 @@ noprefix "false"
 
 ).
  
+\change_inserted 617562988 1665380455
+We start with
+\change_unchanged
+
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
@@ -337,8 +342,25 @@ Characteristics of standard spatial point processes
 \end_layout
 
 \begin_layout Standard
-In order to familiarize the reader with spatial point process metrics, we
- present here the analytical formulas and corresponding figures (Fig.
+In order to 
+\change_deleted 617562988 1665380463
+familiarize
+\change_inserted 617562988 1665380463
+get
+\change_unchanged
+ the reader 
+\change_inserted 617562988 1665380468
+acquainted 
+\change_unchanged
+with 
+\change_inserted 617562988 1665380477
+the 
+\change_unchanged
+spatial point process metrics
+\change_inserted 617562988 1665380483
+ that we use in the main text
+\change_unchanged
+, we present here the analytical formulas and corresponding figures (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -363,7 +385,13 @@ noprefix "false"
 \begin_inset Formula $K$
 \end_inset
 
--function and dominance index for standard point processes.
+-function and dominance index for 
+\change_deleted 617562988 1665380502
+standard
+\change_inserted 617562988 1665380504
+well-known
+\change_unchanged
+ point processes.
  We focus on the uniform distribution, i.e.
  the Poisson point process, and a clustered distribution, the Thomas point
  process.
@@ -594,7 +622,13 @@ Example of spatial distribution (a) and theoretical pair correlation function
 \end_inset
 
 -function (c) and dominance index (d) for a Poisson point process in a 3-species
- community with different intensities (10000 cm
+ communit
+\change_inserted 617562988 1665380531
+ies
+\change_deleted 617562988 1665380530
+y
+\change_unchanged
+ with different intensities (10000 cm
 \begin_inset Formula $^{-3}$
 \end_inset
 
@@ -807,9 +841,19 @@ noprefix "false"
 with
 \emph default
  advection.
- We see that even after a short period of time (t=100), the dominance index
- without advection is larger than with advection, and this spatial aggregation
- only grows with time in absence of turbulent advection.
+ We see that even after a short period of time (
+\change_deleted 617562988 1665380552
+t=100
+\change_inserted 617562988 1665380552
+
+\begin_inset Formula $t=100$
+\end_inset
+
+
+\change_unchanged
+), the dominance index without advection is larger than with advection,
+ and this spatial aggregation only grows with time in absence of turbulent
+ advection.
 \end_layout
 
 \begin_layout Standard
@@ -869,8 +913,17 @@ Computation of the pair correlation function and Ripley's
 \end_layout
 
 \begin_layout Standard
-The algorithm for the pcf computation was mostly taken from the function
- 
+The algorithm for 
+\change_deleted 617562988 1665380603
+the 
+\change_unchanged
+pcf computation was 
+\change_deleted 617562988 1665380590
+mostly taken
+\change_inserted 617562988 1665380595
+adapted
+\change_unchanged
+ from the function 
 \begin_inset ERT
 status collapsed
 
@@ -891,15 +944,39 @@ literal "false"
 
 \end_inset
 
- and adapted to the interspecific pcf (i.e., pcf for marked point processes).
+ and 
+\change_deleted 617562988 1665380610
+adapted
+\change_inserted 617562988 1665380623
+slightly modified to compute
+\change_deleted 617562988 1665380619
+ to
+\change_unchanged
+ the interspecific pcf (i.e., 
+\change_inserted 617562988 1665380631
+the 
+\change_unchanged
+pcf for marked point processes).
 \end_layout
 
 \begin_layout Standard
-Schematically, the pcf estimate 
+
+\change_deleted 617562988 1665380779
+Schematically, t
+\change_inserted 617562988 1665380779
+T
+\change_unchanged
+he pcf estimate 
 \begin_inset Formula $\hat{g}_{ij}(r)$
 \end_inset
 
- is estimated via the use of the Epanechnikov kernel 
+ is 
+\change_deleted 617562988 1665380645
+estimated
+\change_inserted 617562988 1665380646
+computed
+\change_unchanged
+ via the use of the Epanechnikov kernel 
 \begin_inset Formula $\kappa_{E}$
 \end_inset
 
@@ -987,8 +1064,14 @@ Estimates of the Ripley's
 \begin_inset Formula $K$
 \end_inset
 
--function were also performed with the Ohser translation correction estimator
- but did not require any kernel smoothing.
+-function were also 
+\change_deleted 617562988 1665380804
+performed
+\change_inserted 617562988 1665380805
+computed
+\change_unchanged
+ with the Ohser translation correction estimator but did not require any
+ kernel smoothing.
  The same computation could be done using wrapped-around boundary conditions
  (for pcf estimation; for simulation we always consider periodic boundary
  conditions).
@@ -1202,12 +1285,23 @@ name "fig:bandwidth_BBM"
 \end_layout
 
 \begin_layout Standard
-We decided, from these results, to focus on Ripley's 
+We decided, 
+\change_deleted 617562988 1665380848
+from these results
+\change_inserted 617562988 1665380984
+realizing that it would be very challenging to obtain a non-noisy pcf curve
+ matching the theoretical expectation
+\change_unchanged
+, to focus on Ripley's 
 \begin_inset Formula $K$
 \end_inset
 
--function, which enabled us to compute the dominance index without having
- to calibrate a bandwidth beforehand.
+-function
+\change_inserted 617562988 1665380916
+ whose cumulative nature helps the estimation process
+\change_unchanged
+, which enabled us to compute the dominance index without having to calibrate
+ a bandwidth beforehand.
 \end_layout
 
 \begin_layout Section
@@ -1291,21 +1385,49 @@ Theory
 
 \begin_layout Standard
 One of the reasons why estimating 
-\begin_inset Formula $K$
+\begin_inset Formula $K(r)$
 \end_inset
 
+
+\change_inserted 617562988 1665380958
+,
+\change_unchanged
  and 
+\change_inserted 617562988 1665380955
+even more so 
+\change_unchanged
+
 \begin_inset Formula $g(r)$
 \end_inset
 
+
+\change_inserted 617562988 1665380960
+,
+\change_unchanged
  is difficult is that for small distances (below 10
 \begin_inset Formula $^{-2}$
 \end_inset
 
 ), we can find very few observations of pairs of points.
- As a first proxy, we want to estimate the minimum expected distance between
- points (distance to the nearest neighbour, DNN) when they are uniformly
- distributed.
+ 
+\change_deleted 617562988 1665381020
+As a first proxy
+\change_inserted 617562988 1665381119
+In order to better understand at which distances ranges we should expect
+ some estimation difficulties
+\change_unchanged
+, we want
+\change_inserted 617562988 1665381130
+ed
+\change_unchanged
+ to 
+\change_deleted 617562988 1665381057
+estimate
+\change_inserted 617562988 1665381058
+compute
+\change_unchanged
+ the minimum expected distance between points (distance to the nearest neighbour
+, DNN) when they are uniformly distributed.
 \end_layout
 
 \begin_layout Standard
@@ -1443,7 +1565,15 @@ cm
 \begin_inset Formula $n\approx10^{4}$
 \end_inset
 
-, the smallest expected distance for a uniform distribution is 
+, the 
+\change_deleted 617562988 1665381210
+smallest 
+\change_unchanged
+expected 
+\change_inserted 617562988 1665381219
+smallest NN 
+\change_unchanged
+distance for a uniform distribution is 
 \begin_inset Formula $1.2\times10^{-2}$
 \end_inset
 
@@ -1481,11 +1611,20 @@ Simulations
 \end_layout
 
 \begin_layout Standard
-We can compute the simulated distance to the nearest neighbour and compare
- it to what we should obtain with a uniform distribution: the simulated
- mean distance to the nearest organism, regardless of its species, is close
- to the expected value for a uniform distribution, but the minimum distance
- to a conspecific is much lower than expected (Fig.
+We can compute the simulated distance to the nearest neighbour 
+\change_inserted 617562988 1665381366
+in the BBM 3D model 
+\change_unchanged
+and compare it to what we should obtain with a uniform distribution: the
+ simulated mean distance to the nearest organism, regardless of its species,
+ is close to the expected value 
+\change_deleted 617562988 1665381382
+for
+\change_inserted 617562988 1665381383
+under
+\change_unchanged
+ a uniform distribution, but the minimum distance to a conspecific is much
+ lower than expected (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1639,7 +1778,7 @@ Sensitivity to the computation of the advection parameter
 \begin_layout Standard
 To compute the value of the maximum velocity of an organism in our model
  at the Kolmogorov scale, we used the formula 
-\begin_inset Formula $Re=U/k\nu\approx1$
+\begin_inset Formula $\text{Re}=U/k\nu\approx1$
 \end_inset
 
  where 
@@ -1665,7 +1804,7 @@ noprefix "false"
 
 ).
  In this case, 
-\begin_inset Formula $Re=UL_{v}/\nu$
+\begin_inset Formula $\text{Re}=UL_{v}/\nu$
 \end_inset
 
  and 
@@ -1978,9 +2117,42 @@ Let us first focus on microphytoplankton in a 3-species community with an
 \end_inset
 
 .
- Both ratios of population-level interaction strength are below 1, and therefore
- meet a necessary condition for diversity maintenance in a Lotka-Volterra
- model.
+ Both ratios of population-level interaction strength are below 1
+\change_inserted 617562988 1665381539
+, in spite of the 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\beta_{ii}=\beta_{io}=\beta$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ assumption
+\change_unchanged
+, and therefore meet a necessary condition for diversity maintenance in
+ a Lotka-Volterra model.
  Similar calculations for the 10-species communities, combining small dominance
  indices to low average concentrations, lead to 
 \begin_inset Formula $\frac{\alpha_{io}}{\alpha_{ii}}\ll1$
@@ -1995,10 +2167,33 @@ literal "false"
 \end_inset
 
 .
+\change_inserted 617562988 1665381599
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted 617562988 1665381635
+F: I'd mention somewhere in S8 that we use similar notation for coefficients
+ as https://www.nature.com/articles/s41559-021-01440-0
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \end_layout
 
 \begin_layout Standard
+
+\change_deleted 617562988 1665381511
  
+\change_unchanged
+
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "bibliography"
