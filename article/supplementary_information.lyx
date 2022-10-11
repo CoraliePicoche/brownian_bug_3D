@@ -115,6 +115,7 @@
 \html_css_as_file 0
 \html_be_strict false
 \author -2100369821 "cpicoche"
+\author -666822487 "frederic"
 \author 617562988 "fbarraquand"
 \end_header
 
@@ -1901,11 +1902,36 @@ b_{i}+\beta M_{ii}(r,t)+\beta M_{io}(r,t)\approx0.\label{eq:lv_individual_equili
 
 \begin_layout Standard
 We can now focus on the dynamics at the community level.
- Assuming that all 
+ 
+\change_inserted -666822487 1665508521
+We denote 
+\begin_inset Formula $\alpha_{ij}$
+\end_inset
+
+ the interactions at population level (by contrast to 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+ at individual level, as in 
+\begin_inset CommandInset citation
+LatexCommand citealp
+key "wiegand_consequences_2021"
+literal "false"
+
+\end_inset
+
+).
+ 
+\change_unchanged
+Assuming that all 
 \emph on
 interspecific
 \emph default
- interactions are similar to one another so that 
+ 
+\change_inserted -666822487 1665508221
+population-level 
+\change_unchanged
+interactions are similar to one another so that 
 \begin_inset Formula $\alpha_{ij}=\alpha_{io}$
 \end_inset
 
@@ -1914,6 +1940,10 @@ interspecific
 \end_inset
 
 , the per capita growth rate 
+\change_inserted -666822487 1665508272
+at population level can be written as
+\change_unchanged
+
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -1927,7 +1957,7 @@ interspecific
 
 \begin_layout Standard
 
-\change_inserted -2100369821 1665495801
+\change_deleted -666822487 1665508282
 We denote 
 \begin_inset Formula $\alpha_{ij}$
 \end_inset
@@ -1936,10 +1966,10 @@ We denote
 \begin_inset Formula $\beta_{ij}$
 \end_inset
 
- the interactions at the population and individual levels respectively,
- as in 
+ the interactions at population and individual levels respectively, as in
+ 
 \begin_inset CommandInset citation
-LatexCommand citep
+LatexCommand citet
 key "wiegand_consequences_2021"
 literal "false"
 
@@ -1949,8 +1979,8 @@ literal "false"
  
 \change_unchanged
 We can 
-\change_deleted -2100369821 1665493819
-therefore 
+\change_inserted -666822487 1665508285
+then 
 \change_unchanged
 write the approximate equalities 
 \begin_inset Formula $\alpha_{ii}\approx\beta\frac{M_{ii}(r,t)}{C_{i}(t)}$
@@ -1960,7 +1990,38 @@ write the approximate equalities
 \begin_inset Formula $\alpha_{io}\approx\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
 \end_inset
 
-, and their ratio 
+
+\change_inserted -666822487 1665508343
+ by matching eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lv_individual"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:lv_population"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\change_unchanged
+, and 
+\change_deleted -666822487 1665508347
+their
+\change_inserted -666822487 1665508365
+obtain the population-level interaction strength
+\change_unchanged
+ ratio 
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -1973,7 +2034,13 @@ write the approximate equalities
 \end_layout
 
 \begin_layout Standard
-Using the formulation of the dominance index 
+Using the formula
+\change_deleted -666822487 1665508379
+tion of
+\change_inserted -666822487 1665508379
+ for
+\change_unchanged
+ the dominance index 
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
@@ -1984,7 +2051,15 @@ Using the formulation of the dominance index
 
 \end_inset
 
-Thus, 
+Thus
+\change_deleted -666822487 1665508403
+, 
+\change_inserted -666822487 1665508486
+ the population-level interaction strength ratio can be written out as a
+ function of the dominance index and of the ratio of conspecific to heterospecif
+ic density: 
+\change_unchanged
+
 \begin_inset Formula 
 \begin{equation}
 \frac{\alpha_{io}}{\alpha_{ii}}\approx\frac{\left(1-\mathcal{D}_{i}(r,t)\right)}{\mathcal{D}_{i}(r,t)}\frac{C_{i}(t)}{C_{o}(t)}.

@@ -111,6 +111,7 @@
 \html_css_as_file 0
 \html_be_strict false
 \author -2100369821 "cpicoche"
+\author -666822487 "frederic"
 \author 617562988 "fbarraquand"
 \end_header
 
@@ -976,8 +977,8 @@ literal "false"
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{cc}
-x(t+\tau) & =x(t')+\frac{U\tau}{3}\cos\left(ky(t')+\phi(t)\right)\\
-y(t+\tau) & =y(t')+\frac{U\tau}{3}\cos\left(kz(t')+\theta(t)\right)\\
+x(t+\tau) & =\qquad x(t')+\frac{U\tau}{3}\cos\left(ky(t')+\phi(t)\right)\\
+y(t+\tau) & =\qquad y(t')+\frac{U\tau}{3}\cos\left(kz(t')+\theta(t)\right)\\
 z(t+\tau) & =z(t')+\frac{U\tau}{3}\cos\left(kx(t+\tau)+\psi(t)\right).
 \end{array}
 \end{equation}
@@ -1242,9 +1243,7 @@ literal "false"
 \end_inset
 
 ).
- 
-\change_inserted -2100369821 1665072264
-We define 
+ We define 
 \begin_inset Formula $\boldsymbol{\xi}$
 \end_inset
 
@@ -1256,14 +1255,24 @@ We define
 \begin_inset Formula $d\mathbf{x}_{B}$
 \end_inset
 
+
+\change_deleted -666822487 1665503927
  (
-\begin_inset Formula $r=\boldsymbol{\xi}$
+\change_inserted -666822487 1665503928
+, while 
+\change_unchanged
+
+\begin_inset Formula $r=|\boldsymbol{\xi}|$
 \end_inset
 
-).
- 
+
+\change_inserted -666822487 1665503920
+ is the radial distance
+\change_deleted -666822487 1665503932
+)
 \change_unchanged
-We show in 
+.
+ We show in 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "picoche_rescience_2022"
@@ -1284,7 +1293,7 @@ literal "false"
 \end_inset
 
 
-\change_inserted 617562988 1664953955
+\change_deleted -666822487 1665503951
 
 \begin_inset Note Note
 status collapsed
@@ -1674,14 +1683,10 @@ K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}r^{2}}{C_{i}D_{i}}\left(\frac{
 \end_layout
 
 \begin_layout Standard
-
-\change_inserted 617562988 1664954147
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 617562988 1664954385
 I corrected 
 \family roman
 \series medium
@@ -1698,6 +1703,8 @@ I corrected
 to 
 \backslash
 frac{r^{2}}{8D_{i}t}, I think we should do the same in Appendices.
+
+\change_deleted -666822487 1665503966
  
 \change_unchanged
 
@@ -1705,8 +1712,6 @@ frac{r^{2}}{8D_{i}t}, I think we should do the same in Appendices.
 
 \end_inset
 
-
-\change_unchanged
 For random superposition of stationary point processes, 
 \begin_inset Formula $K_{ij}(r,t)=\frac{4}{3}\pi r^{3}$
 \end_inset
@@ -1751,7 +1756,7 @@ Let
 \end_inset
 
  
-\change_inserted 617562988 1664954182
+\change_deleted -666822487 1665503979
 
 \begin_inset Note Note
 status collapsed
@@ -1774,14 +1779,10 @@ cdot.
 
 
 \change_unchanged
-be the average number of individuals
-\change_inserted -2100369821 1665065908
- of species 
+be the average number of individuals of species 
 \begin_inset Formula $j$
 \end_inset
 
-
-\change_unchanged
  within a circle of radius 
 \begin_inset Formula $r$
 \end_inset
@@ -2503,24 +2504,18 @@ name "tab:Definition-and-value"
 
 \begin_layout Standard
 
-\change_inserted 617562988 1664954628
+\change_deleted -666822487 1665504063
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 617562988 1664954755
 Here I would suggest that we explain, as in your presentation, how long
  the whole simulation experiments last, i.e.
  what is the timescale of our model.
  If you see a better place to do so, we can do that elsewhere but otherwise
  let's do it here (we'll use that info in the discussion but we'll need
  to state it somewhere - I think).
- 
-\change_inserted -2100369821 1665066090
-See below.
-\change_unchanged
-
+ See below.
 \end_layout
 
 \end_inset
@@ -2996,29 +2991,26 @@ name "fig:Dominance-3sp"
 \end_inset
 
  
-\change_inserted 617562988 1664954854
-
 \begin_inset Note Note
 status open
 
 \begin_layout Plain Layout
-
-\change_inserted 617562988 1664954929
 I remark that this figure's title as much smaller font that the others.
  Although exact match may not be necessary it would be elegant if all the
  figures of similar width had approximately similar-sized fonts for titles
  and axes.
+ Better now ?
+\change_inserted -666822487 1665504388
+ Yes - Fig.
+ 1 has larger titles but it is a different kind of figure so that should
+ be OK.
  
-\change_inserted -2100369821 1665072318
-Better now ?
 \change_unchanged
 
 \end_layout
 
 \end_inset
 
-
-\change_unchanged
 
 \end_layout
 
@@ -3034,28 +3026,18 @@ Better now ?
 
 \begin_layout Standard
 These differences between microphytoplankton and nanophytoplankton, and
- the role of advection, are 
-\change_deleted -2100369821 1664962572
-even more pronounced
-\change_inserted -2100369821 1664962573
-similar
-\change_inserted 617562988 1664954945
+ the role of advection, are similar
+\change_deleted -666822487 1665504401
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 617562988 1664955041
 There I am not sure that I agree actually - what makes more pronounced,
  you think? I would say that the differences are similar or weaker (in the
  10 species community as opposed to the 3-sp.
- community), but something that you see might be escaping me
-\change_inserted -2100369821 1664962564
-.
+ community), but something that you see might be escaping me.
  Agreed.
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3085,7 +3067,7 @@ noprefix "false"
 \change_inserted 617562988 1664955092
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -3099,6 +3081,10 @@ more
 \end_inset
 
  relative to the 3-species community scenario?
+\change_inserted -666822487 1665504501
+ F: Now that we say that the differences between micro and nano are similar,
+ I don't get why nano would be more mixed with 10 species than 3 species.
+ 
 \change_unchanged
 
 \end_layout
@@ -3302,55 +3288,15 @@ local
  under certain hypotheses that we discuss below, be related to interspecific
  and intraspecific interactions.
  Comparing the distributions of organisms of different sizes, we showed
- that the presence
-\change_deleted -2100369821 1665065728
- and intensity (Section S7 of the SI
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664955185
-Section S7 is the sensitivity to the way of computing turbulence so I found
- myself wondering whether that was the right section of the SI
-\change_inserted -2100369821 1664962734
-.
- There is also a change in intensity related to the way we compute turbulence:
- 
+ that the presence of turbulence always increased mixing (results are robust
+ to slight modifications in the computation of advection velocity 
 \begin_inset Formula $U$
 \end_inset
 
- is lower in S7.
- We can maybe make it more explicit in SI? 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-)
-\change_unchanged
- of turbulence always increased mixing
-\change_inserted -2100369821 1665072204
- (results are robust to slight modifications in the computation of advection
- velocity 
-\begin_inset Formula $U$
-\end_inset
-
-, shown in Section S7 of the SI)
-\change_deleted -2100369821 1665493362
-,
-\change_inserted -2100369821 1665493362
-.
- 
-\change_deleted -2100369821 1665493364
- and that t
-\change_inserted -2100369821 1665493364
-T
-\change_unchanged
-he species composition around an organism depended on its size, which mechanical
-ly determines its hydrodynamic properties (diffusivity), and is linked with
- its ecological characteristics (growth rate and density).
+, shown in Section S7 of the SI).
+ The species composition around an organism depended on its size, which
+ mechanically determines its hydrodynamic properties (diffusivity), and
+ is linked with its ecological characteristics (growth rate and density).
  Microphytoplankters (20 to 200 µm), larger cells with lower diffusivity,
  growth rate and abundance, were on average further away from other cells,
  due to their lower concentrations (Figure S10 of the SI), than nanophytoplankte
@@ -3444,24 +3390,16 @@ mic traits.
  volume with heterospecifics than nanophytoplankters.
  The rate of production of new microphytoplankton conspecifics was not sufficien
 t to compensate for the mixing induced by turbulence and diffusivity, even
- though the 
-\change_deleted -2100369821 1664962757
-diffusion range
-\change_inserted -2100369821 1664962758
-diffusivity
-\change_inserted 617562988 1664955252
+ though the diffusivity
+\change_deleted -666822487 1665504559
 
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
-
-\change_inserted 617562988 1664955309
 do we mean something precise here by diffusion range? If not perhaps we
  need another word or to adapt the sentence (it feels like we've measured
  it)
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -3486,20 +3424,33 @@ literal "false"
 
 \end_inset
 
-) but not necessarily so for microphytoplankton
-\change_deleted 617562988 1664955396
- (however, see Section S8 in the SI, based on the Lotka-Volterra model)
-\change_unchanged
-.
-
-\change_inserted 617562988 1664955549
+) but not necessarily so for microphytoplankton.
  Using a timescale separation argument, we show in Section S8 in the SI
- how stronger interactions at population level may arise in a Lotka-Volterra
- model whose spatial structure is summed up by the dominance indices evidenced
- here
+ how stronger interactions at population level than individual level may
+ arise in a Lotka-Volterra model whose spatial structure is summed up by
+ the dominance indices evidenced here
+\change_deleted -666822487 1665504641
+,
+\change_inserted -666822487 1665504717
+.
+ Stronger intra- than interspecific competition may arise at population
+ level
 \change_inserted -2100369821 1664962875
-, even when all local interaction strengths are equal, regardless of the
+ even when
+\change_inserted -666822487 1665504726
+ assuming that
+\change_inserted -2100369821 1664962875
+ all local interaction strengths 
+\change_inserted -666822487 1665504760
+between individuals 
+\change_inserted -2100369821 1664962875
+are equal, regardless of
+\change_unchanged
+ the
+\change_deleted -666822487 1665504783
  species
+\change_inserted -666822487 1665504787
+ identity of competitors
 \change_inserted 617562988 1664955549
 .
 
@@ -3521,6 +3472,24 @@ see SI
 
  hoping that readers will read it—reading the SI is clearly optional, we
  have to sum up what's there every time.
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_inserted -666822487 1665504938
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1665504969
+Perhaps some slight repeat here, but it is a difficult point to convey so
+ that doesn't seem so bad.
  
 \change_unchanged
 
@@ -3667,13 +3636,10 @@ Our model should be viewed as a first model of spatial distributions of
  multiple phytoplankton species in a realistic, three-dimensional environment
  at the microscale, describing only basic hydrodynamic and demographic processes.
  Using this model, we were able to predict whether phytoplankters could
- be in contact with individuals of their own or other species, and
-\change_inserted -2100369821 1665479232
+ be in contact with individuals of their own or other species, and emit
+ reasonable conjectures regarding potential intra vs interspecific interactions
+ between species, emerging at the population level through spatial distributions
  
-\change_unchanged
-emit reasonable conjectures regarding potential intra vs interspecific interacti
-ons between species, emerging at the population level through spatial distributi
-ons 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -3904,9 +3870,56 @@ noprefix "false"
 
 .
  Let us first note that
+\change_inserted -666822487 1665507530
+
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -666822487 1665508054
+F: I removed the 3 in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+d^{3}
+\backslash
+boldsymbol{
+\backslash
+xi} here.
+ Also, while the following is technically correct because 0 is within a
+ ball of size 
+\backslash
+rho as it is in 
+\backslash
+mathbb{R}^3, I wonder if your readers won't wonder why in the Cartesian
+ coordinates we integrate over 
+\backslash
+mathbb{R}^3 and in the spherical coordinates over a ball of radius 
+\backslash
+rho...
+ 
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+
+\change_unchanged
+
 \begin_inset Formula 
 \begin{align}
-\int_{\mathbb{R}^{3}}\delta(\boldsymbol{\xi})d^{3}\boldsymbol{\xi} & =1\nonumber \\
+\int_{\mathbb{R}^{3}}\delta(\boldsymbol{\xi})d\boldsymbol{\xi} & =1\nonumber \\
 \Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(r)\delta(\phi)\delta(\theta)r{}^{2}\sin(\phi)drd\phi d\theta & =1\nonumber \\
 \Leftrightarrow4\pi\int_{0}^{\rho}\delta(r)r{}^{2}dr & =1.\label{eq:delta_integration}
 \end{align}
