@@ -1287,7 +1287,7 @@ literal "false"
 \change_inserted 617562988 1664953955
 
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1677,7 +1677,7 @@ K_{ii}(r,t)=\frac{4}{3}\pi r^{3}+\frac{\lambda_{i}r^{2}}{C_{i}D_{i}}\left(\frac{
 
 \change_inserted 617562988 1664954147
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1776,7 +1776,7 @@ cdot.
 \change_unchanged
 be the average number of individuals
 \change_inserted -2100369821 1665065908
- of species identity 
+ of species 
 \begin_inset Formula $j$
 \end_inset
 
@@ -1787,10 +1787,6 @@ be the average number of individuals
 \end_inset
 
  around an individual of species 
-\change_inserted -2100369821 1665065913
-identity 
-\change_unchanged
-
 \begin_inset Formula $i$
 \end_inset
 
@@ -2708,11 +2704,7 @@ literal "false"
 \begin_inset Formula $\tau$
 \end_inset
 
-
-\change_inserted -2100369821 1665066126
- (corresponding to approximately 6h40)
-\change_unchanged
-.
+ (corresponding to approximately 6h40).
  The computation of 
 \begin_inset Formula $g$
 \end_inset
@@ -3346,10 +3338,19 @@ Section S7 is the sensitivity to the way of computing turbulence so I found
 \end_inset
 
 , shown in Section S7 of the SI)
+\change_deleted -2100369821 1665493362
+,
+\change_inserted -2100369821 1665493362
+.
+ 
+\change_deleted -2100369821 1665493364
+ and that t
+\change_inserted -2100369821 1665493364
+T
 \change_unchanged
-, and that the species composition around an organism depended on its size,
- which mechanically determines its hydrodynamic properties (diffusivity),
- and is linked with its ecological characteristics (growth rate and density).
+he species composition around an organism depended on its size, which mechanical
+ly determines its hydrodynamic properties (diffusivity), and is linked with
+ its ecological characteristics (growth rate and density).
  Microphytoplankters (20 to 200 µm), larger cells with lower diffusivity,
  growth rate and abundance, were on average further away from other cells,
  due to their lower concentrations (Figure S10 of the SI), than nanophytoplankte
@@ -3607,7 +3608,7 @@ endencies make sense in our phytoplankton context.
  To understand why, consider that even if a species abundance is locally
  tripled, competition might not directly ensue at the time scales covered
  by our model (
-\begin_inset Formula $\approx6$
+\begin_inset Formula $\approx7$
 \end_inset
 
  h), if nutrient depletion has not had time to set in yet.
@@ -3902,44 +3903,12 @@ noprefix "false"
 \end_inset
 
 .
- Let us first note that 
-\change_inserted -2100369821 1665065123
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -2100369821 1665065175
-I do not change the notation here because it is a general remark, not directly
- applied to 
-\begin_inset Formula $\delta(\boldsymbol{\xi})$
-\end_inset
-
-.
- Tell me if you prefer to stick to 
-\begin_inset Formula $\boldsymbol{\xi}$
-\end_inset
-
- and 
-\begin_inset Formula $\boldsymbol{\xi}$
-\end_inset
-
-'
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+ Let us first note that
 \begin_inset Formula 
 \begin{align}
 \int_{\mathbb{R}^{3}}\delta(\boldsymbol{\xi})d^{3}\boldsymbol{\xi} & =1\nonumber \\
-\Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(\boldsymbol{\xi}')r'^{2}\sin(\phi)dr'd\phi d\theta & =1\nonumber \\
-\Leftrightarrow4\pi\int_{0}^{\rho}\delta(\boldsymbol{\xi}')r'^{2}dr' & =1.\label{eq:delta_integration}
+\Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(r)\delta(\phi)\delta(\theta)r{}^{2}\sin(\phi)drd\phi d\theta & =1\nonumber \\
+\Leftrightarrow4\pi\int_{0}^{\rho}\delta(r)r{}^{2}dr & =1.\label{eq:delta_integration}
 \end{align}
 
 \end_inset
@@ -4160,7 +4129,7 @@ Using the Green's function theory, we know that
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{\xi}-\boldsymbol{\xi}',t')\delta(\boldsymbol{\xi}')d\xi'dt'\\
+G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{\xi}-\boldsymbol{\xi}',t')\delta(\boldsymbol{\xi}')d\boldsymbol{\xi}'dt'\\
 \Leftrightarrow G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{0}^{t}H(\boldsymbol{\boldsymbol{\xi}},t')dt'.
 \end{array}
 \end{equation}

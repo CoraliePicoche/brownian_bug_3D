@@ -1926,7 +1926,33 @@ interspecific
 \end_layout
 
 \begin_layout Standard
-We can therefore write the approximate equalities 
+
+\change_inserted -2100369821 1665495801
+We denote 
+\begin_inset Formula $\alpha_{ij}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{ij}$
+\end_inset
+
+ the interactions at the population and individual levels respectively,
+ as in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wiegand_consequences_2021"
+literal "false"
+
+\end_inset
+
+ .
+ 
+\change_unchanged
+We can 
+\change_deleted -2100369821 1665493819
+therefore 
+\change_unchanged
+write the approximate equalities 
 \begin_inset Formula $\alpha_{ii}\approx\beta\frac{M_{ii}(r,t)}{C_{i}(t)}$
 \end_inset
 
@@ -2038,25 +2064,6 @@ literal "false"
 \end_inset
 
 .
-\change_inserted 617562988 1665381599
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1665381635
-F: I'd mention somewhere in S8 that we use similar notation for coefficients
- as https://www.nature.com/articles/s41559-021-01440-0
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
 \end_layout
 
 \begin_layout Standard
