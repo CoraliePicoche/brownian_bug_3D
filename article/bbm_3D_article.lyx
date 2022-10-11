@@ -822,7 +822,7 @@ Each individual is characterized by its species identity
 
 , i.e.
  
-\begin_inset Formula $s(t)=\ln\left(|\bx_{k}(t)-\bx_{l}(t)|\right)\propto3\gamma t$
+\begin_inset Formula $s(t)=\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto3\gamma t$
 \end_inset
 
  
@@ -3666,10 +3666,13 @@ Our model should be viewed as a first model of spatial distributions of
  multiple phytoplankton species in a realistic, three-dimensional environment
  at the microscale, describing only basic hydrodynamic and demographic processes.
  Using this model, we were able to predict whether phytoplankters could
- be in contact with individuals of their own or other species, andemit reasonabl
-e conjectures regarding potential intra vs interspecific interactions between
- species, emerging at the population level through spatial distributions
+ be in contact with individuals of their own or other species, and
+\change_inserted -2100369821 1665479232
  
+\change_unchanged
+emit reasonable conjectures regarding potential intra vs interspecific interacti
+ons between species, emerging at the population level through spatial distributi
+ons 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "detto_stabilization_2016"
@@ -3934,9 +3937,9 @@ I do not change the notation here because it is a general remark, not directly
 
 \begin_inset Formula 
 \begin{align}
-\int_{\mathbb{R}^{3}}\delta(\boldsymbol{r})d^{3}\boldsymbol{r} & =1\nonumber \\
-\Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}\sin(\phi)dr'd\phi d\theta & =1\nonumber \\
-\Leftrightarrow4\pi\int_{0}^{\rho}\delta(\boldsymbol{r}')r'^{2}dr' & =1.\label{eq:delta_integration}
+\int_{\mathbb{R}^{3}}\delta(\boldsymbol{\xi})d^{3}\boldsymbol{\xi} & =1\nonumber \\
+\Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(\boldsymbol{\xi}')r'^{2}\sin(\phi)dr'd\phi d\theta & =1\nonumber \\
+\Leftrightarrow4\pi\int_{0}^{\rho}\delta(\boldsymbol{\xi}')r'^{2}dr' & =1.\label{eq:delta_integration}
 \end{align}
 
 \end_inset
@@ -4157,7 +4160,7 @@ Using the Green's function theory, we know that
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
-G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{\xi}-\boldsymbol{r'},t')\delta(\boldsymbol{r'})dr'dt'\\
+G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{\xi}-\boldsymbol{\xi}',t')\delta(\boldsymbol{\xi}')d\xi'dt'\\
 \Leftrightarrow G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{0}^{t}H(\boldsymbol{\boldsymbol{\xi}},t')dt'.
 \end{array}
 \end{equation}
