@@ -112,7 +112,6 @@
 \html_be_strict false
 \author -2100369821 "cpicoche"
 \author -666822487 "frederic"
-\author 617562988 "fbarraquand"
 \end_header
 
 \begin_body
@@ -1255,23 +1254,11 @@ literal "false"
 \begin_inset Formula $d\mathbf{x}_{B}$
 \end_inset
 
-
-\change_deleted -666822487 1665503927
- (
-\change_inserted -666822487 1665503928
 , while 
-\change_unchanged
-
 \begin_inset Formula $r=|\boldsymbol{\xi}|$
 \end_inset
 
-
-\change_inserted -666822487 1665503920
- is the radial distance
-\change_deleted -666822487 1665503932
-)
-\change_unchanged
-.
+ is the radial distance.
  We show in 
 \begin_inset CommandInset citation
 LatexCommand citet
@@ -1292,39 +1279,6 @@ literal "false"
 
 \end_inset
 
-
-\change_deleted -666822487 1665503951
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664954080
-I was wondering here if we shouldn't use 
-\begin_inset Formula $\boldsymbol{\xi}$
-\end_inset
-
- for the 
-\begin_inset Formula $\delta(\boldsymbol{\xi})$
-\end_inset
-
- as in your oral presentation and make clear that 
-\begin_inset Formula $r=|\boldsymbol{\xi}|$
-\end_inset
-
-.
- Of course it is a question of convention, so we'll have to make sure we
- do so elsewhere as well.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
 The pair correlation function 
 \begin_inset Formula $g_{ij}(r,t)$
 \end_inset
@@ -1703,11 +1657,6 @@ I corrected
 to 
 \backslash
 frac{r^{2}}{8D_{i}t}, I think we should do the same in Appendices.
-
-\change_deleted -666822487 1665503966
- 
-\change_unchanged
-
 \end_layout
 
 \end_inset
@@ -1755,31 +1704,7 @@ Let
 \begin_inset Formula $M_{ij}(r)$
 \end_inset
 
- 
-\change_deleted -666822487 1665503979
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664954302
-the point is unclear, and it should be a larger dot if we want to use that
- way, like 
-\backslash
-bullet or 
-\backslash
-cdot.
- But mostly O wonder if we couldn't use M_{ij}(r) which would be simpler.
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-be the average number of individuals of species 
+ be the average number of individuals of species 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2504,23 +2429,6 @@ name "tab:Definition-and-value"
 
 \begin_layout Standard
 
-\change_deleted -666822487 1665504063
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-Here I would suggest that we explain, as in your presentation, how long
- the whole simulation experiments last, i.e.
- what is the timescale of our model.
- If you see a better place to do so, we can do that elsewhere but otherwise
- let's do it here (we'll use that info in the discussion but we'll need
- to state it somewhere - I think).
- See below.
-\end_layout
-
-\end_inset
-
-
 \change_deleted -2100369821 1665066050
 
 \end_layout
@@ -2990,27 +2898,6 @@ name "fig:Dominance-3sp"
 
 \end_inset
 
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-I remark that this figure's title as much smaller font that the others.
- Although exact match may not be necessary it would be elegant if all the
- figures of similar width had approximately similar-sized fonts for titles
- and axes.
- Better now ?
-\change_inserted -666822487 1665504388
- Yes - Fig.
- 1 has larger titles but it is a different kind of figure so that should
- be OK.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
 
 \end_layout
 
@@ -3025,27 +2912,9 @@ I remark that this figure's title as much smaller font that the others.
 \end_layout
 
 \begin_layout Standard
-These differences between microphytoplankton and nanophytoplankton, and
- the role of advection, are similar
-\change_deleted -666822487 1665504401
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-There I am not sure that I agree actually - what makes more pronounced,
- you think? I would say that the differences are similar or weaker (in the
- 10 species community as opposed to the 3-sp.
- community), but something that you see might be escaping me.
- Agreed.
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- when considering a 10 species-community with a skewed abundance distribution.
- (Fig.
+More mixing in microphytoplankton than nanophytoplankton, and more mixing
+ with advection, also holds when considering a 10 species-community with
+ a skewed abundance distribution (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -3056,44 +2925,14 @@ noprefix "false"
 
 \end_inset
 
-).
+), but dominance indices are overall lower in communities with more species
+ and with less even abundances.
  In the presence of advection, microphytoplankton dominance indices at the
  distance threshold are between 0.34 (for the most abundant species) and
  0.033 (for one of the least abundant species), while they are between 0.90
  and 0.85 when advection is not taken into account.
- Nanophytoplankton species, too, are more mixed
-\change_inserted -2100369821 1664962640
- than in the 3 species-community
-\change_inserted 617562988 1664955092
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664955112
-is 
-\begin_inset Quotes eld
-\end_inset
-
-more
-\begin_inset Quotes erd
-\end_inset
-
- relative to the 3-species community scenario?
-\change_inserted -666822487 1665504501
- F: Now that we say that the differences between micro and nano are similar,
- I don't get why nano would be more mixed with 10 species than 3 species.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-: dominance indices vary between 0.54 and 0.2 when the depletion threshold
+ Nanophytoplankton species, too, are more mixed than in the 3 species-community:
+ dominance indices vary between 0.54 and 0.2 when the depletion threshold
  is reached (with an exception of 0 for one particular species which had
  no conspecific for radii below 
 \begin_inset Formula $10^{-2}$
@@ -3390,23 +3229,8 @@ mic traits.
  volume with heterospecifics than nanophytoplankters.
  The rate of production of new microphytoplankton conspecifics was not sufficien
 t to compensate for the mixing induced by turbulence and diffusivity, even
- though the diffusivity
-\change_deleted -666822487 1665504559
-
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-do we mean something precise here by diffusion range? If not perhaps we
- need another word or to adapt the sentence (it feels like we've measured
- it)
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
- of microphytoplankters was smaller than that of nanophytoplankters.
+ though the diffusivity of microphytoplankters was smaller than that of
+ nanophytoplankters.
  There may therefore be different mechanisms at play at the community level
  for microphytoplankton and nanophytoplankton to maintain coexistence.
  For nanophytoplankton, the spatial structure likely leads to more interactions
@@ -3428,78 +3252,10 @@ literal "false"
  Using a timescale separation argument, we show in Section S8 in the SI
  how stronger interactions at population level than individual level may
  arise in a Lotka-Volterra model whose spatial structure is summed up by
- the dominance indices evidenced here
-\change_deleted -666822487 1665504641
-,
-\change_inserted -666822487 1665504717
-.
+ the dominance indices evidenced here.
  Stronger intra- than interspecific competition may arise at population
- level
-\change_inserted -2100369821 1664962875
- even when
-\change_inserted -666822487 1665504726
- assuming that
-\change_inserted -2100369821 1664962875
- all local interaction strengths 
-\change_inserted -666822487 1665504760
-between individuals 
-\change_inserted -2100369821 1664962875
-are equal, regardless of
-\change_unchanged
- the
-\change_deleted -666822487 1665504783
- species
-\change_inserted -666822487 1665504787
- identity of competitors
-\change_inserted 617562988 1664955549
-.
-
-\change_deleted -2100369821 1664962781
- 
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-
-\change_inserted 617562988 1664955592
-Note that we can't just say 
-\begin_inset Quotes eld
-\end_inset
-
-see SI
-\begin_inset Quotes erd
-\end_inset
-
- hoping that readers will read it—reading the SI is clearly optional, we
- have to sum up what's there every time.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_inserted -666822487 1665504938
-
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-
-\change_inserted -666822487 1665504969
-Perhaps some slight repeat here, but it is a difficult point to convey so
- that doesn't seem so bad.
- 
-\change_unchanged
-
-\end_layout
-
-\end_inset
-
-
-\change_unchanged
-
+ level even when assuming that all local interaction strengths between individua
+ls are equal, regardless of the identity of competitors.
 \end_layout
 
 \begin_layout Standard
