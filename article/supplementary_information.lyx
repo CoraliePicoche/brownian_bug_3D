@@ -114,6 +114,7 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\author -2100369821 "cpicoche"
 \end_header
 
 \begin_body
@@ -365,9 +366,8 @@ noprefix "false"
 \end_inset
 
 -function and dominance index for well-known point processes.
- We focus on the uniform distribution, i.e.
- the Poisson point process, and a clustered distribution, the Thomas point
- process.
+ We focus on the uniform distribution, i.e., the Poisson point process, and
+ a clustered distribution, the Thomas point process.
  The Thomas point process is the result of a two-stage mechanism: a Poisson
  point process generates 
 \begin_inset Quotes eld
@@ -809,7 +809,7 @@ with
 \emph default
  advection.
  We see that even after a short period of time (
-\begin_inset Formula $t=100$
+\begin_inset Formula $t=100\tau$
 \end_inset
 
 ), the dominance index without advection is larger than with advection,
@@ -1267,7 +1267,18 @@ cm
 \end_inset
 
  cube is shown, and its projection on the x-y plane is shown on the right
- hand-side.
+\change_deleted -2100369821 1665865784
+ 
+\change_inserted -2100369821 1665865784
+-
+\change_unchanged
+hand
+\change_deleted -2100369821 1665865782
+-
+\change_inserted -2100369821 1665865782
+ 
+\change_unchanged
+side.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1310,10 +1321,13 @@ One of the reasons why estimating
 \end_inset
 
 ), we can find very few observations of pairs of points.
- In order to better understand at which distances ranges we should expect
- some estimation difficulties, we wanted to compute the minimum expected
- distance between points (distance to the nearest neighbour, DNN) when they
- are uniformly distributed.
+ In order to better understand at which distance
+\change_deleted -2100369821 1665865880
+s
+\change_unchanged
+ ranges we should expect some estimation difficulties, we wanted to compute
+ the minimum expected distance between points (distance to the nearest neighbour
+, DNN) when they are uniformly distributed.
 \end_layout
 
 \begin_layout Standard
@@ -1490,10 +1504,10 @@ Simulations
 
 \begin_layout Standard
 We can compute the simulated distance to the nearest neighbour in the BBM
- and compare it to what we should obtain with a uniform distribution: the
- simulated mean distance to the nearest organism, regardless of its species,
- is close to the expected value under a uniform distribution, but the minimum
- distance to a conspecific is much lower than expected (Fig.
+ and compare it to what we should obtain with a uniform spatial distribution:
+ the simulated mean distance to the nearest organism, regardless of its
+ species, is close to the expected value under a uniform distribution, but
+ the minimum distance to a conspecific is much lower than expected (Fig.
  
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1763,8 +1777,12 @@ status open
 Dominance indices as a function of distance (in cm) for one species in a
  microphytoplankton (a) and nanophytoplankton (b) 3-species community with
  even distributions after 1000 timesteps with (circles) and without (lines)
- advection for different duration of the timesteps, with reference parameters
- (black) and lower flow velocity (grey).
+ advection for different duration
+\change_inserted -2100369821 1665865901
+s
+\change_unchanged
+ of the timesteps, with reference parameters (black) and lower flow velocity
+ (grey).
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1946,7 +1964,13 @@ We can then write the approximate equalities
 \begin_inset Formula $\alpha_{io}\approx\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
 \end_inset
 
- by matching eqs.
+ by matching 
+\change_deleted -2100369821 1665865907
+e
+\change_inserted -2100369821 1665865907
+E
+\change_unchanged
+qs.
  
 \begin_inset CommandInset ref
 LatexCommand ref

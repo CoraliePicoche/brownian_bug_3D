@@ -37,6 +37,7 @@
 \newcommand{\ellB}{\ell_{\mathrm{B},i}} 
 
 \usepackage{babel}
+\usepackage{url}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -513,7 +514,10 @@ literal "false"
  with equal interaction strengths irrespective of species identity).
  Indeed, the combination of local dispersal after reproduction and local
  interactions leads to stronger intraspecific interactions than interspecific
- interactions at the population level, which is a major stabilizing mechanism
+ interactions at the population level
+\change_deleted -2100369821 1665865163
+, which is a major stabilizing mechanism
+\change_unchanged
  
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -523,10 +527,17 @@ literal "false"
 \end_inset
 
 .
- Indeed, a high intra-to-interspecific interaction strength ratio makes
- a species control its abundance more than it controls the abundance of
- other species, which is associated with coexistence in theoretical models
  
+\change_inserted -2100369821 1665865179
+This mechanism stabilizes the community, 
+\change_deleted -2100369821 1665865180
+Indeed,
+\change_inserted -2100369821 1665865181
+as
+\change_unchanged
+ a high intra-to-interspecific interaction strength ratio makes a species
+ control its abundance more than it controls the abundance of other species,
+ which is associated with coexistence in theoretical models 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "levine_importance_2009,barabas_self-regulation_2017"
@@ -787,8 +798,11 @@ Each individual is characterized by its species identity
 \end_inset
 
 .
- The population dynamics are modeled by a linear birth-death process with
- birth rate 
+ The population dynamics are mode
+\change_inserted -2100369821 1665865235
+l
+\change_unchanged
+led by a linear birth-death process with birth rate 
 \begin_inset Formula $\lambda_{i}$
 \end_inset
 
@@ -802,7 +816,11 @@ Each individual is characterized by its species identity
 \begin_inset Formula $D_{i}$
 \end_inset
 
-, and is advected by a common stochastic and chaotic flow modeling turbulence.
+, and is advected by a common stochastic and chaotic flow mode
+\change_inserted -2100369821 1665865249
+l
+\change_unchanged
+ling turbulence.
  The model applies in the Batchelor regime, which means that the separation
  
 \begin_inset Formula $s(t)$
@@ -943,8 +961,11 @@ jumps quickly to a new position
 \end_layout
 
 \begin_layout Enumerate
-Turbulence: each individual is displaced by a turbulent flow, modeled with
- the Pierrehumbert map 
+Turbulence: each individual is displaced by a turbulent flow, mode
+\change_inserted -2100369821 1665865238
+l
+\change_unchanged
+led with the Pierrehumbert map 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pierrehumbert_tracer_1994"
@@ -952,7 +973,13 @@ literal "false"
 
 \end_inset
 
-, adapted to three-dimensions following 
+, adapted to three
+\change_deleted -2100369821 1665865266
+-
+\change_inserted -2100369821 1665865266
+ 
+\change_unchanged
+dimensions following 
 \begin_inset CommandInset citation
 LatexCommand citet
 key "ngan_scalar_2011"
@@ -1025,8 +1052,11 @@ Above,
 \end_inset
 
 .
- The shift from continuous to discrete-time turbulence modeling is described
- in Section S1 in the Supplementary Information.
+ The shift from continuous to discrete-time turbulence mode
+\change_inserted -2100369821 1665865301
+l
+\change_unchanged
+ling is described in Section S1 in the Supplementary Information.
  The velocity 
 \begin_inset Formula $U$
 \end_inset
@@ -1357,7 +1387,17 @@ where
 \begin_inset Formula $\ellB=\sqrt{2D_{i}/\gamma}$
 \end_inset
 
- approximates the Batchelor scale for phytoplankton.
+ approximates the Batchelor scale for 
+\change_deleted -2100369821 1665865312
+phytoplankton
+\change_inserted -2100369821 1665865322
+species 
+\begin_inset Formula $i$
+\end_inset
+
+
+\change_unchanged
+.
 \end_layout
 
 \begin_layout Standard
@@ -1462,8 +1502,14 @@ Related to the pair correlation function is Ripley's
 \end_inset
 
 .
- Its marked version, 
-\begin_inset Formula $K_{ij}(r)$
+ 
+\change_inserted -2100369821 1665865332
+Using i
+\change_deleted -2100369821 1665865333
+I
+\change_unchanged
+ts marked version, 
+\begin_inset Formula $C_{j}K_{ij}(r)$
 \end_inset
 
 , is the average number of points of species 
@@ -1731,7 +1777,7 @@ Let
 
  corresponds to the conspecific neighbourhood and 
 \begin_inset Formula $M_{io}(r)=\sum_{\begin{array}{c}
-j=1,j\neq i\end{array}}^{S}M_{ij}(r)$
+j\neq i\end{array}}^{S}M_{ij}(r)$
 \end_inset
 
  corresponds to individuals of all other species.
@@ -2617,6 +2663,28 @@ literal "false"
 \end_inset
 
  of simulated distributions is explained in Section S4 of the SI.
+
+\change_inserted -2100369821 1665759343
+ The code for all simulations and analyses can be found at 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\change_inserted -2100369821 1665759364
+
+
+\backslash
+url{https://github.com/CoraliePicoche/brownian_bug_3D/}
+\change_unchanged
+
+\end_layout
+
+\end_inset
+
+.
+\change_unchanged
+
 \end_layout
 
 \begin_layout Section*
@@ -2692,7 +2760,16 @@ cm
 \end_inset
 
  cube is shown, and its projection on the x-y plane is shown on the right
- hand-side.
+\change_deleted -2100369821 1665865793
+ 
+\change_inserted -2100369821 1665865793
+-
+\change_unchanged
+hand
+\change_deleted -2100369821 1665865795
+-
+\change_unchanged
+side.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2731,7 +2808,11 @@ noprefix "false"
 \end_inset
 
 ) for both types of organisms, which also indicates that dominance indices
- extracted from the simulation match theoretical expectations.
+ extracted from the simulation
+\change_inserted -2100369821 1665865407
+s
+\change_unchanged
+ match theoretical expectations.
 \end_layout
 
 \begin_layout Standard
@@ -2830,9 +2911,14 @@ noprefix "false"
 
 \begin_layout Standard
 In the presence of advection, the dominance index starts decreasing for
- a distance between 5 and 10 times lower than when advection is absent,
- which indicates that organisms are closer to heterospecifics when their
- environment is turbulent.
+ a distance between 5 and 10 times 
+\change_deleted -2100369821 1665865420
+lower
+\change_inserted -2100369821 1665865421
+smaller
+\change_unchanged
+ than when advection is absent, which indicates that organisms are closer
+ to heterospecifics when their environment is turbulent.
  A quasi-uniform distribution is also reached for smaller distances with
  advection than without.
  Microphytoplankton species start mixing for distances larger than for nanophyto
@@ -2934,7 +3020,13 @@ noprefix "false"
  Nanophytoplankton species, too, are more mixed than in the 3 species-community:
  dominance indices vary between 0.54 and 0.2 when the depletion threshold
  is reached (with an exception of 0 for one particular species which had
- no conspecific for radii below 
+ no conspecific for 
+\change_deleted -2100369821 1665865448
+radii
+\change_inserted -2100369821 1665865449
+distances
+\change_unchanged
+ below 
 \begin_inset Formula $10^{-2}$
 \end_inset
 
@@ -3145,10 +3237,18 @@ rs (2 to 20 µm).
  maximum distance for which nutrient depletion volumes of two different
  individuals may overlap.
  If we consider that interactions between species (not modelled directly
- here because of timescales issues, see below), could occur with equal probabili
-ty at all distances within the volume of potential interactions, we would
- conclude that microphytoplankters are more likely to interact with individuals
- from other species than with individuals of their own species.
+ here because of timescale
+\change_deleted -2100369821 1665865478
+s
+\change_unchanged
+ issues, see below)
+\change_deleted -2100369821 1665865483
+,
+\change_unchanged
+ could occur with equal probability at all distances within the volume of
+ potential interactions, we would conclude that microphytoplankters are
+ more likely to interact with individuals from other species than with individua
+ls of their own species.
  This affirmation is, however, conditional upon interactions at 10 cell
  diameters from an individual being equally likely than at 1 diameter from
  an individual.
@@ -3222,7 +3322,13 @@ mic traits.
  even near the distance threshold, i.e.
  the maximum distance for the overlap of nutrient depletion volumes) while
  microphytoplankton organisms could affect both conspecifics and heterospecifics
- (the dominance index was often below 50% at the distance threshold, i.e.
+ (the dominance index was often below 
+\change_deleted -2100369821 1665865497
+50%
+\change_inserted -2100369821 1665865498
+0.5
+\change_unchanged
+ at the distance threshold, i.e.
  an individual's depletion zone probably overlapped with more heterospecifics'
  than conspecifics').
  Microphytoplankters were therefore more likely to share their depletion
@@ -3274,9 +3380,12 @@ literal "false"
 
 .
  The proportion of change in the depletion volume increases with the size
- of organism: a 10 µm-diameter organism might not experience any change,
- while the uptake of a 100 µm-diameter organism would increase by at least
- 50% 
+ of organism
+\change_inserted -2100369821 1665865506
+s
+\change_unchanged
+: a 10 µm-diameter organism might not experience any change, while the uptake
+ of a 100 µm-diameter organism would increase by at least 50% 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "karp-boss_nutrient_1996"
@@ -3536,7 +3645,13 @@ literal "false"
  As these formula only apply to intraspecies pairs, we ignore species' index
  in the following for the sake of clarity.
  Formula for standard processes are given in the Supplementary Information,
- for readers who want to familiarize with simpler models.
+ for readers who want to 
+\change_deleted -2100369821 1665865519
+familiarize
+\change_inserted -2100369821 1665865522
+get acquainted
+\change_unchanged
+ with simpler models.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3683,7 +3798,11 @@ rho...
 \end_inset
 
 Using Eq.
- (
+ 
+\change_deleted -2100369821 1665865537
+(
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:steady_state"
@@ -3693,7 +3812,15 @@ noprefix "false"
 
 \end_inset
 
-) and (
+
+\change_deleted -2100369821 1665865539
+)
+\change_unchanged
+ and 
+\change_deleted -2100369821 1665865541
+(
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:delta_integration"
@@ -3703,7 +3830,11 @@ noprefix "false"
 
 \end_inset
 
-), 
+
+\change_deleted -2100369821 1665865534
+)
+\change_unchanged
+, 
 \begin_inset Formula 
 \begin{align}
 0 & =4\pi\left(2Dr^{2}\frac{\partial G}{\partial r}+\gamma r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
@@ -3830,7 +3961,11 @@ In the absence of advection by turbulent diffusion (
  In order to keep a realistic timeframe, we need to compute a time-dependent
  solution.
  We can get back to Eq.
- (
+ 
+\change_deleted -2100369821 1665865554
+(
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Young3D-1"
@@ -3840,7 +3975,11 @@ noprefix "false"
 
 \end_inset
 
-) with 
+
+\change_deleted -2100369821 1665865556
+)
+\change_unchanged
+ with 
 \begin_inset Formula $\gamma=0$
 \end_inset
 
@@ -3913,7 +4052,13 @@ A solution for the Green's function using
 \begin_inset Formula $\mathcal{L}=\partial_{t}-2D\Delta$
 \end_inset
 
- in 3 dimensions is 
+ in 
+\change_deleted -2100369821 1665865753
+3
+\change_inserted -2100369821 1665865753
+three
+\change_unchanged
+ dimensions is 
 \begin_inset Formula $H(r,t)=\left(\frac{1}{8\pi Dt}\right)^{3/2}\exp(\frac{-r^{2}}{8Dt})$
 \end_inset
 
@@ -3944,7 +4089,11 @@ where
 \end_inset
 
  in Eq.
- (
+ 
+\change_deleted -2100369821 1665865564
+(
+\change_unchanged
+
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:G_r_t"
@@ -3954,7 +4103,11 @@ noprefix "false"
 
 \end_inset
 
-), 
+
+\change_deleted -2100369821 1665865562
+)
+\change_unchanged
+, 
 \begin_inset Formula 
 \begin{equation}
 \begin{array}{ccc}
