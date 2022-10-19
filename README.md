@@ -1,15 +1,15 @@
-# Local intraspecific aggregation in phytoplankton model communities: spatial scales of occurrence and implications for coexistence
+# Three-dimension, multispecies Brownian Bug Model
 
 **Authors**: Coralie Picoche, William R. Young and Frédéric Barraquand
 
-This repository contains the mathematical analyses of the three-dimension, multispecies Brownian Bug Model described in the manuscript _Local intraspecific aggregation in phytoplankton model communities: spatial scales of occurrence and implications for coexistence_>, as well as the scripts running corresponding simulations and analyses.
+This repository contains the mathematical analyses of the three-dimension, multispecies Brownian Bug Model described in the manuscript _Local intraspecific aggregation in phytoplankton model communities: spatial scales of occurrence and implications for coexistence_, as well as the scripts running corresponding simulations and analyses.
 
 ### Organisation
 
 Folders are organised as follows:
 
 * `article` contains all files used to produce the manuscript of the article.
-* `code/simulation` contains the code for the simulations of the Brownian bug model. Output files are also stored in this folder.
+* `code/simulation` contains the code for the simulations of the Brownian Bug Model. Output files are also stored in this folder.
 * `code/figure` contains the codes to produce figures shown in the article, as well as said figures.
 
 ### Pre-requisites
