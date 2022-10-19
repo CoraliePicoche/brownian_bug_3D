@@ -111,7 +111,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author 617562988 "fbarraquand"
 \end_header
 
 \begin_body
@@ -1469,7 +1468,7 @@ Related to the pair correlation function is Ripley's
 \begin_inset Formula $C_{j}K_{ij}(r)$
 \end_inset
 
-, is the average number of points of species 
+ is the average number of points of species 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2701,8 +2700,8 @@ cm
 \begin_inset Formula $^{3}$
 \end_inset
 
- cube is shown, and its projection on the x-y plane is shown on the right-handsi
-de.
+ cube is shown, and its projection on the x-y plane is shown on the right-hand
+ side.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3545,34 +3544,9 @@ literal "false"
  for a detailed derivation of the master equation).
  As these formula only apply to intraspecies pairs, we ignore species' index
  in the following for the sake of clarity.
- 
-\change_deleted 617562988 1665932901
-F
-\change_inserted 617562988 1665932903
-Similar f
-\change_unchanged
-ormula for 
-\change_inserted 617562988 1665933046
-well-known
-\change_deleted 617562988 1665932907
-standard
-\change_inserted 617562988 1665933027
- spatial point
-\change_unchanged
- processes are given in the Supplementary Information, for readers who want
- to 
-\change_deleted 617562988 1665933059
-familiarize
-\change_inserted 617562988 1665933062
-understand better
-\change_unchanged
- 
-\change_deleted 617562988 1665933067
-with simpler models
-\change_inserted 617562988 1665933077
- the properties of these spatial statistics
-\change_unchanged
-.
+ Similar formula for well-known spatial point processes are given in the
+ Supplementary Information, for readers who want to understand better the
+ properties of these spatial statistics.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -3647,10 +3621,6 @@ We first compute the steady-state solution,
 
 We can then integrate Eq.
  
-\change_deleted 617562988 1665933330
-(
-\change_unchanged
-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:Young3D-1"
@@ -3660,10 +3630,6 @@ noprefix "false"
 
 \end_inset
 
-
-\change_deleted 617562988 1665933327
-)
-\change_unchanged
  over a small sphere centered on an individual, with radius 
 \begin_inset Formula $\rho$
 \end_inset

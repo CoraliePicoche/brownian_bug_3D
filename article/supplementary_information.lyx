@@ -114,7 +114,6 @@
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\author -2100369821 "cpicoche"
 \end_header
 
 \begin_body
@@ -1266,19 +1265,8 @@ cm
 \begin_inset Formula $^{3}$
 \end_inset
 
- cube is shown, and its projection on the x-y plane is shown on the right
-\change_deleted -2100369821 1665865784
- 
-\change_inserted -2100369821 1665865784
--
-\change_unchanged
-hand
-\change_deleted -2100369821 1665865782
--
-\change_inserted -2100369821 1665865782
- 
-\change_unchanged
-side.
+ cube is shown, and its projection on the x-y plane is shown on the right-hand
+ side.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1286,7 +1274,7 @@ name "fig:Spatial-distributions"
 
 \end_inset
 
- 
+
 \end_layout
 
 \end_inset
@@ -1321,13 +1309,10 @@ One of the reasons why estimating
 \end_inset
 
 ), we can find very few observations of pairs of points.
- In order to better understand at which distance
-\change_deleted -2100369821 1665865880
-s
-\change_unchanged
- ranges we should expect some estimation difficulties, we wanted to compute
- the minimum expected distance between points (distance to the nearest neighbour
-, DNN) when they are uniformly distributed.
+ In order to better understand at which distance ranges we should expect
+ some estimation difficulties, we wanted to compute the minimum expected
+ distance between points (distance to the nearest neighbour, DNN) when they
+ are uniformly distributed.
 \end_layout
 
 \begin_layout Standard
@@ -1777,12 +1762,8 @@ status open
 Dominance indices as a function of distance (in cm) for one species in a
  microphytoplankton (a) and nanophytoplankton (b) 3-species community with
  even distributions after 1000 timesteps with (circles) and without (lines)
- advection for different duration
-\change_inserted -2100369821 1665865901
-s
-\change_unchanged
- of the timesteps, with reference parameters (black) and lower flow velocity
- (grey).
+ advection for different durations of the timesteps, with reference parameters
+ (black) and lower flow velocity (grey).
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1964,13 +1945,7 @@ We can then write the approximate equalities
 \begin_inset Formula $\alpha_{io}\approx\beta\frac{M_{io}(r,t)}{C_{o}(t)}$
 \end_inset
 
- by matching 
-\change_deleted -2100369821 1665865907
-e
-\change_inserted -2100369821 1665865907
-E
-\change_unchanged
-qs.
+ by matching Eqs.
  
 \begin_inset CommandInset ref
 LatexCommand ref
