@@ -16,45 +16,45 @@
 
 gsl_rng *rgslbis2 = gsl_rng_alloc(gsl_rng_mt19937);
 
-extern const int num_simu=27;
+extern const int num_simu=33; //Simulation identifier
 
 //Define constant for simulation
 extern const char type_simul='B'; // P for Poisson distribution, T for Thomas distribution, B for Brownian Bug Model
-extern const char type_init='T'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
+extern const char type_init='P'; // Initial distribution of particles : uniform (Poisson) or already aggregated (Thomas)
 extern const double pi=3.14159265;
 extern const int print_distrib=1; //If 1, we output the position of each particle at the end of the simulation. This is not recommended for huge populations.
-extern const int tmax=1000000; //length of the simulation. Tmax is negative if we only want the initial distribution
+extern const int tmax=1000; //length of the simulation. Tmax is negative if we only want the initial distribution
 
 //All variables are defined as a function of the duration of \tau (or U?)
 extern const double tau=0.00028; //in day
-//extern const double Utot=0.5; //advection, corresponds to U\tau/2
-extern const double Utot=0.0; //advection, corresponds to U\tau/2
+//extern const double Utot=0.5; //advection, corresponds to U\tau/3
+extern const double Utot=0.0; //advection, corresponds to U\tau/3
 
 //Define variables to compute diffusivity
 double R=8.314, T=293, Na=6.0225*pow(10,23), eta=pow(10,-3);
 double factor=pow(R*T/(Na*3*pi*eta),0.5);
 
 //Diatoms
-extern const double radius=25*pow(10,-6);
-extern const double growth_rate=1; //in day^-1
-extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
+//extern const double radius=25*pow(10,-6);
+//extern const double growth_rate=1; //in day^-1
+//extern const double Lmax=pow(1000,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 //Nanophytoplankton
-//extern const double radius=1.5*pow(10,-6);
-//extern const double growth_rate=2.5; //in day^-1
-//extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
+extern const double radius=1.5*pow(10,-6);
+extern const double growth_rate=2.5; //in day^-1
+extern const double Lmax=pow(10,1.0/3.0); //size of the grid: adapted here to always use size_pop=10 000, but different concentrations
 
 extern const double Delta=factor*pow(tau/radius*(3600*24),0.5)*pow(10,2); //diffusion. The factor 10^2 is here because the length unit is cm and the 3600*24 is the conversion from day to second for tau
 extern const double proba_death=growth_rate*tau; //Death and birth probability
 extern const double proba_repro=growth_rate*tau; //Death and birth probability
 
 //Community definition
-extern const int nb_species=3;
-//extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400}; 
-extern const std::vector<double> size_pop={10000,10000,10000};//,10000,10000,10000,10000,10000,10000,10000}; 
-extern const int N_parent_init=200;
-extern const int N_children_init=50;
-extern const double sigma=0.001;
+extern const int nb_species=10;
+//extern const std::vector<double> size_pop={55000,43000,41000,18000,6500,6300,2400,2000,1500,600,400};  //Number of individuals within each species
+extern const std::vector<double> size_pop={10000,10000,10000,10000,10000,10000,10000,10000,10000,10000}; 
+extern const int N_parent_init=200; //used for a Thomas distribution
+extern const int N_children_init=50; //used for a Thomas distribution
+extern const double sigma=0.1; //used for a Thomas distribution
 //extern const std::vector<double> size_pop={N_children_init*N_parent_init,N_children_init*N_parent_init,N_parent_init*N_children_init};
 
 //Environment
@@ -71,7 +71,7 @@ extern const double delta_fixed=pow(10,-4.); //Only used if delta_spatstat==0
 
 using namespace std;
 
-//This function stores the values used in this specific simulation to avoid mistakes
+//This function writes the values used in this specific simulation in a separate file to avoid mistakes
 void write_parameters(std::ofstream& f_param)
 {
 	int i=0;
@@ -98,6 +98,7 @@ void write_parameters(std::ofstream& f_param)
 	f_param<<"tmax="<<tmax<<std::endl;
 }
 
+// Initialize the distribution with a Thomas point process
 std::vector<basic_particle> initialize_thomas(std::vector<basic_particle> Part_table,int s)
 {
         int i,j,N_children_tmp,N_parent,init_size;
@@ -125,7 +126,7 @@ std::vector<basic_particle> initialize_thomas(std::vector<basic_particle> Part_t
 }
 
 
-//This function is mostly a copy-paste of pcf3est in the spatstat package
+//This function computes the pcf, Ripley's function and dominance index. It is inspired by the pcf3est function in the spatstat package
 void K_PCF_kernel_spatstat(std::vector<basic_particle> Part_table, int nb_indiv[], double pcf[nb_species][nb_species][nb_r_pcf], double dominance[nb_species][nb_r_pcf],std::ofstream& f_pcf, std::ofstream& f_param, std::ofstream& f_min_dist)
 {
 double vx,vy,vz,dx,dy,dz,dist,lmin,lmax,invweight,frac,kernel,coef,delta,tval,dt,rondel,bias;
@@ -135,9 +136,6 @@ double Concentration, h, Concentration_square;
 double lambda_K[nb_species][nb_species][nb_r_pcf],K[nb_species][nb_species][nb_r_pcf],min_dist[nb_species];
 clock_t t1, t2;
 double temps, num, denom;
-
-//Debug variables
-int p2_min=0,p1_min=0;
 
 dt=(pow(10,pow_max)-pow(10,pow_min))/(nb_r_pcf-1);
 
@@ -221,7 +219,7 @@ for(p1=0;p1<nb_species;p1++){
 	        lmin = std::ceil( ((dist - delta) - pow(10,pow_min))/dt);
 		lmax = std::floor( ((dist + delta) - pow(10,pow_min))/dt);   
 		
-		//First, we need to compute dominance outside of the loop with lmin and lmax which depends on delta; that should not be the case for dominance
+		//First, we need to compute dominance outside of the loop with lmin and lmax which depends on delta
 		for(l = 0; l <nb_r_pcf; l++) {
 			      tval = pow(10,pow_min) + l * dt;
 	  		/* compute (inverse) edge correction weight */

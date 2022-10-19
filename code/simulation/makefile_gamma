@@ -1,0 +1,7 @@
+compute_gamma_BBM.out : compute_gamma_BBM.o basic_particle.o 
+	g++ -O3 -std=c++11 -fpermissive -o compute_gamma_BBM.out basic_particle.o compute_gamma_BBM.o -lgsl -lgslcblas -lm
+compute_gamma_BBM.o : compute_gamma_BBM.cpp basic_particle.h
+	g++ -O3 -std=c++11 -fpermissive -o compute_gamma_BBM.o -c compute_gamma_BBM.cpp
+basic_particle.o : basic_particle.h
+	g++ -O3 -c -Wall -std=c++11 -o basic_particle.o basic_particle.cpp -lgsl -lgslcblas -lm
+
