@@ -9,7 +9,7 @@
 
 \usepackage{setspace}
 
-\usepackage{ae,lmodern}
+%\usepackage{ae,lmodern}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.

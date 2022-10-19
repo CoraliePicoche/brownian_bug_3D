@@ -20,5 +20,5 @@ All codes were tested on Ubuntu 16.04 and Ubuntu 20.04.
 
 ### License
 
-Computer codes are released under the GNU General Public License (GPLv3) and data under the Creative Commons Attribution 4.0 International License.
+Computer codes are released under the GNU General Public License (GPLv3).
 
