@@ -3,6 +3,7 @@ library(pracma)
 
 # Thomas and Poisson processes
 
+#Ripley's functions
 thomas_cdf=function(r,sigma,conc){
         a=((4/3)*pi*r^3)+1/(sigma*sqrt(pi)*conc)*(sqrt(pi)*sigma*erf(r/(2*sigma))-r*exp(-(r^2/(4*sigma^2))))
         return(a)
@@ -11,6 +12,7 @@ thomas_cdf=function(r,sigma,conc){
 
 ## Brownian Bug Model functions
 
+#Ripley's K-functions
 BBM_cdf=function(r,gamma,Delta,Conc,lambda,tau,t=NA){
         D=(Delta^2)/(2*tau)
         res=NA
@@ -31,6 +33,7 @@ BBM_cdf=function(r,gamma,Delta,Conc,lambda,tau,t=NA){
         return(res)
 }
 
+#Pcf
 G_theoretical=function(gamma,r,lambda,Delta,C_0,tau,Tmax=NA){ #U=0 in the absence of advection
         D=(Delta^2)/(2*tau)
         Tmax=Tmax*tau

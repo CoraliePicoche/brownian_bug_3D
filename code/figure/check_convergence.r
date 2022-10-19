@@ -55,6 +55,7 @@ for (i in 1:length(sim)){
 	volume=f_param[f_param[,1]=="volume",2]
 	a_Conc=f_param[f_param[,1]=="init_size 0",2]/volume
 
+	print(a_Delta^2/(2*a_tau))
 
 	par(mar=c(2,4,4,2))
 
