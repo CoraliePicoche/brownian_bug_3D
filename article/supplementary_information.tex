@@ -306,7 +306,7 @@ for species 1, grey for species 2).}
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{../code/figure/K_PCF_Thomas} 
+\includegraphics[height=0.8\textheight]{../code/figure/K_PCF_Thomas} 
 \par\end{centering}
 \caption{Intra- and inter-specific Ripley's $K$-function and pair correlation
 function values as a function of distance (in cm) for 3 species following
@@ -361,6 +361,37 @@ cube is shown, and its projection on the x-y plane is shown on the
 right-hand side. \label{fig:Spatial-distributions}}
 \end{figure}
 
+\section{Sensitivity to the computation of the advection parameter}
+
+To compute the value of the maximum velocity of an organism in our
+model at the Kolmogorov scale, we used the formula $\text{Re}=U/k\nu\approx1$
+where $k$ is the smallest wavenumber associated with turbulence.
+However, we could compute the Reynolds number with another, slightly
+different formula, using the equivalent sphere diameter ($L_{v}$)
+of our system (eq. \ref{eq:re_lv}). In this case, $\text{Re}=UL_{v}/\nu$
+and 
+\begin{equation}
+\begin{array}{cccc}
+ & \frac{4}{3}\pi\left(\frac{L_{v}}{2}\right)^{3} & = & L_{c}^{3}\\
+\Leftrightarrow & L_{v} & = & 2L_{c}\left(\frac{3}{4\pi}\right)^{1/3}\\
+\Leftrightarrow & L_{v} & = & 1.24\text{ cm}.
+\end{array}\label{eq:re_lv}
+\end{equation}
+If we use $U\approx\nu/L_{v}$, $U\approx8.1\times10^{-5}$ m~s$^{-1}$.
+Using $U\tau/3=0.5$ cm, we have $\tau=185\text{ s}=2.1\times10^{-3}$
+d. This means that $\gamma=164$ d$^{-1}$. As could be expected,
+when the flow velocity decreases, mixing decreases (Fig. \ref{fig:Dominance_advection}).
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.99\textwidth]{../code/figure/theoretical_dominance_with_adv} 
+\par\end{centering}
+\caption{Dominance indices as a function of distance (in cm) for one species
+in a microphytoplankton (a) and nanophytoplankton (b) 3-species community
+with even distributions after 1000 timesteps with (circles) and without
+(lines) advection for different durations of the timesteps, with reference
+parameters (black) and lower flow velocity (grey). \label{fig:Dominance_advection}}
+\end{figure}
 
 \section{Minimum distances between individuals}
 
@@ -375,7 +406,7 @@ points (distance to the nearest neighbour, DNN) when they are uniformly
 distributed.
 
 In $d$ dimensions, the probability distribution of the distance $r$
-to the nearest-neighbour follows $f(r)=db_{d}Cr^{d-1}\exp(-b_{d}r^{_{d}}C)$)
+to the nearest-neighbour follows $f(r)=db_{d}Cr^{d-1}\exp(-b_{d}r^{_{d}}C)$
 where $C$ is the intensity of the process. If we want to find the
 distribution of the minimum DNN between $n$ realized points of a
 Poisson process with intensity $C$, we can write 
@@ -463,39 +494,6 @@ with a skewed abundance distribution, in the presence of advection.\label{fig:Di
 \end{figure}
 
 
-\section{Sensitivity to the computation of the advection parameter}
-
-To compute the value of the maximum velocity of an organism in our
-model at the Kolmogorov scale, we used the formula $\text{Re}=U/k\nu\approx1$
-where $k$ is the smallest wavenumber associated with turbulence.
-However, we could compute the Reynolds number with another, slightly
-different formula, using the equivalent sphere diameter ($L_{v}$)
-of our system (eq. \ref{eq:re_lv}). In this case, $\text{Re}=UL_{v}/\nu$
-and 
-\begin{equation}
-\begin{array}{cccc}
- & \frac{4}{3}\pi\left(\frac{L_{v}}{2}\right)^{3} & = & L_{c}^{3}\\
-\Leftrightarrow & L_{v} & = & 2L_{c}\left(\frac{3}{4\pi}\right)^{1/3}\\
-\Leftrightarrow & L_{v} & = & 1.24\text{ cm}.
-\end{array}\label{eq:re_lv}
-\end{equation}
-If we use $U\approx\nu/L_{v}$, $U\approx8.1\times10^{-5}$ m~s$^{-1}$.
-Using $U\tau/3=0.5$ cm, we have $\tau=185\text{ s}=2.1\times10^{-3}$
-d. This means that $\gamma=164$ d$^{-1}$. As could be expected,
-when the flow velocity decreases, mixing decreases (Fig. \ref{fig:Dominance_advection}).
-
-\begin{figure}[H]
-\begin{centering}
-\includegraphics[width=0.99\textwidth]{../code/figure/theoretical_dominance_with_adv} 
-\par\end{centering}
-\caption{Dominance indices as a function of distance (in cm) for one species
-in a microphytoplankton (a) and nanophytoplankton (b) 3-species community
-with even distributions after 1000 timesteps with (circles) and without
-(lines) advection for different durations of the timesteps, with reference
-parameters (black) and lower flow velocity (grey). \label{fig:Dominance_advection}}
-\end{figure}
-
-
 \section{Relationship between the dominance index, relative strengths of interactions
 and coexistence in Lotka-Volterra models}
 
@@ -575,6 +573,7 @@ calculations for the 10-species communities, combining small dominance
 indices to low average concentrations, lead to $\frac{\alpha_{io}}{\alpha_{ii}}\ll1$,
 compatible with coexistence \citep{barabas_effect_2016}.
 
+\small
 \bibliographystyle{ecol_let}
 \bibliography{bibliography}
 
