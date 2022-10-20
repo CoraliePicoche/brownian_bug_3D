@@ -6,7 +6,7 @@ Simulations of the Brownian bug model are run in C++ in `simulation` and output 
 
 Results presented in the article were obtained with the following configuration:
 
-**Platfom**
+**Platform**
 ```
 Linux #137~16.04.1-Ubuntu
 ```
@@ -19,7 +19,7 @@ model name   : Intel(R) Xeon(R) CPU E3-1240 v5 @ 3.50GHz
 vendor_id    : GenuineIntel
 ```
 
-**Compilation information for C++ and R**
+**Compilation information for C++**
 
 Simulation were run with C++, with the following configuration:
 
