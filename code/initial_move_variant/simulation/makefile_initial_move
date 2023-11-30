@@ -1,0 +1,7 @@
+initial_move_test.out : initial_move_test.o basic_particle.o 
+	g++ -O3 -std=c++11 -fpermissive -o initial_move_test.out basic_particle.o initial_move_test.o -lgsl -lgslcblas -lm
+initial_move_test.o : initial_move_test.cpp basic_particle.h
+	g++ -O3 -std=c++11 -fpermissive -o initial_move_test.o -c initial_move_test.cpp
+basic_particle.o : basic_particle.h
+	g++ -O3 -c -Wall -std=c++11 -o basic_particle.o basic_particle.cpp -lgsl -lgslcblas -lm
+

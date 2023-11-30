@@ -19,18 +19,18 @@ K_steady_state=function(r,lambda,Delta,Conc,tau){
 
 colo=c("red","blue","grey")
 
-#pdf("dominance_diatom_nano_compare_advection_10sp_with_theory.pdf",width=13)
-pdf("dominance_diatom_nano_compare_advection_3sp_with_theory.pdf",width=13)
+pdf("dominance_diatom_nano_compare_advection_10sp_with_theory.pdf",width=13)
+#pdf("dominance_diatom_nano_compare_advection_3sp_with_theory.pdf",width=13)
 par(mfrow=c(1,2))
 
 #Diatom
-#sim_diatom=list(10,11) #Advection, no advection
-sim_diatom=list(0,1) #Advection, no advection
+sim_diatom=list(10,11) #Advection, no advection
+#sim_diatom=list(0,1) #Advection, no advection
 lim_max_diatom=25*10^(-4)*10*2
 
 #Nano
-#sim_nano=list(12,13)
-sim_nano=list(2,3)
+sim_nano=list(12,13)
+#sim_nano=list(2,3)
 lim_max_nano=1.5*10^(-4)*10*2
 
 tot_sim=list(sim_diatom,sim_nano)
@@ -124,9 +124,9 @@ for(orga in 1:length(tot_sim)){ #Organism: diatom or nano
 			lines(f_plot$r,th_dominance,col=colo[s1],lty=2,t=type_line)
 		}else{
 			gamma=0
-			th_K=K_steady_state(f_plot$r,a_lambda,a_Delta,a_Conc,a_tau)
-			th_dominance=a_Conc*(th_K)/(Conc_tot*th_poisson+a_Conc*(th_K-th_poisson))
-			lines(f_plot$r,th_dominance,col=colo[s1],lwd=2,t="l",lty=3)
+			#th_K=K_steady_state(f_plot$r,a_lambda,a_Delta,a_Conc,a_tau)
+			#th_dominance=a_Conc*(th_K)/(Conc_tot*th_poisson+a_Conc*(th_K-th_poisson))
+			#lines(f_plot$r,th_dominance,col=colo[s1],lwd=2,t="l",lty=3)
 			
 			th_K=BBM_cdf(f_plot$r,gamma,a_Delta,a_Conc,a_lambda,a_tau,a_tmax)
 			th_dominance=a_Conc*(th_K)/(Conc_tot*th_poisson+a_Conc*(th_K-th_poisson))

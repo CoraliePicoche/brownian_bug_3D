@@ -26,6 +26,11 @@
 
 \@ifundefined{date}{}{\date{}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% new commands
+\newcommand{\add}[1]{{\color{blue} #1}}
+\newcommand{\remo}[1]{{\color{red}\sout{\mbox{#1}}}}
+\newcommand{\commentfred}[1]{{\bf \scriptsize\color{blue} [F: #1 ]}}
+
 %%%%%%% Billz commands %%%%%%
 \usepackage{xcolor}
 \newcommand{\WRY}[1]{{\color{magenta}#1}}
@@ -102,19 +107,13 @@ on phytoplankters' ecological and physical characteristics, for both
 large and small phytoplankton. Defining a zone of potential interactions
 as the overlap between nutrient depletion volumes, we show that local
 species composition---within the range of possible interactions---depends
-on the size class of phytoplankton. In large phytoplankton, individuals
-are surrounded by cells from other species, while in small phytoplankton,
-individuals remain in mostly monospecific clusters. Spatial structure
-therefore favours intra- over inter-specific interactions for small
-phytoplankton, which likely contributes to coexistence mechanisms.
-Other factors behind diversity maintenance must be examined for large
-phytoplankton.
+on the size class of phytoplankton. In small phytoplankton, individuals remain in mostly monospecific clusters. Spatial structure therefore favours intra- over inter-specific interactions for small phytoplankton, contributing to coexistence. Large phytoplankton cell neighbourhoods appear more mixed. Although some small-scale self-organizing spatial structure remains and could influence coexistence mechanisms, other factors may need to be explored to explain diversity maintenance in large phytoplankton.% 248 words. 
 \end{abstract}
 \textbf{Keywords}: aggregation; coexistence; individual-based model;
 phytoplankton; spatial moment equations; spatial point process
 
-$^{*}$correspondence to: \verb|coralie.picoche@u-bordeaux.fr|
-\&\\ \hspace*{10.4em}\verb|frederic.barraquand@u-bordeaux.fr|
+$^{*}$correspondence to: \verb|frederic.barraquand@u-bordeaux.fr|
+\& \verb|cpicoche@gmail.com|
 
 \clearpage{}
 
@@ -128,11 +127,7 @@ contribution to biodiversity. Indeed, phytoplankton communities are
 characterized by a surprisingly high number of species. For example,
 a single sample as small as a few mL can contain up to seventy species
 \citep{REPHY_db,widdicombe_2021}. This observation is usually called
-the ``paradox of the plankton'' \citep{hutchinson_paradox_1961},
-which refers to the conflict between the observed diversity of species
-competing for similar resources in a seemingly homogeneous environment,
-and models predicting that only a few species will persist by outcompeting
-the others \citep{macarthur_competition_1964,huisman_biodiversity_1999,schippers_does_2001}.
+the ``paradox of the plankton'' \citep[a term coined by][]{hutchinson_paradox_1961}, which refers to the conflict between the observed diversity of species competing for similar resources in a seemingly homogeneous environment, and models predicting that only a few species will persist by outcompeting the others \citep{macarthur_competition_1964,huisman_biodiversity_1999,schippers_does_2001}.
 Phytoplankton models for coexistence are now almost as diverse as
 their model organisms \citep{record_paradox_2014}, but they often
 describe only a handful of species, which does not correspond to the
@@ -148,7 +143,7 @@ we should resort to hidden niches to explain phytoplankton coexistence,
 as most models also make hidden simplifying assumptions that could
 be relaxed. One that we relax here is mean-field dynamics at the microscale.
 Indeed, field observations have revealed phytoplankton patchiness
-for more than a century \citep{bainbridge_size_1957,stocker_marine_2012},
+for for decades, with early records in the past centuries \citep{bainbridge_size_1957,stocker_marine_2012},
 from the macro- to the micro-scale \citep{leonard_interannual_2001,doubell_high-resolution_2006,font-munoz_advection_2017}.
 
 Phytoplankton patchiness can at least be partly explained by the hydrodynamics
@@ -189,18 +184,12 @@ and may sustain diversity \citep{haegeman_how_2008}.
 Existing models of phytoplankton populations near the Kolmogorov scale
 --- between 1 mm and 1 cm in an oceanic environment \citep{barton_impact_2014}
 --- focus on a single species and the clustering of its individuals
-\citep{young_reproductive_2001,birch_master_2006,bouderbala_3d_2018,breier_emergence_2018}.
-They share similarities to dynamic point process models \citep{law_population_2003,bolker_spatial_1999,plank_spatial_2015}
+\citep{young_reproductive_2001,birch_master_2006,bouderbala_3d_2018,breier_emergence_2018}. These models share similarities to dynamic point process models \citep{law_population_2003,bolker_spatial_1999,plank_spatial_2015}
 developed initially with larger organisms in mind. When phytoplankton
 individual-based models consider multiple types of organisms, they
 focus for now on how organisms with opposite characteristics \citep[e.g., increase versus decrease in density with turbulence in][]{borgnino_turbulence_2019,arrieta_fate_2020}
-segregate spatially, or on coexistence for species that have contrasting
-trait values \citep[e.g., size in][]{benczik_coexistence_2006}. This
-is useful as an explanation of how species with marked differences
-might coexist. The difficulty of the coexistence problem, however,
-is that we have to explain how closely related species or genera (e.g.,
-within diatoms), many of whom have similar size, buoyancy, chemical
-composition, etc., manage to coexist within a single trophic level.
+segregate spatially, or on coexistence of species that have contrasting
+trait values \citep[e.g., size in][]{benczik_coexistence_2006}. Such models are useful as an explanation of how species with marked differences might coexist. The difficulty of the coexistence problem, however, is that we also have to explain how closely related species or genera (e.g., within diatoms), many of whom have similar size, buoyancy, chemical composition, etc., manage to coexist within a single trophic level.
 This requires modelling \emph{similar} species in a spatially realistic
 environment and objectively quantifying whether they aggregate or
 segregate in space.
@@ -225,7 +214,7 @@ nanophytoplankton (3~\textmu m diameter, $\approx10^{6}$~cells~L$^{-1}$)
 or microphytoplankton (50~\textmu m, $\approx10^{4}$~cells~L$^{-1}$).
 We populate each community with 3 to 10 different species.
 
-The Brownian Bug model (in its original single-species form as in
+The Brownian Bug Model (in its original single-species form as in
 the multispecies version considered here) is related to spatial branching
 processes. Without advection, it combines a continuous-time, discrete-state
 model for population growth and a continuous-time, continuous-space
@@ -235,11 +224,7 @@ as well as here. In spite of this complexity, it remains possible
 to derive the dynamics of pair density functions, which quantify the
 degree of intra- and interspecific clustering of organisms, via correlations
 between positions of organisms (see next section). Thus we can understand
-emergent spatial structure in analytic detail and compare these predictions
-to the results from three-dimensional simulations. Furthermore, because
-we do not consider direct interactions between organisms, the multispecies
-spatial point process that represents the stable state of the BBM
-is a random superposition of spatial point processes for each species
+emergent spatial structures in analytic detail and compare these predictions to the results from three-dimensional simulations. Furthermore, because we do not consider direct interactions between organisms, the multispecies spatial point process that represents the stable state of the BBM is a random superposition of spatial point processes for each species
 \citep{illian2008statistical}. This enables us to derive, in addition
 to pair correlation functions, analytical formulas for the species
 composition in the neighbourhood of an individual, which are more
@@ -276,7 +261,7 @@ and is not community-specific, i.e., all individuals are displaced
 by the same turbulent stirring. For numerical simulations, time needs
 to be discretized (this is required for diffusion and advection modelling).
 The approximated model advances through time in small steps of duration
-of $\tau$. During each interval, events unroll as follows:
+$\tau$. During each interval, events unroll as follows:
 \begin{enumerate}
 \item Demography: each individual can either reproduce with probability
 $p_{i}=\lambda_{i}\tau$ (forming a new individual of the same species
@@ -353,13 +338,9 @@ of individuals, and their spatial correlations.
 
 The second-order product density, or pair density $G(r,t)$, is the
 expected density of pairs of points separated by a distance $r$ \citep{law_population_2003}.
-A similar characteristic can be used for marked spatial point process.
-In our case, the marks are the species' identities, and we can define
-$G_{ij}(r,t)$, so that $G_{ij}(r,t)d\mathbf{x}_{A}d\mathbf{x}_{B}$
+A similar statistic can be used for marked spatial point process. In our case, the marks are the species' identities, and we can define $G_{ij}(r,t)$, so that $G_{ij}(r,t)d\mathbf{x}_{A}d\mathbf{x}_{B}$
 is the probability of finding an individual of species $i$ in volume
-$d\mathbf{x}_{A}$ and an individual of species $j$ in volume $d\mathbf{x}_{B}$,
-with the distance between the centers of $d\mathbf{x}_{A}$ and $d\mathbf{x}_{B}$
-equal to $r$ (pages 219 and 325 in \citealp{illian2008statistical}).
+$d\mathbf{x}_{A}$ and an individual of species $j$ in volume $d\mathbf{x}_{B}$, with the distance between the centers of $d\mathbf{x}_{A}$ and $d\mathbf{x}_{B}$ equal to $r$ (pages 219 and 325 in \citealp{illian2008statistical}).
 We define $\boldsymbol{\xi}$ as the vector connecting the center
 of $d\mathbf{x}_{A}$ to the center of $d\mathbf{x}_{B}$, while $r=|\boldsymbol{\xi}|$
 is the radial distance. We show in \citet{picoche_rescience_2022}
@@ -416,8 +397,7 @@ i.e.,
 where $\mathbb{E}_{i}$ is the expectation with respect to individuals
 of species $i$ and $N_{j}\left(b(o,r)\backslash\{o\}\right)$ is
 the number of individuals of species $j$ in the sphere of radius
-$r$ centered on $o$, not counting $o$ itself. $K_{ij}(r)$ is related
-to $g_{ij}(r)$ as 
+$r$ centered on individual $o$, not counting individual $o$ itself. $K_{ij}(r)$ is related to $g_{ij}(r)$ as 
 \begin{equation}
 g_{ij}(r)=\frac{K_{ij}'(r)}{4\pi r^{2}}.\label{eq:pcf_to_K}
 \end{equation}
@@ -512,7 +492,7 @@ This means that $U=6.3\times10^{-4}$ m~s$^{-1}$ = $5.4\times10^{3}$
 cm~d$^{-1}$. Using $U\tau/3=0.5$ cm as in \citet{young_reproductive_2001},
 we have $\tau=2.8\times10^{-4}$ d $=24$ s. When $U\tau/3=0$, the
 environment is only diffusive, we keep the same value for $\tau$.
-For $U\tau/3=0.5$ cm, $\gamma=1231$ d$^{-1}$.
+For $U\tau/3=0.5$ cm, we estimate $\gamma=1231$ d$^{-1}$.
 
 \subsubsection*{Diffusion}
 
@@ -554,16 +534,15 @@ doubling rate is between 2 and 3 d$^{-1}$ (set to 2.5 d$^{-1}$ here).
 \hline 
 Parameter  & Definition  & Value\tabularnewline
 \hline 
-$p_{m},q_{m}$  & Probability of reproducing/dying for microphytoplankton individuals  & $2.8\times10^{-4}$\tabularnewline
-$p_{n},q_{n}$  & Probability of reproducing/dying for nanophytoplankton individuals  & $6.9\times10^{-4}$\tabularnewline
+$p_{m},q_{m}$  & Probability of reproducing/dying for microphytoplankton & $2.8\times10^{-4}$\tabularnewline
+$p_{n},q_{n}$  & Probability of reproducing/dying for nanophytoplankton & $6.9\times10^{-4}$\tabularnewline
 $U$  & Turbulent advection speed  & \{0, 0.06\} cm.s$^{-1}$\tabularnewline
-$\Delta_{m}$  & Diffusion parameter for microphytoplankton individuals  & $6.4\times10^{-5}$ cm\tabularnewline
-$\Delta_{n}$  & Diffusion parameter for nanophytoplankton individuals  & $2.6\times10^{-4}$ cm\tabularnewline
+$\Delta_{m}$  & Diffusion parameter for microphytoplankton & $6.4\times10^{-5}$ cm\tabularnewline
+$\Delta_{n}$  & Diffusion parameter for nanophytoplankton & $2.6\times10^{-4}$ cm\tabularnewline
 \hline 
 \end{tabular}
 \par\end{centering}
-\caption{Definitions and values of the main parameters used in the three-dimensional
-BBM, assuming the duration of a time step $\tau$ is 24 seconds. \label{tab:Definition-and-value}}
+\caption{Definitions and values of the main parameters used in the three-dimensional BBM, assuming the duration of a time step $\tau$ is 24 seconds. \label{tab:Definition-and-value}}
 \end{table}
 
 
@@ -576,7 +555,7 @@ or affect other individuals. We only consider here interactions due
 to competition for nutrients, and therefore need to define a nutrient
 depletion volume. We approximate this volume as the sphere of radius
 $r$ where $C(r)\leq90\%C_{\infty}$ with $C_{\infty}$ the background
-concentration of the nutrient. The radius of this nutrient depletion
+concentration of the nutrient and $C(a_i) = 0$ (perfect absorption at the cell surface). The radius of this nutrient depletion
 volume is maximized when the individual is in stagnant water so that
 diffusion is the only hydrodynamic process. In this case, the depletion
 radius corresponds to 10 times the radius of the individual \citep{jumars_physical_1993,karp-boss_nutrient_1996}.
@@ -610,10 +589,7 @@ skewed abundance distribution (between 55,000 and 400 cells~L$^{-1}$
 for microphytoplankton, according to observations of field abundance
 distributions in \citealp{picoche_strong_2020}, and multiplied by
 $10^{2}$ for nanophytoplankton). All simulations are run for 1000
-time steps of duration $\tau$ (corresponding to approximately 6h40).
-The computation of $g$ and $K$ of simulated distributions is explained
-in Section S4 of the SI. The code for all simulations and analyses
-can be found at \url{https://github.com/CoraliePicoche/brownian_bug_3D/}.
+time steps of duration $\tau$ (corresponding to approximately 6h40 of phytoplankton time---note that runtimes can be much longer). The computation of $g$ and $K$ for simulated distributions is explained in Section S4 of the SI. The code for all simulations and analyses can be found at \url{https://github.com/CoraliePicoche/brownian_bug_3D/}.
 
 \section*{Results}
 
@@ -621,11 +597,7 @@ We show an example of nanophytoplankton spatial distributions with
 and without advection at the end of a simulation in Fig. \ref{fig:Spatial-distributions}:
 clustering is not visible to the naked eye, even when zooming in on
 the observation volume, in the presence of advection, but removing
-turbulence helps visualising small aggregates of conspecifics. Microphytoplankton
-distributions are not so easy to analyse as no clusters can be detected
-from visual observations (although it may actually be present), whether
-advection is included or not (Section S5 of the SI). Statistics are
-therefore needed to go further in detecting patterns of aggregation.
+turbulence helps visualising small aggregates of conspecifics. Microphytoplankton distributions are not straightforward to interpret as no clusters can be detected visually (although they may actually be present), whether advection is included or not (Section S5 of the SI). Statistics are therefore needed to go further in detecting patterns of aggregation.
 
 \begin{figure}[H]
 \begin{centering}
@@ -670,13 +642,7 @@ spatial distribution. Patterns differ at intermediate ranges of distances
 between organisms.
 
 In the presence of advection, the dominance index starts decreasing
-for a distance between 5 and 10 times smaller than when advection
-is absent, which indicates that organisms are closer to heterospecifics
-when their environment is turbulent. A quasi-uniform distribution
-is also reached for smaller distances with advection than without.
-Microphytoplankton species start mixing for distances larger than
-for nanophytoplankton species irrespective of the hydrodynamic regime
-surrounding them.
+for a distance approximately 10 times smaller than when advection is absent, which indicates that organisms are closer to heterospecifics when their environment is turbulent. A quasi-uniform distribution is also reached for smaller distances with advection than without. Microphytoplankton species start mixing for distances larger than for nanophytoplankton species irrespective of the hydrodynamic regime surrounding them. 
 
 In a 3-species community with the same initial abundances, in the
 presence of advection, microphytoplankton dominance indices are between
@@ -691,15 +657,13 @@ organisms always have almost only conspecifics around them.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.99\textwidth]{dominance_diatom_nano_compare_advection.pdf} 
+\includegraphics[width=0.99\textwidth]{dominance_diatom_nano_compare_advection_3sp_with_theory.pdf} 
 \par\end{centering}
 \caption{Dominance indices as a function of distance (in cm) for microphytoplankton
 (a) and nanophytoplankton (b) in a 3-species community with even abundance
 distributions (final proportions in the community are indicated in
 the figure) after 1000 timesteps, with (circles) and without (lines)
-advection. Each color represents a different species. The black dashed
-line corresponds to the threshold considered as the maximum distance
-for nutrient-based competition.\label{fig:Dominance-3sp}}
+advection. Each color represents a different species. The grey dashed curve represents the analytical solution. The black dashed line corresponds to the threshold considered as the maximum distance for nutrient-based competition.\label{fig:Dominance-3sp}}
 \end{figure}
 
 More mixing in microphytoplankton than nanophytoplankton, and more
@@ -720,15 +684,13 @@ to diffusion.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.99\textwidth]{dominance_diatom_nano_compare_advection_10sp.pdf} 
+\includegraphics[width=0.99\textwidth]{dominance_diatom_nano_compare_advection_10sp_with_theory.pdf} 
 \par\end{centering}
 \caption{Dominance indices as a function of distance (in cm) for microphytoplankton
 (a) and nanophytoplankton (b) in a 10-species community with a skewed
 abundance distribution (final proportions in the community are indicated
 in the figure) after 1000 timesteps, with (circles) and without (lines)
-advection. Each color represents a different species. The black dashed
-line corresponds to the threshold considered as the maximum distance
-for nutrient-based competition.\label{fig:Dominance-10sp}}
+advection. Each color represents a different species. The coloured dashed curves (advection) and small stars (no advection) represent the analytical solution. The black dashed line corresponds to the threshold considered as the maximum distance for nutrient-based competition.\label{fig:Dominance-10sp}}
 \end{figure}
 
 Differences in spatial distributions are not only due to organism
@@ -741,21 +703,21 @@ are mixed in the environment. Therefore, they are also more likely
 to be close to a heterospecific, but still have more conspecifics
 close to them than the less abundant species ($\mathcal{D}\left(d_{\text{threshold}}\right)$
 increases with abundance, Fig. \ref{fig:Carac_10sp} c-d). However,
-this increase is less marked for nanophytoplankton than for microphytoplankton
+this increase is less clear for nanophytoplankton than for microphytoplankton
 (Fig. \ref{fig:Carac_10sp} c-d). When turbulence is absent, the relationships
 with abundance are unclear, possibly affected by sampling effects,
 and we refrain from interpreting them.
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[width=0.8\textwidth]{carac_10species.pdf} 
+\includegraphics[width=0.8\textwidth]{carac_10species_loop_over_repeats.pdf} 
 \par\end{centering}
 \caption{Minimum distances (in cm) between points for dominance to drop below
 95\% (a and b) and dominance at a distance corresponding to the threshold
 for competition (c and d) as a function of abundances (note the logarithmic
 scale on the x-axis) for microphytoplankton and nanophytoplankton.
 We consider cases with and without advection in a 10-species community
-with a skewed abundance distribution. \label{fig:Carac_10sp}}
+with a skewed abundance distribution. These have been obtained combining 10 sets of simulations. \label{fig:Carac_10sp}}
 \end{figure}
 
 
@@ -775,15 +737,9 @@ divided by the total number of organisms in that neighbourhood. Intraspecific
 clustering corresponds to a dominance index close to 1, which decreases
 when interspecific mixing increases. The choice of this index was
 motivated by two reasons: (1) it is at its core a proportion of a
-focus species in a certain volume, i.e. a scale-dependent, localized
-metric bounded between 0 and 1 as opposed to other statistics whose
-values are less directly interpreted, and (2) it is easy to relate
-to coexistence theory as it describes the environment of an organism
+focal species in a certain volume, i.e. a scale-dependent, localized metric bounded between 0 and 1 as opposed to other statistics whose values are less directly interpreted, and (2) it is easy to relate to coexistence theory as it describes the environment of an organism
 in terms of heterospecifics and conspecifics, which can, under certain
-hypotheses that we discuss below, be related to interspecific and
-intraspecific interactions. Comparing the distributions of organisms
-of different sizes, we showed that the presence of turbulence always
-increased mixing (results are robust to slight modifications in the
+assumptions that we discuss below, be related to interspecific and intraspecific interactions. Comparing the distributions of organisms of different sizes, we showed that the presence of turbulence always increased mixing (results are robust to slight modifications in the
 computation of advection velocity $U$, shown in Section S6 of the
 SI). The species composition around an organism depended on its size,
 which mechanically determines its hydrodynamic properties (diffusivity),
@@ -791,21 +747,15 @@ and is linked with its ecological characteristics (growth rate and
 density). Microphytoplankters (20 to 200 \textmu m), larger cells
 with lower diffusivity, growth rate and abundance, were on average
 further away from other cells, due to their lower concentrations (Fig.
-S11 of the SI), than nanophytoplankters (2 to 20 \textmu m). However,
-they were surrounded by more heterospecifics than conspecifics within
+S11 of the SI), than nanophytoplankters (2 to 20 \textmu m). They were surrounded by more heterospecifics than conspecifics within
 a volume of potential interactions, whose radius is defined as the
 maximum distance for which nutrient depletion volumes of two different
 individuals may overlap. If we consider that interactions between
 species (not modelled directly here because of timescale issues, see
 below) could occur with equal probability at all distances within
-the volume of potential interactions, we would conclude that microphytoplankters
-are more likely to interact with individuals from other species than
-with individuals of their own species. This affirmation is, however,
-conditional upon interactions at 10 cell diameters from an individual
-being equally likely than at 1 diameter from an individual. If we
+the volume of potential interactions, we would conclude that microphytoplankters are more likely to interact with individuals from other species than with individuals of their own species. This affirmation is, however, conditional upon interactions at 10 cell diameters from an individual being equally likely than at 1 diameter from an individual. If we
 keep in mind that interactions are more likely or stronger at very
-short distances, microphytoplankters may still experience more frequent
-effects of conspecifics than heterospecifics.
+short distances, or that the maximal radius of interaction could be shorter than our estimation and advection velocity $U$ lower (SI Section S6), microphytoplankters may still experience more frequent effects of conspecifics than heterospecifics.
 
 To see this, let us first focus on the smallest distances between
 organisms. The nearest neighbour of an organism was always an organism
@@ -818,8 +768,7 @@ aggregation, i.e. conspecifics were always closer than heterospecifics
 at the smallest distances. This is due to the prevalence of demographic
 processes at individual scales, because an individual acts as a source
 point for other organisms of the same species, and hydrodynamic processes
-do not separate conspecifics fast enough to prevent aggregation. If
-we consider that interaction strengths are a smoothly decaying function
+do not separate conspecifics fast enough to prevent aggregation. This remains true if we add an initial separation distance between mother and daughter cells upon birth (additional simulations, see code repository). If we consider that interaction strengths are a smoothly decaying function
 of distance, a common assumption in spatial coexistence models \citep[e.g., ][]{bolker_spatial_1999,law_population_2003},
 this implies that population-level intraspecific interactions could
 be stronger than interspecific interactions due to intraspecific micro-scale
@@ -830,10 +779,7 @@ etc. Rather than weighting much more heavily the potential interactions
 with the closest neighbour(s) through an interaction kernel, we therefore
 chose conservatively to define a maximum distance for two organisms
 to possibly affect the concentrations of elements in the environment
-of each other. We consider that, at all distances below this threshold,
-interactions could happen between organisms. We continue the discussion
-with that simplification in mind, and explicitly mention when it is
-relaxed.
+of each other, assuming perfect absorption on the cell surface. We consider that, at all distances below this threshold, interactions could happen between organisms. We continue the discussion with that simplification in mind, and explicitly mention when it is relaxed.
 
 Dominance indices began to decrease at distances above $10^{-3}$
 cm, still below the maximum distance for interactions. At this distance
@@ -882,10 +828,9 @@ a 10 \textmu m-diameter organism might not experience any change,
 while the uptake of a 100 \textmu m-diameter organism would increase
 by at least 50\% \citep{karp-boss_nutrient_1996}. Therefore the volume
 of potential interactions shrinks in the presence of turbulence for
-microphytoplankton, but not necessarily for nanophytoplankton. This
-could be one additional reason why microphytoplankers might still
+microphytoplankton, but not necessarily for nanophytoplankton. An additional reason why microphytoplankers might still
 be surrounded by conspecifics at ecologically meaningful distances
-and interacting more frequently with them.
+and interacting more frequently with them is imperfect absorption of nutrients: if nutrient concentration at the cell surface is not zero but $C_0$, then the radius of interaction is $10 a_i(1 - C_0/C_{\infty})$. %\commentfred{This has actually got me thinking that perhaps we should consider also an intermediate threshold like $5 r_0 = 5 a_i$. But then, it is also arbitrary...}
 
 Up to now, we have only focused on the dominance index, a localized
 proportion of conspecifics. However, interactions also depend on the
@@ -898,7 +843,7 @@ to express interaction rates \citep[e.g.][]{law_population_2003,plank_spatial_20
 may be able to incorporate those effects; however, as we highlight
 below, the timescales and spatial correlations that are seen in such
 models may not necessarily represent faithfully phytoplankton community
-dynamics.
+dynamics. %\commentfred{I was thinking that perhaps this short section may not be that clear to the reader and we might have to spell out a little more what's in Section S7.}
 
 Contrary to other similar models \citep[e.g.,][]{birch_master_2006,bouderbala_3d_2018},
 we did not consider explicit effects of local density on survival
@@ -932,9 +877,7 @@ of multiple phytoplankton species in a realistic, three-dimensional
 environment at the microscale, describing only basic hydrodynamic
 and demographic processes. Using this model, we were able to predict
 whether phytoplankters could be in contact with individuals of their
-own or other species, and emit reasonable conjectures regarding potential
-intra vs interspecific interactions between species, emerging at the
-population level through spatial distributions \citep{detto_stabilization_2016}.
+own or other species, and form reasonable conjectures regarding potential intra vs interspecific interactions between species, emerging at the population level through spatial distributions \citep{detto_stabilization_2016}.
 It is worthwhile to keep in mind that there are many remaining features
 of phytoplankton physiology and life histories which we do not address
 here, but which may affect spatial distributions. Many phytoplankters
@@ -948,10 +891,10 @@ colonial nature of microphytoplankton \citep{kiorboe_coagulation_1990}.
 This clearly calls for viewing our model as a null model to which
 more complex mechanistic models and their spatial outputs can be compared.
 
-\subsubsection*{Acknowledgments}
+\subsubsection*{Acknowledgements}
 
 FB and CP were supported by the grant ANR-20-CE45-0004. CP was supported
-by a PhD grant from the French Ministry of Research.
+by a PhD grant from the French Ministry of Research. We are thankful for constructive reviewer feedback. 
 
 \section*{Appendices}
 
@@ -966,7 +909,7 @@ by a PhD grant from the French Ministry of Research.
 
 We show here how to compute the monospecific pair correlation function
 and Ripley's $K$-function of the Brownian Bug Model (see \citealp{young_reproductive_2001}
-and \citealp{picoche_rescience_2022} for a detailed derivation of
+and \citealp{picoche_rescience_2022} for a detailed derivation from
 the master equation). As these formula only apply to intraspecies
 pairs, we ignore species' index in the following for the sake of clarity.
 Similar formula for well-known spatial point processes are given in
@@ -993,12 +936,11 @@ We first compute the steady-state solution,\textit{ i.e.}
 \end{align}
 We can then integrate Eq. \ref{eq:Young3D-1} over a small sphere
 centered on an individual, with radius $\rho$. Let us first note
-that
+that in an isotropic environment the 3D-Dirac relates to the radial one as
 \begin{align}
-\int_{\mathbb{R}^{3}}\delta(\boldsymbol{\xi})d\boldsymbol{\xi} & =1\nonumber \\
-\Leftrightarrow\int_{0}^{2\pi}\int_{0}^{\pi}\int_{0}^{\rho}\delta(r)\delta(\phi)\delta(\theta)r{}^{2}\sin(\phi)drd\phi d\theta & =1\nonumber \\
-\Leftrightarrow4\pi\int_{0}^{\rho}\delta(r)r{}^{2}dr & =1.\label{eq:delta_integration}
+ \delta(\boldsymbol{\xi}) =  \frac{1}{4 \pi r^2}\delta(r) \label{eq:delta_integration}%F: I kept the previous label in case it is used elsewhere
 \end{align}
+with $4\pi r^2$ the surface of the sphere of radius $r$.
 Using Eq. \ref{eq:steady_state} and \ref{eq:delta_integration},
 \begin{align}
 0 & =4\pi\left(2Dr^{2}\frac{\partial G}{\partial r}+\gamma r^{4}\frac{\partial G}{\partial r}\right)+2\lambda C\nonumber \\
@@ -1054,11 +996,7 @@ have
 \begin{equation}
 \mathcal{L}G(\boldsymbol{\xi},t)=2\lambda C\delta(\boldsymbol{\xi})
 \end{equation}
-where $\mathcal{L}$ is the linear differential operator $\partial_{t}-2D\Delta$.
-
-Using the Green's function theory, we know that $G(y)=\int H(y,s)2\lambda C\delta(s)ds$
-where $H(y,s)=H(y-s)$ is the Green kernel (heat kernel). We can therefore
-write 
+where $\mathcal{L}$ is the linear differential operator $\partial_{t}-2D\Delta$. Therefore $G(y)=\int H(y,s)2\lambda C\delta(s)ds$ where $H(y,s)=H(y-s)$ is the Green kernel (heat kernel). We can therefore write 
 \begin{equation}
 \begin{array}{ccc}
 G(\boldsymbol{\xi},t) & = & 2\lambda C\int_{\mathbb{R}^{3}}\int_{0}^{t}H(\boldsymbol{\xi}-\boldsymbol{\xi}',t')\delta(\boldsymbol{\xi}')d\boldsymbol{\xi}'dt'\\
@@ -1076,8 +1014,8 @@ where $\erf$ is the error function. Using $G(r,0)=C^{2}$ and $\lim_{x\rightarrow
 in Eq. \ref{eq:G_r_t}, 
 \begin{equation}
 \begin{array}{ccc}
-C^{2} & = & 2\lambda C\left(\frac{1}{8\pi Dr}+K\right)\\
-\Leftrightarrow\frac{C}{2\lambda}- & \frac{1}{8\pi Dr}= & K.
+C^{2} & = & 2\lambda C\left(\frac{-1}{8\pi Dr}+K\right)\\
+\Leftrightarrow\frac{C}{2\lambda}+ & \frac{1}{8\pi Dr}= & K.
 \end{array}
 \end{equation}
 We can finally compute $G(r,t)$: 
@@ -1167,7 +1105,7 @@ In the absence of advection ($U=0,\gamma=0$), we need to compute
 a time-dependent solution. From eq. \ref{eq:pcf_noadv_bbm}, 
 \begin{equation}
 \begin{array}{ccc}
-K(\rho) & = & \frac{\lambda}{DC}\int_{0}^{\rho}r\left\{ 1-\erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +4\pi r^{2}dr\\
+K(\rho) & = & \int_{0}^{\rho}r \frac{\lambda}{DC} \left\{ 1-\erf\left(\frac{r}{\sqrt{8Dt}}\right)\right\} +4\pi r^{2}dr\\
  & = & \frac{\lambda}{CD}\left(\frac{\rho^{2}}{2}-\int_{0}^{\rho}r\times\erf\left(\frac{r}{\sqrt{8Dt}}\right)dr\right)+\frac{4}{3}\pi\rho^{3}.
 \end{array}\label{eq:start_K_intra_no_adv}
 \end{equation}
