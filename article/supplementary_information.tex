@@ -84,7 +84,7 @@ during a period $\tau$, so that
 \end{equation}
 
 The discrete-time map can be obtained by computing the displacement
-over a period, between $t=n\tau$ and $t+1=(n+1)\tau$, with $\bx(t+1)=\bx(t)+\textbf{\ensuremath{\int_{n\tau}^{\left(n+1\right)\tau}}u}(\bx,t)dt$,
+over a period, between $t=n\tau$ and $t+\tau=(n+1)\tau$, with $\bx(t+\tau)=\bx(t)+\textbf{\ensuremath{\int_{n\tau}^{\left(n+1\right)\tau}}u}(\bx,t)dt$,
 and knowing the initial position $\mathbf{x}(t)$. This can be solved
 in three steps (eqs. \ref{eq:step1_pierrehumbert}, \ref{eq:step2_pierrehumbert}
 and \ref{eq:step3_pierrehumbert}). We start with
@@ -336,7 +336,7 @@ below (Fig. \ref{fig:bandwidth_BBM}).
 \includegraphics[width=0.6\textwidth]{../code/figure/bandwidth_BBM} 
 \par\end{centering}
 \caption{Intraspecific pair correlation function as a function of distance
-(in cm) computed for the Brownian bug model with microphytoplankton
+(in cm) computed for the Brownian Bug Model with microphytoplankton
 individuals, after 1000 time steps, with different values of the bandwidth
 $\delta$. The dashed line indicates the theoretical pcf.\label{fig:bandwidth_BBM} }
 \end{figure}
@@ -413,9 +413,9 @@ Poisson process with intensity $C$, we can write
 \begin{equation}
 \begin{array}{ccc}
 \mathbb{P}(\min(R_{1},...,R_{n})>r) & = & \mathbb{P}(R_{1}>r,...,R_{n}>r)\\
- & = & \Pi_{i}^{n}\mathbb{P}(R_{i}>r)\\
- & = & \Pi_{i}^{n}\exp(-b_{d}r^{_{d}}C)\\
- & = & \exp(-b_{d}r^{_{d}}\Sigma_{i}^{n}C).
+ & = & \Pi_{i=1}^{n}\mathbb{P}(R_{i}>r)\\
+ & = & \Pi_{i=1}^{n}\exp(-b_{d}r^{_{d}}C)\\
+ & = & \exp(-b_{d}r^{_{d}}\Sigma_{i=1}^{n}C).
 \end{array}
 \end{equation}
 

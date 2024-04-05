@@ -249,7 +249,7 @@ Brownian motion with diffusivity $D_{i}$, and is advected by a common
 stochastic and chaotic flow modelling turbulence. The model applies
 in the Batchelor regime, which means that the separation $s(t)$ between
 two individuals $k$ and $l$ grows exponentially with time with stretching
-parameter $\gamma$, i.e. $s(t)=\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto3\gamma t$
+parameter $\gamma$, i.e., $s(t)=\ln\left(|\bx_{k}-\bx_{l}|(t)\right)\propto3\gamma t$
 \citep{kraichnan_convection_1974,young_reproductive_2001}.
 
 Within a given community (the set of all individuals of the $S$ species),
@@ -309,14 +309,14 @@ Let $W$ be the observation window (in our case, the whole cube, which
 we never subsample hereafter). The state of the system at time $t$
 can be described as a collection of $S$ populations, where the population
 of species $i$ is made of $n_{i}$ individuals randomly distributed
-in $W$, with positions $\boldsymbol{X}_{i}(t)=[\bx_{1,i}(t),\bx_{2,i}(t),...\bx_{n_{i},i}(t)]$.
+in $W$, with positions $\boldsymbol{X}_{i}(t)=[\bx_{1,i}(t),\bx_{2,i}(t),\ldots, \bx_{n_{i},i}(t)]$.
 $\boldsymbol{X}(t)~=~[\boldsymbol{X}_{1}(t),\ldots,\boldsymbol{X}_{S}(t)]$
 arises from a stochastic and spatial individual-based model changing
 through time, but can also be analyzed as a spatial point process
 at time $t$. We note that the point distributions remain the same
 for all spatial translations $\bxi$ (i.e., the point process described
-by the set $\boldsymbol{X}=[\bx_{1},\bx_{2},...\bx_{k}]$ is the same
-as $\boldsymbol{X_{\xi}}=[\bx_{1}+\bxi,\bx_{2}+\bxi,...\bx_{k}+\bxi])$:
+by the set $\boldsymbol{X}~=~[\bx_{1},\bx_{2},\ldots,\bx_{k}]$ is the same
+as $\boldsymbol{X_{\xi}}=[\bx_{1}+\bxi,\bx_{2}+\bxi,\ldots,\bx_{k}+\bxi])$:
 the process is stationary.
 
 A useful method to characterize a spatial point process is the use
@@ -439,7 +439,7 @@ tends to 1 while it tends to the proportion of individuals of species
 $i$ in the whole community when the distribution is uniform (Section
 S2 of the SI).
 
-Using Eq. \ref{eq:K_intra_no_adv} and \ref{eq:dominance}, we obtain
+Using Eqs. \ref{eq:K_intra_adv} and \ref{eq:dominance}, we obtain
 the formula for the dominance index in the presence of advection as
 \begin{equation}
 \mathcal{D}_{i}(r)=\frac{\frac{\lambda_{i}}{3D_{i}\ellB}\left(\frac{\ellB}{r}+\frac{\ellB^{3}\log\left(\frac{r^{2}}{\ellB^{2}}+1\right)}{2r^{3}}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right)+\frac{4}{3}\pi C_{i}}{\frac{\lambda_{i}}{3D_{i}\ellB}\left(\frac{\ellB}{r}+\frac{\ellB^{3}\log\left(\frac{r^{2}}{\ellB^{2}}+1\right)}{2r^{3}}+\arctan\left(\frac{r}{\ellB}\right)-\frac{\pi}{2}\right)+\sum_{j=1}^{S}\frac{4}{3}\pi C_{j}}.\label{eq:dom_adv}
@@ -469,7 +469,7 @@ and values are given in Table \ref{tab:Definition-and-value}.
 
 We first consider the advection process, due to the turbulence of
 the environment. We only consider the Batchelor-Kolmogorov regime,
-i.e., the size of the volume $W$ is below the size of the smallest
+i.e., $L_S$ is below the size of the smallest
 eddy, but above the smallest length scale of fluctuations in nutrient
 concentrations. The defining scale of the environment therefore corresponds
 to a Reynolds number 
@@ -737,7 +737,7 @@ divided by the total number of organisms in that neighbourhood. Intraspecific
 clustering corresponds to a dominance index close to 1, which decreases
 when interspecific mixing increases. The choice of this index was
 motivated by two reasons: (1) it is at its core a proportion of a
-focal species in a certain volume, i.e. a scale-dependent, localized metric bounded between 0 and 1 as opposed to other statistics whose values are less directly interpreted, and (2) it is easy to relate to coexistence theory as it describes the environment of an organism
+focal species in a certain volume, i.e., a scale-dependent, localized metric bounded between 0 and 1 as opposed to other statistics whose values are less directly interpreted, and (2) it is easy to relate to coexistence theory as it describes the environment of an organism
 in terms of heterospecifics and conspecifics, which can, under certain
 assumptions that we discuss below, be related to interspecific and intraspecific interactions. Comparing the distributions of organisms of different sizes, we showed that the presence of turbulence always increased mixing (results are robust to slight modifications in the
 computation of advection velocity $U$, shown in Section S6 of the
@@ -764,7 +764,7 @@ was always lower than expected for a uniform distribution (Section
 S7 of the SI). The dominance index remained close to 1 for distances
 below $10^{-2}$ cm or $10^{-3}$ cm for microphytoplankton and nanophytoplankton
 respectively. There was therefore always \emph{some} intraspecific
-aggregation, i.e. conspecifics were always closer than heterospecifics
+aggregation, i.e., conspecifics were always closer than heterospecifics
 at the smallest distances. This is due to the prevalence of demographic
 processes at individual scales, because an individual acts as a source
 point for other organisms of the same species, and hydrodynamic processes
@@ -788,7 +788,7 @@ much more sensitive to different phytoplankters' demographic and hydrodynamic
 traits. The species composition of an organism's neighbourhood depended
 on its size: nanophytoplankton organisms mainly shared their volume
 of potential interactions with conspecifics (the dominance index remained
-close to 1, even near the distance threshold, i.e. the maximum distance
+close to 1, even near the distance threshold, i.e., the maximum distance
 for the overlap of nutrient depletion volumes) while microphytoplankton
 organisms could affect both conspecifics and heterospecifics (the
 dominance index was often below 0.5 at the distance threshold, i.e.
@@ -936,7 +936,7 @@ We first compute the steady-state solution,\textit{ i.e.}
 \end{align}
 We can then integrate Eq. \ref{eq:Young3D-1} over a small sphere
 centered on an individual, with radius $\rho$. Let us first note
-that in an isotropic environment the 3D-Dirac relates to the radial one as
+that in an isotropic environment the 3D-Dirac function relates to the radial one as
 \begin{align}
  \delta(\boldsymbol{\xi}) =  \frac{1}{4 \pi r^2}\delta(r) \label{eq:delta_integration}%F: I kept the previous label in case it is used elsewhere
 \end{align}
@@ -962,7 +962,7 @@ we have
 \begin{equation}
 A=-\frac{1}{2Dr}-\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}r}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}+K
 \end{equation}
-where $K$ is a constant. We can know compute $B=[A]_{\rho}^{\infty}.$
+where $K$ is a constant. We can now compute $B=[A]_{\rho}^{\infty}.$
 \begin{equation}
 B=-\frac{\sqrt{\gamma}\pi}{4\sqrt{2}D\sqrt{D}}+\frac{1}{2D\rho}+\frac{\sqrt{\gamma}\arctan\left(\frac{\sqrt{\gamma}\rho}{\sqrt{2D}}\right)}{2\sqrt{2}D\sqrt{D}}.
 \end{equation}
@@ -1080,7 +1080,8 @@ C & = & \frac{\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{3}-\left(2D\right)^
 \end{array}
 \end{equation}
 
-Combining all equations, 
+Combining all equations, using this time $C$ to denote the cell concentration, we finally obtain
+
 \begin{equation}
 \begin{array}{ccc}
 K(\rho) & = & \frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{4D}+\frac{\sqrt{\gamma}\rho^{3}\arctan(\sqrt{\frac{\gamma}{2D}}\rho)}{6\sqrt{2}D^{3/2}}-\frac{\rho^{2}}{12D}+\frac{\log\left(\gamma\frac{\rho^{2}}{2D}+1\right)}{6\gamma}-\frac{\sqrt{\gamma}\pi\rho^{3}}{12\sqrt{2}D\sqrt{D}}\right)\\
@@ -1088,7 +1089,7 @@ K(\rho) & = & \frac{4}{3}\pi\rho^{3}+\frac{2\lambda}{C}\left(\frac{\rho^{2}}{4D}
 \end{array}\label{eq:K_intra_adv_app}
 \end{equation}
 
-Note that in the absence of advection,
+Note that in the absence of advection, using Eq.~\ref{eq:pcf_noadv_bbm}, we obtain
 
 \begin{equation}
 \begin{array}{ccc}
